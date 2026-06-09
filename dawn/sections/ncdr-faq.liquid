@@ -1,0 +1,118 @@
+<div class="ncdr-faq" style="padding:64px 60px;background:var(--ncdr-off-white);border-top:1px solid var(--ncdr-light-gray);">
+  <div style="max-width:760px;margin:0 auto;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ncdr-gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+      FAQ<span style="display:inline-block;width:24px;height:1px;background:var(--ncdr-gold);opacity:0.4;"></span>
+    </div>
+    <h2 style="font-size:32px;font-weight:600;text-transform:uppercase;margin-bottom:36px;">{{ section.settings.heading }}</h2>
+
+    <div class="ncdr-faq-list">
+      {%- for block in section.blocks -%}
+        <details class="ncdr-faq-item" style="border-bottom:1px solid var(--ncdr-light-gray);">
+          <summary class="ncdr-faq-q" style="display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:15px;font-weight:500;color:var(--ncdr-dark-gray);list-style:none;">
+            {{ block.settings.question }}
+            <span class="ncdr-faq-icon" style="font-size:20px;font-weight:300;color:var(--ncdr-green);flex-shrink:0;margin-left:16px;">+</span>
+          </summary>
+          <div class="ncdr-faq-a" style="padding:0 0 20px;font-size:14px;color:var(--ncdr-mid-gray);line-height:1.75;font-weight:300;">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .ncdr-faq-item summary::-webkit-details-marker { display: none; }
+  .ncdr-faq-item[open] .ncdr-faq-icon { content: '−'; transform: rotate(45deg); }
+  .ncdr-faq-item[open] summary .ncdr-faq-icon::before { content: '−'; }
+  .ncdr-faq-item:not([open]) summary .ncdr-faq-icon::before { content: '+'; }
+  .ncdr-faq-item summary .ncdr-faq-icon { font-size: 0; }
+  .ncdr-faq-item summary .ncdr-faq-icon::before { font-size: 20px; font-weight: 300; }
+  .ncdr-faq-item[open] > summary { color: var(--ncdr-green); }
+  @media (max-width: 749px) {
+    .ncdr-faq { padding: 48px 20px !important; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "FAQ Accordion",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently Asked Questions" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Accordion",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "question": "Is Northcrest open during inclement weather?",
+            "answer": "<p>Yes. Northcrest Golf Driving Range remains open rain or shine. All bays on the ground level are fully covered, providing protection from rain. We stay open through conditions that might close traditional golf courses — steady rain, cold temperatures, and high winds. In the event of lightning or thunder, it is at the customer's discretion to continue play.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Does Northcrest offer memberships?",
+            "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once — offering built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Are the grass tees currently open?",
+            "answer": "<p>Generally yes — weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Is there a chipping or putting area available?",
+            "answer": "<p>Not at this time. We're always exploring ways to improve the guest experience and this may change in the future. Stay tuned for updates.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "How do I save on basket pricing?",
+            "answer": "<p>Purchase a coupon book and save up to 20% compared to individual basket pricing. Coupon books are available in Small, Medium, and Large basket sizes — buy 10 baskets at once and save on every visit. <a href=\"/collections/all\">Shop coupon books →</a></p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "What brands does the pro shop carry?",
+            "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma — two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Can I book a simulator session online?",
+            "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer club repair and fitting services?",
+            "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

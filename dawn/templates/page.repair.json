@@ -3,8 +3,8 @@
     "hero": {
       "type": "image-banner",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Club Repair & Restoration.", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "Professional club repair, regripping, reshafting, and restoration services at Northcrest Golf.", "text_style": "subtitle" } }
+        "heading": { "type": "heading", "settings": { "heading": "Precision Repairs for Peak Performance", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "When your gear doesn't feel right, your game suffers. We specialize in fast, reliable fixes that get you back to full swing.", "text_style": "subtitle" } }
       },
       "block_order": ["heading", "text"],
       "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
@@ -12,15 +12,114 @@
     "services": {
       "type": "multicolumn",
       "blocks": {
-        "s1": { "type": "column", "settings": { "title": "Regripping", "text": "All major grip brands available. Same-day service on most regripping jobs. Golf Pride, Lamkin, SuperStroke, and more.", "link_label": "" } },
-        "s2": { "type": "column", "settings": { "title": "Reshafting", "text": "Steel and graphite shaft installations for irons, woods, and putters. Custom fitting available.", "link_label": "" } },
-        "s3": { "type": "column", "settings": { "title": "Loft & Lie Adjustment", "text": "Precision bending for irons and wedges to match your swing. Measured on a Mitchell machine.", "link_label": "" } },
-        "s4": { "type": "column", "settings": { "title": "Club Cleaning & Restoration", "text": "Deep cleaning, groove sharpening, and cosmetic restoration. Make your old clubs look and perform like new.", "link_label": "" } }
+        "s1": {
+          "type": "column",
+          "settings": {
+            "title": "Regripping",
+            "text": "Fresh grips improve feel, control, and confidence. If your clubs are slick or worn, a new set of grips could make all the difference in your swing comfort and shot accuracy.",
+            "link_label": ""
+          }
+        },
+        "s2": {
+          "type": "column",
+          "settings": {
+            "title": "Loft & Lie Adjustment",
+            "text": "Get your clubs dialed in to suit your stance and swing. This precision tweak helps your shots stay on target by customizing the angle of each club to your body and posture.",
+            "link_label": ""
+          }
+        },
+        "s3": {
+          "type": "column",
+          "settings": {
+            "title": "Shaft & Clubhead Repair",
+            "text": "From cracked shafts to loose clubheads, we fix alignment and secure components so your clubs perform reliably shot after shot. Re-shaft, glue repair, or full replacement — we've got your back.",
+            "link_label": ""
+          }
+        }
       },
-      "block_order": ["s1", "s2", "s3", "s4"],
-      "settings": { "title": "Repair Services", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+      "block_order": ["s1", "s2", "s3"],
+      "settings": { "title": "Repair Services", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": false }
     },
-    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+    "pricing_intro": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Popular Repairs & Pricing", "heading_size": "h2" } },
+        "text": { "type": "text", "settings": { "text": "<p>Our most common repairs are listed below. Final pricing depends on the equipment selected and type of service performed.</p>" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 48, "padding_bottom": 12 }
+    },
+    "pricing": {
+      "type": "multicolumn",
+      "blocks": {
+        "r1": {
+          "type": "column",
+          "settings": {
+            "title": "Grip Installation (per club) — $5",
+            "text": "Swap worn grips to enhance feel and boost swing control. Grips sold separately. Drop off today, pick up tomorrow."
+          }
+        },
+        "r2": {
+          "type": "column",
+          "settings": {
+            "title": "Shorten Club — $5",
+            "text": "Shorten the shaft for a better fit and easier control."
+          }
+        },
+        "r3": {
+          "type": "column",
+          "settings": {
+            "title": "Lengthen Club — $10",
+            "text": "Add length to improve distance and match your height or swing style."
+          }
+        },
+        "r4": {
+          "type": "column",
+          "settings": {
+            "title": "Adjust Loft/Lie (per club) — $5",
+            "text": "Modify club angles to help your shots launch better and fly straighter."
+          }
+        },
+        "r5": {
+          "type": "column",
+          "settings": {
+            "title": "Repair Loose Clubhead — $20",
+            "text": "Re-secure wobbly or detached clubheads to restore balance and performance."
+          }
+        },
+        "r6": {
+          "type": "column",
+          "settings": {
+            "title": "Remove Shaft — $10",
+            "text": "Safely detach a damaged or outdated shaft in preparation for a replacement."
+          }
+        },
+        "r7": {
+          "type": "column",
+          "settings": {
+            "title": "Standard Reshaft — $20",
+            "text": "Install a new shaft to restore club stability. Done next day depending on availability."
+          }
+        },
+        "r8": {
+          "type": "column",
+          "settings": {
+            "title": "Exchange Shafts — $30",
+            "text": "Swap one shaft for another to customize feel, flex, or performance."
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8"],
+      "settings": { "title": "Pricing", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-1", "swipe_on_mobile": true }
+    },
+    "disclaimer": {
+      "type": "rich-text",
+      "blocks": {
+        "text": { "type": "text", "settings": { "text": "<p>All prices in USD. Applicable taxes added at checkout.</p>" } }
+      },
+      "block_order": ["text"],
+      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-2", "full_width": true, "padding_top": 12, "padding_bottom": 48 }
+    }
   },
-  "order": ["hero", "services", "main"]
+  "order": ["hero", "services", "pricing_intro", "pricing", "disclaimer"]
 }

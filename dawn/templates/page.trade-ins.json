@@ -3,40 +3,109 @@
     "hero": {
       "type": "image-banner",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Trade In. Upgrade. Play Better.", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "Get store credit for your old clubs — applied instantly to your NCDR account. Use it online or in-store.", "text_style": "subtitle" } }
+        "heading": { "type": "heading", "settings": { "heading": "Turn Your Used Clubs Into New Gear at Northcrest.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Your bag is worth more than you think, and so is what's waiting in our pro shop. Get an instant offer on your used clubs, apply that credit toward new gear, and walk out playing better. No appointment. No obligation.", "text_style": "subtitle" } }
       },
       "block_order": ["heading", "text"],
       "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
     },
-    "tradein_section": {
-      "type": "ncdr-tradein-banner",
-      "settings": {
-        "heading": "How It Works",
-        "subheading": "Submit your clubs and we'll reach out within 24 hours with a value.",
-        "step1_title": "Submit Online or In-Store",
-        "step1_body": "Fill out the contact form below with your club details, or bring your clubs directly to the pro shop at 3545 Northcrest Road.",
-        "step2_title": "Get Your Trade-In Value",
-        "step2_body": "Our team assesses your clubs and provides an instant credit offer based on brand, model, and condition.",
-        "step3_title": "Credit Applied to Your Account",
-        "step3_body": "Store credit lands in your NCDR account immediately — use it online in the pro shop or in-store at the range.",
-        "cta_body": "Ready to upgrade? Start your trade-in online and we'll reach out within 24 hours.",
-        "cta_label": "Submit Trade-In Request",
-        "cta_link": ""
-      }
-    },
-    "what_we_accept": {
+    "how_it_works": {
       "type": "multicolumn",
       "blocks": {
-        "col1": { "type": "column", "settings": { "title": "Clubs We Accept", "text": "Drivers, fairway woods, hybrids, irons, wedges, putters, and complete sets. All major brands accepted.", "link_label": "" } },
-        "col2": { "type": "column", "settings": { "title": "Brands We Value", "text": "TaylorMade, Callaway, Titleist, Mizuno, Cleveland, Ping, Cobra, and more. Premium Japanese brands especially welcome.", "link_label": "" } },
-        "col3": { "type": "column", "settings": { "title": "Condition Guidelines", "text": "Like New, Good, and Fair condition accepted. Clubs must be structurally sound. We'll assess and make a fair offer.", "link_label": "" } }
+        "s1": {
+          "type": "column",
+          "settings": {
+            "title": "01 — Get a Quote",
+            "text": "Enter your clubs below. Our system returns an instant offer, no strings attached.",
+            "link_label": ""
+          }
+        },
+        "s2": {
+          "type": "column",
+          "settings": {
+            "title": "02 — Accept Your Offer",
+            "text": "Happy with the value? Confirm and we'll set up store credit on your Northcrest account.",
+            "link_label": ""
+          }
+        },
+        "s3": {
+          "type": "column",
+          "settings": {
+            "title": "03 — Shop the Pro Shop",
+            "text": "Bring your clubs in, give us your name at the counter, and apply your credit at checkout.",
+            "link_label": ""
+          }
+        }
       },
-      "block_order": ["col1", "col2", "col3"],
-      "settings": { "title": "What We Accept", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": false }
+      "block_order": ["s1", "s2", "s3"],
+      "settings": { "title": "How It Works", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "center", "color_scheme": "scheme-2", "swipe_on_mobile": false }
     },
-    "contact_form": { "type": "contact-form", "settings": { "color_scheme": "scheme-1", "heading": "Start Your Trade-In" } },
-    "main": { "type": "main-page", "settings": { "padding_top": 0, "padding_bottom": 28 } }
+    "nextroundnotice": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "See What Your Clubs Are Worth", "heading_size": "h2" } },
+        "text": { "type": "text", "settings": { "text": "<p>The trade-in program officially launches <strong>June 7th, 2026</strong>. Get your quote now and your store credit will be ready to use in the pro shop on launch day.</p><p>Powered by NextRound Golf</p>" } },
+        "button": { "type": "button", "settings": { "button_label": "Get My Instant Quote", "button_link": "https:\/\/nrg-pt.nextround.com\/?locationid=27677501793" } }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": { "desktop_content_position": "center", "content_alignment": "center", "color_scheme": "scheme-2", "full_width": true, "padding_top": 60, "padding_bottom": 60 }
+    },
+    "in_stock": {
+      "type": "multicolumn",
+      "blocks": {
+        "g1": {
+          "type": "column",
+          "settings": {
+            "title": "Callaway Quantum Max Driver",
+            "text": "Driver · $649.99 — ~$499.99 after $150 trade-in\n\nAI-optimized face. Max distance off the tee.",
+            "link_label": ""
+          }
+        },
+        "g2": {
+          "type": "column",
+          "settings": {
+            "title": "Mizuno JPX Forged Irons (Graphite)",
+            "text": "Irons · $1,399.99 — ~$1,249.99 after $150 trade-in\n\nChromoly construction. Tour-proven feel.",
+            "link_label": ""
+          }
+        },
+        "g3": {
+          "type": "column",
+          "settings": {
+            "title": "Blue Tees Captain Air GPS Rangefinder",
+            "text": "Accessories · $249.99 — ~$149.99 after $100 trade-in\n\nLaser + GPS. Slope, wind, and altitude compensation.",
+            "link_label": ""
+          }
+        },
+        "g4": {
+          "type": "column",
+          "settings": {
+            "title": "TaylorMade TP5x Golf Balls (dozen)",
+            "text": "Golf Balls · $57.99 — ~$0 after $57+ trade-in\n\n5-layer tour ball. Max distance, low spin.",
+            "link_label": ""
+          }
+        }
+      },
+      "block_order": ["g1", "g2", "g3", "g4"],
+      "settings": { "title": "In-Stock Gear Right Now", "heading_size": "h2", "columns_desktop": 2, "column_alignment": "left", "color_scheme": "scheme-1", "swipe_on_mobile": true }
+    },
+    "notes": {
+      "type": "rich-text",
+      "blocks": {
+        "text": { "type": "text", "settings": { "text": "<p>Prices shown are illustrative examples based on current pro shop inventory. Trade-in values are estimates and subject to final verification at the time of in-store redemption.</p>" } }
+      },
+      "block_order": ["text"],
+      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 12, "padding_bottom": 12 }
+    },
+    "terms": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Terms & Conditions", "heading_size": "h3" } },
+        "text": { "type": "text", "settings": { "text": "<p>Trade-in credit is issued as store credit to your Northcrest customer account and may be applied toward pro shop merchandise. Credit has no cash value and is non-transferable. Quoted values are estimates based on current market data provided by NextRound Golf. Final credit amount is subject to in-store inspection and must match the submitted quote; if clubs do not match the condition described, the offer may be adjusted at the time of redemption. Northcrest Golf Driving Range reserves the right to modify or discontinue the trade-in program at any time.</p>" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-2", "full_width": true, "padding_top": 24, "padding_bottom": 48 }
+    }
   },
-  "order": ["hero", "tradein_section", "what_we_accept", "contact_form", "main"]
+  "order": ["hero", "how_it_works", "nextroundnotice", "in_stock", "notes", "terms"]
 }
