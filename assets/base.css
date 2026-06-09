@@ -21,6 +21,29 @@
   --ncdr-footer-bg:    #1a2d10;
 }
 
+/* ── NCDR BRAND FONTS ── */
+:root {
+  --ncdr-font-heading: 'Oswald', var(--font-heading-family), sans-serif;
+  --ncdr-font-body:    'Source Sans 3', var(--font-body-family), sans-serif;
+}
+
+body {
+  font-family: var(--ncdr-font-body) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4,
+.header__heading-link span,
+.multicolumn-card__title,
+.rich-text__heading,
+.banner__heading,
+.section__title,
+.footer-block__heading {
+  font-family: var(--ncdr-font-heading) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
 /* ── HEADING / BUTTON BASE ── */
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;

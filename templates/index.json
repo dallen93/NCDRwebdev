@@ -1,46 +1,20 @@
 {
   "sections": {
     "image_banner": {
-      "type": "image-banner",
+      "type": "ncdr-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Where Your Game Grows.",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
-            "text_style": "subtitle"
-          }
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop the Pro Shop",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
+        "stat1": { "type": "stat", "settings": { "number": "125+", "label": "Covered Bays" } },
+        "stat2": { "type": "stat", "settings": { "number": "5", "label": "Golfzon Simulators" } },
+        "stat3": { "type": "stat", "settings": { "number": "38+", "label": "Years in Atlanta" } }
       },
-      "block_order": ["heading", "text", "buttons"],
+      "block_order": ["stat1", "stat2", "stat3"],
       "settings": {
-        "image_overlay_opacity": 20,
-        "image_height": "large",
-        "desktop_content_position": "middle-left",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "Atlanta's Premier Driving Range",
+        "heading": "Where Your",
+        "heading_gold": "Game Grows.",
+        "subtext": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
+        "cta_label": "Shop the Pro Shop",
+        "cta_link": "shopify:\/\/collections\/all"
       }
     },
     "facility_strip": {

@@ -1,0 +1,274 @@
+<style>
+  .ncdr-hero {
+    background: var(--ncdr-green-deep);
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ncdr-hero__texture {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 70% 50%, rgba(58,88,43,0.6) 0%, transparent 60%),
+      repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,0.012) 0px,
+        rgba(255,255,255,0.012) 1px,
+        transparent 1px,
+        transparent 28px
+      );
+    pointer-events: none;
+  }
+
+  .ncdr-hero__glow {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .ncdr-hero__content {
+    position: relative;
+    z-index: 2;
+    padding: 60px 40px 60px 60px;
+    max-width: 640px;
+  }
+
+  .ncdr-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ncdr-gold-dim);
+    border: 1px solid var(--ncdr-gold-border);
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+
+  .ncdr-hero__eyebrow-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--ncdr-gold);
+    border-radius: 50%;
+    animation: ncdr-pulse 2s infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes ncdr-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .ncdr-hero__eyebrow-text {
+    font-family: var(--ncdr-font-heading);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ncdr-hero__title {
+    font-family: var(--ncdr-font-heading) !important;
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.0;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+  }
+
+  .ncdr-hero__title-gold {
+    color: var(--ncdr-gold);
+    display: block;
+  }
+
+  .ncdr-hero__sub {
+    font-family: var(--ncdr-font-body);
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    max-width: 460px;
+    margin-bottom: 36px;
+    font-weight: 300;
+  }
+
+  .ncdr-hero__ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-hero__btn-primary {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 13px 28px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .ncdr-hero__btn-primary:hover {
+    background: var(--ncdr-gold-light);
+    transform: translateY(-1px);
+    color: var(--ncdr-green-deep);
+    text-decoration: none;
+  }
+
+  .ncdr-hero__stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    flex-wrap: wrap;
+  }
+
+  .ncdr-hero__stat-num {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ncdr-gold);
+    line-height: 1;
+  }
+
+  .ncdr-hero__stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .ncdr-hero__image-col {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 42%;
+    overflow: hidden;
+  }
+
+  .ncdr-hero__image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .ncdr-hero__image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--ncdr-green-deep) 0%, transparent 30%);
+  }
+
+  @media (max-width: 989px) {
+    .ncdr-hero { min-height: 480px; }
+    .ncdr-hero__content { padding: 48px 24px; max-width: 100%; }
+    .ncdr-hero__title { font-size: 40px; }
+    .ncdr-hero__image-col { display: none; }
+  }
+</style>
+
+<div class="ncdr-hero">
+  <div class="ncdr-hero__texture"></div>
+  <div class="ncdr-hero__glow"></div>
+
+  {%- if section.settings.image != blank -%}
+    <div class="ncdr-hero__image-col">
+      <div class="ncdr-hero__image-overlay"></div>
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'eager', class: '' }}
+    </div>
+  {%- endif -%}
+
+  <div class="ncdr-hero__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="ncdr-hero__eyebrow">
+        <div class="ncdr-hero__eyebrow-dot"></div>
+        <span class="ncdr-hero__eyebrow-text">{{ section.settings.eyebrow }}</span>
+      </div>
+    {%- endif -%}
+
+    <h1 class="ncdr-hero__title">
+      {{ section.settings.heading }}
+      {%- if section.settings.heading_gold != blank -%}
+        <em class="ncdr-hero__title-gold">{{ section.settings.heading_gold }}</em>
+      {%- endif -%}
+    </h1>
+
+    {%- if section.settings.subtext != blank -%}
+      <p class="ncdr-hero__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+
+    <div class="ncdr-hero__ctas">
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_link }}" class="ncdr-hero__btn-primary">{{ section.settings.cta_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="ncdr-hero__stats">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+          <div>
+            <div class="ncdr-hero__stat-num">{{ block.settings.number }}</div>
+            <div class="ncdr-hero__stat-label">{{ block.settings.label }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Atlanta's Premier Driving Range" },
+    { "type": "text", "id": "heading", "label": "Heading line 1", "default": "Where Your" },
+    { "type": "text", "id": "heading_gold", "label": "Heading line 2 (gold)", "default": "Game Grows." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop the Pro Shop" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "image_picker", "id": "image", "label": "Right column image (optional)" }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "125+" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Covered Bays" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "NCDR Hero",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "125+", "label": "Covered Bays" } },
+        { "type": "stat", "settings": { "number": "5", "label": "Golfzon Simulators" } },
+        { "type": "stat", "settings": { "number": "38+", "label": "Years in Atlanta" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
