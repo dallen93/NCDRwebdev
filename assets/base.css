@@ -1,10 +1,13 @@
 /* ============================================================
    NCDR BRAND SYSTEM — Northcrest Golf Driving Range
-   Do not remove. Required for all NCDR custom sections.
    ============================================================ */
 
 :root {
-  /* Brand colors */
+  --ncdr-font-heading: 'Oswald', sans-serif;
+  --ncdr-font-body:    'Source Sans 3', sans-serif;
+}
+
+:root {
   --ncdr-green:        #3A582B;
   --ncdr-green-deep:   #2a4020;
   --ncdr-green-mid:    #4a6e37;
@@ -13,175 +16,153 @@
   --ncdr-gold-light:   #dfc070;
   --ncdr-gold-dim:     rgba(201,168,76,0.15);
   --ncdr-gold-border:  rgba(201,168,76,0.3);
-  --ncdr-white:        #FFFFFF;
+  --ncdr-white:        #ffffff;
   --ncdr-off-white:    #F7F4EE;
-  --ncdr-dark-gray:    #1C1C1C;
-  --ncdr-mid-gray:     #4a4a4a;
+  --ncdr-text-dark:    #1a1a1a;
+  --ncdr-text-mid:     #4a4a4a;
+  --ncdr-text-muted:   #888888;
+  --ncdr-border:       rgba(0,0,0,0.08);
   --ncdr-light-gray:   #E8E4DE;
   --ncdr-footer-bg:    #1a2d10;
 }
 
-/* ── NCDR BRAND FONTS ── */
 :root {
-  --ncdr-font-heading: 'Oswald', var(--font-heading-family), sans-serif;
-  --ncdr-font-body:    'Source Sans 3', var(--font-body-family), sans-serif;
+  --color-base-background-1: 247, 244, 238;
+  --color-base-background-2: 255, 255, 255;
+  --color-base-text:         28, 28, 28;
+  --color-base-accent-1:     58, 88, 43;
+  --color-base-accent-2:     201, 168, 76;
+  --color-button:            58, 88, 43;
+  --color-button-text:       255, 255, 255;
 }
 
 body {
   font-family: var(--ncdr-font-body) !important;
+  color: var(--ncdr-text-dark);
 }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4,
-.header__heading-link span,
-.multicolumn-card__title,
-.rich-text__heading,
-.banner__heading,
-.section__title,
-.footer-block__heading {
+.h0, .h1, .h2, .h3, .h4 {
   font-family: var(--ncdr-font-heading) !important;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-/* ── HEADING / BUTTON BASE ── */
-h1, h2, h3, h4, h5, h6 {
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
 .button, .btn {
+  font-family: var(--ncdr-font-heading) !important;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
 }
 
-/* ── NCDR EYEBROW LABEL ── */
 .ncdr-eyebrow {
-  font-size: 1rem;
-  font-weight: 600;
+  font-family: var(--ncdr-font-heading);
+  font-size: 10px;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ncdr-gold);
-  margin-bottom: 0.8rem;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 10px;
 }
 .ncdr-eyebrow::after {
   content: '';
   display: block;
-  width: 3.2rem;
+  width: 32px;
   height: 1px;
   background: var(--ncdr-gold);
   opacity: 0.4;
 }
 
-/* ── CREDENTIAL PILLS ── */
 .credential-pill {
-  display: inline-block;
   background: var(--ncdr-gold-dim);
   border: 1px solid var(--ncdr-gold-border);
   color: var(--ncdr-gold);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: var(--ncdr-font-heading);
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 2px;
-  margin-right: 6px;
-  margin-bottom: 6px;
 }
 
-/* ── GOLD BUTTON VARIANT ── */
-.button--gold {
+.button--gold,
+.btn-gold {
   background: var(--ncdr-gold) !important;
   color: var(--ncdr-green-deep) !important;
   border: none !important;
+  font-family: var(--ncdr-font-heading) !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-.button--gold:hover {
+.button--gold:hover,
+.btn-gold:hover {
   background: var(--ncdr-gold-light) !important;
 }
 
-/* ── SECTION SPACING ── */
-.ncdr-section {
-  padding: 7.2rem 6rem;
+.step-num {
+  width: 28px;
+  height: 28px;
+  background: var(--ncdr-green);
+  color: #fff;
+  border-radius: 50%;
+  font-family: var(--ncdr-font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
-/* ── ANNOUNCEMENT BAR ── */
-.ncdr-announcement-bar {
+.feature-dot {
+  width: 5px;
+  height: 5px;
   background: var(--ncdr-gold);
-  color: var(--ncdr-green-deep);
-  text-align: center;
-  padding: 8px 20px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
-/* ── DEALER BADGE ── */
 .dealer-badge {
-  display: inline-block;
   background: rgba(58,88,43,0.08);
   border: 1px solid rgba(58,88,43,0.2);
   color: var(--ncdr-green);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: var(--ncdr-font-heading);
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 3px 8px;
   border-radius: 2px;
 }
 
-/* ── STEP NUMBERS ── */
-.step-num {
-  width: 28px;
-  height: 28px;
-  background: var(--ncdr-green);
-  color: white;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-right: 12px;
-}
-
-/* ── HERO STATS STRIP ── */
-.hero-stats {
-  display: flex;
-  gap: 4rem;
-  padding-top: 3.2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  margin-top: 3.2rem;
-}
-.hero-stat-num {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--ncdr-gold);
-  line-height: 1;
-}
-.hero-stat-label {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.4);
+.tag-pill {
+  display: inline-block;
+  background: rgba(58,88,43,0.08);
+  color: var(--ncdr-green);
+  font-family: var(--ncdr-font-heading);
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin-top: 4px;
+  padding: 3px 8px;
+  border-radius: 2px;
 }
 
-/* ── MOBILE OVERRIDES ── */
 @media (max-width: 749px) {
-  .ncdr-section { padding: 4.8rem 2rem; }
-  .tier-grid { grid-template-columns: 1fr !important; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .button { width: 100%; text-align: center; }
-  .hero-content { padding: 4rem 2rem !important; }
   .coach-feature { flex-direction: column !important; }
   .coach-photo { width: 100% !important; height: 240px !important; }
-  .hero-stats { flex-wrap: wrap; gap: 2rem; }
 }
 
 /* ============================================================
