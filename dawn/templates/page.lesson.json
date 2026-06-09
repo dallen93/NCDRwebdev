@@ -1,0 +1,52 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": { "heading": "Learn From a Champion.", "heading_size": "h0" }
+        },
+        "text": {
+          "type": "text",
+          "settings": { "text": "Phillis Meti — 5× World Long Drive Champion and World Record Holder — offers private, group, and junior lessons at Northcrest Golf.", "text_style": "subtitle" }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": { "button_label_1": "Book a Lesson", "button_link_1": "", "button_style_secondary_1": false, "button_label_2": "", "button_link_2": "" }
+        }
+      },
+      "block_order": ["heading", "text", "buttons"],
+      "settings": {
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "left",
+        "image_overlay_opacity": 20
+      }
+    },
+    "credentials": {
+      "type": "multicolumn",
+      "blocks": {
+        "col1": { "type": "column", "settings": { "title": "5× World Long Drive Champion", "text": "Phillis Meti has won the World Long Drive Championship five times — making her one of the most decorated competitors in the sport's history.", "link_label": "" } },
+        "col2": { "type": "column", "settings": { "title": "World Record Holder", "text": "Holding the world record for longest drive, Phillis brings elite-level technique and insight to every lesson she teaches.", "link_label": "" } },
+        "col3": { "type": "column", "settings": { "title": "Head Professional at NCDR", "text": "Based at Northcrest Golf since 2019, Phillis works with players of all levels — from first-timers to competitive amateurs.", "link_label": "" } }
+      },
+      "block_order": ["col1", "col2", "col3"],
+      "settings": { "title": "About Coach Phillis Meti", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-1", "swipe_on_mobile": false }
+    },
+    "lesson_types": {
+      "type": "multicolumn",
+      "blocks": {
+        "private": { "type": "column", "settings": { "title": "Private Lessons", "text": "One-on-one sessions tailored to your specific game. 30 or 60 minutes. Available weekdays and weekends.", "link_label": "Book Now" } },
+        "group": { "type": "column", "settings": { "title": "Group Clinics", "text": "Small group sessions (4–6 players) focused on specific skills. Great value and a social experience.", "link_label": "See Schedule" } },
+        "junior": { "type": "column", "settings": { "title": "Junior Academy", "text": "Programs for players ages 8–17. Structured curriculum, fun environment, real improvement.", "link_label": "Learn More" } }
+      },
+      "block_order": ["private", "group", "junior"],
+      "settings": { "title": "Lesson Options", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": false }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "credentials", "lesson_types", "main"]
+}

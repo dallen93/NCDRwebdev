@@ -160,6 +160,33 @@
                 </a>
               {%- endif -%}
             </div>
+          {%- when 'ncdr_stats' -%}
+            <div class="hero-stats" {{ block.shopify_attributes }}>
+              {%- if block.settings.stat1_num != blank -%}
+                <div>
+                  <div class="hero-stat-num">{{ block.settings.stat1_num }}</div>
+                  <div class="hero-stat-label">{{ block.settings.stat1_label }}</div>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.stat2_num != blank -%}
+                <div>
+                  <div class="hero-stat-num">{{ block.settings.stat2_num }}</div>
+                  <div class="hero-stat-label">{{ block.settings.stat2_label }}</div>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.stat3_num != blank -%}
+                <div>
+                  <div class="hero-stat-num">{{ block.settings.stat3_num }}</div>
+                  <div class="hero-stat-label">{{ block.settings.stat3_label }}</div>
+                </div>
+              {%- endif -%}
+              {%- if block.settings.stat4_num != blank -%}
+                <div>
+                  <div class="hero-stat-num">{{ block.settings.stat4_num }}</div>
+                  <div class="hero-stat-label">{{ block.settings.stat4_label }}</div>
+                </div>
+              {%- endif -%}
+            </div>
         {%- endcase -%}
       {%- endfor -%}
     </div>
@@ -484,6 +511,21 @@
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
         }
+      ]
+    },
+    {
+      "type": "ncdr_stats",
+      "name": "NCDR Stats Strip",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "stat1_num", "label": "Stat 1 Number", "default": "125" },
+        { "type": "text", "id": "stat1_label", "label": "Stat 1 Label", "default": "Bays & Tees" },
+        { "type": "text", "id": "stat2_num", "label": "Stat 2 Number", "default": "5×" },
+        { "type": "text", "id": "stat2_label", "label": "Stat 2 Label", "default": "World Champion Coach" },
+        { "type": "text", "id": "stat3_num", "label": "Stat 3 Number", "default": "40" },
+        { "type": "text", "id": "stat3_label", "label": "Stat 3 Label", "default": "Yrs in Atlanta" },
+        { "type": "text", "id": "stat4_num", "label": "Stat 4 Number", "default": "365" },
+        { "type": "text", "id": "stat4_label", "label": "Stat 4 Label", "default": "Days Open" }
       ]
     }
   ],

@@ -1,0 +1,131 @@
+<style>
+  .ncdr-facility-strip {
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 3px solid var(--ncdr-gold);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-facility-item {
+    padding: 2rem 2.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    border-right: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-facility-item:last-child { border-right: none; }
+
+  .ncdr-facility-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(58,88,43,0.07);
+    border: 1px solid rgba(58,88,43,0.15);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ncdr-facility-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--ncdr-green);
+    fill: none;
+    stroke-width: 1.5;
+  }
+
+  .ncdr-facility-label {
+    font-family: var(--font-heading-family);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ncdr-dark-gray);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .ncdr-facility-sub {
+    font-size: 1rem;
+    color: #888;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-facility-strip {
+      grid-template-columns: 1fr 1fr;
+    }
+    .ncdr-facility-item:nth-child(2) { border-right: none; }
+    .ncdr-facility-item:nth-child(3) { border-top: 1px solid var(--ncdr-light-gray); }
+    .ncdr-facility-item:nth-child(4) { border-top: 1px solid var(--ncdr-light-gray); border-right: none; }
+  }
+</style>
+
+<div class="ncdr-facility-strip">
+  {%- for block in section.blocks -%}
+    <div class="ncdr-facility-item" {{ block.shopify_attributes }}>
+      <div class="ncdr-facility-icon">
+        {%- if block.settings.icon == 'clock' -%}
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12,6 12,12 15,15"/></svg>
+        {%- elsif block.settings.icon == 'sun' -%}
+          <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        {%- elsif block.settings.icon == 'monitor' -%}
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        {%- elsif block.settings.icon == 'layers' -%}
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        {%- else -%}
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>
+        {%- endif -%}
+      </div>
+      <div>
+        <div class="ncdr-facility-label">{{ block.settings.label }}</div>
+        <div class="ncdr-facility-sub">{{ block.settings.sublabel }}</div>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Facility Strip",
+  "tag": "div",
+  "class": "section",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Facility Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "clock", "label": "Clock (Hours)" },
+            { "value": "sun", "label": "Sun (Weather)" },
+            { "value": "monitor", "label": "Monitor (Simulator)" },
+            { "value": "layers", "label": "Layers (Tees)" }
+          ],
+          "default": "clock"
+        },
+        { "type": "text", "id": "label", "label": "Label", "default": "Open Until 11pm" },
+        { "type": "text", "id": "sublabel", "label": "Sub Label", "default": "Mon – Sat · Sun until 9pm" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR Facility Strip",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "clock", "label": "Open Until 11pm", "sublabel": "Mon – Sat · Sun until 9pm" } },
+        { "type": "item", "settings": { "icon": "sun", "label": "Rain or Shine", "sublabel": "Covered bays, always open" } },
+        { "type": "item", "settings": { "icon": "monitor", "label": "Golfzon Simulators", "sublabel": "5 indoor simulator bays" } },
+        { "type": "item", "settings": { "icon": "layers", "label": "Grass Tees", "sublabel": "Natural turf, spring – fall" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

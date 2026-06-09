@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Trade In. Upgrade. Play Better.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Get store credit for your old clubs — applied instantly to your NCDR account. Use it online or in-store.", "text_style": "subtitle" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "tradein_section": {
+      "type": "ncdr-tradein-banner",
+      "settings": {
+        "heading": "How It Works",
+        "subheading": "Submit your clubs and we'll reach out within 24 hours with a value.",
+        "step1_title": "Submit Online or In-Store",
+        "step1_body": "Fill out the contact form below with your club details, or bring your clubs directly to the pro shop at 3545 Northcrest Road.",
+        "step2_title": "Get Your Trade-In Value",
+        "step2_body": "Our team assesses your clubs and provides an instant credit offer based on brand, model, and condition.",
+        "step3_title": "Credit Applied to Your Account",
+        "step3_body": "Store credit lands in your NCDR account immediately — use it online in the pro shop or in-store at the range.",
+        "cta_body": "Ready to upgrade? Start your trade-in online and we'll reach out within 24 hours.",
+        "cta_label": "Submit Trade-In Request",
+        "cta_link": ""
+      }
+    },
+    "what_we_accept": {
+      "type": "multicolumn",
+      "blocks": {
+        "col1": { "type": "column", "settings": { "title": "Clubs We Accept", "text": "Drivers, fairway woods, hybrids, irons, wedges, putters, and complete sets. All major brands accepted.", "link_label": "" } },
+        "col2": { "type": "column", "settings": { "title": "Brands We Value", "text": "TaylorMade, Callaway, Titleist, Mizuno, Cleveland, Ping, Cobra, and more. Premium Japanese brands especially welcome.", "link_label": "" } },
+        "col3": { "type": "column", "settings": { "title": "Condition Guidelines", "text": "Like New, Good, and Fair condition accepted. Clubs must be structurally sound. We'll assess and make a fair offer.", "link_label": "" } }
+      },
+      "block_order": ["col1", "col2", "col3"],
+      "settings": { "title": "What We Accept", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": false }
+    },
+    "contact_form": { "type": "contact-form", "settings": { "color_scheme": "scheme-1", "heading": "Start Your Trade-In" } },
+    "main": { "type": "main-page", "settings": { "padding_top": 0, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "tradein_section", "what_we_accept", "contact_form", "main"]
+}

@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Become a Northcrest Member.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Every member receives a digital badge in Apple & Google Wallet, member pricing, and priority bay access.", "text_style": "subtitle" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "memberships": {
+      "type": "ncdr-memberships",
+      "blocks": {
+        "tier1": { "type": "tier", "settings": { "name": "Early Bird", "price": "49", "access": "Morning & daytime access only", "featured": false } },
+        "tier2": { "type": "tier", "settings": { "name": "Very Long Day Pass", "price": "59", "access": "Evenings 8pm through close", "featured": true, "badge": "Best Value", "note": "Most popular plan at NCDR" } },
+        "tier3": { "type": "tier", "settings": { "name": "Anytime", "price": "89", "access": "Full access, any time we're open", "featured": false } },
+        "tier4": { "type": "tier", "settings": { "name": "Founding Member", "price": "79", "access": "Anytime access, rate locked for life", "featured": false, "cta_label": "Claim Your Spot", "note": "50 spots only — 12 remaining" } }
+      },
+      "block_order": ["tier1", "tier2", "tier3", "tier4"],
+      "settings": { "heading": "Find Your Plan", "subheading": "Every member receives a digital badge in Apple & Google Wallet, member pricing, and priority access." }
+    },
+    "benefits": {
+      "type": "multicolumn",
+      "blocks": {
+        "b1": { "type": "column", "settings": { "title": "Digital Wallet Badge", "text": "Every member receives a digital membership badge for Apple Wallet and Google Wallet. Show it at the counter — no card needed.", "link_label": "" } },
+        "b2": { "type": "column", "settings": { "title": "Member Pricing", "text": "Members save on bucket rates, simulator bookings, pro shop purchases, and lesson fees. Your membership pays for itself.", "link_label": "" } },
+        "b3": { "type": "column", "settings": { "title": "Priority Bay Access", "text": "During peak hours, members get priority access to the best bays on the range. No waiting, more hitting.", "link_label": "" } },
+        "b4": { "type": "column", "settings": { "title": "Member-Only Events", "text": "Exclusive events, clinics, and competitions throughout the year. First access to the Long Drive Classic and seasonal programs.", "link_label": "" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": { "title": "Member Benefits", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 0, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "memberships", "benefits", "main"]
+}

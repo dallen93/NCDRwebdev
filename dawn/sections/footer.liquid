@@ -6,6 +6,77 @@
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  /* ── NCDR Footer Overrides ── */
+  .footer {
+    background-color: var(--ncdr-footer-bg) !important;
+    border-top: 2px solid var(--ncdr-gold) !important;
+  }
+
+  .footer .footer-block__heading {
+    color: rgba(255,255,255,0.35) !important;
+    font-size: 1rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .footer .footer-block__details-content,
+  .footer .rte,
+  .footer p,
+  .footer address {
+    color: rgba(255,255,255,0.55) !important;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .footer .link,
+  .footer a {
+    color: rgba(255,255,255,0.55) !important;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1.3rem;
+    transition: color 0.2s;
+  }
+
+  .footer .link:hover,
+  .footer a:hover {
+    color: var(--ncdr-gold) !important;
+  }
+
+  /* Footer bottom row */
+  .footer__content-bottom {
+    border-top: 1px solid rgba(255,255,255,0.05) !important;
+    padding-top: 2.4rem;
+  }
+
+  .footer__copyright,
+  .footer__content-bottom .list-unstyled,
+  .footer__content-bottom {
+    color: rgba(255,255,255,0.2) !important;
+    font-size: 1.1rem;
+  }
+
+  /* Dealer badges row */
+  .ncdr-dealer-badges {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-dealer-badge {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.3);
+    font-family: var(--font-heading-family);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
   .footer {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
@@ -316,6 +387,11 @@
             {%- endfor -%}
           </ul>
         {%- endif -%}
+      </div>
+      <div class="ncdr-dealer-badges">
+        <span class="ncdr-dealer-badge">Majesty Authorized</span>
+        <span class="ncdr-dealer-badge">Honma Verified</span>
+        <span class="ncdr-dealer-badge">XXIO Official</span>
       </div>
     </div>
   </div>
