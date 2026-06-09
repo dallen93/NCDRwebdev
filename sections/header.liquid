@@ -32,7 +32,7 @@
   .header__menu-item,
   .header__menu-item .link,
   .list-menu__item--link {
-    color: var(--ncdr-dark-gray) !important;
+    color: var(--ncdr-text-dark) !important;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 1.2rem;
@@ -46,7 +46,7 @@
     text-decoration: none;
   }
 
-  /* Active / focused nav link → green */
+  /* Active nav link → green */
   .header__menu-item.header__active-menu-item .link {
     color: var(--ncdr-green) !important;
     border-bottom: 2px solid var(--ncdr-green);
@@ -58,7 +58,7 @@
     border: 1px solid #E8E4DE !important;
   }
   .header__submenu .list-menu__item--link {
-    color: var(--ncdr-dark-gray) !important;
+    color: var(--ncdr-text-dark) !important;
   }
   .header__submenu .list-menu__item--link:hover {
     color: var(--ncdr-gold) !important;
@@ -67,7 +67,7 @@
   /* Cart icon — dark on white */
   .header__icon svg,
   .header__icon .svg-wrapper svg {
-    fill: var(--ncdr-dark-gray);
+    fill: var(--ncdr-text-dark);
   }
   .header__icon:hover svg,
   .header__icon:hover .svg-wrapper svg {
@@ -81,17 +81,37 @@
     font-weight: 700;
   }
 
-  /* Shop name text when no logo */
+  /* Shop name text fallback */
   .header .h2 {
     color: var(--ncdr-green-deep);
-    font-family: var(--font-heading-family);
+    font-family: var(--ncdr-font-heading);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
 
   /* Mobile drawer icon — dark */
   .header__icon--menu svg {
-    fill: var(--ncdr-dark-gray);
+    fill: var(--ncdr-text-dark);
+  }
+
+  /* ── NCDR Announcement Bar ── */
+  .utility-bar {
+    background-color: var(--ncdr-gold) !important;
+    color: var(--ncdr-green-deep) !important;
+  }
+  .utility-bar .announcement-bar__message,
+  .utility-bar .announcement-bar__message a,
+  .utility-bar p {
+    color: var(--ncdr-green-deep) !important;
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .utility-bar--bottom-border,
+  .utility-bar--bottom-border-social-only {
+    border-bottom: none !important;
   }
 
   header-drawer {
