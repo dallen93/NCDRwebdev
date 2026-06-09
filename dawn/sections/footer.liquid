@@ -56,25 +56,23 @@
     font-size: 1.1rem;
   }
 
-  /* Dealer badges row */
+  /* Dealer certificate images */
   .ncdr-dealer-badges {
     display: flex;
-    gap: 8px;
+    gap: 16px;
     align-items: center;
     flex-wrap: wrap;
   }
 
-  .ncdr-dealer-badge {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.3);
-    font-family: var(--font-heading-family);
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 2px;
+  .ncdr-dealer-badges img {
+    height: 48px;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .ncdr-dealer-badges img:hover {
+    opacity: 1;
   }
 
   .footer {
@@ -389,9 +387,8 @@
         {%- endif -%}
       </div>
       <div class="ncdr-dealer-badges">
-        <span class="ncdr-dealer-badge">Majesty Authorized</span>
-        <span class="ncdr-dealer-badge">Honma Verified</span>
-        <span class="ncdr-dealer-badge">XXIO Official</span>
+        <img src="{{ 'Majesty_Authorized_Dealer_Certificate.png' | asset_url }}" alt="Majesty Authorized Dealer" style="height:48px;width:auto;opacity:0.85;" loading="lazy">
+        <img src="{{ 'Honma_Verified_Retailer_Certificate.png' | asset_url }}" alt="Honma Verified Retailer" style="height:48px;width:auto;opacity:0.85;" loading="lazy">
       </div>
     </div>
   </div>

@@ -6,14 +6,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Where Your <em>Game Grows.<\/em>",
+            "heading": "Where Your Game Grows.",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "125 covered bays. Grass tees. Golfzon simulators. Coached by a 5× World Long Drive Champion. Open late, rain or shine, 365 days a year.",
+            "text": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
             "text_style": "subtitle"
           }
         },
@@ -23,26 +23,13 @@
             "button_label_1": "Shop the Pro Shop",
             "button_link_1": "shopify:\/\/collections\/all",
             "button_style_secondary_1": false,
-            "button_label_2": "Become a Member",
-            "button_link_2": "shopify:\/\/pages\/memberships",
-            "button_style_secondary_2": true
-          }
-        },
-        "stats": {
-          "type": "ncdr_stats",
-          "settings": {
-            "stat1_num": "125",
-            "stat1_label": "Bays & Tees",
-            "stat2_num": "5×",
-            "stat2_label": "World Champion Coach",
-            "stat3_num": "40",
-            "stat3_label": "Yrs in Atlanta",
-            "stat4_num": "365",
-            "stat4_label": "Days Open"
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["heading", "text", "buttons", "stats"],
+      "block_order": ["heading", "text", "buttons"],
       "settings": {
         "image_overlay_opacity": 20,
         "image_height": "large",
@@ -78,6 +65,52 @@
       },
       "block_order": ["item1", "item2", "item3", "item4"]
     },
+    "basket_pricing": {
+      "type": "ncdr-basket-pricing",
+      "blocks": {
+        "small": {
+          "type": "basket",
+          "settings": {
+            "name": "Small Basket",
+            "price": "13",
+            "featured": false,
+            "feature_1": "45 Premium Balls",
+            "feature_2": "Access to Grass Tees",
+            "feature_3": "Turf Mat Bays"
+          }
+        },
+        "medium": {
+          "type": "basket",
+          "settings": {
+            "name": "Medium Basket",
+            "price": "18",
+            "featured": true,
+            "badge": "Best Value",
+            "feature_1": "90 Premium Balls",
+            "feature_2": "Access to Grass Tees",
+            "feature_3": "Turf Mat Bays"
+          }
+        },
+        "large": {
+          "type": "basket",
+          "settings": {
+            "name": "Large Basket",
+            "price": "22",
+            "featured": false,
+            "feature_1": "140 Premium Balls",
+            "feature_2": "Access to Grass Tees",
+            "feature_3": "Turf Mat Bays"
+          }
+        }
+      },
+      "block_order": ["small", "medium", "large"],
+      "settings": {
+        "heading": "Hit More. Pay Less.",
+        "subtext": "Premium range balls, access to grass tees, and turf mat bays — every basket includes it all.",
+        "coupon_label": "Save up to 20% with a Coupon Book →",
+        "coupon_link": "shopify:\/\/collections\/all"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -109,39 +142,13 @@
     "coach_feature": {
       "type": "ncdr-coach-feature",
       "settings": {
-        "credential_1": "5x World Long Drive Champion",
-        "credential_2": "World Record Holder",
-        "heading_top": "Coached By",
-        "heading_gold": "A Champion.",
-        "body": "Phillis Meti is NCDR’s Head Professional and the most decorated long drive competitor in the world. Whether you’re learning your first swing or chasing extra yards off the tee, you’re learning from the best in the game.",
+        "credential_1": "World-Class Instruction",
+        "credential_2": "Expert Coaching",
+        "heading_top": "Learn From",
+        "heading_gold": "The Best.",
+        "body": "Level up your game with PGA-certified instruction at Northcrest Golf. Private lessons, junior programs, and multi-session packages available year-round.",
         "cta_label": "Book a Lesson",
         "cta_link": "\/pages\/lesson"
-      }
-    },
-    "memberships": {
-      "type": "ncdr-memberships",
-      "blocks": {
-        "tier1": {
-          "type": "tier",
-          "settings": { "name": "Early Bird", "price": "49", "access": "Morning & daytime access only", "featured": false }
-        },
-        "tier2": {
-          "type": "tier",
-          "settings": { "name": "Very Long Day Pass", "price": "59", "access": "Evenings 8pm through close", "featured": true, "badge": "Best Value", "note": "Most popular plan at NCDR" }
-        },
-        "tier3": {
-          "type": "tier",
-          "settings": { "name": "Anytime", "price": "89", "access": "Full access, any time we're open", "featured": false }
-        },
-        "tier4": {
-          "type": "tier",
-          "settings": { "name": "Founding Member", "price": "79", "access": "Anytime access, rate locked for life", "featured": false, "cta_label": "Claim Your Spot", "note": "50 spots only — 12 remaining" }
-        }
-      },
-      "block_order": ["tier1", "tier2", "tier3", "tier4"],
-      "settings": {
-        "heading": "Find Your Plan",
-        "subheading": "Every member receives a digital badge in Apple & Google Wallet, member pricing, and priority access."
       }
     },
     "tradein_banner": {
@@ -155,9 +162,74 @@
         "step2_body": "Our team assesses your clubs and provides an instant credit offer based on brand, model, and condition.",
         "step3_title": "Credit Applied to Your Account",
         "step3_body": "Store credit lands in your NCDR account immediately — use it online in the pro shop or in-store at the range.",
-        "cta_body": "Get store credit for your old clubs, applied instantly to your account. Use it online or in-store.",
+        "cta_body": "Submit your clubs and we'll reach out within 24 hours with a value.",
         "cta_label": "Start Trade-In",
         "cta_link": "\/pages\/trade-ins"
+      }
+    },
+    "faq": {
+      "type": "ncdr-faq",
+      "blocks": {
+        "q1": {
+          "type": "item",
+          "settings": {
+            "question": "Is Northcrest open during inclement weather?",
+            "answer": "<p>Yes. Northcrest Golf Driving Range remains open rain or shine. All bays on the ground level are fully covered, providing protection from rain. We stay open through conditions that might close traditional golf courses — steady rain, cold temperatures, and high winds. In the event of lightning or thunder, it is at the customer's discretion to continue play.</p>"
+          }
+        },
+        "q2": {
+          "type": "item",
+          "settings": {
+            "question": "Does Northcrest offer memberships?",
+            "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once — offering built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>"
+          }
+        },
+        "q3": {
+          "type": "item",
+          "settings": {
+            "question": "Are the grass tees currently open?",
+            "answer": "<p>Generally yes — weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
+          }
+        },
+        "q4": {
+          "type": "item",
+          "settings": {
+            "question": "Is there a chipping or putting area available?",
+            "answer": "<p>Not at this time. We're always exploring ways to improve the guest experience and this may change in the future. Stay tuned for updates.</p>"
+          }
+        },
+        "q5": {
+          "type": "item",
+          "settings": {
+            "question": "How do I save on basket pricing?",
+            "answer": "<p>Purchase a coupon book and save up to 20% compared to individual basket pricing. Coupon books are available in Small, Medium, and Large basket sizes — buy 10 baskets at once and save on every visit. <a href=\"/collections/all\">Shop coupon books →</a></p>"
+          }
+        },
+        "q6": {
+          "type": "item",
+          "settings": {
+            "question": "What brands does the pro shop carry?",
+            "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma — two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>"
+          }
+        },
+        "q7": {
+          "type": "item",
+          "settings": {
+            "question": "Can I book a simulator session online?",
+            "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>"
+          }
+        },
+        "q8": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer club repair and fitting services?",
+            "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": {
+        "heading": "Frequently Asked Questions"
       }
     },
     "events_banner": {
@@ -166,7 +238,7 @@
         "label": "Now Registering",
         "title_line1": "1st Annual Northcrest",
         "title_line2": "Long Drive Classic",
-        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Phillis Meti, culminating in a championship competition night.",
+        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Head Professional, culminating in a championship competition night.",
         "cta1_label": "Register Now",
         "cta1_link": "\/pages\/events",
         "cta2_label": "Become a Sponsor",
@@ -177,10 +249,11 @@
   "order": [
     "image_banner",
     "facility_strip",
+    "basket_pricing",
     "featured_collection",
     "coach_feature",
-    "memberships",
     "tradein_banner",
+    "faq",
     "events_banner"
   ]
 }

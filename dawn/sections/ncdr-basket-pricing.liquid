@@ -1,0 +1,100 @@
+<div class="ncdr-basket-pricing" style="padding:64px 60px;background:#fff;border-bottom:1px solid var(--ncdr-light-gray);">
+  <div style="text-align:center;margin-bottom:12px;">
+    <div style="font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ncdr-gold);margin-bottom:8px;display:inline-flex;align-items:center;gap:8px;">
+      Basket Pricing
+      <span style="display:inline-block;width:24px;height:1px;background:var(--ncdr-gold);opacity:0.4;"></span>
+    </div>
+    <h2 style="font-size:32px;font-weight:600;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:8px;">{{ section.settings.heading }}</h2>
+    <p style="font-size:14px;color:var(--ncdr-mid-gray);max-width:440px;margin:0 auto 8px;font-weight:300;line-height:1.7;">{{ section.settings.subtext }}</p>
+    <a href="{{ section.settings.coupon_link }}" style="font-size:11px;color:var(--ncdr-green);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid rgba(58,88,43,0.3);padding-bottom:1px;">{{ section.settings.coupon_label }}</a>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:860px;margin:36px auto 0;">
+
+    {%- for block in section.blocks -%}
+      {%- if block.settings.featured -%}
+        <div style="border:2px solid var(--ncdr-gold);border-radius:8px;padding:32px 28px;text-align:center;background:var(--ncdr-green-deep);transform:translateY(-6px);box-shadow:0 16px 40px rgba(58,88,43,0.25);position:relative;">
+          <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--ncdr-gold);color:var(--ncdr-green-deep);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:3px 14px;border-radius:2px;white-space:nowrap;">{{ block.settings.badge }}</div>
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:16px;">{{ block.settings.name }}</div>
+          <div style="font-size:52px;font-weight:700;color:var(--ncdr-gold);line-height:1;margin-bottom:4px;">${{ block.settings.price }}</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08);">per basket</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.75);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_1 }}
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.75);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_2 }}
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.75);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_3 }}
+            </div>
+          </div>
+        </div>
+      {%- else -%}
+        <div style="border:1px solid var(--ncdr-light-gray);border-radius:8px;padding:32px 28px;text-align:center;background:#fff;">
+          <div style="font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--ncdr-mid-gray);margin-bottom:16px;">{{ block.settings.name }}</div>
+          <div style="font-size:52px;font-weight:700;color:var(--ncdr-green-deep);line-height:1;margin-bottom:4px;">${{ block.settings.price }}</div>
+          <div style="font-size:12px;color:var(--ncdr-mid-gray);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--ncdr-light-gray);">per basket</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ncdr-mid-gray);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_1 }}
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ncdr-mid-gray);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_2 }}
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ncdr-mid-gray);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ block.settings.feature_3 }}
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+  </div>
+  <p style="text-align:center;font-size:11px;color:var(--ncdr-mid-gray);margin-top:20px;">All prices in USD. Applicable taxes added at checkout.</p>
+</div>
+
+{% schema %}
+{
+  "name": "Basket Pricing",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hit More. Pay Less." },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Premium range balls, access to grass tees, and turf mat bays — every basket includes it all." },
+    { "type": "text", "id": "coupon_label", "label": "Coupon link label", "default": "Save up to 20% with a Coupon Book →" },
+    { "type": "url", "id": "coupon_link", "label": "Coupon link" }
+  ],
+  "blocks": [
+    {
+      "type": "basket",
+      "name": "Basket Tier",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Basket name", "default": "Small Basket" },
+        { "type": "text", "id": "price", "label": "Price (no $)", "default": "13" },
+        { "type": "checkbox", "id": "featured", "label": "Featured (dark card)", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge label (if featured)", "default": "Best Value" },
+        { "type": "text", "id": "feature_1", "label": "Feature 1", "default": "45 Premium Balls" },
+        { "type": "text", "id": "feature_2", "label": "Feature 2", "default": "Access to Grass Tees" },
+        { "type": "text", "id": "feature_3", "label": "Feature 3", "default": "Turf Mat Bays" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Basket Pricing",
+      "blocks": [
+        { "type": "basket", "settings": { "name": "Small Basket", "price": "13", "featured": false, "feature_1": "45 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        { "type": "basket", "settings": { "name": "Medium Basket", "price": "18", "featured": true, "badge": "Best Value", "feature_1": "90 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        { "type": "basket", "settings": { "name": "Large Basket", "price": "22", "featured": false, "feature_1": "140 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
