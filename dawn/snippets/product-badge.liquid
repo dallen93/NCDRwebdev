@@ -1,0 +1,8 @@
+{%- if product.vendor == 'Honma' or product.vendor == 'Majesty' or product.vendor == 'XXIO' -%}
+  <span class="dealer-badge" style="margin-top:8px;display:inline-block;">
+    {%- if product.vendor == 'Honma' -%}Honma Authorized Dealer
+    {%- elsif product.vendor == 'Majesty' -%}Majesty Authorized Dealer
+    {%- elsif product.vendor == 'XXIO' -%}XXIO Official Retailer
+    {%- endif -%}
+  </span>
+{%- endif -%}

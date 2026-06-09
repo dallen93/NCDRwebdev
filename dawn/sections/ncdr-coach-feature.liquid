@@ -1,0 +1,151 @@
+<style>
+  .ncdr-coach-feature {
+    background: var(--ncdr-green-deep);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 460px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ncdr-coach-feature::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.008) 0px,
+      rgba(255,255,255,0.008) 1px,
+      transparent 1px,
+      transparent 32px
+    );
+    pointer-events: none;
+  }
+
+  .ncdr-coach-content {
+    padding: 7.2rem 6rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ncdr-coach-credentials {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+  }
+
+  .ncdr-coach-heading {
+    font-family: var(--font-heading-family);
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.0;
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .ncdr-coach-heading .gold { color: var(--ncdr-gold); display: block; }
+
+  .ncdr-coach-body {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    max-width: 400px;
+    margin-bottom: 3.2rem;
+    font-weight: 300;
+  }
+
+  .ncdr-coach-photo-side {
+    background: linear-gradient(160deg, rgba(58,88,43,0.3) 0%, rgba(201,168,76,0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(201,168,76,0.1);
+    position: relative;
+  }
+
+  .ncdr-coach-photo-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ncdr-coach-placeholder {
+    width: 260px;
+    height: 340px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .ncdr-coach-placeholder span {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-coach-feature { grid-template-columns: 1fr; }
+    .ncdr-coach-content { padding: 4.8rem 2rem; }
+    .ncdr-coach-photo-side { min-height: 240px; border-left: none; border-top: 1px solid rgba(201,168,76,0.1); }
+    .ncdr-coach-heading { font-size: 3.6rem; }
+  }
+</style>
+
+<section class="ncdr-coach-feature">
+  <div class="ncdr-coach-content">
+    <div class="ncdr-coach-credentials">
+      <span class="credential-pill">{{ section.settings.credential_1 }}</span>
+      <span class="credential-pill">{{ section.settings.credential_2 }}</span>
+    </div>
+    <h2 class="ncdr-coach-heading">
+      {{ section.settings.heading_top }}<span class="gold">{{ section.settings.heading_gold }}</span>
+    </h2>
+    <p class="ncdr-coach-body">{{ section.settings.body }}</p>
+    <a href="{{ section.settings.cta_link }}" class="button button--primary">{{ section.settings.cta_label }}</a>
+  </div>
+  <div class="ncdr-coach-photo-side">
+    {%- if section.settings.photo != blank -%}
+      {{
+        section.settings.photo
+        | image_url: width: 800
+        | image_tag: loading: 'lazy', alt: section.settings.photo.alt | default: 'Head Professional'
+      }}
+    {%- else -%}
+      <div class="ncdr-coach-placeholder">
+        <span>Head Professional Photo</span>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "NCDR Coach Feature",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "credential_1", "label": "Credential Pill 1", "default": "5x World Long Drive Champion" },
+    { "type": "text", "id": "credential_2", "label": "Credential Pill 2", "default": "World Record Holder" },
+    { "type": "text", "id": "heading_top", "label": "Heading Line 1", "default": "Coached By" },
+    { "type": "text", "id": "heading_gold", "label": "Heading Line 2 (gold)", "default": "A Champion." },
+    { "type": "textarea", "id": "body", "label": "Body Text", "default": "Phillis Meti is NCDR's Head Professional and the most decorated long drive competitor in the world. Whether you're learning your first swing or chasing extra yards off the tee, you're learning from the best in the game." },
+    { "type": "text", "id": "cta_label", "label": "Button Label", "default": "Book a Lesson" },
+    { "type": "url", "id": "cta_link", "label": "Button Link", "default": "/pages/lesson" },
+    { "type": "image_picker", "id": "photo", "label": "Coach Photo" }
+  ],
+  "presets": [
+    { "name": "NCDR Coach Feature" }
+  ]
+}
+{% endschema %}

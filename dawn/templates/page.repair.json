@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Club Repair & Restoration.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Professional club repair, regripping, reshafting, and restoration services at Northcrest Golf.", "text_style": "subtitle" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "services": {
+      "type": "multicolumn",
+      "blocks": {
+        "s1": { "type": "column", "settings": { "title": "Regripping", "text": "All major grip brands available. Same-day service on most regripping jobs. Golf Pride, Lamkin, SuperStroke, and more.", "link_label": "" } },
+        "s2": { "type": "column", "settings": { "title": "Reshafting", "text": "Steel and graphite shaft installations for irons, woods, and putters. Custom fitting available.", "link_label": "" } },
+        "s3": { "type": "column", "settings": { "title": "Loft & Lie Adjustment", "text": "Precision bending for irons and wedges to match your swing. Measured on a Mitchell machine.", "link_label": "" } },
+        "s4": { "type": "column", "settings": { "title": "Club Cleaning & Restoration", "text": "Deep cleaning, groove sharpening, and cosmetic restoration. Make your old clubs look and perform like new.", "link_label": "" } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "title": "Repair Services", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "services", "main"]
+}

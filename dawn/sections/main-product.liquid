@@ -1,3 +1,22 @@
+<style>
+  .ncdr-product-vendor {
+    font-family: var(--font-heading-family);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 6px;
+  }
+  .ncdr-product-location {
+    font-size: 1.1rem;
+    color: var(--ncdr-mid-gray);
+    margin-top: 8px;
+    font-style: italic;
+    font-weight: 300;
+  }
+</style>
+
 <product-info
   id="MainProduct-{{ section.id }}"
   class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
@@ -98,12 +117,16 @@
                 </p>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
+                  {%- if product.vendor != blank -%}
+                    <p class="ncdr-product-vendor">{{ product.vendor | escape }}</p>
+                  {%- endif -%}
                   <h1>{{ product.title | escape }}</h1>
                   <a href="{{ product.url }}" class="product__title">
                     <h2 class="h1">
                       {{ product.title | escape }}
                     </h2>
                   </a>
+                  {%- render 'product-badge', product: product -%}
                 </div>
               {%- when 'price' -%}
                 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
@@ -114,6 +137,7 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+                <p class="ncdr-product-location">Available at Northcrest Golf Driving Range, Atlanta</p>
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>

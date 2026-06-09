@@ -11,6 +11,27 @@
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "name": "Northcrest Golf Driving Range",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3545 Northcrest Road",
+        "addressLocality": "Atlanta",
+        "addressRegion": "GA",
+        "postalCode": "30340",
+        "addressCountry": "US"
+      },
+      "telephone": "(770) 723-0002",
+      "email": "management@northcrestgolf.com",
+      "openingHours": ["Mo-Sa 09:00-23:00", "Su 09:00-21:00"],
+      "url": "https://www.northcrestgolf.com",
+      "description": "Atlanta's premier golf driving range since 1986. 125 covered bays, grass tees, Golfzon simulators, and world-class instruction from Head Pro Phillis Meti."
+    }
+    </script>
+
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}

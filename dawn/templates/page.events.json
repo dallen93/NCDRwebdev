@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "What's Happening at Northcrest.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Competitions, clinics, member nights, and the 1st Annual Long Drive Classic. Check back often — events sell out fast.", "text_style": "subtitle" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "events_banner": {
+      "type": "ncdr-events-banner",
+      "settings": {
+        "label": "Now Registering",
+        "title_line1": "1st Annual Northcrest",
+        "title_line2": "Long Drive Classic",
+        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Phillis Meti, culminating in a championship competition night.",
+        "cta1_label": "Register Now",
+        "cta1_link": "",
+        "cta2_label": "Become a Sponsor",
+        "cta2_link": ""
+      }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "events_banner", "main"]
+}

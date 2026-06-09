@@ -1,0 +1,131 @@
+<style>
+  .ncdr-events-banner {
+    background: var(--ncdr-green);
+    padding: 5.6rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ncdr-events-banner::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .ncdr-events-content { position: relative; z-index: 2; }
+
+  .ncdr-events-label {
+    font-family: var(--font-heading-family);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-events-title {
+    font-family: var(--font-heading-family);
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .ncdr-events-title span { color: var(--ncdr-gold); }
+
+  .ncdr-events-sub {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 420px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .ncdr-events-ctas {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Secondary button style for green backgrounds */
+  .ncdr-events-ctas .button--secondary-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.3);
+    font-family: var(--font-heading-family);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 1.3rem 2.8rem;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .ncdr-events-ctas .button--secondary-outline:hover {
+    border-color: var(--ncdr-gold-border);
+    color: var(--ncdr-gold);
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-events-banner { flex-direction: column; padding: 4.8rem 2rem; }
+    .ncdr-events-ctas { flex-direction: column; width: 100%; }
+    .ncdr-events-ctas a { text-align: center; }
+    .ncdr-events-title { font-size: 2.4rem; }
+  }
+</style>
+
+<div class="ncdr-events-banner">
+  <div class="ncdr-events-content">
+    <div class="ncdr-events-label">{{ section.settings.label }}</div>
+    <div class="ncdr-events-title">
+      {{ section.settings.title_line1 }}<br>
+      <span>{{ section.settings.title_line2 }}</span>
+    </div>
+    <p class="ncdr-events-sub">{{ section.settings.subtext }}</p>
+  </div>
+  <div class="ncdr-events-ctas">
+    <a href="{{ section.settings.cta1_link | default: '/pages/events' }}" class="button button--primary button--gold">
+      {{ section.settings.cta1_label }}
+    </a>
+    <a href="{{ section.settings.cta2_link | default: '/pages/events' }}" class="button--secondary-outline">
+      {{ section.settings.cta2_label }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Events Banner",
+  "tag": "div",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label (small caps)", "default": "Now Registering" },
+    { "type": "text", "id": "title_line1", "label": "Title Line 1", "default": "1st Annual Northcrest" },
+    { "type": "text", "id": "title_line2", "label": "Title Line 2 (gold)", "default": "Long Drive Classic" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Phillis Meti, culminating in a championship competition night." },
+    { "type": "text", "id": "cta1_label", "label": "Primary CTA Label", "default": "Register Now" },
+    { "type": "url", "id": "cta1_link", "label": "Primary CTA Link" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary CTA Label", "default": "Become a Sponsor" },
+    { "type": "url", "id": "cta2_link", "label": "Secondary CTA Link" }
+  ],
+  "presets": [
+    { "name": "NCDR Events Banner" }
+  ]
+}
+{% endschema %}

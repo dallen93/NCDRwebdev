@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Level Up Your Game.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "Structured improvement programs for every skill level — April through September at Northcrest Golf.", "text_style": "subtitle" } }
+      },
+      "block_order": ["heading", "text"],
+      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "programs": {
+      "type": "multicolumn",
+      "blocks": {
+        "p1": { "type": "column", "settings": { "title": "Beginner Path", "text": "Zero to playing in 6 weeks. Fundamentals of grip, stance, swing, and course etiquette. No experience needed.", "link_label": "Enroll" } },
+        "p2": { "type": "column", "settings": { "title": "Break 100", "text": "For players shooting 100+. Focused on consistency, course management, and the mental game.", "link_label": "Enroll" } },
+        "p3": { "type": "column", "settings": { "title": "Break 90", "text": "For 90-105 shooters. Ball-striking improvement, short game refinement, and strategic thinking.", "link_label": "Enroll" } },
+        "p4": { "type": "column", "settings": { "title": "Junior Academy", "text": "Ages 8–17. A full-season program that builds fundamentals, confidence, and love of the game.", "link_label": "Enroll" } },
+        "p5": { "type": "column", "settings": { "title": "Simulator League", "text": "Indoor 9-week competitive league on Golfzon simulators. Great for winter and serious players year-round.", "link_label": "Enroll" } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": { "title": "2026 Programs (April – September)", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "programs", "main"]
+}

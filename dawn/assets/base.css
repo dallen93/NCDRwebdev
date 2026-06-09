@@ -1,3 +1,170 @@
+/* ============================================================
+   NCDR BRAND SYSTEM — Northcrest Golf Driving Range
+   Do not remove. Required for all NCDR custom sections.
+   ============================================================ */
+
+:root {
+  /* Brand colors */
+  --ncdr-green:        #3A582B;
+  --ncdr-green-deep:   #2a4020;
+  --ncdr-green-mid:    #4a6e37;
+  --ncdr-green-light:  #54634B;
+  --ncdr-gold:         #C9A84C;
+  --ncdr-gold-light:   #dfc070;
+  --ncdr-gold-dim:     rgba(201,168,76,0.15);
+  --ncdr-gold-border:  rgba(201,168,76,0.3);
+  --ncdr-white:        #FFFFFF;
+  --ncdr-off-white:    #F7F4EE;
+  --ncdr-dark-gray:    #1C1C1C;
+  --ncdr-mid-gray:     #4a4a4a;
+  --ncdr-light-gray:   #E8E4DE;
+  --ncdr-footer-bg:    #1a2d10;
+}
+
+/* ── HEADING / BUTTON BASE ── */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.button, .btn {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+/* ── NCDR EYEBROW LABEL ── */
+.ncdr-eyebrow {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ncdr-gold);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.ncdr-eyebrow::after {
+  content: '';
+  display: block;
+  width: 3.2rem;
+  height: 1px;
+  background: var(--ncdr-gold);
+  opacity: 0.4;
+}
+
+/* ── CREDENTIAL PILLS ── */
+.credential-pill {
+  display: inline-block;
+  background: var(--ncdr-gold-dim);
+  border: 1px solid var(--ncdr-gold-border);
+  color: var(--ncdr-gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+/* ── GOLD BUTTON VARIANT ── */
+.button--gold {
+  background: var(--ncdr-gold) !important;
+  color: var(--ncdr-green-deep) !important;
+  border: none !important;
+}
+.button--gold:hover {
+  background: var(--ncdr-gold-light) !important;
+}
+
+/* ── SECTION SPACING ── */
+.ncdr-section {
+  padding: 7.2rem 6rem;
+}
+
+/* ── ANNOUNCEMENT BAR ── */
+.ncdr-announcement-bar {
+  background: var(--ncdr-gold);
+  color: var(--ncdr-green-deep);
+  text-align: center;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── DEALER BADGE ── */
+.dealer-badge {
+  display: inline-block;
+  background: rgba(58,88,43,0.08);
+  border: 1px solid rgba(58,88,43,0.2);
+  color: var(--ncdr-green);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* ── STEP NUMBERS ── */
+.step-num {
+  width: 28px;
+  height: 28px;
+  background: var(--ncdr-green);
+  color: white;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+/* ── HERO STATS STRIP ── */
+.hero-stats {
+  display: flex;
+  gap: 4rem;
+  padding-top: 3.2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 3.2rem;
+}
+.hero-stat-num {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--ncdr-gold);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── MOBILE OVERRIDES ── */
+@media (max-width: 749px) {
+  .ncdr-section { padding: 4.8rem 2rem; }
+  .tier-grid { grid-template-columns: 1fr !important; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .button { width: 100%; text-align: center; }
+  .hero-content { padding: 4rem 2rem !important; }
+  .coach-feature { flex-direction: column !important; }
+  .coach-photo { width: 100% !important; height: 240px !important; }
+  .hero-stats { flex-wrap: wrap; gap: 2rem; }
+}
+
+/* ============================================================
+   END NCDR BRAND SYSTEM
+   ============================================================ */
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;

@@ -6,70 +6,181 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Where Your <em>Game Grows.<\/em>",
             "heading_size": "h0"
           }
         },
-        "button": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "125 covered bays. Grass tees. Golfzon simulators. Coached by a 5× World Long Drive Champion. Open late, rain or shine, 365 days a year.",
+            "text_style": "subtitle"
+          }
+        },
+        "buttons": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label_1": "Shop the Pro Shop",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Become a Member",
+            "button_link_2": "shopify:\/\/pages\/memberships",
+            "button_style_secondary_2": true
+          }
+        },
+        "stats": {
+          "type": "ncdr_stats",
+          "settings": {
+            "stat1_num": "125",
+            "stat1_label": "Bays & Tees",
+            "stat2_num": "5×",
+            "stat2_label": "World Champion Coach",
+            "stat3_num": "40",
+            "stat3_label": "Yrs in Atlanta",
+            "stat4_num": "365",
+            "stat4_label": "Days Open"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+      "block_order": ["heading", "text", "buttons", "stats"],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 20,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-left",
         "show_text_box": false,
         "image_behavior": "none",
-        "desktop_content_alignment": "center",
+        "desktop_content_alignment": "left",
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "stack_images_on_mobile": false,
         "show_text_below": false
       }
     },
+    "facility_strip": {
+      "type": "ncdr-facility-strip",
+      "blocks": {
+        "item1": {
+          "type": "item",
+          "settings": { "icon": "clock", "label": "Open Until 11pm", "sublabel": "Mon – Sat · Sun until 9pm" }
+        },
+        "item2": {
+          "type": "item",
+          "settings": { "icon": "sun", "label": "Rain or Shine", "sublabel": "Covered bays, always open" }
+        },
+        "item3": {
+          "type": "item",
+          "settings": { "icon": "monitor", "label": "Golfzon Simulators", "sublabel": "5 indoor simulator bays" }
+        },
+        "item4": {
+          "type": "item",
+          "settings": { "icon": "layers", "label": "Grass Tees", "sublabel": "Natural turf, spring – fall" }
+        }
+      },
+      "block_order": ["item1", "item2", "item3", "item4"]
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "New Gear. Now In Stock.",
         "heading_size": "h2",
-        "description": "",
-        "show_description": false,
+        "description": "Premium Japanese and American brands — curated for every level of player.",
+        "show_description": true,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
+        "collection": "new-releases",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "full_width": false,
+        "full_width": true,
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "coach_feature": {
+      "type": "ncdr-coach-feature",
+      "settings": {
+        "credential_1": "5x World Long Drive Champion",
+        "credential_2": "World Record Holder",
+        "heading_top": "Coached By",
+        "heading_gold": "A Champion.",
+        "body": "Phillis Meti is NCDR’s Head Professional and the most decorated long drive competitor in the world. Whether you’re learning your first swing or chasing extra yards off the tee, you’re learning from the best in the game.",
+        "cta_label": "Book a Lesson",
+        "cta_link": "\/pages\/lesson"
+      }
+    },
+    "memberships": {
+      "type": "ncdr-memberships",
+      "blocks": {
+        "tier1": {
+          "type": "tier",
+          "settings": { "name": "Early Bird", "price": "49", "access": "Morning & daytime access only", "featured": false }
+        },
+        "tier2": {
+          "type": "tier",
+          "settings": { "name": "Very Long Day Pass", "price": "59", "access": "Evenings 8pm through close", "featured": true, "badge": "Best Value", "note": "Most popular plan at NCDR" }
+        },
+        "tier3": {
+          "type": "tier",
+          "settings": { "name": "Anytime", "price": "89", "access": "Full access, any time we're open", "featured": false }
+        },
+        "tier4": {
+          "type": "tier",
+          "settings": { "name": "Founding Member", "price": "79", "access": "Anytime access, rate locked for life", "featured": false, "cta_label": "Claim Your Spot", "note": "50 spots only — 12 remaining" }
+        }
+      },
+      "block_order": ["tier1", "tier2", "tier3", "tier4"],
+      "settings": {
+        "heading": "Find Your Plan",
+        "subheading": "Every member receives a digital badge in Apple & Google Wallet, member pricing, and priority access."
+      }
+    },
+    "tradein_banner": {
+      "type": "ncdr-tradein-banner",
+      "settings": {
+        "heading": "Trade In. Upgrade. Play Better.",
+        "subheading": "Get store credit for your old clubs — applied instantly to your NCDR account.",
+        "step1_title": "Submit Online or In-Store",
+        "step1_body": "Fill out the form with your club details, or bring your clubs directly to the pro shop at 3545 Northcrest Road.",
+        "step2_title": "Get Your Trade-In Value",
+        "step2_body": "Our team assesses your clubs and provides an instant credit offer based on brand, model, and condition.",
+        "step3_title": "Credit Applied to Your Account",
+        "step3_body": "Store credit lands in your NCDR account immediately — use it online in the pro shop or in-store at the range.",
+        "cta_body": "Get store credit for your old clubs, applied instantly to your account. Use it online or in-store.",
+        "cta_label": "Start Trade-In",
+        "cta_link": "\/pages\/trade-ins"
+      }
+    },
+    "events_banner": {
+      "type": "ncdr-events-banner",
+      "settings": {
+        "label": "Now Registering",
+        "title_line1": "1st Annual Northcrest",
+        "title_line2": "Long Drive Classic",
+        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Phillis Meti, culminating in a championship competition night.",
+        "cta1_label": "Register Now",
+        "cta1_link": "\/pages\/events",
+        "cta2_label": "Become a Sponsor",
+        "cta2_link": "\/pages\/events"
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "facility_strip",
+    "featured_collection",
+    "coach_feature",
+    "memberships",
+    "tradein_banner",
+    "events_banner"
   ]
 }

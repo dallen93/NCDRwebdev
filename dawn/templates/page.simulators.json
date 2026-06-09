@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "hero": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Play Any Course. Any Time.", "heading_size": "h0" } },
+        "text": { "type": "text", "settings": { "text": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round.", "text_style": "subtitle" } },
+        "buttons": { "type": "buttons", "settings": { "button_label_1": "Book a Bay", "button_link_1": "", "button_style_secondary_1": false, "button_label_2": "", "button_link_2": "" } }
+      },
+      "block_order": ["heading", "text", "buttons"],
+      "settings": { "image_height": "large", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+    },
+    "features": {
+      "type": "multicolumn",
+      "blocks": {
+        "f1": { "type": "column", "settings": { "title": "Golfzon Vision Technology", "text": "Ultra-realistic ball tracking and course simulation with slope detection, wind, and pin placement accuracy.", "link_label": "" } },
+        "f2": { "type": "column", "settings": { "title": "200+ World Courses", "text": "Play Augusta, Pebble Beach, St Andrews, and over 200 other world-famous courses without leaving Atlanta.", "link_label": "" } },
+        "f3": { "type": "column", "settings": { "title": "Swing Analysis", "text": "Every shot tracked with launch angle, ball speed, spin rate, and club path data. Improve faster with data-backed feedback.", "link_label": "" } },
+        "f4": { "type": "column", "settings": { "title": "Open Rain or Shine", "text": "Unlike the range, simulators run no matter the weather. Perfect for winter practice or late-night sessions.", "link_label": "" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": { "title": "Why Play at Northcrest Simulators", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+    },
+    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+  },
+  "order": ["hero", "features", "main"]
+}
