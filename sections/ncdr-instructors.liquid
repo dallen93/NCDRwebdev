@@ -1,0 +1,140 @@
+<style>
+  .ncdr-instructors {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-instructors__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-instructors__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-instructors__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 36px;
+  }
+
+  .ncdr-instructors__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ncdr-instructor-card {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .ncdr-instructor-card__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--ncdr-off-white);
+    border: 2px solid var(--ncdr-light-gray);
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .ncdr-instructor-card__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ncdr-instructor-card__avatar svg {
+    opacity: 0.3;
+  }
+
+  .ncdr-instructor-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 4px;
+  }
+
+  .ncdr-instructor-card__cred {
+    font-size: 12px;
+    color: var(--ncdr-gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-instructors { padding: 48px 20px; }
+    .ncdr-instructors__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  }
+</style>
+
+<div class="ncdr-instructors">
+  <div class="ncdr-instructors__eyebrow">Our Instructors <span></span></div>
+  <h2 class="ncdr-instructors__heading">{{ section.settings.heading }}</h2>
+
+  <div class="ncdr-instructors__grid">
+    {%- for block in section.blocks -%}
+      <div class="ncdr-instructor-card">
+        <div class="ncdr-instructor-card__avatar">
+          {%- if block.settings.photo != blank -%}
+            <img src="{{ block.settings.photo | image_url: width: 160 }}" alt="{{ block.settings.name | escape }}" width="80" height="80" loading="lazy">
+          {%- else -%}
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3A582B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+          {%- endif -%}
+        </div>
+        <div class="ncdr-instructor-card__name">{{ block.settings.name }}</div>
+        <div class="ncdr-instructor-card__cred">{{ block.settings.credential }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Instructors",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Meet Our Pros" }
+  ],
+  "blocks": [
+    {
+      "type": "instructor",
+      "name": "Instructor",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name" },
+        { "type": "text", "id": "credential", "label": "Credential / Title" },
+        { "type": "image_picker", "id": "photo", "label": "Photo (optional)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Instructors" }]
+}
+{% endschema %}
