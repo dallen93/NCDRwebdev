@@ -16,7 +16,125 @@
         "cta_label": "Shop the Pro Shop",
         "cta_link": "shopify:\/\/collections\/all"
       }
+    },
+    "facility_strip": {
+      "type": "ncdr-facility-strip",
+      "blocks": {
+        "item1": { "type": "item", "settings": { "icon": "clock", "label": "Open Until 11pm", "sublabel": "Mon – Sat · Sun until 9pm" } },
+        "item2": { "type": "item", "settings": { "icon": "sun", "label": "Rain or Shine", "sublabel": "Covered bays, always open" } },
+        "item3": { "type": "item", "settings": { "icon": "monitor", "label": "Golfzon Simulators", "sublabel": "5 indoor simulator bays" } },
+        "item4": { "type": "item", "settings": { "icon": "layers", "label": "Grass Tees", "sublabel": "Natural turf, spring – fall" } }
+      },
+      "block_order": ["item1", "item2", "item3", "item4"]
+    },
+    "basket_pricing": {
+      "type": "ncdr-basket-pricing",
+      "blocks": {
+        "small": { "type": "basket", "settings": { "name": "Small Basket", "price": "13", "featured": false, "feature_1": "45 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        "medium": { "type": "basket", "settings": { "name": "Medium Basket", "price": "18", "featured": true, "badge": "Best Value", "feature_1": "90 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        "large": { "type": "basket", "settings": { "name": "Large Basket", "price": "22", "featured": false, "feature_1": "140 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } }
+      },
+      "block_order": ["small", "medium", "large"],
+      "settings": {
+        "heading": "Hit More. Pay Less.",
+        "subtext": "Premium range balls, access to grass tees, and turf mat bays — every basket includes it all.",
+        "coupon_label": "Save up to 20% with a Coupon Book →",
+        "coupon_link": "shopify:\/\/collections\/all"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "New Gear. Now In Stock.",
+        "heading_size": "h2",
+        "description": "Premium Japanese and American brands — curated for every level of player.",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "new-releases",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "coach_feature": {
+      "type": "ncdr-coach-feature",
+      "settings": {
+        "credential_1": "World-Class Instruction",
+        "credential_2": "Expert Coaching",
+        "heading_top": "Learn From",
+        "heading_gold": "The Best.",
+        "body": "Level up your game with PGA-certified instruction at Northcrest Golf. Private lessons, junior programs, and multi-session packages available year-round.",
+        "cta_label": "Book a Lesson",
+        "cta_link": "\/pages\/lesson"
+      }
+    },
+    "tradein_banner": {
+      "type": "ncdr-tradein-banner",
+      "settings": {
+        "heading": "Trade In. Upgrade. Play Better.",
+        "subheading": "Get store credit for your old clubs — applied instantly to your NCDR account.",
+        "step1_title": "Submit Online or In-Store",
+        "step1_body": "Fill out the form with your club details, or bring your clubs directly to the pro shop at 3545 Northcrest Road.",
+        "step2_title": "Get Your Trade-In Value",
+        "step2_body": "Our team assesses your clubs and provides an instant credit offer based on brand, model, and condition.",
+        "step3_title": "Credit Applied to Your Account",
+        "step3_body": "Store credit lands in your NCDR account immediately — use it online in the pro shop or in-store at the range.",
+        "cta_body": "Submit your clubs and we'll reach out within 24 hours with a value.",
+        "cta_label": "Start Trade-In",
+        "cta_link": "\/pages\/trade-ins"
+      }
+    },
+    "faq": {
+      "type": "ncdr-faq",
+      "blocks": {
+        "q1": { "type": "item", "settings": { "question": "Is Northcrest open during inclement weather?", "answer": "<p>Yes. Northcrest Golf Driving Range remains open rain or shine. All bays on the ground level are fully covered, providing protection from rain. We stay open through conditions that might close traditional golf courses — steady rain, cold temperatures, and high winds. In the event of lightning or thunder, it is at the customer's discretion to continue play.</p>" } },
+        "q2": { "type": "item", "settings": { "question": "Does Northcrest offer memberships?", "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once — offering built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>" } },
+        "q3": { "type": "item", "settings": { "question": "Are the grass tees currently open?", "answer": "<p>Generally yes — weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>" } },
+        "q4": { "type": "item", "settings": { "question": "Is there a chipping or putting area available?", "answer": "<p>Not at this time. We're always exploring ways to improve the guest experience and this may change in the future. Stay tuned for updates.</p>" } },
+        "q5": { "type": "item", "settings": { "question": "How do I save on basket pricing?", "answer": "<p>Purchase a coupon book and save up to 20% compared to individual basket pricing. Coupon books are available in Small, Medium, and Large basket sizes — buy 10 baskets at once and save on every visit. <a href=\"/collections/all\">Shop coupon books →</a></p>" } },
+        "q6": { "type": "item", "settings": { "question": "What brands does the pro shop carry?", "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma — two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>" } },
+        "q7": { "type": "item", "settings": { "question": "Can I book a simulator session online?", "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>" } },
+        "q8": { "type": "item", "settings": { "question": "Do you offer club repair and fitting services?", "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": { "heading": "Frequently Asked Questions" }
+    },
+    "events_banner": {
+      "type": "ncdr-events-banner",
+      "settings": {
+        "label": "Now Registering",
+        "title_line1": "1st Annual Northcrest",
+        "title_line2": "Long Drive Classic",
+        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Head Professional, culminating in a championship competition night.",
+        "cta1_label": "Register Now",
+        "cta1_link": "\/pages\/events",
+        "cta2_label": "Become a Sponsor",
+        "cta2_link": "\/pages\/events"
+      }
     }
   },
-  "order": ["image_banner"]
+  "order": [
+    "image_banner",
+    "facility_strip",
+    "basket_pricing",
+    "featured_collection",
+    "coach_feature",
+    "tradein_banner",
+    "faq",
+    "events_banner"
+  ]
 }
