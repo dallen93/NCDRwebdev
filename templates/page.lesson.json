@@ -1,35 +1,112 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Meet Our Pros", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "Trusted experts. Friendly faces. Learn from instructors who know how to build skill and confidence at every level.", "text_style": "subtitle" } }
-      },
-      "block_order": ["heading", "text"],
-      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Instruction",
+        "heading": "Meet Our Pros",
+        "heading_gold": "",
+        "subtext": "Trusted experts. Friendly faces. Learn from instructors who know how to build skill and confidence at every level."
+      }
     },
     "instructors": {
       "type": "multicolumn",
       "blocks": {
-        "i1": { "type": "column", "settings": { "title": "Jim Yong Choi", "text": "PGA Class A Member", "link_label": "" } },
-        "i2": { "type": "column", "settings": { "title": "Ah Ram Suh", "text": "LPGA & KLPGA Class A Member", "link_label": "" } },
-        "i3": { "type": "column", "settings": { "title": "Greg Shelnutt", "text": "PGA Certified Instructor", "link_label": "" } },
-        "i4": { "type": "column", "settings": { "title": "William Buitrago", "text": "TPI1 & TPI2 Certified Instructor", "link_label": "" } },
-        "i5": { "type": "column", "settings": { "title": "Ho H-Yu", "text": "PGA Apprentice", "link_label": "" } },
-        "i6": { "type": "column", "settings": { "title": "Joseph Choi", "text": "PGA Apprentice", "link_label": "" } }
+        "i1": {
+          "type": "column",
+          "settings": {
+            "title": "Jim Yong Choi",
+            "text": "PGA Class A Member",
+            "link_label": ""
+          }
+        },
+        "i2": {
+          "type": "column",
+          "settings": {
+            "title": "Ah Ram Suh",
+            "text": "LPGA & KLPGA Class A Member",
+            "link_label": ""
+          }
+        },
+        "i3": {
+          "type": "column",
+          "settings": {
+            "title": "Greg Shelnutt",
+            "text": "PGA Certified Instructor",
+            "link_label": ""
+          }
+        },
+        "i4": {
+          "type": "column",
+          "settings": {
+            "title": "William Buitrago",
+            "text": "TPI1 & TPI2 Certified Instructor",
+            "link_label": ""
+          }
+        },
+        "i5": {
+          "type": "column",
+          "settings": {
+            "title": "Ho H-Yu",
+            "text": "PGA Apprentice",
+            "link_label": ""
+          }
+        },
+        "i6": {
+          "type": "column",
+          "settings": {
+            "title": "Joseph Choi",
+            "text": "PGA Apprentice",
+            "link_label": ""
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4", "i5", "i6"],
-      "settings": { "title": "Instruction", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "center", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6"
+      ],
+      "settings": {
+        "title": "Instruction",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "color_scheme": "scheme-2",
+        "swipe_on_mobile": true
+      }
     },
     "packages_intro": {
       "type": "rich-text",
       "blocks": {
-        "eyebrow": { "type": "heading", "settings": { "heading": "Lesson Packages", "heading_size": "h2" } },
-        "text": { "type": "text", "settings": { "text": "<p>We offer lesson options for every golfer — from one-time tune-ups to long-term game plans. Choose the approach that fits your pace.</p>" } }
+        "eyebrow": {
+          "type": "heading",
+          "settings": {
+            "heading": "Lesson Packages",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We offer lesson options for every golfer \u2014 from one-time tune-ups to long-term game plans. Choose the approach that fits your pace.</p>"
+          }
+        }
       },
-      "block_order": ["eyebrow", "text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 48, "padding_bottom": 12 }
+      "block_order": [
+        "eyebrow",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 12
+      }
     },
     "packages": {
       "type": "multicolumn",
@@ -40,16 +117,16 @@
             "title": "Single Lesson",
             "text": "$150 / hour\n\nOne-on-one session focused on your swing, stance, or any area you'd like to improve.\n\nIdeal for: Beginners testing the waters or advanced players fixing a specific issue.",
             "link_label": "Meet Your Coach",
-            "link_url": "shopify:\/\/pages\/contact"
+            "link_url": "shopify://pages/contact"
           }
         },
         "p2": {
           "type": "column",
           "settings": {
-            "title": "4 Lesson Package — Most Popular",
+            "title": "4 Lesson Package \u2014 Most Popular",
             "text": "$550\n\nFocused improvement across multiple sessions. Great for building rhythm and confidence without a full commitment.\n\nIdeal for: Golfers looking for short-term coaching or seasonal tune-ups.",
             "link_label": "Meet Your Coach",
-            "link_url": "shopify:\/\/pages\/contact"
+            "link_url": "shopify://pages/contact"
           }
         },
         "p3": {
@@ -58,21 +135,52 @@
             "title": "8 Lesson Package",
             "text": "$1,000\n\nBuild lasting habits over time. Our most popular package includes a coaching plan tailored to your growth.\n\nIdeal for: Players ready for a consistent training journey.",
             "link_label": "Meet Your Coach",
-            "link_url": "shopify:\/\/pages\/contact"
+            "link_url": "shopify://pages/contact"
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
-      "settings": { "title": "Start Your Training Journey", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-1", "swipe_on_mobile": false }
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "title": "Start Your Training Journey",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "color_scheme": "scheme-1",
+        "swipe_on_mobile": false
+      }
     },
     "disclaimer": {
       "type": "rich-text",
       "blocks": {
-        "text": { "type": "text", "settings": { "text": "<p>All prices in USD. Applicable taxes added at checkout.</p><p>Students will be paired with their preferred coach based on availability. Payment is due via secure link once the initial session has been confirmed by both the coach and student.</p>" } }
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>All prices in USD. Applicable taxes added at checkout.</p><p>Students will be paired with their preferred coach based on availability. Payment is due via secure link once the initial session has been confirmed by both the coach and student.</p>"
+          }
+        }
       },
-      "block_order": ["text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-2", "full_width": true, "padding_top": 24, "padding_bottom": 48 }
+      "block_order": [
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
     }
   },
-  "order": ["hero", "instructors", "packages_intro", "packages", "disclaimer"]
+  "order": [
+    "hero",
+    "instructors",
+    "packages_intro",
+    "packages",
+    "disclaimer"
+  ]
 }

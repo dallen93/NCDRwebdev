@@ -1,28 +1,70 @@
 {
   "sections": {
     "hero": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Contact Northcrest Golf", "heading_size": "h1" } },
-        "text": { "type": "text", "settings": { "text": "<p>3545 Northcrest Road, Atlanta, GA 30340<br>(770) 723-0002 &nbsp;·&nbsp; management@northcrestgolf.com</p><p>Hours: Mon–Sat 9am–11pm &nbsp;·&nbsp; Sun 9am–9pm</p>" } }
-      },
-      "block_order": ["heading", "text"],
-      "settings": { "desktop_content_position": "center", "content_alignment": "center", "color_scheme": "scheme-3", "full_width": true, "padding_top": 60, "padding_bottom": 60 }
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Contact",
+        "heading": "Northcrest Golf",
+        "heading_gold": "Driving Range.",
+        "subtext": "3545 Northcrest Road, Atlanta, GA 30340 \u00b7 (770) 723-0002 \u00b7 management@northcrestgolf.com"
+      }
     },
     "info": {
       "type": "multicolumn",
       "blocks": {
-        "loc": { "type": "column", "settings": { "title": "Location", "text": "3545 Northcrest Road\nAtlanta, GA 30340\n\nOff I-285 at Northcrest Road exit.", "link_label": "Get Directions" } },
-        "hours": { "type": "column", "settings": { "title": "Hours", "text": "Monday – Saturday: 9am – 11pm\nSunday: 9am – 9pm\n\nOpen 365 days a year.", "link_label": "" } },
-        "contact": { "type": "column", "settings": { "title": "Get In Touch", "text": "(770) 723-0002\nmanagement@northcrestgolf.com\n\nPro Shop questions, group events, and corporate bookings.", "link_label": "" } }
+        "loc": {
+          "type": "column",
+          "settings": {
+            "title": "Location",
+            "text": "3545 Northcrest Road\nAtlanta, GA 30340\n\nOff I-285 at Northcrest Road exit.",
+            "link_label": "Get Directions"
+          }
+        },
+        "hours": {
+          "type": "column",
+          "settings": {
+            "title": "Hours",
+            "text": "Monday \u2013 Saturday: 9am \u2013 11pm\nSunday: 9am \u2013 9pm\n\nOpen 365 days a year.",
+            "link_label": ""
+          }
+        },
+        "contact": {
+          "type": "column",
+          "settings": {
+            "title": "Get In Touch",
+            "text": "(770) 723-0002\nmanagement@northcrestgolf.com\n\nPro Shop questions, group events, and corporate bookings.",
+            "link_label": ""
+          }
+        }
       },
-      "block_order": ["loc", "hours", "contact"],
-      "settings": { "title": "", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": false }
+      "block_order": [
+        "loc",
+        "hours",
+        "contact"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "color_scheme": "scheme-2",
+        "swipe_on_mobile": false
+      }
     },
     "form": {
       "type": "contact-form",
-      "settings": { "heading": "Send Us a Message", "heading_size": "h2", "color_scheme": "scheme-1", "padding_top": 48, "padding_bottom": 48 }
+      "settings": {
+        "heading": "Send Us a Message",
+        "heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
     }
   },
-  "order": ["hero", "info", "form"]
+  "order": [
+    "hero",
+    "info",
+    "form"
+  ]
 }

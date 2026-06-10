@@ -1,13 +1,13 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Host Your Next Event at Northcrest", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "Ongoing events of all kinds, hosted in a fun and flexible golf environment your guests will genuinely enjoy. Tell us a bit about your event below.", "text_style": "subtitle" } }
-      },
-      "block_order": ["heading", "text"],
-      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Events",
+        "heading": "Host Your Next Event",
+        "heading_gold": "At Northcrest.",
+        "subtext": "Ongoing events of all kinds, hosted in a fun and flexible golf environment your guests will genuinely enjoy."
+      }
     },
     "events_banner": {
       "type": "ncdr-events-banner",
@@ -25,38 +25,149 @@
     "event_types_intro": {
       "type": "rich-text",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "What We Can Do For You", "heading_size": "h2" } },
-        "text": { "type": "text", "settings": { "text": "<p>Whether you're planning something casual or competitive, Northcrest is equipped to host events of all sizes and skill levels.</p>" } }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "What We Can Do For You",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you're planning something casual or competitive, Northcrest is equipped to host events of all sizes and skill levels.</p>"
+          }
+        }
       },
-      "block_order": ["heading", "text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 48, "padding_bottom": 12 }
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 12
+      }
     },
     "event_types": {
       "type": "multicolumn",
       "blocks": {
-        "e1": { "type": "column", "settings": { "title": "Birthday Parties", "text": "Celebrate your birthday on the range. Fun for all ages and skill levels.", "link_label": "" } },
-        "e2": { "type": "column", "settings": { "title": "Corporate Events & Team Outings", "text": "Build team chemistry in a relaxed, competitive golf environment.", "link_label": "" } },
-        "e3": { "type": "column", "settings": { "title": "Indoor Golf Tournaments", "text": "Organize competitive play on our Golfzon simulator bays.", "link_label": "" } },
-        "e4": { "type": "column", "settings": { "title": "School & Youth Group Events", "text": "Educational and fun experiences for students and youth organizations.", "link_label": "" } },
-        "e5": { "type": "column", "settings": { "title": "Family Gatherings", "text": "A welcoming space for families to play, compete, and connect.", "link_label": "" } },
-        "e6": { "type": "column", "settings": { "title": "Private Celebrations", "text": "Reserve the range for your private event — customizable packages available.", "link_label": "" } }
+        "e1": {
+          "type": "column",
+          "settings": {
+            "title": "Birthday Parties",
+            "text": "Celebrate your birthday on the range. Fun for all ages and skill levels.",
+            "link_label": ""
+          }
+        },
+        "e2": {
+          "type": "column",
+          "settings": {
+            "title": "Corporate Events & Team Outings",
+            "text": "Build team chemistry in a relaxed, competitive golf environment.",
+            "link_label": ""
+          }
+        },
+        "e3": {
+          "type": "column",
+          "settings": {
+            "title": "Indoor Golf Tournaments",
+            "text": "Organize competitive play on our Golfzon simulator bays.",
+            "link_label": ""
+          }
+        },
+        "e4": {
+          "type": "column",
+          "settings": {
+            "title": "School & Youth Group Events",
+            "text": "Educational and fun experiences for students and youth organizations.",
+            "link_label": ""
+          }
+        },
+        "e5": {
+          "type": "column",
+          "settings": {
+            "title": "Family Gatherings",
+            "text": "A welcoming space for families to play, compete, and connect.",
+            "link_label": ""
+          }
+        },
+        "e6": {
+          "type": "column",
+          "settings": {
+            "title": "Private Celebrations",
+            "text": "Reserve the range for your private event \u2014 customizable packages available.",
+            "link_label": ""
+          }
+        }
       },
-      "block_order": ["e1", "e2", "e3", "e4", "e5", "e6"],
-      "settings": { "title": "Events We Host", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "center", "color_scheme": "scheme-2", "swipe_on_mobile": true }
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6"
+      ],
+      "settings": {
+        "title": "Events We Host",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "color_scheme": "scheme-2",
+        "swipe_on_mobile": true
+      }
     },
     "inquiry_intro": {
       "type": "rich-text",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Start Planning Your Event", "heading_size": "h2" } },
-        "text": { "type": "text", "settings": { "text": "<p>Share a few details below and our team will follow up to discuss availability, pricing, and next steps.</p>" } }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Start Planning Your Event",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share a few details below and our team will follow up to discuss availability, pricing, and next steps.</p>"
+          }
+        }
       },
-      "block_order": ["heading", "text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 48, "padding_bottom": 12 }
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 12
+      }
     },
     "form": {
       "type": "contact-form",
-      "settings": { "heading": "Event Inquiry", "heading_size": "h3", "color_scheme": "scheme-1", "padding_top": 12, "padding_bottom": 60 }
+      "settings": {
+        "heading": "Event Inquiry",
+        "heading_size": "h3",
+        "color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 60
+      }
     }
   },
-  "order": ["hero", "events_banner", "event_types_intro", "event_types", "inquiry_intro", "form"]
+  "order": [
+    "hero",
+    "events_banner",
+    "event_types_intro",
+    "event_types",
+    "inquiry_intro",
+    "form"
+  ]
 }

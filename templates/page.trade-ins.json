@@ -1,13 +1,13 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Turn Your Used Clubs Into New Gear at Northcrest.", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "Your bag is worth more than you think, and so is what's waiting in our pro shop. Get an instant offer on your used clubs, apply that credit toward new gear, and walk out playing better. No appointment. No obligation.", "text_style": "subtitle" } }
-      },
-      "block_order": ["heading", "text"],
-      "settings": { "image_height": "medium", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Trade-Ins",
+        "heading": "Turn Your Used Clubs",
+        "heading_gold": "Into New Gear.",
+        "subtext": "Your bag is worth more than you think. Get an instant offer on your used clubs, apply that credit toward new gear, and walk out playing better."
+      }
     },
     "how_it_works": {
       "type": "multicolumn",
@@ -15,7 +15,7 @@
         "s1": {
           "type": "column",
           "settings": {
-            "title": "01 — Get a Quote",
+            "title": "01 \u2014 Get a Quote",
             "text": "Enter your clubs below. Our system returns an instant offer, no strings attached.",
             "link_label": ""
           }
@@ -23,7 +23,7 @@
         "s2": {
           "type": "column",
           "settings": {
-            "title": "02 — Accept Your Offer",
+            "title": "02 \u2014 Accept Your Offer",
             "text": "Happy with the value? Confirm and we'll set up store credit on your Northcrest account.",
             "link_label": ""
           }
@@ -31,24 +31,63 @@
         "s3": {
           "type": "column",
           "settings": {
-            "title": "03 — Shop the Pro Shop",
+            "title": "03 \u2014 Shop the Pro Shop",
             "text": "Bring your clubs in, give us your name at the counter, and apply your credit at checkout.",
             "link_label": ""
           }
         }
       },
-      "block_order": ["s1", "s2", "s3"],
-      "settings": { "title": "How It Works", "heading_size": "h2", "columns_desktop": 3, "column_alignment": "center", "color_scheme": "scheme-2", "swipe_on_mobile": false }
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "title": "How It Works",
+        "heading_size": "h2",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "color_scheme": "scheme-2",
+        "swipe_on_mobile": false
+      }
     },
     "nextroundnotice": {
       "type": "rich-text",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "See What Your Clubs Are Worth", "heading_size": "h2" } },
-        "text": { "type": "text", "settings": { "text": "<p>The trade-in program officially launches <strong>June 7th, 2026</strong>. Get your quote now and your store credit will be ready to use in the pro shop on launch day.</p><p>Powered by NextRound Golf</p>" } },
-        "button": { "type": "button", "settings": { "button_label": "Get My Instant Quote", "button_link": "https:\/\/nrg-pt.nextround.com\/?locationid=27677501793" } }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "See What Your Clubs Are Worth",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The trade-in program officially launches <strong>June 7th, 2026</strong>. Get your quote now and your store credit will be ready to use in the pro shop on launch day.</p><p>Powered by NextRound Golf</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get My Instant Quote",
+            "button_link": "https://nrg-pt.nextround.com/?locationid=27677501793"
+          }
+        }
       },
-      "block_order": ["heading", "text", "button"],
-      "settings": { "desktop_content_position": "center", "content_alignment": "center", "color_scheme": "scheme-2", "full_width": true, "padding_top": 60, "padding_bottom": 60 }
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     },
     "in_stock": {
       "type": "multicolumn",
@@ -57,7 +96,7 @@
           "type": "column",
           "settings": {
             "title": "Callaway Quantum Max Driver",
-            "text": "Driver · $649.99 — ~$499.99 after $150 trade-in\n\nAI-optimized face. Max distance off the tee.",
+            "text": "Driver \u00b7 $649.99 \u2014 ~$499.99 after $150 trade-in\n\nAI-optimized face. Max distance off the tee.",
             "link_label": ""
           }
         },
@@ -65,7 +104,7 @@
           "type": "column",
           "settings": {
             "title": "Mizuno JPX Forged Irons (Graphite)",
-            "text": "Irons · $1,399.99 — ~$1,249.99 after $150 trade-in\n\nChromoly construction. Tour-proven feel.",
+            "text": "Irons \u00b7 $1,399.99 \u2014 ~$1,249.99 after $150 trade-in\n\nChromoly construction. Tour-proven feel.",
             "link_label": ""
           }
         },
@@ -73,7 +112,7 @@
           "type": "column",
           "settings": {
             "title": "Blue Tees Captain Air GPS Rangefinder",
-            "text": "Accessories · $249.99 — ~$149.99 after $100 trade-in\n\nLaser + GPS. Slope, wind, and altitude compensation.",
+            "text": "Accessories \u00b7 $249.99 \u2014 ~$149.99 after $100 trade-in\n\nLaser + GPS. Slope, wind, and altitude compensation.",
             "link_label": ""
           }
         },
@@ -81,31 +120,85 @@
           "type": "column",
           "settings": {
             "title": "TaylorMade TP5x Golf Balls (dozen)",
-            "text": "Golf Balls · $57.99 — ~$0 after $57+ trade-in\n\n5-layer tour ball. Max distance, low spin.",
+            "text": "Golf Balls \u00b7 $57.99 \u2014 ~$0 after $57+ trade-in\n\n5-layer tour ball. Max distance, low spin.",
             "link_label": ""
           }
         }
       },
-      "block_order": ["g1", "g2", "g3", "g4"],
-      "settings": { "title": "In-Stock Gear Right Now", "heading_size": "h2", "columns_desktop": 2, "column_alignment": "left", "color_scheme": "scheme-1", "swipe_on_mobile": true }
+      "block_order": [
+        "g1",
+        "g2",
+        "g3",
+        "g4"
+      ],
+      "settings": {
+        "title": "In-Stock Gear Right Now",
+        "heading_size": "h2",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "color_scheme": "scheme-1",
+        "swipe_on_mobile": true
+      }
     },
     "notes": {
       "type": "rich-text",
       "blocks": {
-        "text": { "type": "text", "settings": { "text": "<p>Prices shown are illustrative examples based on current pro shop inventory. Trade-in values are estimates and subject to final verification at the time of in-store redemption.</p>" } }
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Prices shown are illustrative examples based on current pro shop inventory. Trade-in values are estimates and subject to final verification at the time of in-store redemption.</p>"
+          }
+        }
       },
-      "block_order": ["text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-1", "full_width": true, "padding_top": 12, "padding_bottom": 12 }
+      "block_order": [
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
     },
     "terms": {
       "type": "rich-text",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Terms & Conditions", "heading_size": "h3" } },
-        "text": { "type": "text", "settings": { "text": "<p>Trade-in credit is issued as store credit to your Northcrest customer account and may be applied toward pro shop merchandise. Credit has no cash value and is non-transferable. Quoted values are estimates based on current market data provided by NextRound Golf. Final credit amount is subject to in-store inspection and must match the submitted quote; if clubs do not match the condition described, the offer may be adjusted at the time of redemption. Northcrest Golf Driving Range reserves the right to modify or discontinue the trade-in program at any time.</p>" } }
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms & Conditions",
+            "heading_size": "h3"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Trade-in credit is issued as store credit to your Northcrest customer account and may be applied toward pro shop merchandise. Credit has no cash value and is non-transferable. Quoted values are estimates based on current market data provided by NextRound Golf. Final credit amount is subject to in-store inspection and must match the submitted quote; if clubs do not match the condition described, the offer may be adjusted at the time of redemption. Northcrest Golf Driving Range reserves the right to modify or discontinue the trade-in program at any time.</p>"
+          }
+        }
       },
-      "block_order": ["heading", "text"],
-      "settings": { "desktop_content_position": "left", "content_alignment": "left", "color_scheme": "scheme-2", "full_width": true, "padding_top": 24, "padding_bottom": 48 }
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 24,
+        "padding_bottom": 48
+      }
     }
   },
-  "order": ["hero", "how_it_works", "nextroundnotice", "in_stock", "notes", "terms"]
+  "order": [
+    "hero",
+    "how_it_works",
+    "nextroundnotice",
+    "in_stock",
+    "notes",
+    "terms"
+  ]
 }
