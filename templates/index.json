@@ -26,7 +26,22 @@
         "item4": { "type": "item", "settings": { "icon": "layers", "label": "Grass Tees", "sublabel": "Natural turf, spring – fall" } }
       },
       "block_order": ["item1", "item2", "item3", "item4"]
+    },
+    "basket_pricing": {
+      "type": "ncdr-basket-pricing",
+      "blocks": {
+        "small": { "type": "basket", "settings": { "name": "Small Basket", "price": "13", "featured": false, "feature_1": "45 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        "medium": { "type": "basket", "settings": { "name": "Medium Basket", "price": "18", "featured": true, "badge": "Best Value", "feature_1": "90 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } },
+        "large": { "type": "basket", "settings": { "name": "Large Basket", "price": "22", "featured": false, "feature_1": "140 Premium Balls", "feature_2": "Access to Grass Tees", "feature_3": "Turf Mat Bays" } }
+      },
+      "block_order": ["small", "medium", "large"],
+      "settings": {
+        "heading": "Hit More. Pay Less.",
+        "subtext": "Premium range balls, access to grass tees, and turf mat bays — every basket includes it all.",
+        "coupon_label": "Save up to 20% with a Coupon Book →",
+        "coupon_link": "shopify:\/\/collections\/all"
+      }
     }
   },
-  "order": ["image_banner", "facility_strip"]
+  "order": ["image_banner", "facility_strip", "basket_pricing"]
 }
