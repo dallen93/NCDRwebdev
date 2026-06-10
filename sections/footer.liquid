@@ -7,7 +7,7 @@
 
   .ncdr-footer__grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 48px;
     margin-bottom: 48px;
   }
@@ -116,7 +116,7 @@
   .ncdr-footer__badges img:hover { opacity: 1; }
 
   @media (max-width: 1024px) {
-    .ncdr-footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .ncdr-footer__grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
   }
 
   @media (max-width: 749px) {
