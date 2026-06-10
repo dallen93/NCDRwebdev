@@ -284,20 +284,20 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Collection page — full-width product grid */
-.template-collection .collection.page-width,
-.template-collection .collection--empty.page-width,
-.template-collection .facets-wrapper.page-width,
-.template-collection .facets-wrapper--no-filters.page-width {
+.collection.page-width,
+.collection--empty.page-width,
+.facets-wrapper.page-width,
+.facets-wrapper--no-filters.page-width {
   max-width: 100% !important;
   padding-left: 40px !important;
   padding-right: 40px !important;
 }
 
 @media (max-width: 749px) {
-  .template-collection .collection.page-width,
-  .template-collection .collection--empty.page-width,
-  .template-collection .facets-wrapper.page-width,
-  .template-collection .facets-wrapper--no-filters.page-width {
+  .collection.page-width,
+  .collection--empty.page-width,
+  .facets-wrapper.page-width,
+  .facets-wrapper--no-filters.page-width {
     padding-left: 16px !important;
     padding-right: 16px !important;
   }
