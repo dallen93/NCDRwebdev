@@ -1,0 +1,417 @@
+<style>
+  /* ── How It Works ── */
+  .ncdr-tradein-how {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-tradein-how__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-tradein-how__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-tradein-how__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ncdr-tradein-step {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 32px 28px;
+  }
+
+  .ncdr-tradein-step__num {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--ncdr-gold);
+    margin-bottom: 16px;
+  }
+
+  .ncdr-tradein-step__icon {
+    width: 40px;
+    height: 40px;
+    background: var(--ncdr-green-deep);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .ncdr-tradein-step__title {
+    font-family: var(--ncdr-font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 10px;
+  }
+
+  .ncdr-tradein-step__desc {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── Quote tool ── */
+  .ncdr-tradein-quote {
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-tradein-quote__eyebrow {
+    padding: 40px 60px 0;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-tradein-quote__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-tradein-quote__iframe {
+    width: 100%;
+    display: block;
+  }
+
+  /* ── Credit showcase ── */
+  .ncdr-tradein-showcase {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-tradein-showcase__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-tradein-showcase__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-tradein-showcase__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-tradein-showcase__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 600px;
+    line-height: 1.65;
+  }
+  .ncdr-tradein-showcase__sub strong { color: var(--ncdr-text-dark); font-weight: 600; }
+
+  .ncdr-tradein-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .ncdr-tradein-product-card {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 24px 24px 20px;
+  }
+
+  .ncdr-tradein-product-card__category {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 6px;
+  }
+
+  .ncdr-tradein-product-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 10px;
+  }
+
+  .ncdr-tradein-product-card__pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-tradein-product-card__original {
+    font-size: 13px;
+    color: #aaa;
+    text-decoration: line-through;
+  }
+
+  .ncdr-tradein-product-card__after {
+    font-family: var(--ncdr-font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--ncdr-green-deep);
+  }
+
+  .ncdr-tradein-product-card__after-label {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+  }
+
+  .ncdr-tradein-product-card__badge {
+    display: inline-block;
+    background: var(--ncdr-green-deep);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+
+  .ncdr-tradein-product-card__badge--covered {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+  }
+
+  .ncdr-tradein-product-card__desc {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .ncdr-tradein-showcase__footnote {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* ── Terms ── */
+  .ncdr-tradein-terms {
+    padding: 48px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-tradein-terms__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-tradein-terms__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-text-mid);
+    opacity: 0.4;
+  }
+
+  .ncdr-tradein-terms__body {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 860px;
+  }
+  .ncdr-tradein-terms__body p { margin-bottom: 12px; }
+  .ncdr-tradein-terms__body p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 749px) {
+    .ncdr-tradein-how,
+    .ncdr-tradein-showcase,
+    .ncdr-tradein-terms { padding: 48px 20px; }
+    .ncdr-tradein-how__grid { grid-template-columns: 1fr; gap: 14px; }
+    .ncdr-tradein-showcase__grid { grid-template-columns: 1fr; }
+    .ncdr-tradein-quote__eyebrow { padding: 32px 20px 0; }
+  }
+</style>
+
+<!-- How It Works -->
+<div class="ncdr-tradein-how">
+  <div class="ncdr-tradein-how__eyebrow">How It Works <span></span></div>
+  <div class="ncdr-tradein-how__grid">
+
+    <div class="ncdr-tradein-step">
+      <div class="ncdr-tradein-step__num">01</div>
+      <div class="ncdr-tradein-step__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        </svg>
+      </div>
+      <div class="ncdr-tradein-step__title">Get a Quote</div>
+      <div class="ncdr-tradein-step__desc">Enter your clubs below. Our system returns an instant offer — no strings attached.</div>
+    </div>
+
+    <div class="ncdr-tradein-step">
+      <div class="ncdr-tradein-step__num">02</div>
+      <div class="ncdr-tradein-step__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="ncdr-tradein-step__title">Accept Your Offer</div>
+      <div class="ncdr-tradein-step__desc">Happy with the value? Confirm and we'll set up store credit on your Northcrest account.</div>
+    </div>
+
+    <div class="ncdr-tradein-step">
+      <div class="ncdr-tradein-step__num">03</div>
+      <div class="ncdr-tradein-step__icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      </div>
+      <div class="ncdr-tradein-step__title">Shop the Pro Shop</div>
+      <div class="ncdr-tradein-step__desc">Bring your clubs in, give us your name at the counter, and apply your credit at checkout.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Quote Tool -->
+<div class="ncdr-tradein-quote">
+  <div class="ncdr-tradein-quote__eyebrow">Get Your Instant Offer <span></span></div>
+  <iframe
+    class="ncdr-tradein-quote__iframe"
+    src="https://nrg-pt.nextround.com/?locationid=27677501793"
+    style="height: 700px; overflow: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: none;"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- Credit Showcase -->
+<div class="ncdr-tradein-showcase">
+  <div class="ncdr-tradein-showcase__eyebrow">See What Your Credit Goes Toward <span></span></div>
+  <h2 class="ncdr-tradein-showcase__heading">{{ section.settings.showcase_heading }}</h2>
+  <p class="ncdr-tradein-showcase__sub">{{ section.settings.showcase_subtext }}</p>
+
+  <div class="ncdr-tradein-showcase__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'product_example' -%}
+        <div class="ncdr-tradein-product-card">
+          <div class="ncdr-tradein-product-card__category">{{ block.settings.category }}</div>
+          <div class="ncdr-tradein-product-card__name">{{ block.settings.name }}</div>
+          <div class="ncdr-tradein-product-card__pricing">
+            {%- if block.settings.original_price != blank -%}
+              <span class="ncdr-tradein-product-card__original">${{ block.settings.original_price }}</span>
+            {%- endif -%}
+            <span class="ncdr-tradein-product-card__after">
+              {%- if block.settings.after_price == '0' or block.settings.after_price == '' -%}
+                Fully Covered
+              {%- else -%}
+                ${{ block.settings.after_price }}
+              {%- endif -%}
+            </span>
+            {%- if block.settings.trade_label != blank -%}
+              <span class="ncdr-tradein-product-card__after-label">{{ block.settings.trade_label }}</span>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.badge != blank -%}
+            <div class="ncdr-tradein-product-card__badge{% if block.settings.after_price == '0' %} ncdr-tradein-product-card__badge--covered{% endif %}">{{ block.settings.badge }}</div>
+          {%- endif -%}
+          <div class="ncdr-tradein-product-card__desc">{{ block.settings.description }}</div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.showcase_footnote != blank -%}
+    <p class="ncdr-tradein-showcase__footnote">* {{ section.settings.showcase_footnote }}</p>
+  {%- endif -%}
+</div>
+
+<!-- Terms -->
+<div class="ncdr-tradein-terms">
+  <div class="ncdr-tradein-terms__eyebrow">Terms &amp; Conditions <span></span></div>
+  <div class="ncdr-tradein-terms__body">{{ section.settings.terms | newline_to_br }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Trade-In",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "showcase_heading", "label": "Showcase heading", "default": "Here's What That Credit Covers" },
+    { "type": "textarea", "id": "showcase_subtext", "label": "Showcase subtext", "default": "A typical trade-in runs $50–$200 depending on your clubs. Here's what that looks like applied against popular items on our floor right now — not hypotheticals, actual gear in stock." },
+    { "type": "text", "id": "showcase_footnote", "label": "Showcase footnote", "default": "Prices shown are illustrative examples based on current pro shop inventory. Trade-in values are estimates and subject to final verification at the time of in-store redemption." },
+    { "type": "textarea", "id": "terms", "label": "Terms & Conditions", "default": "Trade-in credit is issued as store credit to your Northcrest customer account and may be applied toward pro shop merchandise. Credit has no cash value and is non-transferable. Quoted values are estimates based on current market data provided by NextRound Golf. Final credit amount is subject to in-store inspection and must match the submitted quote; if clubs do not match the condition described, the offer may be adjusted at the time of redemption.\n\nNorthcrest Golf Driving Range reserves the right to modify or discontinue the trade-in program at any time." }
+  ],
+  "blocks": [
+    {
+      "type": "product_example",
+      "name": "Product Example",
+      "settings": [
+        { "type": "text", "id": "category", "label": "Category (e.g. Driver)" },
+        { "type": "text", "id": "name", "label": "Product name" },
+        { "type": "text", "id": "original_price", "label": "Original price (no $)" },
+        { "type": "text", "id": "after_price", "label": "Price after trade-in (no $, use 0 for fully covered)" },
+        { "type": "text", "id": "trade_label", "label": "Trade-in label (e.g. after $150 trade-in)" },
+        { "type": "text", "id": "badge", "label": "Badge text (e.g. Save –23%)" },
+        { "type": "textarea", "id": "description", "label": "Short description" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Trade-In" }]
+}
+{% endschema %}

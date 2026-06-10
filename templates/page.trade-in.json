@@ -1,0 +1,74 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Trade-Ins",
+        "heading": "Trade In.",
+        "heading_gold": "Upgrade. Play Better.",
+        "subtext": "Get store credit for your old clubs — applied directly to your Northcrest account for use online or in-store at the range."
+      }
+    },
+    "tradein": {
+      "type": "ncdr-trade-in",
+      "blocks": {
+        "ex1": {
+          "type": "product_example",
+          "settings": {
+            "category": "Driver",
+            "name": "Callaway Quantum Max Driver",
+            "original_price": "649.99",
+            "after_price": "499.99",
+            "trade_label": "after $150 trade-in",
+            "badge": "Save –23%",
+            "description": "AI-optimized face. Max distance off the tee. One of our most-asked-about clubs right now."
+          }
+        },
+        "ex2": {
+          "type": "product_example",
+          "settings": {
+            "category": "Irons",
+            "name": "Mizuno JPX Forged Irons (Graphite)",
+            "original_price": "1,399.99",
+            "after_price": "1,249.99",
+            "trade_label": "after $150 trade-in",
+            "badge": "Save –11%",
+            "description": "Chromoly construction. Tour-proven feel with distance built in. A Mizuno staple for a reason."
+          }
+        },
+        "ex3": {
+          "type": "product_example",
+          "settings": {
+            "category": "Accessories",
+            "name": "Blue Tees Captain Air GPS Rangefinder",
+            "original_price": "249.99",
+            "after_price": "149.99",
+            "trade_label": "after $100 trade-in",
+            "badge": "Save –40%",
+            "description": "Laser + GPS in one device. Slope, wind, and altitude compensation. Know your exact number every time."
+          }
+        },
+        "ex4": {
+          "type": "product_example",
+          "settings": {
+            "category": "Golf Balls",
+            "name": "TaylorMade TP5x Golf Balls (dozen)",
+            "original_price": "57.99",
+            "after_price": "0",
+            "trade_label": "after $57+ trade-in",
+            "badge": "Fully Covered",
+            "description": "5-layer tour ball. Max distance, low spin off the driver, exceptional greenside control."
+          }
+        }
+      },
+      "block_order": ["ex1", "ex2", "ex3", "ex4"],
+      "settings": {
+        "showcase_heading": "Here's What That Credit Covers",
+        "showcase_subtext": "A typical trade-in runs $50–$200 depending on your clubs. Here's what that looks like applied against popular items on our floor right now — not hypotheticals, actual gear in stock.",
+        "showcase_footnote": "Prices shown are illustrative examples based on current pro shop inventory. Trade-in values are estimates and subject to final verification at the time of in-store redemption.",
+        "terms": "Trade-in credit is issued as store credit to your Northcrest customer account and may be applied toward pro shop merchandise. Credit has no cash value and is non-transferable. Quoted values are estimates based on current market data provided by NextRound Golf. Final credit amount is subject to in-store inspection and must match the submitted quote; if clubs do not match the condition described, the offer may be adjusted at the time of redemption.\n\nNorthcrest Golf Driving Range reserves the right to modify or discontinue the trade-in program at any time."
+      }
+    }
+  },
+  "order": ["hero", "tradein"]
+}
