@@ -307,7 +307,7 @@
           {%- endif -%}
           {%- if block.settings.native_language != blank and block.settings.native_bio != blank -%}
             <button class="ncdr-modal__lang-btn" onclick="ncdrOpenNative('{{ block.id }}')">
-              Read in {{ block.settings.native_language }} →
+              {{ block.settings.native_language }} →
             </button>
           {%- endif -%}
         </div>
