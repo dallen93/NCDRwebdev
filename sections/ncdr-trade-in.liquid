@@ -106,6 +106,43 @@
     display: block;
   }
 
+  .ncdr-tradein-quote__wrap {
+    position: relative;
+  }
+
+  .ncdr-tradein-quote__shield {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42, 64, 32, 0.04);
+    transition: background 0.2s;
+  }
+  .ncdr-tradein-quote__shield:hover {
+    background: rgba(42, 64, 32, 0.08);
+  }
+
+  .ncdr-tradein-quote__shield-label {
+    background: var(--ncdr-green-deep);
+    color: #fff;
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 3px;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .ncdr-tradein-quote__shield.is-hidden {
+    display: none;
+  }
+
   /* ── Credit showcase ── */
   .ncdr-tradein-showcase {
     padding: 64px 60px;
@@ -331,14 +368,33 @@
 <!-- Quote Tool -->
 <div class="ncdr-tradein-quote">
   <div class="ncdr-tradein-quote__eyebrow">Get Your Instant Offer <span></span></div>
-  <iframe
-    class="ncdr-tradein-quote__iframe"
-    src="https://nrg-pt.nextround.com/?locationid=27677501793"
-    style="height: 700px; overflow: auto !important; -webkit-overflow-scrolling: touch !important; touch-action: none;"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
+  <div class="ncdr-tradein-quote__wrap" id="ncdr-quote-wrap">
+    <div class="ncdr-tradein-quote__shield" id="ncdr-quote-shield" onclick="ncdrActivateQuote()">
+      <span class="ncdr-tradein-quote__shield-label">Click to Get Your Quote</span>
+    </div>
+    <iframe
+      class="ncdr-tradein-quote__iframe"
+      src="https://nrg-pt.nextround.com/?locationid=27677501793"
+      style="height: 700px; overflow: auto !important; -webkit-overflow-scrolling: touch !important;"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 </div>
+
+<script>
+  function ncdrActivateQuote() {
+    document.getElementById('ncdr-quote-shield').classList.add('is-hidden');
+  }
+  document.addEventListener('click', function(e) {
+    var wrap = document.getElementById('ncdr-quote-wrap');
+    var shield = document.getElementById('ncdr-quote-shield');
+    if (shield && !shield.classList.contains('is-hidden') ) return;
+    if (wrap && !wrap.contains(e.target)) {
+      if (shield) shield.classList.remove('is-hidden');
+    }
+  });
+</script>
 
 <!-- Credit Showcase -->
 <div class="ncdr-tradein-showcase">
