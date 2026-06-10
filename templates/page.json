@@ -21,10 +21,10 @@
       "type": "ncdr-inner-hero",
       "name": "NCDR Inner Hero",
       "settings": {
-        "eyebrow": "CLUB REPAIR",
-        "heading": "CLUB REPAIR &",
-        "heading_gold": "RESTORATION",
-        "subtext": "Professional club repair and customization by experienced technicians. Bring your clubs back to peak performance."
+        "eyebrow": "INSTRUCTION",
+        "heading": "LEARN FROM",
+        "heading_gold": "THE BEST.",
+        "subtext": "World-class instruction for every skill level from beginner fundamentals to competitive performance coaching."
       }
     }
   },
