@@ -45,6 +45,12 @@
     border-radius: 8px;
     padding: 28px 20px;
     text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .ncdr-instructor-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
   }
 
   .ncdr-instructor-card__avatar {
@@ -59,16 +65,12 @@
     justify-content: center;
     overflow: hidden;
   }
-
   .ncdr-instructor-card__avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-
-  .ncdr-instructor-card__avatar svg {
-    opacity: 0.3;
-  }
+  .ncdr-instructor-card__avatar svg { opacity: 0.3; }
 
   .ncdr-instructor-card__name {
     font-family: var(--ncdr-font-heading);
@@ -85,11 +87,156 @@
     color: var(--ncdr-gold);
     font-weight: 600;
     letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+
+  .ncdr-instructor-card__hint {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    opacity: 0.7;
+  }
+
+  /* ── Modal overlay ── */
+  .ncdr-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 9000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .ncdr-modal-overlay.is-open { display: flex; }
+
+  .ncdr-modal {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 540px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  }
+
+  .ncdr-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ncdr-text-mid);
+    font-size: 22px;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.2s;
+    z-index: 2;
+  }
+  .ncdr-modal__close:hover { color: var(--ncdr-text-dark); }
+
+  .ncdr-modal__head {
+    background: var(--ncdr-green-deep);
+    border-radius: 10px 10px 0 0;
+    padding: 32px 32px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ncdr-modal__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid rgba(201,168,76,0.4);
+    flex-shrink: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ncdr-modal__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ncdr-modal__avatar svg { opacity: 0.4; }
+
+  .ncdr-modal__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+
+  .ncdr-modal__cred {
+    font-size: 12px;
+    color: var(--ncdr-gold);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+
+  .ncdr-modal__body {
+    padding: 28px 32px 32px;
+  }
+
+  .ncdr-modal__bio {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .ncdr-modal__bio p { margin-bottom: 10px; }
+  .ncdr-modal__bio p:last-child { margin-bottom: 0; }
+
+  .ncdr-modal__lang-btn {
+    background: transparent;
+    border: 1px solid var(--ncdr-gold-border);
+    color: var(--ncdr-gold);
+    font-family: var(--ncdr-font-heading);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ncdr-modal__lang-btn:hover {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+  }
+
+  /* ── Native language sub-modal ── */
+  .ncdr-modal-native {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: 9100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .ncdr-modal-native.is-open { display: flex; }
+
+  .ncdr-modal-native .ncdr-modal {
+    border-top: 3px solid var(--ncdr-gold);
   }
 
   @media (max-width: 749px) {
     .ncdr-instructors { padding: 48px 20px; }
     .ncdr-instructors__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .ncdr-modal__head { flex-direction: column; text-align: center; }
+    .ncdr-modal__body { padding: 20px; }
   }
 </style>
 
@@ -99,23 +246,116 @@
 
   <div class="ncdr-instructors__grid">
     {%- for block in section.blocks -%}
-      <div class="ncdr-instructor-card">
+      <div class="ncdr-instructor-card" onclick="ncdrOpenInstructor('{{ block.id }}')" role="button" tabindex="0" aria-label="View {{ block.settings.name }} bio">
         <div class="ncdr-instructor-card__avatar">
           {%- if block.settings.photo != blank -%}
             <img src="{{ block.settings.photo | image_url: width: 160 }}" alt="{{ block.settings.name | escape }}" width="80" height="80" loading="lazy">
           {%- else -%}
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#3A582B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
             </svg>
           {%- endif -%}
         </div>
         <div class="ncdr-instructor-card__name">{{ block.settings.name }}</div>
         <div class="ncdr-instructor-card__cred">{{ block.settings.credential }}</div>
+        {%- if block.settings.bio != blank -%}
+          <div class="ncdr-instructor-card__hint">View bio →</div>
+        {%- endif -%}
       </div>
     {%- endfor -%}
   </div>
 </div>
+
+<!-- Instructor modals -->
+{%- for block in section.blocks -%}
+  {%- if block.settings.bio != blank or block.settings.name != blank -%}
+    <div class="ncdr-modal-overlay" id="instructor-modal-{{ block.id }}" onclick="ncdrCloseInstructor('{{ block.id }}', event)">
+      <div class="ncdr-modal">
+        <button class="ncdr-modal__close" onclick="ncdrCloseInstructor('{{ block.id }}', null)" aria-label="Close">&#x2715;</button>
+        <div class="ncdr-modal__head">
+          <div class="ncdr-modal__avatar">
+            {%- if block.settings.photo != blank -%}
+              <img src="{{ block.settings.photo | image_url: width: 144 }}" alt="{{ block.settings.name | escape }}" width="72" height="72" loading="lazy">
+            {%- else -%}
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+            {%- endif -%}
+          </div>
+          <div>
+            <div class="ncdr-modal__name">{{ block.settings.name }}</div>
+            <div class="ncdr-modal__cred">{{ block.settings.credential }}</div>
+          </div>
+        </div>
+        <div class="ncdr-modal__body">
+          {%- if block.settings.bio != blank -%}
+            <div class="ncdr-modal__bio">{{ block.settings.bio | newline_to_br }}</div>
+          {%- else -%}
+            <div class="ncdr-modal__bio" style="color:#aaa;font-style:italic;">Bio coming soon.</div>
+          {%- endif -%}
+          {%- if block.settings.native_language != blank and block.settings.native_bio != blank -%}
+            <button class="ncdr-modal__lang-btn" onclick="ncdrOpenNative('{{ block.id }}')">
+              Read in {{ block.settings.native_language }} →
+            </button>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    {%- if block.settings.native_language != blank and block.settings.native_bio != blank -%}
+      <div class="ncdr-modal-native" id="instructor-native-{{ block.id }}" onclick="ncdrCloseNative('{{ block.id }}', event)">
+        <div class="ncdr-modal">
+          <button class="ncdr-modal__close" onclick="ncdrCloseNative('{{ block.id }}', null)" aria-label="Close">&#x2715;</button>
+          <div class="ncdr-modal__head">
+            <div class="ncdr-modal__avatar">
+              {%- if block.settings.photo != blank -%}
+                <img src="{{ block.settings.photo | image_url: width: 144 }}" alt="{{ block.settings.name | escape }}" width="72" height="72" loading="lazy">
+              {%- else -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+              {%- endif -%}
+            </div>
+            <div>
+              <div class="ncdr-modal__name">{{ block.settings.name }}</div>
+              <div class="ncdr-modal__cred">{{ block.settings.credential }}</div>
+            </div>
+          </div>
+          <div class="ncdr-modal__body">
+            <div class="ncdr-modal__bio">{{ block.settings.native_bio | newline_to_br }}</div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<script>
+  function ncdrOpenInstructor(id) {
+    document.getElementById('instructor-modal-' + id).classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function ncdrCloseInstructor(id, e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('instructor-modal-' + id).classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  function ncdrOpenNative(id) {
+    document.getElementById('instructor-native-' + id).classList.add('is-open');
+  }
+  function ncdrCloseNative(id, e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('instructor-native-' + id).classList.remove('is-open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.ncdr-modal-native.is-open').forEach(function(m) { m.classList.remove('is-open'); });
+    document.querySelectorAll('.ncdr-modal-overlay.is-open').forEach(function(m) {
+      m.classList.remove('is-open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -131,7 +371,10 @@
       "settings": [
         { "type": "text", "id": "name", "label": "Name" },
         { "type": "text", "id": "credential", "label": "Credential / Title" },
-        { "type": "image_picker", "id": "photo", "label": "Photo (optional)" }
+        { "type": "image_picker", "id": "photo", "label": "Photo (optional)" },
+        { "type": "textarea", "id": "bio", "label": "Bio (English)" },
+        { "type": "text", "id": "native_language", "label": "Native language name (e.g. Korean)" },
+        { "type": "textarea", "id": "native_bio", "label": "Bio in native language (optional)" }
       ]
     }
   ],
