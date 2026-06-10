@@ -46,7 +46,8 @@
         "heading_gold": "Game Grows.",
         "subtext": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
         "cta_label": "Shop the Pro Shop",
-        "cta_link": "shopify://collections/all"
+        "cta_link": "shopify://collections/all",
+        "map_image": "shopify://shop_images/ATL_City_Map.webp"
       }
     },
     "facility_strip": {
