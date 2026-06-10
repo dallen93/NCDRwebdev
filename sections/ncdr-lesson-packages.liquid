@@ -1,0 +1,361 @@
+<style>
+  .ncdr-lesson-packages {
+    padding: 64px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-lesson-packages__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-lesson-packages__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-lesson-packages__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+  }
+
+  .ncdr-lesson-packages__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 36px;
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  .ncdr-lesson-packages__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  /* Light card */
+  .ncdr-pkg-card {
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 32px 28px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Featured dark card */
+  .ncdr-pkg-card--featured {
+    border: 2px solid var(--ncdr-gold);
+    background: var(--ncdr-green-deep);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(58,88,43,0.25);
+    position: relative;
+  }
+
+  .ncdr-pkg-card__badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .ncdr-pkg-card__label {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 14px;
+  }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__label { color: rgba(255,255,255,0.5); }
+
+  .ncdr-pkg-card__price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--ncdr-green-deep);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__price { color: var(--ncdr-gold); }
+
+  .ncdr-pkg-card__price-note {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ncdr-text-mid);
+    margin-left: 4px;
+  }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__price-note { color: rgba(255,255,255,0.4); }
+
+  .ncdr-pkg-card__desc {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.65;
+    margin-bottom: 10px;
+    font-weight: 300;
+    flex-grow: 1;
+  }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__desc { color: rgba(255,255,255,0.65); }
+
+  .ncdr-pkg-card__ideal {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .ncdr-pkg-card__ideal strong { font-style: normal; color: var(--ncdr-text-mid); }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__ideal { color: rgba(255,255,255,0.45); }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__ideal strong { color: rgba(255,255,255,0.65); }
+
+  .ncdr-pkg-card__divider {
+    height: 1px;
+    background: var(--ncdr-light-gray);
+    margin: 0 0 20px;
+  }
+  .ncdr-pkg-card--featured .ncdr-pkg-card__divider { background: rgba(255,255,255,0.08); }
+
+  .ncdr-pkg-card .button {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 12px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: var(--ncdr-font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    transition: all 0.2s;
+  }
+
+  .ncdr-pkg-card .button--green {
+    background: var(--ncdr-green-deep);
+    color: #fff;
+    border: none;
+  }
+  .ncdr-pkg-card .button--green:hover { background: var(--ncdr-green); }
+
+  .ncdr-pkg-card .button--gold {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    border: none;
+  }
+  .ncdr-pkg-card .button--gold:hover { background: var(--ncdr-gold-light); }
+
+  .ncdr-lesson-packages__disclaimer {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-lesson-packages { padding: 48px 20px; }
+    .ncdr-lesson-packages__grid { grid-template-columns: 1fr; gap: 28px; }
+    .ncdr-pkg-card--featured { transform: none; }
+  }
+</style>
+
+<div class="ncdr-lesson-packages">
+  <div class="ncdr-lesson-packages__eyebrow">Start Your Training Journey <span></span></div>
+  <h2 class="ncdr-lesson-packages__heading">{{ section.settings.heading }}</h2>
+  <p class="ncdr-lesson-packages__sub">{{ section.settings.subtext }}</p>
+
+  <div class="ncdr-lesson-packages__grid">
+    {%- for block in section.blocks -%}
+      <div class="ncdr-pkg-card{% if block.settings.featured %} ncdr-pkg-card--featured{% endif %}">
+        {%- if block.settings.featured and block.settings.badge != blank -%}
+          <div class="ncdr-pkg-card__badge">{{ block.settings.badge }}</div>
+        {%- endif -%}
+
+        <div class="ncdr-pkg-card__label">{{ block.settings.name }}</div>
+
+        <div class="ncdr-pkg-card__price">
+          ${{ block.settings.price }}
+          {%- if block.settings.price_note != blank -%}
+            <span class="ncdr-pkg-card__price-note">{{ block.settings.price_note }}</span>
+          {%- endif -%}
+        </div>
+
+        <div class="ncdr-pkg-card__divider"></div>
+
+        <p class="ncdr-pkg-card__desc">{{ block.settings.description }}</p>
+
+        {%- if block.settings.ideal != blank -%}
+          <p class="ncdr-pkg-card__ideal"><strong>Ideal for:</strong> {{ block.settings.ideal }}</p>
+        {%- endif -%}
+
+        <button type="button" class="button {% if block.settings.featured %}button--gold{% else %}button--green{% endif %}" onclick="ncdrOpenBooking('{{ block.settings.name | escape }}')">
+          {{ section.settings.cta_label | default: 'Book a Lesson' }}
+        </button>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.disclaimer != blank -%}
+    <p class="ncdr-lesson-packages__disclaimer">{{ section.settings.disclaimer }}</p>
+  {%- endif -%}
+</div>
+
+<!-- Booking form modal -->
+<div class="ncdr-modal-overlay" id="ncdr-booking-modal" onclick="ncdrCloseBooking(event)">
+  <div class="ncdr-modal" style="max-width:500px;">
+    <button class="ncdr-modal__close" onclick="ncdrCloseBooking(null)" aria-label="Close">&#x2715;</button>
+    <div class="ncdr-modal__head">
+      <div>
+        <div class="ncdr-modal__name">Book a Lesson</div>
+        <div class="ncdr-modal__cred">Fill out the form and we'll be in touch</div>
+      </div>
+    </div>
+    <div class="ncdr-modal__body">
+      {% form 'contact' %}
+        {%- if form.posted_successfully? -%}
+          <p style="color:#3A582B;font-weight:600;margin-bottom:16px;">Thanks! We'll reach out to confirm your session.</p>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <p style="color:#c0392b;margin-bottom:12px;">{{ form.errors | default_errors }}</p>
+        {%- endif -%}
+
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-name">Name</label>
+          <input class="ncdr-booking-input" type="text" id="booking-name" name="contact[name]" required placeholder="Your full name">
+        </div>
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-email">Email</label>
+          <input class="ncdr-booking-input" type="email" id="booking-email" name="contact[email]" required placeholder="your@email.com">
+        </div>
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-phone">Phone</label>
+          <input class="ncdr-booking-input" type="tel" id="booking-phone" name="contact[phone]" placeholder="(xxx) xxx-xxxx">
+        </div>
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-coach">Preferred Coach</label>
+          <select class="ncdr-booking-input" id="booking-coach" name="contact[preferred_coach]">
+            <option value="">No preference</option>
+            <option>Jim Yong Choi</option>
+            <option>Ah Ram Suh</option>
+            <option>Greg Shelnutt</option>
+            <option>William Buitrago</option>
+            <option>Ho H-Yu</option>
+            <option>Joseph Choi</option>
+          </select>
+        </div>
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-package">Package Interest</label>
+          <input class="ncdr-booking-input" type="text" id="booking-package" name="contact[package]" readonly>
+        </div>
+        <div class="ncdr-booking-field">
+          <label class="ncdr-booking-label" for="booking-message">Message (optional)</label>
+          <textarea class="ncdr-booking-input" id="booking-message" name="contact[body]" rows="3" placeholder="Anything you'd like us to know…"></textarea>
+        </div>
+
+        <button type="submit" class="button button--green" style="width:100%;margin-top:8px;">Send Request</button>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .ncdr-booking-field { margin-bottom: 14px; }
+  .ncdr-booking-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 5px;
+  }
+  .ncdr-booking-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 4px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-family: var(--ncdr-font-body);
+    color: var(--ncdr-text-dark);
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .ncdr-booking-input:focus {
+    outline: none;
+    border-color: var(--ncdr-gold);
+  }
+  textarea.ncdr-booking-input { resize: vertical; }
+</style>
+
+<script>
+  function ncdrOpenBooking(pkg) {
+    document.getElementById('booking-package').value = pkg || '';
+    document.getElementById('ncdr-booking-modal').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function ncdrCloseBooking(e) {
+    if (e && e.target !== e.currentTarget) return;
+    document.getElementById('ncdr-booking-modal').classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') ncdrCloseBooking(null);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "NCDR Lesson Packages",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Lesson Packages" },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "We offer lesson options for every golfer — from one-time tune-ups to long-term game plans. Choose the approach that fits your pace." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Book a Lesson" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer text" }
+  ],
+  "blocks": [
+    {
+      "type": "package",
+      "name": "Lesson Package",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Package name" },
+        { "type": "text", "id": "price", "label": "Price (no $)" },
+        { "type": "text", "id": "price_note", "label": "Price note (e.g. /hour)" },
+        { "type": "checkbox", "id": "featured", "label": "Featured (dark card)", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge (if featured)" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "ideal", "label": "Ideal for" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Lesson Packages" }]
+}
+{% endschema %}
