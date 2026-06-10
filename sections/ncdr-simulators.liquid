@@ -1,0 +1,419 @@
+<style>
+  /* ── Features ── */
+  .ncdr-simulators {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-simulators__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-simulators__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-simulators__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-simulators__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    max-width: 540px;
+    margin-bottom: 36px;
+    line-height: 1.65;
+  }
+
+  .ncdr-simulators__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .ncdr-sim-card {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 28px 24px;
+  }
+
+  .ncdr-sim-card__icon {
+    width: 40px;
+    height: 40px;
+    background: var(--ncdr-green-deep);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .ncdr-sim-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 8px;
+  }
+
+  .ncdr-sim-card__desc {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── Pricing ── */
+  .ncdr-simulators-pricing {
+    padding: 64px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-simulators-pricing__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-simulators-pricing__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-simulators-pricing__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-simulators-pricing__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .ncdr-simulators-pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .ncdr-sim-pkg {
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 32px 28px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ncdr-sim-pkg--featured {
+    border: 2px solid var(--ncdr-gold);
+    background: var(--ncdr-green-deep);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(58,88,43,0.25);
+    position: relative;
+  }
+
+  .ncdr-sim-pkg__badge {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .ncdr-sim-pkg__label {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 14px;
+  }
+  .ncdr-sim-pkg--featured .ncdr-sim-pkg__label { color: rgba(255,255,255,0.5); }
+
+  .ncdr-sim-pkg__price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--ncdr-green-deep);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ncdr-sim-pkg--featured .ncdr-sim-pkg__price { color: var(--ncdr-gold); }
+
+  .ncdr-sim-pkg__price-note {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ncdr-text-mid);
+    margin-left: 4px;
+  }
+  .ncdr-sim-pkg--featured .ncdr-sim-pkg__price-note { color: rgba(255,255,255,0.4); }
+
+  .ncdr-sim-pkg__divider {
+    height: 1px;
+    background: var(--ncdr-light-gray);
+    margin: 16px 0;
+  }
+  .ncdr-sim-pkg--featured .ncdr-sim-pkg__divider { background: rgba(255,255,255,0.08); }
+
+  .ncdr-sim-pkg__desc {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.65;
+    font-weight: 300;
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+  .ncdr-sim-pkg--featured .ncdr-sim-pkg__desc { color: rgba(255,255,255,0.65); }
+
+  .ncdr-sim-pkg .button {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    padding: 12px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-family: var(--ncdr-font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .ncdr-sim-pkg .button--green {
+    background: var(--ncdr-green-deep);
+    color: #fff;
+  }
+  .ncdr-sim-pkg .button--green:hover { background: var(--ncdr-green); color: #fff; text-decoration: none; }
+  .ncdr-sim-pkg .button--gold {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+  }
+  .ncdr-sim-pkg .button--gold:hover { background: var(--ncdr-gold-light); color: var(--ncdr-green-deep); text-decoration: none; }
+
+  .ncdr-simulators-pricing__disclaimer {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── Book CTA ── */
+  .ncdr-simulators-cta {
+    background: var(--ncdr-green-deep);
+    padding: 56px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .ncdr-simulators-cta__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-simulators-cta__sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .ncdr-simulators-cta__btn {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .ncdr-simulators-cta__btn:hover {
+    background: var(--ncdr-gold-light);
+    color: var(--ncdr-green-deep);
+    text-decoration: none;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-simulators,
+    .ncdr-simulators-pricing { padding: 48px 20px; }
+    .ncdr-simulators__grid { grid-template-columns: repeat(2, 1fr); }
+    .ncdr-simulators-pricing__grid { grid-template-columns: 1fr; }
+    .ncdr-sim-pkg--featured { transform: none; }
+    .ncdr-simulators-cta { flex-direction: column; align-items: flex-start; padding: 40px 20px; }
+  }
+</style>
+
+<!-- Features -->
+<div class="ncdr-simulators">
+  <div class="ncdr-simulators__eyebrow">Golfzon Technology <span></span></div>
+  <h2 class="ncdr-simulators__heading">{{ section.settings.features_heading }}</h2>
+  <p class="ncdr-simulators__sub">{{ section.settings.features_subtext }}</p>
+
+  <div class="ncdr-simulators__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'feature' -%}
+        <div class="ncdr-sim-card">
+          <div class="ncdr-sim-card__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="ncdr-sim-card__name">{{ block.settings.name }}</div>
+          <div class="ncdr-sim-card__desc">{{ block.settings.description }}</div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- Pricing -->
+<div class="ncdr-simulators-pricing">
+  <div class="ncdr-simulators-pricing__eyebrow">Bay Rates <span></span></div>
+  <h2 class="ncdr-simulators-pricing__heading">{{ section.settings.pricing_heading }}</h2>
+  <p class="ncdr-simulators-pricing__sub">{{ section.settings.pricing_subtext }}</p>
+
+  <div class="ncdr-simulators-pricing__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'rate' -%}
+        <div class="ncdr-sim-pkg{% if block.settings.featured %} ncdr-sim-pkg--featured{% endif %}">
+          {%- if block.settings.featured and block.settings.badge != blank -%}
+            <div class="ncdr-sim-pkg__badge">{{ block.settings.badge }}</div>
+          {%- endif -%}
+          <div class="ncdr-sim-pkg__label">{{ block.settings.name }}</div>
+          <div class="ncdr-sim-pkg__price">
+            ${{ block.settings.price }}
+            {%- if block.settings.price_note != blank -%}
+              <span class="ncdr-sim-pkg__price-note">{{ block.settings.price_note }}</span>
+            {%- endif -%}
+          </div>
+          <div class="ncdr-sim-pkg__divider"></div>
+          <p class="ncdr-sim-pkg__desc">{{ block.settings.description }}</p>
+          <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="button {% if block.settings.featured %}button--gold{% else %}button--green{% endif %}">
+            {{ section.settings.cta_label | default: 'Book a Bay' }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.disclaimer != blank -%}
+    <p class="ncdr-simulators-pricing__disclaimer">{{ section.settings.disclaimer }}</p>
+  {%- endif -%}
+</div>
+
+<!-- CTA -->
+<div class="ncdr-simulators-cta">
+  <div>
+    <div class="ncdr-simulators-cta__heading">{{ section.settings.cta_heading }}</div>
+    <p class="ncdr-simulators-cta__sub">{{ section.settings.cta_subtext }}</p>
+  </div>
+  {%- if section.settings.cta_label != blank -%}
+    <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="ncdr-simulators-cta__btn">{{ section.settings.cta_label }}</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Simulators",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "features_heading", "label": "Features heading", "default": "Why Play at Northcrest Simulators" },
+    { "type": "textarea", "id": "features_subtext", "label": "Features subtext", "default": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round. Rain or shine." },
+    { "type": "text", "id": "pricing_heading", "label": "Pricing heading", "default": "Bay Rates" },
+    { "type": "textarea", "id": "pricing_subtext", "label": "Pricing subtext", "default": "Reserve a bay by the hour. Walk-ins welcome based on availability — call ahead to guarantee your slot." },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer" },
+    { "type": "text", "id": "cta_heading", "label": "CTA heading", "default": "Ready to Play?" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "Call us or stop by to reserve a simulator bay. Walk-ins welcome based on availability." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Book a Bay" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Feature name" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "rate",
+      "name": "Bay Rate",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Rate name" },
+        { "type": "text", "id": "price", "label": "Price (no $)" },
+        { "type": "text", "id": "price_note", "label": "Price note (e.g. / hour)" },
+        { "type": "checkbox", "id": "featured", "label": "Featured card", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge (if featured)" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Simulators" }]
+}
+{% endschema %}

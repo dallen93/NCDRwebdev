@@ -9,165 +9,39 @@
         "subtext": "Ongoing events of all kinds, hosted in a fun and flexible golf environment your guests will genuinely enjoy."
       }
     },
-    "events_banner": {
+    "banner": {
       "type": "ncdr-events-banner",
       "settings": {
         "label": "Now Registering",
         "title_line1": "1st Annual Northcrest",
         "title_line2": "Long Drive Classic",
-        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by Coach Head Professional, culminating in a championship competition night.",
+        "subtext": "4 consecutive Friday evenings in May 2026. Progressive skill sessions led by our Head Professional, culminating in a championship competition night.",
         "cta1_label": "Register Now",
         "cta1_link": "",
         "cta2_label": "Become a Sponsor",
         "cta2_link": ""
       }
     },
-    "event_types_intro": {
-      "type": "rich-text",
+    "events": {
+      "type": "ncdr-events",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "What We Can Do For You",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Whether you're planning something casual or competitive, Northcrest is equipped to host events of all sizes and skill levels.</p>"
-          }
-        }
+        "e1": { "type": "event_type", "settings": { "name": "Birthday Parties", "description": "Celebrate your birthday on the range. Fun for all ages and skill levels — no experience required." } },
+        "e2": { "type": "event_type", "settings": { "name": "Corporate Events & Team Outings", "description": "Build team chemistry in a relaxed, competitive golf environment. Perfect for groups of any size." } },
+        "e3": { "type": "event_type", "settings": { "name": "Indoor Golf Tournaments", "description": "Organize competitive play on our Golfzon simulator bays with real-time scoring and world-class courses." } },
+        "e4": { "type": "event_type", "settings": { "name": "School & Youth Group Events", "description": "Educational and engaging experiences for students and youth organizations with professional instruction." } },
+        "e5": { "type": "event_type", "settings": { "name": "Family Gatherings", "description": "A welcoming space for families to play, compete, and connect — indoors or on the range." } },
+        "e6": { "type": "event_type", "settings": { "name": "Private Celebrations", "description": "Reserve the range for your private event. Customizable packages available for any occasion." } }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["e1", "e2", "e3", "e4", "e5", "e6"],
       "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 12
-      }
-    },
-    "event_types": {
-      "type": "multicolumn",
-      "blocks": {
-        "e1": {
-          "type": "column",
-          "settings": {
-            "title": "Birthday Parties",
-            "text": "Celebrate your birthday on the range. Fun for all ages and skill levels.",
-            "link_label": ""
-          }
-        },
-        "e2": {
-          "type": "column",
-          "settings": {
-            "title": "Corporate Events & Team Outings",
-            "text": "Build team chemistry in a relaxed, competitive golf environment.",
-            "link_label": ""
-          }
-        },
-        "e3": {
-          "type": "column",
-          "settings": {
-            "title": "Indoor Golf Tournaments",
-            "text": "Organize competitive play on our Golfzon simulator bays.",
-            "link_label": ""
-          }
-        },
-        "e4": {
-          "type": "column",
-          "settings": {
-            "title": "School & Youth Group Events",
-            "text": "Educational and fun experiences for students and youth organizations.",
-            "link_label": ""
-          }
-        },
-        "e5": {
-          "type": "column",
-          "settings": {
-            "title": "Family Gatherings",
-            "text": "A welcoming space for families to play, compete, and connect.",
-            "link_label": ""
-          }
-        },
-        "e6": {
-          "type": "column",
-          "settings": {
-            "title": "Private Celebrations",
-            "text": "Reserve the range for your private event \u2014 customizable packages available.",
-            "link_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "e1",
-        "e2",
-        "e3",
-        "e4",
-        "e5",
-        "e6"
-      ],
-      "settings": {
-        "title": "Events We Host",
-        "heading_size": "h2",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "color_scheme": "scheme-2",
-        "swipe_on_mobile": true
-      }
-    },
-    "inquiry_intro": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Start Planning Your Event",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share a few details below and our team will follow up to discuss availability, pricing, and next steps.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 12
-      }
-    },
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "Event Inquiry",
-        "heading_size": "h3",
-        "color_scheme": "scheme-1",
-        "padding_top": 12,
-        "padding_bottom": 60
+        "types_eyebrow": "What We Can Do For You",
+        "types_heading": "Events We Host",
+        "types_subtext": "Whether you're planning something casual or competitive, Northcrest is equipped to host events of all sizes and skill levels.",
+        "form_eyebrow": "Start Planning",
+        "form_heading": "Start Planning Your Event",
+        "form_subtext": "Share a few details below and our team will follow up to discuss availability, pricing, and next steps."
       }
     }
   },
-  "order": [
-    "hero",
-    "events_banner",
-    "event_types_intro",
-    "event_types",
-    "inquiry_intro",
-    "form"
-  ]
+  "order": ["hero", "banner", "events"]
 }

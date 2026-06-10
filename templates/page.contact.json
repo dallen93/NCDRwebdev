@@ -6,65 +6,25 @@
         "eyebrow": "Contact",
         "heading": "Northcrest Golf",
         "heading_gold": "Driving Range.",
-        "subtext": "3545 Northcrest Road, Atlanta, GA 30340 \u00b7 (770) 723-0002 \u00b7 management@northcrestgolf.com"
+        "subtext": "3545 Northcrest Road, Atlanta, GA 30340 · (770) 723-0002 · northcrestgolfshop@gmail.com"
       }
     },
-    "info": {
-      "type": "multicolumn",
+    "contact": {
+      "type": "ncdr-contact",
       "blocks": {
-        "loc": {
-          "type": "column",
-          "settings": {
-            "title": "Location",
-            "text": "3545 Northcrest Road\nAtlanta, GA 30340\n\nOff I-285 at Northcrest Road exit.",
-            "link_label": "Get Directions"
-          }
-        },
-        "hours": {
-          "type": "column",
-          "settings": {
-            "title": "Hours",
-            "text": "Monday \u2013 Saturday: 9am \u2013 11pm\nSunday: 9am \u2013 9pm\n\nOpen 365 days a year.",
-            "link_label": ""
-          }
-        },
-        "contact": {
-          "type": "column",
-          "settings": {
-            "title": "Get In Touch",
-            "text": "(770) 723-0002\nmanagement@northcrestgolf.com\n\nPro Shop questions, group events, and corporate bookings.",
-            "link_label": ""
-          }
-        }
+        "h1": { "type": "hours_row", "settings": { "days": "Monday – Saturday", "hours": "9am – 11pm" } },
+        "h2": { "type": "hours_row", "settings": { "days": "Sunday", "hours": "9am – 9pm" } }
       },
-      "block_order": [
-        "loc",
-        "hours",
-        "contact"
-      ],
+      "block_order": ["h1", "h2"],
       "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "color_scheme": "scheme-2",
-        "swipe_on_mobile": false
-      }
-    },
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "Send Us a Message",
-        "heading_size": "h2",
-        "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "info_heading": "Come See Us",
+        "address": "3545 Northcrest Road\nAtlanta, GA 30340\n\nOff I-285 at Northcrest Road exit.",
+        "hours_note": "Open 365 days a year.",
+        "phone": "(770) 723-0002",
+        "email": "northcrestgolfshop@gmail.com",
+        "form_heading": "Send Us a Message"
       }
     }
   },
-  "order": [
-    "hero",
-    "info",
-    "form"
-  ]
+  "order": ["hero", "contact"]
 }

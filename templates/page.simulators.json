@@ -1,27 +1,38 @@
 {
   "sections": {
     "hero": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Play Any Course. Any Time.", "heading_size": "h0" } },
-        "text": { "type": "text", "settings": { "text": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round.", "text_style": "subtitle" } },
-        "buttons": { "type": "buttons", "settings": { "button_label_1": "Book a Bay", "button_link_1": "", "button_style_secondary_1": false, "button_label_2": "", "button_link_2": "" } }
-      },
-      "block_order": ["heading", "text", "buttons"],
-      "settings": { "image_height": "large", "desktop_content_position": "middle-left", "show_text_box": false, "color_scheme": "scheme-3", "desktop_content_alignment": "left", "image_overlay_opacity": 20 }
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Simulators",
+        "heading": "Play Any Course.",
+        "heading_gold": "Any Time.",
+        "subtext": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round. Rain or shine."
+      }
     },
-    "features": {
-      "type": "multicolumn",
+    "simulators": {
+      "type": "ncdr-simulators",
       "blocks": {
-        "f1": { "type": "column", "settings": { "title": "Golfzon Vision Technology", "text": "Ultra-realistic ball tracking and course simulation with slope detection, wind, and pin placement accuracy.", "link_label": "" } },
-        "f2": { "type": "column", "settings": { "title": "200+ World Courses", "text": "Play Augusta, Pebble Beach, St Andrews, and over 200 other world-famous courses without leaving Atlanta.", "link_label": "" } },
-        "f3": { "type": "column", "settings": { "title": "Swing Analysis", "text": "Every shot tracked with launch angle, ball speed, spin rate, and club path data. Improve faster with data-backed feedback.", "link_label": "" } },
-        "f4": { "type": "column", "settings": { "title": "Open Rain or Shine", "text": "Unlike the range, simulators run no matter the weather. Perfect for winter practice or late-night sessions.", "link_label": "" } }
+        "f1": { "type": "feature", "settings": { "name": "Golfzon Vision Technology", "description": "Ultra-realistic ball tracking and course simulation with slope detection, wind, and pin placement accuracy." } },
+        "f2": { "type": "feature", "settings": { "name": "200+ World Courses", "description": "Play Augusta, Pebble Beach, St Andrews, and over 200 other world-famous courses without leaving Atlanta." } },
+        "f3": { "type": "feature", "settings": { "name": "Swing Analysis", "description": "Every shot tracked with launch angle, ball speed, spin rate, and club path data. Improve faster with data-backed feedback." } },
+        "f4": { "type": "feature", "settings": { "name": "Open Rain or Shine", "description": "Unlike the range, simulators run no matter the weather. Perfect for winter practice or late-night sessions." } },
+        "r1": { "type": "rate", "settings": { "name": "30 Minutes", "price": "20", "price_note": "/ bay", "featured": false, "description": "A quick warm-up or skills session. Great for squeezing in practice before a round." } },
+        "r2": { "type": "rate", "settings": { "name": "1 Hour", "price": "35", "price_note": "/ bay", "featured": true, "badge": "Most Popular", "description": "Our most popular option. Enough time to play 9 holes or run a full practice session with swing analysis." } },
+        "r3": { "type": "rate", "settings": { "name": "2 Hours", "price": "60", "price_note": "/ bay", "featured": false, "description": "Play a full 18 holes or run a deep practice block. Best value for groups or serious training sessions." } }
       },
-      "block_order": ["f1", "f2", "f3", "f4"],
-      "settings": { "title": "Why Play at Northcrest Simulators", "heading_size": "h2", "columns_desktop": 4, "column_alignment": "left", "color_scheme": "scheme-2", "swipe_on_mobile": true }
-    },
-    "main": { "type": "main-page", "settings": { "padding_top": 28, "padding_bottom": 28 } }
+      "block_order": ["f1", "f2", "f3", "f4", "r1", "r2", "r3"],
+      "settings": {
+        "features_heading": "Why Play at Northcrest Simulators",
+        "features_subtext": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round. Rain or shine.",
+        "pricing_heading": "Bay Rates",
+        "pricing_subtext": "Reserve a bay by the hour. Walk-ins welcome based on availability — call ahead to guarantee your slot.",
+        "disclaimer": "Rates are per bay. Up to 4 players per bay. Prices subject to change.",
+        "cta_heading": "Ready to Play?",
+        "cta_subtext": "Call us or stop by to reserve a simulator bay. Walk-ins welcome based on availability.",
+        "cta_label": "Book a Bay",
+        "cta_link": "shopify:\/\/pages\/contact"
+      }
+    }
   },
-  "order": ["hero", "features", "main"]
+  "order": ["hero", "simulators"]
 }

@@ -1,0 +1,285 @@
+<style>
+  .ncdr-contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+  }
+
+  /* ── Left: info panel ── */
+  .ncdr-contact__info {
+    background: var(--ncdr-green-deep);
+    padding: 64px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .ncdr-contact__info-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .ncdr-contact__info-eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-contact__info-heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 32px;
+  }
+
+  .ncdr-contact__block {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+  }
+
+  .ncdr-contact__block-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 10px;
+  }
+
+  .ncdr-contact__block-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .ncdr-contact__block-text a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+  }
+  .ncdr-contact__block-text a:hover { color: var(--ncdr-gold); }
+
+  .ncdr-contact__hours-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    padding: 3px 0;
+  }
+  .ncdr-contact__hours-row span:last-child { color: rgba(255,255,255,0.45); }
+
+  /* ── Right: form ── */
+  .ncdr-contact__form {
+    background: #fff;
+    padding: 64px 56px;
+  }
+
+  .ncdr-contact__form-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-contact__form-eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-contact__form-heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+
+  .ncdr-contact__field {
+    margin-bottom: 14px;
+  }
+
+  .ncdr-contact__label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 5px;
+  }
+
+  .ncdr-contact__input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: var(--ncdr-font-body);
+    color: var(--ncdr-text-dark);
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .ncdr-contact__input:focus {
+    outline: none;
+    border-color: var(--ncdr-gold);
+  }
+  textarea.ncdr-contact__input { resize: vertical; }
+
+  .ncdr-contact__submit {
+    width: 100%;
+    background: var(--ncdr-green-deep);
+    color: #fff;
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .ncdr-contact__submit:hover { background: var(--ncdr-green); }
+
+  @media (max-width: 989px) {
+    .ncdr-contact { grid-template-columns: 1fr; }
+    .ncdr-contact__info,
+    .ncdr-contact__form { padding: 48px 24px; }
+  }
+</style>
+
+<div class="ncdr-contact">
+  <!-- Info Panel -->
+  <div class="ncdr-contact__info">
+    <div>
+      <div class="ncdr-contact__info-eyebrow">Find Us <span></span></div>
+      <h2 class="ncdr-contact__info-heading">{{ section.settings.info_heading }}</h2>
+    </div>
+
+    <div class="ncdr-contact__block">
+      <div class="ncdr-contact__block-label">Location</div>
+      <div class="ncdr-contact__block-text">
+        {{ section.settings.address | newline_to_br }}
+      </div>
+    </div>
+
+    <div class="ncdr-contact__block">
+      <div class="ncdr-contact__block-label">Hours</div>
+      <div class="ncdr-contact__block-text">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'hours_row' -%}
+            <div class="ncdr-contact__hours-row">
+              <span>{{ block.settings.days }}</span>
+              <span>{{ block.settings.hours }}</span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if section.settings.hours_note != blank -%}
+          <div style="margin-top:8px;font-size:12px;color:rgba(255,255,255,0.35);">{{ section.settings.hours_note }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="ncdr-contact__block">
+      <div class="ncdr-contact__block-label">Contact</div>
+      <div class="ncdr-contact__block-text">
+        <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a><br>
+        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <div class="ncdr-contact__form">
+    <div class="ncdr-contact__form-eyebrow">Get In Touch <span></span></div>
+    <h2 class="ncdr-contact__form-heading">{{ section.settings.form_heading }}</h2>
+
+    {% form 'contact' %}
+      {%- if form.posted_successfully? -%}
+        <p style="color:var(--ncdr-green);font-weight:600;margin-bottom:20px;">Message sent! We'll get back to you soon.</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <p style="color:#c0392b;margin-bottom:12px;">{{ form.errors | default_errors }}</p>
+      {%- endif -%}
+
+      <div class="ncdr-contact__field">
+        <label class="ncdr-contact__label" for="contact-name">Name</label>
+        <input class="ncdr-contact__input" type="text" id="contact-name" name="contact[name]" required placeholder="Your full name">
+      </div>
+      <div class="ncdr-contact__field">
+        <label class="ncdr-contact__label" for="contact-email">Email</label>
+        <input class="ncdr-contact__input" type="email" id="contact-email" name="contact[email]" required placeholder="your@email.com">
+      </div>
+      <div class="ncdr-contact__field">
+        <label class="ncdr-contact__label" for="contact-phone">Phone</label>
+        <input class="ncdr-contact__input" type="tel" id="contact-phone" name="contact[phone]" placeholder="(xxx) xxx-xxxx">
+      </div>
+      <div class="ncdr-contact__field">
+        <label class="ncdr-contact__label" for="contact-subject">Subject</label>
+        <select class="ncdr-contact__input" id="contact-subject" name="contact[subject]">
+          <option value="">Select a topic</option>
+          <option>General Inquiry</option>
+          <option>Lessons</option>
+          <option>Club Repair</option>
+          <option>Trade-In</option>
+          <option>Events & Private Bookings</option>
+          <option>Simulator Reservations</option>
+          <option>Pro Shop / Orders</option>
+        </select>
+      </div>
+      <div class="ncdr-contact__field">
+        <label class="ncdr-contact__label" for="contact-message">Message</label>
+        <textarea class="ncdr-contact__input" id="contact-message" name="contact[body]" rows="5" placeholder="How can we help?"></textarea>
+      </div>
+      <button type="submit" class="ncdr-contact__submit">Send Message</button>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Contact",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "info_heading", "label": "Info panel heading", "default": "Come See Us" },
+    { "type": "textarea", "id": "address", "label": "Address", "default": "3545 Northcrest Road\nAtlanta, GA 30340\n\nOff I-285 at Northcrest Road exit." },
+    { "type": "text", "id": "hours_note", "label": "Hours note", "default": "Open 365 days a year." },
+    { "type": "text", "id": "phone", "label": "Phone", "default": "(770) 723-0002" },
+    { "type": "text", "id": "email", "label": "Email", "default": "northcrestgolfshop@gmail.com" },
+    { "type": "text", "id": "form_heading", "label": "Form heading", "default": "Send Us a Message" }
+  ],
+  "blocks": [
+    {
+      "type": "hours_row",
+      "name": "Hours Row",
+      "settings": [
+        { "type": "text", "id": "days", "label": "Days" },
+        { "type": "text", "id": "hours", "label": "Hours" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Contact" }]
+}
+{% endschema %}
