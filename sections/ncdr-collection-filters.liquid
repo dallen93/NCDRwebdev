@@ -1,0 +1,91 @@
+<style>
+  .ncdr-filters {
+    padding: 20px 60px 0;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-filters__wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+
+  .ncdr-filter-btn {
+    background: transparent;
+    color: var(--ncdr-green);
+    border: 1px solid var(--ncdr-green);
+    font-family: var(--ncdr-font-heading);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.6;
+  }
+
+  .ncdr-filter-btn:hover,
+  .ncdr-filter-btn--active {
+    background: var(--ncdr-green);
+    color: #fff;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-filters { padding: 16px 20px 0; }
+  }
+</style>
+
+{%- liquid
+  assign current = collection.handle | default: 'all'
+-%}
+
+<div class="ncdr-filters">
+  <div class="ncdr-filters__wrap">
+    <a href="/collections/all"
+       class="ncdr-filter-btn{% if current == 'all' %} ncdr-filter-btn--active{% endif %}">
+      All
+    </a>
+    {%- for block in section.blocks -%}
+      <a href="/collections/{{ block.settings.collection_handle }}"
+         class="ncdr-filter-btn{% if current == block.settings.collection_handle %} ncdr-filter-btn--active{% endif %}">
+        {{ block.settings.label }}
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Collection Filters",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "filter",
+      "name": "Filter Button",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Button label" },
+        { "type": "text", "id": "collection_handle", "label": "Collection handle" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR Collection Filters",
+      "blocks": [
+        { "type": "filter", "settings": { "label": "Drivers", "collection_handle": "drivers" } },
+        { "type": "filter", "settings": { "label": "Fairway Woods", "collection_handle": "fairway-woods" } },
+        { "type": "filter", "settings": { "label": "Irons", "collection_handle": "irons" } },
+        { "type": "filter", "settings": { "label": "Putters", "collection_handle": "putters" } },
+        { "type": "filter", "settings": { "label": "Complete Sets", "collection_handle": "complete-sets" } },
+        { "type": "filter", "settings": { "label": "Wedges", "collection_handle": "wedges" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

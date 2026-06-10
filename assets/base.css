@@ -283,6 +283,17 @@ h1, h2, h3, h4, h5, h6,
   background: var(--ncdr-green-mid) !important;
 }
 
+/* Collection page — full-width product grid */
+.template-collection .facets-wrapper,
+.template-collection .facets-wrapper--no-filters,
+.template-collection .product-grid-container,
+.template-collection .collection,
+.template-collection .facets-vertical-sort {
+  max-width: 100% !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
 /* ============================================================
    END NCDR BRAND SYSTEM
    ============================================================ */
