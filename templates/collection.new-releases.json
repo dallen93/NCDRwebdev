@@ -4,9 +4,9 @@
       "type": "ncdr-inner-hero",
       "settings": {
         "eyebrow": "Pro Shop",
-        "heading": "Golf Equipment",
-        "heading_gold": "& Gear",
-        "subtext": "Premium brands curated for every level of player — authorized dealer for Majesty, Honma, XXIO, TaylorMade, Callaway, and more."
+        "heading": "New Releases",
+        "heading_gold": "Now In Stock.",
+        "subtext": "The latest arrivals from Majesty, Honma, XXIO, TaylorMade, and more. Be the first to play the newest gear."
       }
     },
     "product-grid": {
@@ -21,7 +21,7 @@
         "show_vendor": true,
         "show_rating": false,
         "quick_add": "none",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
