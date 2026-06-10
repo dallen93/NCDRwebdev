@@ -115,13 +115,17 @@
     border-radius: 10px;
     max-width: 540px;
     width: 100%;
-    height: 420px;
     max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+  }
+
+  .ncdr-modal--bio {
+    height: 420px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    position: relative;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.18);
   }
 
   .ncdr-modal__close {
@@ -147,8 +151,8 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-shrink: 0;
   }
+  .ncdr-modal--bio .ncdr-modal__head { flex-shrink: 0; }
 
   .ncdr-modal__avatar {
     width: 72px;
@@ -188,6 +192,8 @@
 
   .ncdr-modal__body {
     padding: 28px 32px 32px;
+  }
+  .ncdr-modal--bio .ncdr-modal__body {
     overflow-y: auto;
     flex: 1;
   }
@@ -276,7 +282,7 @@
 {%- for block in section.blocks -%}
   {%- if block.settings.bio != blank or block.settings.name != blank -%}
     <div class="ncdr-modal-overlay" id="instructor-modal-{{ block.id }}" onclick="ncdrCloseInstructor('{{ block.id }}', event)">
-      <div class="ncdr-modal">
+      <div class="ncdr-modal ncdr-modal--bio">
         <button class="ncdr-modal__close" onclick="ncdrCloseInstructor('{{ block.id }}', null)" aria-label="Close">&#x2715;</button>
         <div class="ncdr-modal__head">
           <div class="ncdr-modal__avatar">
@@ -310,7 +316,7 @@
 
     {%- if block.settings.native_language != blank and block.settings.native_bio != blank -%}
       <div class="ncdr-modal-native" id="instructor-native-{{ block.id }}" onclick="ncdrCloseNative('{{ block.id }}', event)">
-        <div class="ncdr-modal">
+        <div class="ncdr-modal ncdr-modal--bio">
           <button class="ncdr-modal__close" onclick="ncdrCloseNative('{{ block.id }}', null)" aria-label="Close">&#x2715;</button>
           <div class="ncdr-modal__head">
             <div class="ncdr-modal__avatar">
