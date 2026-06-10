@@ -69,7 +69,22 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "faq": {
+      "type": "ncdr-faq",
+      "blocks": {
+        "q1": { "type": "item", "settings": { "question": "Is Northcrest open during inclement weather?", "answer": "<p>Yes. Northcrest Golf Driving Range remains open rain or shine. All bays on the ground level are fully covered, providing protection from rain. We stay open through conditions that might close traditional golf courses — steady rain, cold temperatures, and high winds. In the event of lightning or thunder, it is at the customer's discretion to continue play.</p>" } },
+        "q2": { "type": "item", "settings": { "question": "Does Northcrest offer memberships?", "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once — offering built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>" } },
+        "q3": { "type": "item", "settings": { "question": "Are the grass tees currently open?", "answer": "<p>Generally yes — weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>" } },
+        "q4": { "type": "item", "settings": { "question": "Is there a chipping or putting area available?", "answer": "<p>Not at this time. We're always exploring ways to improve the guest experience and this may change in the future. Stay tuned for updates.</p>" } },
+        "q5": { "type": "item", "settings": { "question": "How do I save on basket pricing?", "answer": "<p>Purchase a coupon book and save up to 20% compared to individual basket pricing. Coupon books are available in Small, Medium, and Large basket sizes — buy 10 baskets at once and save on every visit. <a href=\"/collections/all\">Shop coupon books →</a></p>" } },
+        "q6": { "type": "item", "settings": { "question": "What brands does the pro shop carry?", "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma — two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>" } },
+        "q7": { "type": "item", "settings": { "question": "Can I book a simulator session online?", "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>" } },
+        "q8": { "type": "item", "settings": { "question": "Do you offer club repair and fitting services?", "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
+      "settings": { "heading": "Frequently Asked Questions" }
     }
   },
-  "order": ["image_banner", "facility_strip", "basket_pricing", "featured_collection"]
+  "order": ["image_banner", "facility_strip", "basket_pricing", "featured_collection", "faq"]
 }
