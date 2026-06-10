@@ -290,11 +290,8 @@ h1, h2, h3, h4, h5, h6,
   overflow: hidden;
 }
 
-.product-card-wrapper .card__information,
-.product-card-wrapper .card-information {
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
+.product-card-wrapper .card__content {
+  padding: 0 24px 24px;
 }
 
 /* Collection page — full-width product grid */
