@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -12,15 +21,84 @@
     "instructors": {
       "type": "ncdr-instructors",
       "blocks": {
-        "i1": { "type": "instructor", "settings": { "name": "Jim Yong Choi", "credential": "PGA Class A Member" } },
-        "i2": { "type": "instructor", "settings": { "name": "Ah Ram Suh", "credential": "LPGA & KLPGA Class A Member" } },
-        "i3": { "type": "instructor", "settings": { "name": "Greg Shelnutt", "credential": "PGA Certified Instructor" } },
-        "i4": { "type": "instructor", "settings": { "name": "William Buitrago", "credential": "TPI1 & TPI2 Certified Instructor" } },
-        "i5": { "type": "instructor", "settings": { "name": "Ho H-Yu", "credential": "PGA Apprentice" } },
-        "i6": { "type": "instructor", "settings": { "name": "Joseph Choi", "credential": "PGA Apprentice" } }
+        "i1": {
+          "type": "instructor",
+          "settings": {
+            "name": "Jim Yong Choi",
+            "credential": "PGA Class A Member",
+            "photo": "shopify://shop_images/Jim_Choi_Headshot_2_4337b685-0df4-40bb-acb2-c962896b0525.jpg",
+            "bio": "Jim Yong Choi is a PGA Class “A” Member who has over 20+ years combined golf professional, teaching and business management experience. His passion for golf began to grow in his early 20s, when he first began to play in New Jersey, and has expanded throughout his time in both the Northeast and the South.\n\nJim owns and manages the Northcrest Driving Range, which focuses on providing a multi-functional facility that provides a safe and engaging environment to learn golf. He also manages the recently renovated Northcrest Golf Pro Shop, which is a licensed provider for Callaway, Cleveland, Honma, Majestic, Mizuno, MU, Srixon, TaylorMade, XXIO golf gear. He is also frequently featured on the KTN news station and Atlanta Radio Korea as the resident golf expert. He teaches a wide range of individuals, from beginners to advanced golfers, and has expertise in improving the accuracy and consistency of your short game.\n\nAlongside his passion for golf, Jim enjoys outdoor activities such as hiking, soccer, and pickleball, and spending time with his family and dog Ralphie that you may see roaming the driving range on occasion.",
+            "native_language": "",
+            "native_bio": ""
+          }
+        },
+        "i2": {
+          "type": "instructor",
+          "settings": {
+            "name": "Ah Ram Suh",
+            "credential": "LPGA & KLPGA Class A Member",
+            "photo": "shopify://shop_images/Ah_Ram_Suh_Headshot_2.jpg",
+            "bio": "Ah Ram Suh brings an exceptional blend of elite competition, coaching excellence, and educational leadership to Northcrest Golf. A Class A LPGA Member since 2009 and LPGA Coach of the Year in 2018, she’s known for helping golfers unlock accuracy, confidence, and power through personalized instruction.\n\nHer competitive career includes three professional victories on the KLPGA Tour between 1995 and 2004, following standout performances as a member of Korea’s Amateur National Team from 1992 to 1994. She captured titles at both the Hanju Ellesse Professional Open and the Korea Women’s Amateur Championship in 1991.\n\nAh Ram’s leadership in golf education includes serving as KLPGA Education Chairperson (2010–2012) and Director (2014–2017), roles in which she shaped player development across Korea. From 2013 to 2015, she coached the Korea National Team, combining high-level strategy with proven techniques to elevate performance across age groups. She holds a Ph.D. in Exercise Physiology from Yonsei University and is certified in TPI Golf Mechanics Level 2 and TPI Junior Performance Level 2—giving her a distinct edge in biomechanics and junior coaching.\n\nWhether you’re new to the game or chasing precision in tournament play, Ah Ram offers a training experience that’s rooted in excellence, energy, and genuine care.",
+            "native_language": "",
+            "native_bio": ""
+          }
+        },
+        "i3": {
+          "type": "instructor",
+          "settings": {
+            "name": "Greg Shelnutt",
+            "credential": "PGA Certified Instructor",
+            "photo": "shopify://shop_images/Greg_Shelnutt_Headshot.jpg",
+            "bio": "Greg Shelnutt’s journey in golf began at 17, when he got his start in course maintenance and shop operations at a local club. Working in the pro shop gave Greg more than firsthand exposure to the golf industry—it helped him build lasting relationships and sparked a passion for the game that continues to shape his teaching today.\n\nThat passion led Greg to the Golf Academy of the Carolinas, where he focused on instructional methods and the three phases of learning. He discovered that each golfer processes the game differently and developed a coaching philosophy grounded in personalized growth and clear communication. His teaching has since been recognized in Voyage Atlanta magazine for its impact across experience levels.\n\nAfter graduation, Greg joined Callaway Gardens to put his training into practice. There, he refined his teaching style and built expertise in ball flight analysis—helping players make meaningful adjustments to improve distance and accuracy. At Highland Country Club in Lagrange, Georgia, he served as Assistant Golf Professional while advancing through the PGA Golf Management Program, a curriculum rooted in people, business, and performance.\n\nToday, Greg serves as an instructor at Northcrest Driving Range, where he works with golfers of all levels to build consistency, control, and confidence from tee to green.",
+            "native_language": "",
+            "native_bio": ""
+          }
+        },
+        "i4": {
+          "type": "instructor",
+          "settings": {
+            "name": "William Buitrago",
+            "credential": "TPI1 & TPI2 Certified Instructor",
+            "photo": "shopify://shop_images/William_Buitrago_Headshot.jpg",
+            "bio": "With over 25 years of experience in Colombian golf, William Buitrago brings a blend of seasoned expertise, curiosity, and creativity to every lesson. A former professional player in PGA Colombia tournaments, William transitioned into instruction over two decades ago, teaching at private clubs and serving in key roles within the Colombian Golf Federation’s High-Performance Center—including Director of Junior and Youth Golf Schools.\n\nWilliam’s approach is grounded not in rigid swing models, but in adaptable systems. He combines insights from both classic and modern instructors, including Leadbetter, Sean Foley, Jim McLean, and the TPI philosophy, to design personalized exercises that help each golfer better understand and feel their movement. His passion for teaching is matched only by his commitment to lifelong learning and discovery.\n\nFor William, golf is more than a game—it’s a lifestyle, a craft, and a way to connect mind and body with purpose.\n\nCertifications include:\n\nTPI Level 1 (2011) & Level 2 (2012)\nPGA Europe & AAG Argentina (2015)\nAAG Junior Schools (2017)\nAnnual advanced training with world-class academies\n\nActive member of PGA Colombia",
+            "native_language": "Versión en español",
+            "native_bio": "Con más de 25 años de experiencia en el golf colombiano, William Buitrago aporta una mezcla de experiencia consolidada, curiosidad y creatividad a cada lección. Exjugador profesional en torneos de la PGA Colombia, William se dedicó a la enseñanza hace más de dos décadas, impartiendo clases en clubes privados y desempeñando funciones clave en el Centro de Alto Rendimiento de la Federación Colombiana de Golf, incluyendo la dirección de Escuelas de Golf Infantil y Juvenil.\n\nSu enfoque no se basa en modelos rígidos de swing, sino en sistemas adaptables. Integra conocimientos de instructores clásicos y contemporáneos como Leadbetter, Sean Foley, Jim McLean y la filosofía TPI, para diseñar ejercicios personalizados que ayudan a cada golfista a entender y sentir mejor sus movimientos. Su pasión por la enseñanza va de la mano con su compromiso por el aprendizaje continuo y la exploración.\n\nPara William, el golf es más que un deporte: es un estilo de vida, un oficio y una forma de conectar mente y cuerpo con propósito.\n\nCertificaciones incluyen:\n\nTPI Nivel 1 (2011) y Nivel 2 (2012)\nPGA Europa & AAG Argentina (2015)\nEscuelas Juveniles AAG (2017)\nCapacitación avanzada anual con academias de talla mundial\n\nMiembro activo de la PGA Colombia"
+          }
+        },
+        "i5": {
+          "type": "instructor",
+          "settings": {
+            "name": "Ho H-Yu",
+            "credential": "PGA Apprentice",
+            "photo": "shopify://shop_images/Ho_Yu_Headshot.jpg",
+            "bio": "Ho H-Yu brings more than 20 years of coaching experience to Northcrest Golf Driving Range. He offers expert instruction for golfers at every level and places special emphasis on the short game, focusing on chipping, putting, and precision around the green. His teaching helps players build consistency and confidence in the areas that matter most.\n\nHe began studying golf in Korea in 1985 and moved to the United States in 1989 to pursue the sport more competitively. Since entering the PGA apprenticeship program in 1999, he has remained committed to advancing his professional credentials and is currently pursuing PGA Class A membership. Over the years, Ho has played on local and mini tours across the U.S. and continues to refine his skills through study and competition. He is also a proud member of the United States Golf Association (USGA).\n\nHo is known for his calm demeanor and technical insight. His coaching style is tailored to each player's needs and designed to help golfers improve their game with clarity and purpose.",
+            "native_language": "한국어 버전",
+            "native_bio": "호 H-Yu 코치는 20년 이상의 지도 경험을 바탕으로, 모든 수준의 골퍼에게 전문적인 지도를 제공합니다. 그의 지도는 특히 쇼트 게임에 중점을 두며, 칩샷과 퍼팅, 그리고 그린 주변의 정밀한 플레이를 통해 일관성과 자신감을 키울 수 있도록 돕습니다.\n\n그는 1985년 한국에서 골프를 공부하기 시작했으며, 1989년에 미국으로 이주하여 경쟁력 있는 선수로서의 여정을 이어갔습니다. 1999년 PGA 견습 프로그램에 참여한 이후, 전문 자격 향상을 위해 꾸준히 노력해 왔으며 현재 PGA Class A 회원 자격을 취득하기 위해 학습 중입니다. 미국 전역의 지역 및 미니 투어에서 활약한 그는 현재도 지속적으로 기술을 연마하고 있으며, 미국골프협회(USGA)의 정회원으로 활동하고 있습니다.\n\n차분한 성격과 기술적인 통찰력을 갖춘 호 코치는 골퍼들이 탄탄한 기초를 다지고 명확한 방향성을 가지고 실력을 향상시킬 수 있도록 지원합니다."
+          }
+        },
+        "i6": {
+          "type": "instructor",
+          "settings": {
+            "name": "Joseph Choi",
+            "credential": "PGA Apprentice",
+            "photo": "shopify://shop_images/Joseph_Choi_Headshot_2.jpg",
+            "bio": "Joseph Choi brings roughly 30 years of experience to Northcrest Golf Driving Range, offering expert instruction grounded in decades of hands-on knowledge. His career spans competitive play on mini tours, professional caddying, and ownership of a successful driving range in Maryland’s DC Area. As a PGA Apprentice in the Middle Atlantic Section, Joseph is known for his technical precision, strategic insight, and approachable teaching style.\n\nWhether you're just starting out or refining your swing, Joseph’s personalized coaching helps golfers of all levels build confidence, consistency, and a deeper love for the game.",
+            "native_language": "",
+            "native_bio": ""
+          }
+        }
       },
-      "block_order": ["i1", "i2", "i3", "i4", "i5", "i6"],
-      "settings": { "heading": "Meet Our Pros" }
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4",
+        "i5",
+        "i6"
+      ],
+      "settings": {
+        "heading": "Meet Our Pros"
+      }
     },
     "packages": {
       "type": "ncdr-lesson-packages",
@@ -32,6 +110,7 @@
             "price": "150",
             "price_note": "/ hour",
             "featured": false,
+            "badge": "",
             "description": "One-on-one session focused on your swing, stance, or any area you'd like to improve.",
             "ideal": "Beginners testing the waters or advanced players fixing a specific issue."
           }
@@ -55,20 +134,29 @@
             "price": "1,000",
             "price_note": "",
             "featured": false,
+            "badge": "",
             "description": "Build lasting habits over time. Our most popular package includes a coaching plan tailored to your growth.",
             "ideal": "Players ready for a consistent training journey."
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
         "heading": "Lesson Packages",
         "subtext": "We offer lesson options for every golfer — from one-time tune-ups to long-term game plans. Choose the approach that fits your pace.",
         "cta_label": "Book a Lesson",
-        "cta_link": "shopify:\/\/pages\/contact",
+        "cta_link": "shopify://pages/contact",
         "disclaimer": "All prices in USD. Applicable taxes added at checkout. Students will be paired with their preferred coach based on availability. Payment is due via secure link once the initial session has been confirmed by both the coach and student."
       }
     }
   },
-  "order": ["hero", "instructors", "packages"]
+  "order": [
+    "hero",
+    "instructors",
+    "packages"
+  ]
 }
