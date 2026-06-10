@@ -150,7 +150,7 @@
       "settings": {
         "heading": "New Gear. Now In Stock.",
         "subtext": "Premium Japanese and American brands — curated for every level of player.",
-        "collection": "frontpage",
+        "collection": "homepage-feature",
         "products_to_show": 4,
         "view_all_label": "View All Products →",
         "view_all_link": "/collections/all"
