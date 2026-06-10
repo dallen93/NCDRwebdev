@@ -9,185 +9,33 @@
         "subtext": "When your gear doesn't feel right, your game suffers. We specialize in fast, reliable fixes that get you back to full swing."
       }
     },
-    "services": {
-      "type": "multicolumn",
+    "repair": {
+      "type": "ncdr-repair",
       "blocks": {
-        "s1": {
-          "type": "column",
-          "settings": {
-            "title": "Regripping",
-            "text": "Fresh grips improve feel, control, and confidence. If your clubs are slick or worn, a new set of grips could make all the difference in your swing comfort and shot accuracy.",
-            "link_label": ""
-          }
-        },
-        "s2": {
-          "type": "column",
-          "settings": {
-            "title": "Loft & Lie Adjustment",
-            "text": "Get your clubs dialed in to suit your stance and swing. This precision tweak helps your shots stay on target by customizing the angle of each club to your body and posture.",
-            "link_label": ""
-          }
-        },
-        "s3": {
-          "type": "column",
-          "settings": {
-            "title": "Shaft & Clubhead Repair",
-            "text": "From cracked shafts to loose clubheads, we fix alignment and secure components so your clubs perform reliably shot after shot. Re-shaft, glue repair, or full replacement \u2014 we've got your back.",
-            "link_label": ""
-          }
-        }
+        "svc1": { "type": "service", "settings": { "name": "Regripping", "description": "Fresh grips improve feel, control, and confidence. If your clubs are slick or worn, a new set of grips could make all the difference in your swing comfort and shot accuracy." } },
+        "svc2": { "type": "service", "settings": { "name": "Loft & Lie Adjustment", "description": "Get your clubs dialed in to suit your stance and swing. This precision tweak helps your shots stay on target by customizing the angle of each club to your body and posture." } },
+        "svc3": { "type": "service", "settings": { "name": "Shaft & Clubhead Repair", "description": "From cracked shafts to loose clubheads, we fix alignment and secure components so your clubs perform reliably shot after shot. Re-shaft, glue repair, or full replacement — we've got your back." } },
+        "p1": { "type": "price_item", "settings": { "name": "Grip Installation", "price": "5", "description": "Per club. Grips sold separately. Drop off today, pick up tomorrow." } },
+        "p2": { "type": "price_item", "settings": { "name": "Shorten Club", "price": "5", "description": "Shorten the shaft for a better fit and easier control." } },
+        "p3": { "type": "price_item", "settings": { "name": "Lengthen Club", "price": "10", "description": "Add length to improve distance and match your height or swing style." } },
+        "p4": { "type": "price_item", "settings": { "name": "Loft / Lie Adjust", "price": "5", "description": "Per club. Modify angles to help your shots launch better and fly straighter." } },
+        "p5": { "type": "price_item", "settings": { "name": "Repair Loose Clubhead", "price": "20", "description": "Re-secure wobbly or detached clubheads to restore balance and performance." } },
+        "p6": { "type": "price_item", "settings": { "name": "Remove Shaft", "price": "10", "description": "Safely detach a damaged or outdated shaft in preparation for replacement." } },
+        "p7": { "type": "price_item", "settings": { "name": "Standard Reshaft", "price": "20", "description": "Install a new shaft to restore club stability. Done next day depending on availability." } },
+        "p8": { "type": "price_item", "settings": { "name": "Exchange Shafts", "price": "30", "description": "Swap one shaft for another to customize feel, flex, or performance." } }
       },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
+      "block_order": ["svc1", "svc2", "svc3", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"],
       "settings": {
-        "title": "Repair Services",
-        "heading_size": "h2",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "color_scheme": "scheme-2",
-        "swipe_on_mobile": false
-      }
-    },
-    "pricing_intro": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Popular Repairs & Pricing",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our most common repairs are listed below. Final pricing depends on the equipment selected and type of service performed.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 12
-      }
-    },
-    "pricing": {
-      "type": "multicolumn",
-      "blocks": {
-        "r1": {
-          "type": "column",
-          "settings": {
-            "title": "Grip Installation (per club) \u2014 $5",
-            "text": "Swap worn grips to enhance feel and boost swing control. Grips sold separately. Drop off today, pick up tomorrow."
-          }
-        },
-        "r2": {
-          "type": "column",
-          "settings": {
-            "title": "Shorten Club \u2014 $5",
-            "text": "Shorten the shaft for a better fit and easier control."
-          }
-        },
-        "r3": {
-          "type": "column",
-          "settings": {
-            "title": "Lengthen Club \u2014 $10",
-            "text": "Add length to improve distance and match your height or swing style."
-          }
-        },
-        "r4": {
-          "type": "column",
-          "settings": {
-            "title": "Adjust Loft/Lie (per club) \u2014 $5",
-            "text": "Modify club angles to help your shots launch better and fly straighter."
-          }
-        },
-        "r5": {
-          "type": "column",
-          "settings": {
-            "title": "Repair Loose Clubhead \u2014 $20",
-            "text": "Re-secure wobbly or detached clubheads to restore balance and performance."
-          }
-        },
-        "r6": {
-          "type": "column",
-          "settings": {
-            "title": "Remove Shaft \u2014 $10",
-            "text": "Safely detach a damaged or outdated shaft in preparation for a replacement."
-          }
-        },
-        "r7": {
-          "type": "column",
-          "settings": {
-            "title": "Standard Reshaft \u2014 $20",
-            "text": "Install a new shaft to restore club stability. Done next day depending on availability."
-          }
-        },
-        "r8": {
-          "type": "column",
-          "settings": {
-            "title": "Exchange Shafts \u2014 $30",
-            "text": "Swap one shaft for another to customize feel, flex, or performance."
-          }
-        }
-      },
-      "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6",
-        "r7",
-        "r8"
-      ],
-      "settings": {
-        "title": "Pricing",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "color_scheme": "scheme-1",
-        "swipe_on_mobile": true
-      }
-    },
-    "disclaimer": {
-      "type": "rich-text",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>All prices in USD. Applicable taxes added at checkout.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text"
-      ],
-      "settings": {
-        "desktop_content_position": "left",
-        "content_alignment": "left",
-        "color_scheme": "scheme-2",
-        "full_width": true,
-        "padding_top": 12,
-        "padding_bottom": 48
+        "services_heading": "Our Repair Services",
+        "pricing_heading": "Popular Repairs & Pricing",
+        "pricing_subtext": "Our most common repairs are listed below. Final pricing depends on the equipment selected and type of service performed.",
+        "disclaimer": "All prices in USD. Applicable taxes added at checkout.",
+        "cta_heading": "Drop Off Your Clubs Today",
+        "cta_subtext": "Most repairs are completed next day. Stop by during business hours or give us a call to confirm availability.",
+        "cta_label": "Get in Touch",
+        "cta_link": "shopify:\/\/pages\/contact"
       }
     }
   },
-  "order": [
-    "hero",
-    "services",
-    "pricing_intro",
-    "pricing",
-    "disclaimer"
-  ]
+  "order": ["hero", "repair"]
 }

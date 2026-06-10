@@ -1,0 +1,318 @@
+<style>
+  /* ── Services ── */
+  .ncdr-repair-services {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-repair-services__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-repair-services__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-repair-services__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 36px;
+  }
+
+  .ncdr-repair-services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ncdr-repair-service-card {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    padding: 32px 28px;
+  }
+
+  .ncdr-repair-service-card__icon {
+    width: 44px;
+    height: 44px;
+    background: var(--ncdr-green-deep);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .ncdr-repair-service-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 10px;
+  }
+
+  .ncdr-repair-service-card__desc {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── Pricing ── */
+  .ncdr-repair-pricing {
+    padding: 64px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-repair-pricing__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-repair-pricing__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-repair-pricing__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-repair-pricing__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .ncdr-repair-pricing__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--ncdr-light-gray);
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .ncdr-repair-pricing__item {
+    background: #fff;
+    padding: 24px 20px;
+  }
+
+  .ncdr-repair-pricing__item-name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 6px;
+  }
+
+  .ncdr-repair-pricing__item-price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .ncdr-repair-pricing__item-desc {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .ncdr-repair-pricing__disclaimer {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── Drop-off CTA ── */
+  .ncdr-repair-cta {
+    background: var(--ncdr-green-deep);
+    padding: 56px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .ncdr-repair-cta__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 26px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .ncdr-repair-cta__sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .ncdr-repair-cta__btn {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+  .ncdr-repair-cta__btn:hover {
+    background: var(--ncdr-gold-light);
+    color: var(--ncdr-green-deep);
+    text-decoration: none;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-repair-services,
+    .ncdr-repair-pricing { padding: 48px 20px; }
+    .ncdr-repair-services__grid { grid-template-columns: 1fr; gap: 14px; }
+    .ncdr-repair-pricing__grid { grid-template-columns: repeat(2, 1fr); }
+    .ncdr-repair-cta { padding: 40px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<!-- Services -->
+<div class="ncdr-repair-services">
+  <div class="ncdr-repair-services__eyebrow">What We Fix <span></span></div>
+  <h2 class="ncdr-repair-services__heading">{{ section.settings.services_heading }}</h2>
+
+  <div class="ncdr-repair-services__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'service' -%}
+        <div class="ncdr-repair-service-card">
+          <div class="ncdr-repair-service-card__icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ncdr-gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="ncdr-repair-service-card__name">{{ block.settings.name }}</div>
+          <div class="ncdr-repair-service-card__desc">{{ block.settings.description }}</div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- Pricing -->
+<div class="ncdr-repair-pricing">
+  <div class="ncdr-repair-pricing__eyebrow">Transparent Pricing <span></span></div>
+  <h2 class="ncdr-repair-pricing__heading">{{ section.settings.pricing_heading }}</h2>
+  <p class="ncdr-repair-pricing__sub">{{ section.settings.pricing_subtext }}</p>
+
+  <div class="ncdr-repair-pricing__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'price_item' -%}
+        <div class="ncdr-repair-pricing__item">
+          <div class="ncdr-repair-pricing__item-name">{{ block.settings.name }}</div>
+          <div class="ncdr-repair-pricing__item-price">${{ block.settings.price }}</div>
+          <div class="ncdr-repair-pricing__item-desc">{{ block.settings.description }}</div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <p class="ncdr-repair-pricing__disclaimer">{{ section.settings.disclaimer }}</p>
+</div>
+
+<!-- Drop-off CTA -->
+<div class="ncdr-repair-cta">
+  <div>
+    <div class="ncdr-repair-cta__heading">{{ section.settings.cta_heading }}</div>
+    <p class="ncdr-repair-cta__sub">{{ section.settings.cta_subtext }}</p>
+  </div>
+  {%- if section.settings.cta_label != blank -%}
+    <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="ncdr-repair-cta__btn">{{ section.settings.cta_label }}</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Repair",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "services_heading", "label": "Services heading", "default": "Our Repair Services" },
+    { "type": "text", "id": "pricing_heading", "label": "Pricing heading", "default": "Popular Repairs & Pricing" },
+    { "type": "text", "id": "pricing_subtext", "label": "Pricing subtext", "default": "Our most common repairs are listed below. Final pricing depends on the equipment selected and type of service performed." },
+    { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "All prices in USD. Applicable taxes added at checkout." },
+    { "type": "text", "id": "cta_heading", "label": "CTA heading", "default": "Drop Off Your Clubs Today" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "Most repairs are completed next day. Stop by during business hours or give us a call to confirm availability." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Get in Touch" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Service name" },
+        { "type": "textarea", "id": "description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "price_item",
+      "name": "Price Item",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Service name" },
+        { "type": "text", "id": "price", "label": "Price (no $)" },
+        { "type": "textarea", "id": "description", "label": "Short description" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Repair" }]
+}
+{% endschema %}
