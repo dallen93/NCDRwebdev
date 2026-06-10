@@ -323,6 +323,9 @@
           </div>
           <div class="ncdr-modal__body">
             <div class="ncdr-modal__bio">{{ block.settings.native_bio | newline_to_br }}</div>
+            <button class="ncdr-modal__lang-btn" onclick="ncdrCloseNative('{{ block.id }}', null)">
+              ← Back to English
+            </button>
           </div>
         </div>
       </div>
