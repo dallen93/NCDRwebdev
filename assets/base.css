@@ -166,6 +166,124 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ============================================================
+   NCDR INNER PAGE — Dawn section overrides
+   ============================================================ */
+
+/* Multicolumn cards */
+.multicolumn-card {
+  background: #fff;
+  border: 1px solid var(--ncdr-light-gray);
+  border-radius: 6px;
+  padding: 24px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.multicolumn-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.multicolumn-card__title {
+  font-family: var(--ncdr-font-heading) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ncdr-text-dark) !important;
+  margin-bottom: 8px;
+}
+.multicolumn-card .rte p,
+.multicolumn-card__info {
+  font-size: 13px;
+  color: var(--ncdr-text-mid);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* Multicolumn section heading */
+.multicolumn .title {
+  font-family: var(--ncdr-font-heading) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* scheme-2 background (off-white alternating sections) */
+.color-scheme-2,
+.color-scheme-2.gradient {
+  background-color: var(--ncdr-off-white) !important;
+}
+
+/* Rich-text section headings */
+.rich-text__heading {
+  font-family: var(--ncdr-font-heading) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ncdr-text-dark) !important;
+}
+.rich-text__text p {
+  font-size: 15px;
+  color: var(--ncdr-text-mid);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* Multicolumn card link */
+.multicolumn-card__info a.link {
+  color: var(--ncdr-green) !important;
+  font-family: var(--ncdr-font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(58,88,43,0.3);
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+.multicolumn-card__info a.link:hover {
+  color: var(--ncdr-gold) !important;
+  border-bottom-color: var(--ncdr-gold-border);
+}
+
+/* Contact-form section */
+.contact-form .field__label,
+.contact-form label {
+  font-family: var(--ncdr-font-heading);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ncdr-text-mid);
+}
+.contact-form .field__input,
+.contact-form textarea {
+  border: 1px solid var(--ncdr-light-gray);
+  border-radius: 3px;
+  font-family: var(--ncdr-font-body);
+  font-size: 14px;
+}
+.contact-form .field__input:focus,
+.contact-form textarea:focus {
+  border-color: var(--ncdr-green);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(58,88,43,0.1);
+}
+.contact-form .button {
+  background: var(--ncdr-green) !important;
+  color: #fff !important;
+  font-family: var(--ncdr-font-heading) !important;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: none !important;
+  padding: 13px 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.contact-form .button:hover {
+  background: var(--ncdr-green-mid) !important;
+}
+
+/* ============================================================
    END NCDR BRAND SYSTEM
    ============================================================ */
 
