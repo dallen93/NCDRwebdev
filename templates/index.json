@@ -1,14 +1,22 @@
 {
   "sections": {
-    "test": {
-      "type": "rich-text",
+    "image_banner": {
+      "type": "ncdr-hero",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Northcrest Golf", "heading_size": "h1" } },
-        "text": { "type": "text", "settings": { "text": "<p>Theme is loading correctly.</p>" } }
+        "stat1": { "type": "stat", "settings": { "number": "125+", "label": "Covered Bays" } },
+        "stat2": { "type": "stat", "settings": { "number": "5", "label": "Golfzon Simulators" } },
+        "stat3": { "type": "stat", "settings": { "number": "38+", "label": "Years in Atlanta" } }
       },
-      "block_order": ["heading", "text"],
-      "settings": { "desktop_content_position": "center", "content_alignment": "center", "color_scheme": "scheme-1", "full_width": true, "padding_top": 60, "padding_bottom": 60 }
+      "block_order": ["stat1", "stat2", "stat3"],
+      "settings": {
+        "eyebrow": "Atlanta's Premier Driving Range",
+        "heading": "Where Your",
+        "heading_gold": "Game Grows.",
+        "subtext": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
+        "cta_label": "Shop the Pro Shop",
+        "cta_link": "shopify:\/\/collections\/all"
+      }
     }
   },
-  "order": ["test"]
+  "order": ["image_banner"]
 }
