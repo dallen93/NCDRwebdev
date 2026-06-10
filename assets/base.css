@@ -283,6 +283,13 @@ h1, h2, h3, h4, h5, h6,
   background: var(--ncdr-green-mid) !important;
 }
 
+/* Product card border */
+.product-card-wrapper {
+  border: 1px solid var(--ncdr-light-gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 /* Collection page — full-width product grid */
 .collection.page-width,
 .collection--empty.page-width,
