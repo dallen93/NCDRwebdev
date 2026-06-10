@@ -278,7 +278,12 @@
         </div>
         <div class="ncdr-booking-field">
           <label class="ncdr-booking-label" for="booking-package">Package Interest</label>
-          <input class="ncdr-booking-input" type="text" id="booking-package" name="contact[package]" readonly>
+          <select class="ncdr-booking-input" id="booking-package" name="contact[package]">
+            <option value="">Select a package</option>
+            <option value="Single Lesson">Single Lesson — $150 / hour</option>
+            <option value="4 Lesson Package">4 Lesson Package — $550</option>
+            <option value="8 Lesson Package">8 Lesson Package — $1,000</option>
+          </select>
         </div>
         <div class="ncdr-booking-field">
           <label class="ncdr-booking-label" for="booking-message">Message (optional)</label>
