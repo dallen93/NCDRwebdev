@@ -108,6 +108,19 @@
     }
   }
 
+  /* ── Full-width header so logo aligns with page content ── */
+  .section-header .header.page-width {
+    max-width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  @media (max-width: 989px) {
+    .section-header .header.page-width {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
   /* ── NCDR Announcement Bar ── */
   .utility-bar {
     background-color: var(--ncdr-gold) !important;
