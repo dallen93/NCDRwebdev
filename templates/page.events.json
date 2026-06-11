@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -11,6 +20,7 @@
     },
     "banner": {
       "type": "ncdr-events-banner",
+      "disabled": true,
       "settings": {
         "label": "Now Registering",
         "title_line1": "1st Annual Northcrest",
@@ -25,14 +35,57 @@
     "events": {
       "type": "ncdr-events",
       "blocks": {
-        "e1": { "type": "event_type", "settings": { "name": "Birthday Parties", "description": "Celebrate your birthday on the range. Fun for all ages and skill levels — no experience required." } },
-        "e2": { "type": "event_type", "settings": { "name": "Corporate Events & Team Outings", "description": "Build team chemistry in a relaxed, competitive golf environment. Perfect for groups of any size." } },
-        "e3": { "type": "event_type", "settings": { "name": "Indoor Golf Tournaments", "description": "Organize competitive play on our Golfzon simulator bays with real-time scoring and world-class courses." } },
-        "e4": { "type": "event_type", "settings": { "name": "School & Youth Group Events", "description": "Educational and engaging experiences for students and youth organizations with professional instruction." } },
-        "e5": { "type": "event_type", "settings": { "name": "Family Gatherings", "description": "A welcoming space for families to play, compete, and connect — indoors or on the range." } },
-        "e6": { "type": "event_type", "settings": { "name": "Private Celebrations", "description": "Reserve the range for your private event. Customizable packages available for any occasion." } }
+        "e1": {
+          "type": "event_type",
+          "settings": {
+            "name": "Birthday Parties",
+            "description": "Celebrate your birthday on the range. Fun for all ages and skill levels — no experience required."
+          }
+        },
+        "e2": {
+          "type": "event_type",
+          "settings": {
+            "name": "Corporate Events & Team Outings",
+            "description": "Build team chemistry in a relaxed, competitive golf environment. Perfect for groups of any size."
+          }
+        },
+        "e3": {
+          "type": "event_type",
+          "settings": {
+            "name": "Indoor Golf Tournaments",
+            "description": "Organize competitive play on our Golfzon simulator bays with real-time scoring and world-class courses."
+          }
+        },
+        "e4": {
+          "type": "event_type",
+          "settings": {
+            "name": "School & Youth Group Events",
+            "description": "Educational and engaging experiences for students and youth organizations with professional instruction."
+          }
+        },
+        "e5": {
+          "type": "event_type",
+          "settings": {
+            "name": "Family Gatherings",
+            "description": "A welcoming space for families to play, compete, and connect — indoors or on the range."
+          }
+        },
+        "e6": {
+          "type": "event_type",
+          "settings": {
+            "name": "Private Celebrations",
+            "description": "Reserve the range for your private event. Customizable packages available for any occasion."
+          }
+        }
       },
-      "block_order": ["e1", "e2", "e3", "e4", "e5", "e6"],
+      "block_order": [
+        "e1",
+        "e2",
+        "e3",
+        "e4",
+        "e5",
+        "e6"
+      ],
       "settings": {
         "types_eyebrow": "What We Can Do For You",
         "types_heading": "Events We Host",
@@ -43,5 +96,9 @@
       }
     }
   },
-  "order": ["hero", "banner", "events"]
+  "order": [
+    "hero",
+    "banner",
+    "events"
+  ]
 }
