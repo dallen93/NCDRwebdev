@@ -446,6 +446,21 @@
   </header>
 </{{ header_tag }}>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Prevent top-level nav links from navigating if they have a dropdown
+    document.querySelectorAll('.header__menu-item').forEach(function(item) {
+      var dropdown = item.querySelector('.header__submenu');
+      if (!dropdown) return;
+      var link = item.querySelector(':scope > a, :scope > .header__menu-item-link');
+      if (!link) return;
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+      });
+    });
+  });
+</script>
+
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,
