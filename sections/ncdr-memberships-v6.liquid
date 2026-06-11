@@ -1,0 +1,591 @@
+<style>
+  .ncdr-mem2 {
+    padding: 80px 60px;
+    background: var(--ncdr-off-white);
+  }
+
+  .ncdr-mem2__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .ncdr-mem2__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ncdr-mem2__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-mem2__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    color: var(--ncdr-text-dark);
+  }
+
+  .ncdr-mem2__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── Tier grid ── */
+  .ncdr-mem2-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .ncdr-mem2-card {
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 6px;
+    padding: 28px 22px;
+    position: relative;
+    background: #fff;
+    transition: all 0.25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .ncdr-mem2-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: rgba(58,88,43,0.2);
+  }
+
+  .ncdr-mem2-card--featured {
+    border: 2px solid var(--ncdr-gold);
+    background: var(--ncdr-green-deep);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(58,88,43,0.25);
+  }
+
+  .ncdr-mem2-card--featured:hover { transform: translateY(-8px); }
+
+  .ncdr-mem2-card__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .ncdr-mem2-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ncdr-green);
+    margin-bottom: 12px;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__name { color: rgba(255,255,255,0.5); }
+
+  .ncdr-mem2-card__price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ncdr-text-dark);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__price { color: var(--ncdr-gold); }
+
+  .ncdr-mem2-card__price sup {
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: super;
+  }
+
+  .ncdr-mem2-card__price sub {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ncdr-text-mid);
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__price sub { color: rgba(255,255,255,0.4); }
+
+  .ncdr-mem2-card__per-visit {
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__per-visit { color: rgba(255,255,255,0.35); }
+
+  .ncdr-mem2-card__access {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__access {
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .ncdr-mem2-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .ncdr-mem2-card__feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.4;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__feature { color: rgba(255,255,255,0.65); }
+
+  .ncdr-mem2-card__dot {
+    width: 5px;
+    height: 5px;
+    background: var(--ncdr-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__dot { background: var(--ncdr-gold); }
+
+  .ncdr-mem2-card__spots {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 14px;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__spots { color: rgba(201,168,76,0.8); }
+
+  .ncdr-mem2-card__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: var(--ncdr-green);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1.5px solid var(--ncdr-green);
+    text-decoration: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+  .ncdr-mem2-card__cta:hover {
+    background: var(--ncdr-green);
+    color: #fff;
+    text-decoration: none;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__cta {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    border: none;
+  }
+  .ncdr-mem2-card--featured .ncdr-mem2-card__cta:hover {
+    background: var(--ncdr-gold-light);
+    color: var(--ncdr-green-deep);
+  }
+
+  /* ── Benefits grid ── */
+  .ncdr-mem2-benefits {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 6px;
+    padding: 40px;
+    margin-bottom: 24px;
+  }
+
+  .ncdr-mem2-benefits__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-dark);
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .ncdr-mem2-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .ncdr-mem2-benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ncdr-mem2-benefit__icon {
+    font-size: 22px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .ncdr-mem2-benefit__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 2px;
+  }
+
+  .ncdr-mem2-benefit__desc {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .ncdr-mem2__note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ── Terms ── */
+  .ncdr-mem2-terms {
+    padding: 48px 60px;
+    background: #fff;
+    border-top: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-mem2-terms__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-mem2-terms__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-text-mid);
+    opacity: 0.4;
+  }
+
+  .ncdr-mem2-terms__body {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 860px;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-mem2 { padding: 48px 20px; }
+    .ncdr-mem2-grid { grid-template-columns: 1fr; gap: 20px; }
+    .ncdr-mem2-card--featured { transform: none; }
+    .ncdr-mem2-benefits__grid { grid-template-columns: 1fr 1fr; }
+    .ncdr-mem2-terms { padding: 40px 20px; }
+  }
+  @media (max-width: 480px) {
+    .ncdr-mem2-benefits__grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="ncdr-mem2">
+  <div class="ncdr-mem2__header">
+    <div class="ncdr-mem2__eyebrow"><span></span> {{ section.settings.eyebrow }} <span></span></div>
+    <h2 class="ncdr-mem2__heading">{{ section.settings.heading }}</h2>
+    <p class="ncdr-mem2__sub">{{ section.settings.subtext }}</p>
+  </div>
+
+  <div class="ncdr-mem2-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'tier' -%}
+        <div class="ncdr-mem2-card{% if block.settings.featured %} ncdr-mem2-card--featured{% endif %}">
+          {%- if block.settings.featured and block.settings.badge != blank -%}
+            <div class="ncdr-mem2-card__badge">{{ block.settings.badge }}</div>
+          {%- endif -%}
+
+          <div class="ncdr-mem2-card__name">{{ block.settings.name }}</div>
+
+          <div class="ncdr-mem2-card__price">
+            <sup>$</sup>{{ block.settings.price }}<sub>/mo</sub>
+          </div>
+
+          {%- if block.settings.per_visit != blank -%}
+            <div class="ncdr-mem2-card__per-visit">{{ block.settings.per_visit }}</div>
+          {%- endif -%}
+
+          {%- if block.settings.access_note != blank -%}
+            <div class="ncdr-mem2-card__access">{{ block.settings.access_note }}</div>
+          {%- endif -%}
+
+          <div class="ncdr-mem2-card__features">
+            {%- if block.settings.feature_1 != blank -%}
+              <div class="ncdr-mem2-card__feature"><div class="ncdr-mem2-card__dot"></div>{{ block.settings.feature_1 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_2 != blank -%}
+              <div class="ncdr-mem2-card__feature"><div class="ncdr-mem2-card__dot"></div>{{ block.settings.feature_2 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_3 != blank -%}
+              <div class="ncdr-mem2-card__feature"><div class="ncdr-mem2-card__dot"></div>{{ block.settings.feature_3 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_4 != blank -%}
+              <div class="ncdr-mem2-card__feature"><div class="ncdr-mem2-card__dot"></div>{{ block.settings.feature_4 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_5 != blank -%}
+              <div class="ncdr-mem2-card__feature"><div class="ncdr-mem2-card__dot"></div>{{ block.settings.feature_5 }}</div>
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.spots != blank -%}
+            <div class="ncdr-mem2-card__spots">{{ block.settings.spots }}</div>
+          {%- endif -%}
+
+          <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="ncdr-mem2-card__cta">
+            {{ section.settings.cta_label | default: 'Join Now' }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <!-- Every Membership Includes -->
+  <div class="ncdr-mem2-benefits">
+    <div class="ncdr-mem2-benefits__heading">{{ section.settings.benefits_heading }}</div>
+    <div class="ncdr-mem2-benefits__grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'benefit' -%}
+          <div class="ncdr-mem2-benefit">
+            <div class="ncdr-mem2-benefit__icon">{{ block.settings.icon }}</div>
+            <div>
+              <div class="ncdr-mem2-benefit__name">{{ block.settings.name }}</div>
+              <div class="ncdr-mem2-benefit__desc">{{ block.settings.description }}</div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- if section.settings.note != blank -%}
+    <p class="ncdr-mem2__note">{{ section.settings.note }}</p>
+  {%- endif -%}
+</div>
+
+<div class="ncdr-mem2-terms">
+  <div class="ncdr-mem2-terms__eyebrow">Terms &amp; Conditions <span></span></div>
+  <div class="ncdr-mem2-terms__body">{{ section.settings.terms | newline_to_br }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Memberships V2",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Membership Plans" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Play More. Pay Less." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Northcrest memberships give regulars the best value on the range. Choose the plan that fits how you play." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Join Now" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits section heading", "default": "Every Membership Includes" },
+    { "type": "text", "id": "note", "label": "Footnote", "default": "Founding member pricing locked for the first 12 months. Cancel anytime." },
+    { "type": "textarea", "id": "terms", "label": "Terms & Conditions", "default": "Memberships are billed monthly and may be cancelled at any time with 30 days notice. Benefits apply to the primary cardholder only and are non-transferable. Northcrest Golf reserves the right to modify membership pricing and benefits with 30 days notice to active members." }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Membership Tier",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Tier name" },
+        { "type": "text", "id": "price", "label": "Monthly price (number only)" },
+        { "type": "text", "id": "per_visit", "label": "Per-visit cost (e.g. ~$2.45 per visit)" },
+        { "type": "checkbox", "id": "featured", "label": "Featured card", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge text (if featured)" },
+        { "type": "text", "id": "access_note", "label": "Access summary (short line)" },
+        { "type": "text", "id": "feature_1", "label": "Feature 1" },
+        { "type": "text", "id": "feature_2", "label": "Feature 2" },
+        { "type": "text", "id": "feature_3", "label": "Feature 3" },
+        { "type": "text", "id": "feature_4", "label": "Feature 4" },
+        { "type": "text", "id": "feature_5", "label": "Feature 5" },
+        { "type": "text", "id": "spots", "label": "Spots remaining label (e.g. 12 of 50 remaining)" }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Membership Benefit",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Emoji icon" },
+        { "type": "text", "id": "name", "label": "Benefit name" },
+        { "type": "text", "id": "description", "label": "Short description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR Memberships V2",
+      "blocks": [
+        {
+          "type": "tier",
+          "settings": {
+            "name": "Early Bird",
+            "price": "49",
+            "per_visit": "~$2.45 per visit",
+            "featured": false,
+            "badge": "",
+            "access_note": "Morning & daytime access",
+            "feature_1": "Unlimited range Mon–Sun (before 4pm)",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "",
+            "feature_5": "",
+            "spots": ""
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "name": "Very Long Day Pass",
+            "price": "59",
+            "per_visit": "~$2.95 per visit",
+            "featured": true,
+            "badge": "Best Value",
+            "access_note": "Evening access from 8pm",
+            "feature_1": "Unlimited range evenings (8pm+)",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "",
+            "spots": ""
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "name": "Anytime",
+            "price": "89",
+            "per_visit": "~$4.45 per visit",
+            "featured": false,
+            "badge": "",
+            "access_note": "Full access any day, any time",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "15% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "10% lesson discount",
+            "spots": ""
+          }
+        },
+        {
+          "type": "tier",
+          "settings": {
+            "name": "Founding Member",
+            "price": "79",
+            "per_visit": "Rate locked for 12 months",
+            "featured": false,
+            "badge": "",
+            "access_note": "Full access — rate locked for founding members",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "15% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "10% lesson discount",
+            "spots": "12 of 50 remaining"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "💳",
+            "name": "Digital Wallet Badge",
+            "description": "Tap in at the range with your member badge."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🏷️",
+            "name": "Store Credit",
+            "description": "Earn store credit on every pro shop purchase."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "⛳",
+            "name": "Member Pricing",
+            "description": "Exclusive discounts on lessons, events, and gear."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "📅",
+            "name": "Priority Booking",
+            "description": "Reserve simulator bays and lesson slots before the public."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "📲",
+            "name": "Email & SMS Updates",
+            "description": "First to know about events, new gear, and member specials."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎓",
+            "name": "Program Discounts",
+            "description": "Save on clinics, junior programs, and group lessons."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,146 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Memberships",
+        "heading": "Play More.",
+        "heading_gold": "Pay Less.",
+        "subtext": "Northcrest memberships give regulars the best value on the range. Unlimited access, simulator time, pro shop discounts, and more — one simple monthly rate."
+      }
+    },
+    "memberships": {
+      "type": "ncdr-memberships-v6",
+      "blocks": {
+        "t1": {
+          "type": "tier",
+          "settings": {
+            "name": "Early Bird",
+            "price": "49",
+            "per_visit": "~$2.45 per visit",
+            "featured": false,
+            "badge": "",
+            "access_note": "Morning & daytime access",
+            "feature_1": "Unlimited range Mon–Sun (before 4pm)",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "",
+            "feature_5": "",
+            "spots": ""
+          }
+        },
+        "t2": {
+          "type": "tier",
+          "settings": {
+            "name": "Very Long Day Pass",
+            "price": "59",
+            "per_visit": "~$2.95 per visit",
+            "featured": true,
+            "badge": "Best Value",
+            "access_note": "Evening access from 8pm",
+            "feature_1": "Unlimited range evenings (8pm+)",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "",
+            "spots": ""
+          }
+        },
+        "t3": {
+          "type": "tier",
+          "settings": {
+            "name": "Anytime",
+            "price": "89",
+            "per_visit": "~$4.45 per visit",
+            "featured": false,
+            "badge": "",
+            "access_note": "Full access any day, any time",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "15% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "10% lesson discount",
+            "spots": ""
+          }
+        },
+        "t4": {
+          "type": "tier",
+          "settings": {
+            "name": "Founding Member",
+            "price": "79",
+            "per_visit": "Rate locked for 12 months",
+            "featured": false,
+            "badge": "",
+            "access_note": "Full access — rate locked for founding members",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "15% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": "10% lesson discount",
+            "spots": "12 of 50 remaining"
+          }
+        },
+        "b1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "💳",
+            "name": "Digital Wallet Badge",
+            "description": "Tap in at the range with your member badge."
+          }
+        },
+        "b2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🏷️",
+            "name": "Store Credit",
+            "description": "Earn store credit on every pro shop purchase."
+          }
+        },
+        "b3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "⛳",
+            "name": "Member Pricing",
+            "description": "Exclusive discounts on lessons, events, and gear."
+          }
+        },
+        "b4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "📅",
+            "name": "Priority Booking",
+            "description": "Reserve simulator bays and lesson slots before the public."
+          }
+        },
+        "b5": {
+          "type": "benefit",
+          "settings": {
+            "icon": "📲",
+            "name": "Email & SMS Updates",
+            "description": "First to know about events, new gear, and member specials."
+          }
+        },
+        "b6": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎓",
+            "name": "Program Discounts",
+            "description": "Save on clinics, junior programs, and group lessons."
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "b1", "b2", "b3", "b4", "b5", "b6"],
+      "settings": {
+        "eyebrow": "Membership Plans",
+        "heading": "Play More. Pay Less.",
+        "subtext": "Northcrest memberships give regulars the best value on the range. Choose the plan that fits how you play.",
+        "cta_label": "Join Now",
+        "cta_link": "shopify:\/\/pages\/contact",
+        "benefits_heading": "Every Membership Includes",
+        "note": "Founding member pricing locked for the first 12 months. Cancel anytime.",
+        "terms": "Memberships are billed monthly and may be cancelled at any time with 30 days notice. Benefits apply to the primary cardholder only and are non-transferable. Northcrest Golf reserves the right to modify membership pricing and benefits with 30 days notice to active members."
+      }
+    }
+  },
+  "order": ["hero", "memberships"]
+}

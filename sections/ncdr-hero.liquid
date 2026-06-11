@@ -133,6 +133,28 @@
     text-decoration: none;
   }
 
+  .ncdr-hero__btn-member {
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    font-family: var(--ncdr-font-heading);
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .ncdr-hero__btn-member:hover {
+    border-color: var(--ncdr-gold-border);
+    color: var(--ncdr-gold);
+    text-decoration: none;
+  }
+
   .ncdr-hero__stats {
     display: flex;
     gap: 40px;
@@ -213,6 +235,12 @@
       {%- if section.settings.cta_label != blank -%}
         <a href="{{ section.settings.cta_link }}" class="ncdr-hero__btn-primary">{{ section.settings.cta_label }}</a>
       {%- endif -%}
+      {%- if section.settings.member_cta_1_label != blank -%}
+        <a href="{{ section.settings.member_cta_1_link }}" class="ncdr-hero__btn-member">{{ section.settings.member_cta_1_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.member_cta_2_label != blank -%}
+        <a href="{{ section.settings.member_cta_2_link }}" class="ncdr-hero__btn-member">{{ section.settings.member_cta_2_label }}</a>
+      {%- endif -%}
     </div>
 
     <div class="ncdr-hero__stats">
@@ -239,6 +267,10 @@
     { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are." },
     { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop the Pro Shop" },
     { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "text", "id": "member_cta_1_label", "label": "Member button 1 label", "default": "Become a Member 1" },
+    { "type": "url", "id": "member_cta_1_link", "label": "Member button 1 link" },
+    { "type": "text", "id": "member_cta_2_label", "label": "Member button 2 label", "default": "Become a Member 2" },
+    { "type": "url", "id": "member_cta_2_link", "label": "Member button 2 link" },
     { "type": "image_picker", "id": "map_image", "label": "Atlanta map overlay image" }
   ],
   "blocks": [
