@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "title": "Crafted for Effortless Speed",
+            "description": "Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "title": "Stability in Every Swing",
+            "description": "Full Tungsten Sole construction and Optimal Core Impact design ensure consistent launch, forgiveness, and control."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "title": "Ultra-Light Precision",
+            "description": "LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact."
+          }
+        },
+        "p1": {
+          "type": "product",
+          "settings": {
+            "brand": "Majesty",
+            "name": "Prestigio 14 Driver",
+            "variant": "Men's",
+            "price": "2,200"
+          }
+        },
+        "p2": {
+          "type": "product",
+          "settings": {
+            "brand": "Majesty",
+            "name": "Prestigio 14 Driver",
+            "variant": "Ladies'",
+            "price": "2,200"
+          }
+        },
+        "p3": {
+          "type": "product",
+          "settings": {
+            "brand": "Majesty",
+            "name": "Prestigio 14 Fairway Wood",
+            "variant": "Men's",
+            "price": "1,600"
+          }
+        },
+        "p4": {
+          "type": "product",
+          "settings": {
+            "brand": "Majesty",
+            "name": "Prestigio 14 Fairway Wood",
+            "variant": "Ladies'",
+            "price": "1,600"
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3", "p1", "p2", "p3", "p4"],
+      "settings": {
+        "title": "Prestigio 14",
+        "hero_eyebrow": "Majesty Golf USA · Available at Northcrest",
+        "hero_subtitle": "Crafted in Japan.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "https://vid.cdn-website.com/b0cdbcb7/videos/v09q5307QU2lWnpthcr7_Prestigio+14+Video-v.mp4",
+        "intro_heading": "The Pinnacle of Japanese Craftsmanship",
+        "intro_body": "Majesty's Prestigio 14 series represents the marriage of hand-finished detail and material science — engineered for golfers who value precision, refinement, and effortless speed. Northcrest is honored to present this rare collection.",
+        "excl_text": "Majesty selects only a handful of retailers worldwide to represent the Prestigio line. <strong>Northcrest is one of nine locations in the United States<\/strong> entrusted with this collection. Our team offers personalized guidance to help you experience the full performance of these handcrafted clubs.",
+        "excl_badge_num": "9",
+        "excl_badge_label": "U.S. Authorized Prestigio 14 Dealers",
+        "cta_heading": "Experience Prestigio 14 In Person",
+        "cta_sub": "Schedule a private consultation with our team. Discover the ease, balance, and precision that define Majesty's newest flagship series.",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify:\/\/pages\/contact",
+        "collection_eyebrow": "The Prestigio 14 Collection",
+        "collection_heading": "Hand-Finished Precision. Effortless Power.",
+        "collection_sub": "Select a club below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}

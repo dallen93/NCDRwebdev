@@ -1,0 +1,823 @@
+<style>
+  /* ── Hero Video ── */
+  .nrel-hero {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+  }
+
+  .nrel-hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+
+  .nrel-hero__video.loaded { opacity: 0.5; }
+
+  .nrel-hero__bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+  }
+
+  .nrel-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(42,64,32,0.55) 0%,
+      rgba(42,64,32,0.75) 60%,
+      rgba(42,64,32,0.92) 100%
+    );
+  }
+
+  .nrel-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 100px 40px;
+  }
+
+  .nrel-hero__eyebrow {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: nrelFadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .nrel-hero__title {
+    font-family: var(--ncdr-font-heading);
+    font-size: 96px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 0.9;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-shadow: 0 4px 32px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(24px);
+    animation: nrelFadeUp 0.9s ease 0.5s forwards;
+  }
+
+  .nrel-hero__subtitle {
+    font-size: 22px;
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    margin-bottom: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: nrelFadeUp 0.9s ease 0.7s forwards;
+  }
+
+  .nrel-hero__sub2 {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: nrelFadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .nrel-hero__scroll {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    animation: nrelFadeUp 0.8s ease 1.2s forwards;
+  }
+
+  .nrel-hero__scroll span {
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .nrel-scroll-line {
+    width: 1px;
+    height: 32px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+    animation: nrelScrollPulse 2s ease-in-out 1.4s infinite;
+  }
+
+  @keyframes nrelFadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes nrelScrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ── Intro ── */
+  .nrel-intro {
+    padding: 80px 60px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .nrel-intro__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--ncdr-green-deep);
+    text-transform: uppercase;
+    line-height: 1.15;
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
+
+  .nrel-intro__body {
+    font-size: 17px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.75;
+    max-width: 680px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ── Photo Cards (hover reveal) ── */
+  .nrel-photo-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    background: var(--ncdr-off-white);
+    padding: 64px 60px;
+    gap: 24px;
+  }
+
+  .nrel-photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: default;
+    aspect-ratio: 4/3;
+    background: #ccc;
+  }
+
+  .nrel-photo-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .nrel-photo-card:hover .nrel-photo-card__img {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+
+  .nrel-photo-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--ncdr-green-deep);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .nrel-photo-card:hover .nrel-photo-card__overlay {
+    opacity: 1;
+  }
+
+  .nrel-photo-card__title {
+    font-family: var(--ncdr-font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .nrel-photo-card__desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .nrel-photo-card__placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #d0cdc6, #c4c0b8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    opacity: 0.4;
+    transition: opacity 0.5s ease;
+  }
+
+  .nrel-photo-card:hover .nrel-photo-card__placeholder {
+    opacity: 0;
+  }
+
+  /* ── Exclusivity Banner ── */
+  .nrel-exclusivity {
+    position: relative;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+    padding: 64px 80px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .nrel-exclusivity__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.12;
+    mix-blend-mode: luminosity;
+  }
+
+  .nrel-exclusivity__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .nrel-exclusivity__text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 640px;
+  }
+
+  .nrel-exclusivity__text strong {
+    color: var(--ncdr-gold);
+    font-weight: 600;
+  }
+
+  .nrel-exclusivity__badge {
+    position: relative;
+    z-index: 1;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 28px 36px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .nrel-exclusivity__badge-num {
+    font-family: var(--ncdr-font-heading);
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--ncdr-gold);
+    line-height: 1;
+  }
+
+  .nrel-exclusivity__badge-label {
+    font-family: var(--ncdr-font-heading);
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ── CTA Section ── */
+  .nrel-cta {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 60px;
+    background: var(--ncdr-green-deep);
+  }
+
+  .nrel-cta__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+  }
+
+  .nrel-cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(42,64,32,0.72);
+  }
+
+  .nrel-cta__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .nrel-cta__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 52px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+
+  .nrel-cta__sub {
+    font-size: 16px;
+    color: var(--ncdr-gold);
+    line-height: 1.7;
+    max-width: 460px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+
+  .nrel-cta__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nrel-cta__btn {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+    background: transparent;
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.55);
+  }
+
+  .nrel-cta__btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: #fff;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* ── Product Collection Grid ── */
+  .nrel-collection {
+    padding: 80px 60px;
+    background: var(--ncdr-off-white);
+  }
+
+  .nrel-collection__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .nrel-collection__eyebrow {
+    font-family: var(--ncdr-font-heading);
+    font-size: 10px;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .nrel-collection__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--ncdr-green-deep);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .nrel-collection__sub {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .nrel-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .nrel-product-card {
+    background: #fff;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    display: block;
+  }
+
+  .nrel-product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(58,88,43,0.14);
+    border-color: rgba(201,168,76,0.5);
+    text-decoration: none;
+  }
+
+  .nrel-product-img {
+    height: 220px;
+    background: linear-gradient(135deg, #f0ede6, #e8e4dc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nrel-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .nrel-product-card:hover .nrel-product-img img {
+    transform: scale(1.04);
+  }
+
+  .nrel-product-img__placeholder {
+    font-size: 52px;
+    opacity: 0.25;
+  }
+
+  .nrel-product-info {
+    padding: 16px 18px;
+  }
+
+  .nrel-product-brand {
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .nrel-product-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 4px;
+    line-height: 1.35;
+    text-transform: uppercase;
+    font-family: var(--ncdr-font-heading);
+    letter-spacing: 0.04em;
+  }
+
+  .nrel-product-variant {
+    font-size: 10px;
+    color: var(--ncdr-text-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  .nrel-product-price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ncdr-green);
+  }
+
+  /* ── Scroll reveal ── */
+  .nrel-reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .nrel-reveal.nrel-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 989px) {
+    .nrel-hero__title { font-size: 60px; }
+    .nrel-intro { padding: 56px 24px; }
+    .nrel-photo-cards { padding: 40px 24px; grid-template-columns: 1fr; }
+    .nrel-exclusivity { padding: 48px 24px; grid-template-columns: 1fr; }
+    .nrel-exclusivity__badge { display: none; }
+    .nrel-cta { padding: 60px 24px; }
+    .nrel-cta__heading { font-size: 32px; }
+    .nrel-collection { padding: 48px 24px; }
+    .nrel-product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .nrel-product-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<!-- ── Hero ── -->
+<div class="nrel-hero">
+  {%- if section.settings.hero_video != blank -%}
+    <video
+      class="nrel-hero__video"
+      autoplay muted loop playsinline preload="auto"
+      oncanplay="this.classList.add('loaded')"
+    >
+      <source src="{{ section.settings.hero_video }}" type="video/mp4">
+    </video>
+  {%- elsif section.settings.hero_image != blank -%}
+    {{ section.settings.hero_image | image_url: width: 2000 | image_tag: class: 'nrel-hero__bg-image', loading: 'eager', alt: section.settings.title }}
+  {%- endif -%}
+  <div class="nrel-hero__overlay"></div>
+  <div class="nrel-hero__content">
+    {%- if section.settings.hero_eyebrow != blank -%}
+      <div class="nrel-hero__eyebrow">{{ section.settings.hero_eyebrow }}</div>
+    {%- endif -%}
+    <h1 class="nrel-hero__title">{{ section.settings.title }}</h1>
+    {%- if section.settings.hero_subtitle != blank -%}
+      <p class="nrel-hero__subtitle">{{ section.settings.hero_subtitle }}</p>
+    {%- endif -%}
+    {%- if section.settings.hero_sub2 != blank -%}
+      <p class="nrel-hero__sub2">{{ section.settings.hero_sub2 }}</p>
+    {%- endif -%}
+  </div>
+  <div class="nrel-hero__scroll">
+    <span>Discover</span>
+    <div class="nrel-scroll-line"></div>
+  </div>
+</div>
+
+<!-- ── Intro ── -->
+{%- if section.settings.intro_heading != blank -%}
+  <div class="nrel-intro nrel-reveal">
+    <h2 class="nrel-intro__heading">{{ section.settings.intro_heading }}</h2>
+    {%- if section.settings.intro_body != blank -%}
+      <p class="nrel-intro__body">{{ section.settings.intro_body }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<!-- ── Photo Cards ── -->
+{%- assign photo_blocks = section.blocks | where: 'type', 'photo_card' -%}
+{%- if photo_blocks.size > 0 -%}
+  <div class="nrel-photo-cards">
+    {%- for block in photo_blocks -%}
+      <div class="nrel-photo-card nrel-reveal" style="transition-delay: {{ forloop.index0 | times: 0.1 }}s;">
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 900 | image_tag: class: 'nrel-photo-card__img', loading: 'lazy', alt: block.settings.title }}
+        {%- else -%}
+          <div class="nrel-photo-card__placeholder">⛳</div>
+        {%- endif -%}
+        <div class="nrel-photo-card__overlay">
+          <div class="nrel-photo-card__title">{{ block.settings.title }}</div>
+          <div class="nrel-photo-card__desc">{{ block.settings.description }}</div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+<!-- ── Exclusivity Banner ── -->
+{%- if section.settings.excl_text != blank -%}
+  <div class="nrel-exclusivity nrel-reveal">
+    {%- if section.settings.excl_bg_image != blank -%}
+      {{ section.settings.excl_bg_image | image_url: width: 1800 | image_tag: class: 'nrel-exclusivity__bg', loading: 'lazy', alt: '' }}
+    {%- endif -%}
+    <div class="nrel-exclusivity__content">
+      <p class="nrel-exclusivity__text">{{ section.settings.excl_text }}</p>
+    </div>
+    {%- if section.settings.excl_badge_num != blank -%}
+      <div class="nrel-exclusivity__badge">
+        <div class="nrel-exclusivity__badge-num">{{ section.settings.excl_badge_num }}</div>
+        <div class="nrel-exclusivity__badge-label">{{ section.settings.excl_badge_label }}</div>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<!-- ── CTA ── -->
+{%- if section.settings.cta_heading != blank -%}
+  <div class="nrel-cta">
+    {%- if section.settings.cta_bg_image != blank -%}
+      {{ section.settings.cta_bg_image | image_url: width: 2000 | image_tag: class: 'nrel-cta__bg', loading: 'lazy', alt: '' }}
+    {%- endif -%}
+    <div class="nrel-cta__overlay"></div>
+    <div class="nrel-cta__content nrel-reveal">
+      <h2 class="nrel-cta__heading">{{ section.settings.cta_heading }}</h2>
+      {%- if section.settings.cta_sub != blank -%}
+        <p class="nrel-cta__sub">{{ section.settings.cta_sub }}</p>
+      {%- endif -%}
+      <div class="nrel-cta__buttons">
+        {%- if section.settings.cta_btn1_label != blank -%}
+          <a href="{{ section.settings.cta_btn1_link }}" class="nrel-cta__btn">{{ section.settings.cta_btn1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta_btn2_label != blank -%}
+          <a href="{{ section.settings.cta_btn2_link }}" class="nrel-cta__btn">{{ section.settings.cta_btn2_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+<!-- ── Product Collection ── -->
+{%- assign product_blocks = section.blocks | where: 'type', 'product' -%}
+{%- if product_blocks.size > 0 -%}
+  <div class="nrel-collection">
+    <div class="nrel-collection__header nrel-reveal">
+      {%- if section.settings.collection_eyebrow != blank -%}
+        <div class="nrel-collection__eyebrow">{{ section.settings.collection_eyebrow }}</div>
+      {%- endif -%}
+      <h2 class="nrel-collection__heading">{{ section.settings.collection_heading }}</h2>
+      {%- if section.settings.collection_sub != blank -%}
+        <p class="nrel-collection__sub">{{ section.settings.collection_sub }}</p>
+      {%- endif -%}
+    </div>
+    <div class="nrel-product-grid">
+      {%- for block in product_blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="nrel-product-card nrel-reveal" style="transition-delay: {{ forloop.index0 | times: 0.08 }}s;">
+          <div class="nrel-product-img">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.name }}
+            {%- else -%}
+              <div class="nrel-product-img__placeholder">🏌️</div>
+            {%- endif -%}
+          </div>
+          <div class="nrel-product-info">
+            {%- if block.settings.brand != blank -%}
+              <div class="nrel-product-brand">{{ block.settings.brand }}</div>
+            {%- endif -%}
+            <div class="nrel-product-name">{{ block.settings.name }}</div>
+            {%- if block.settings.variant != blank -%}
+              <div class="nrel-product-variant">{{ block.settings.variant }}</div>
+            {%- endif -%}
+            {%- if block.settings.price != blank -%}
+              <div class="nrel-product-price">${{ block.settings.price }}</div>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+<script>
+  (function() {
+    // Video load handler
+    var vid = document.querySelector('.nrel-hero__video');
+    if (vid) {
+      vid.addEventListener('canplay', function() { vid.classList.add('loaded'); });
+    }
+
+    // Scroll reveal
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('nrel-visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.nrel-reveal').forEach(function(el) {
+      observer.observe(el);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NCDR New Release",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "title", "label": "Product title", "default": "Prestigio 14" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Majesty Golf USA · Available at Northcrest" },
+    { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle (italic)", "default": "Crafted in Japan." },
+    { "type": "text", "id": "hero_sub2", "label": "Hero sub-line (gold)", "default": "Available at Northcrest Golf · Atlanta, GA" },
+    { "type": "text", "id": "hero_video", "label": "Hero video URL (MP4)" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero fallback image (used if no video)" },
+
+    { "type": "header", "content": "Intro" },
+    { "type": "text", "id": "intro_heading", "label": "Intro heading", "default": "The Pinnacle of Japanese Craftsmanship" },
+    { "type": "textarea", "id": "intro_body", "label": "Intro body", "default": "Majesty's Prestigio 14 series represents the marriage of hand-finished detail and material science — engineered for golfers who value precision, refinement, and effortless speed. Northcrest is honored to present this rare collection." },
+
+    { "type": "header", "content": "Exclusivity Banner" },
+    { "type": "textarea", "id": "excl_text", "label": "Exclusivity paragraph (wrap key phrase in <strong> for gold highlight)", "default": "Majesty selects only a handful of retailers worldwide to represent the Prestigio line. <strong>Northcrest is one of nine locations in the United States</strong> entrusted with this collection. Our team offers personalized guidance to help you experience the full performance of these handcrafted clubs." },
+    { "type": "text", "id": "excl_badge_num", "label": "Badge number", "default": "9" },
+    { "type": "text", "id": "excl_badge_label", "label": "Badge label", "default": "U.S. Authorized Prestigio 14 Dealers" },
+    { "type": "image_picker", "id": "excl_bg_image", "label": "Exclusivity background image (optional, subtle overlay)" },
+
+    { "type": "header", "content": "CTA Section" },
+    { "type": "text", "id": "cta_heading", "label": "CTA heading", "default": "Experience Prestigio 14 In Person" },
+    { "type": "textarea", "id": "cta_sub", "label": "CTA subtext", "default": "Schedule a private consultation with our team. Discover the ease, balance, and precision that define Majesty's newest flagship series." },
+    { "type": "text", "id": "cta_btn1_label", "label": "Button 1 label", "default": "Call the Pro Shop" },
+    { "type": "url", "id": "cta_btn1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "cta_btn2_label", "label": "Button 2 label", "default": "Message the Pro Shop" },
+    { "type": "url", "id": "cta_btn2_link", "label": "Button 2 link" },
+    { "type": "image_picker", "id": "cta_bg_image", "label": "CTA background image" },
+
+    { "type": "header", "content": "Collection Grid" },
+    { "type": "text", "id": "collection_eyebrow", "label": "Collection eyebrow", "default": "The Prestigio 14 Collection" },
+    { "type": "text", "id": "collection_heading", "label": "Collection heading", "default": "Hand-Finished Precision. Effortless Power." },
+    { "type": "text", "id": "collection_sub", "label": "Collection subtext", "default": "Select a club below to learn more" }
+  ],
+  "blocks": [
+    {
+      "type": "photo_card",
+      "name": "Photo Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "title", "label": "Hover title", "default": "Crafted for Effortless Speed" },
+        { "type": "textarea", "id": "description", "label": "Hover description", "default": "Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike." }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Product image" },
+        { "type": "text", "id": "brand", "label": "Brand", "default": "Majesty" },
+        { "type": "text", "id": "name", "label": "Product name", "default": "Prestigio 14 Driver" },
+        { "type": "text", "id": "variant", "label": "Variant (e.g. Men's / Ladies')", "default": "Men's" },
+        { "type": "text", "id": "price", "label": "Price (number only)", "default": "2,200" },
+        { "type": "url", "id": "link", "label": "Product link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR New Release",
+      "blocks": [
+        {
+          "type": "photo_card",
+          "settings": {
+            "title": "Crafted for Effortless Speed",
+            "description": "Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike."
+          }
+        },
+        {
+          "type": "photo_card",
+          "settings": {
+            "title": "Stability in Every Swing",
+            "description": "Full Tungsten Sole construction and Optimal Core Impact design ensure consistent launch, forgiveness, and control."
+          }
+        },
+        {
+          "type": "photo_card",
+          "settings": {
+            "title": "Ultra-Light Precision",
+            "description": "LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact."
+          }
+        },
+        { "type": "product", "settings": { "brand": "Majesty", "name": "Prestigio 14 Driver", "variant": "Men's", "price": "2,200" } },
+        { "type": "product", "settings": { "brand": "Majesty", "name": "Prestigio 14 Driver", "variant": "Ladies'", "price": "2,200" } },
+        { "type": "product", "settings": { "brand": "Majesty", "name": "Prestigio 14 Fairway Wood", "variant": "Men's", "price": "1,600" } },
+        { "type": "product", "settings": { "brand": "Majesty", "name": "Prestigio 14 Fairway Wood", "variant": "Ladies'", "price": "1,600" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
