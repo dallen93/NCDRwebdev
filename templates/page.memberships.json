@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "Memberships",
+        "heading": "Play More.",
+        "heading_gold": "Pay Less.",
+        "subtext": "Northcrest memberships give regulars the best value on the range. Unlimited access, simulator time, pro shop discounts, and more — one simple monthly rate."
+      }
+    },
+    "memberships": {
+      "type": "ncdr-memberships",
+      "blocks": {
+        "t1": {
+          "type": "tier",
+          "settings": {
+            "name": "Weekday",
+            "price": "49",
+            "price_period": "/mo",
+            "featured": false,
+            "badge": "",
+            "access_note": "Unlimited weekday range access",
+            "feature_1": "Unlimited range Mon–Fri",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "",
+            "feature_5": ""
+          }
+        },
+        "t2": {
+          "type": "tier",
+          "settings": {
+            "name": "Standard",
+            "price": "79",
+            "price_period": "/mo",
+            "featured": false,
+            "badge": "",
+            "access_note": "Unlimited range 7 days a week",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "10% pro shop discount",
+            "feature_3": "Member-only events access",
+            "feature_4": "Priority bay reservations",
+            "feature_5": ""
+          }
+        },
+        "t3": {
+          "type": "tier",
+          "settings": {
+            "name": "Premium",
+            "price": "129",
+            "price_period": "/mo",
+            "featured": true,
+            "badge": "Most Popular",
+            "access_note": "Range + 4 simulator hours per month",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "4 simulator hours / month",
+            "feature_3": "15% pro shop discount",
+            "feature_4": "10% lesson discount",
+            "feature_5": "Priority bay reservations"
+          }
+        },
+        "t4": {
+          "type": "tier",
+          "settings": {
+            "name": "All-Access",
+            "price": "199",
+            "price_period": "/mo",
+            "featured": false,
+            "badge": "",
+            "access_note": "Unlimited range + unlimited simulators",
+            "feature_1": "Unlimited range access 7 days",
+            "feature_2": "Unlimited simulator access",
+            "feature_3": "20% pro shop discount",
+            "feature_4": "20% lesson discount",
+            "feature_5": "VIP event invitations"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"],
+      "settings": {
+        "eyebrow": "Membership Plans",
+        "heading": "Play More. Pay Less.",
+        "subtext": "Northcrest memberships give regulars the best value on the range. Choose the plan that fits how you play.",
+        "cta_label": "Get Started",
+        "cta_link": "shopify:\/\/pages\/contact",
+        "note": "Founding member pricing locked for the first 12 months. Cancel anytime.",
+        "terms": "Memberships are billed monthly and may be cancelled at any time with 30 days notice. Benefits apply to the primary cardholder only and are non-transferable. Northcrest Golf reserves the right to modify membership pricing and benefits with 30 days notice to active members."
+      }
+    }
+  },
+  "order": ["hero", "memberships"]
+}

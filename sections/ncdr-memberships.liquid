@@ -1,0 +1,358 @@
+<style>
+  .ncdr-memberships {
+    padding: 80px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-memberships__header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .ncdr-memberships__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ncdr-memberships__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-memberships__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+
+  .ncdr-memberships__sub {
+    font-size: 14px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ── Tier grid ── */
+  .ncdr-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 20px;
+  }
+
+  .ncdr-tier-card {
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 6px;
+    padding: 28px 22px;
+    position: relative;
+    background: #fff;
+    transition: all 0.25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  .ncdr-tier-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: rgba(58,88,43,0.2);
+  }
+
+  .ncdr-tier-card--featured {
+    border: 2px solid var(--ncdr-gold);
+    background: var(--ncdr-green-deep);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(58,88,43,0.25);
+  }
+
+  .ncdr-tier-card--featured:hover { transform: translateY(-8px); }
+
+  .ncdr-tier-card__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .ncdr-tier-card__name {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ncdr-green);
+    margin-bottom: 12px;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__name { color: rgba(255,255,255,0.5); }
+
+  .ncdr-tier-card__price {
+    font-family: var(--ncdr-font-heading);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--ncdr-text-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__price { color: var(--ncdr-gold); }
+
+  .ncdr-tier-card__price sup {
+    font-size: 18px;
+    font-weight: 400;
+    vertical-align: super;
+  }
+
+  .ncdr-tier-card__price sub {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ncdr-text-mid);
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__price sub { color: rgba(255,255,255,0.4); }
+
+  .ncdr-tier-card__access {
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__access {
+    color: rgba(255,255,255,0.5);
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .ncdr-tier-card__features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .ncdr-tier-card__feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.4;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__feature { color: rgba(255,255,255,0.65); }
+
+  .ncdr-tier-card__dot {
+    width: 5px;
+    height: 5px;
+    background: var(--ncdr-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__dot { background: var(--ncdr-gold); }
+
+  .ncdr-tier-card__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: var(--ncdr-green);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 11px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 1.5px solid var(--ncdr-green);
+    text-decoration: none;
+    transition: all 0.2s;
+    box-sizing: border-box;
+  }
+  .ncdr-tier-card__cta:hover {
+    background: var(--ncdr-green);
+    color: #fff;
+    text-decoration: none;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__cta {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    border: none;
+  }
+  .ncdr-tier-card--featured .ncdr-tier-card__cta:hover {
+    background: var(--ncdr-gold-light);
+    color: var(--ncdr-green-deep);
+  }
+
+  .ncdr-memberships__note {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── FAQ / Terms strip ── */
+  .ncdr-memberships-terms {
+    padding: 48px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-memberships-terms__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-text-mid);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-memberships-terms__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-text-mid);
+    opacity: 0.4;
+  }
+
+  .ncdr-memberships-terms__body {
+    font-size: 13px;
+    color: var(--ncdr-text-mid);
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 860px;
+  }
+  .ncdr-memberships-terms__body p { margin-bottom: 10px; }
+  .ncdr-memberships-terms__body p:last-child { margin-bottom: 0; }
+
+  @media (max-width: 749px) {
+    .ncdr-memberships { padding: 48px 20px; }
+    .ncdr-tier-grid { grid-template-columns: 1fr; gap: 20px; }
+    .ncdr-tier-card--featured { transform: none; }
+    .ncdr-memberships-terms { padding: 40px 20px; }
+  }
+</style>
+
+<!-- Tier Grid -->
+<div class="ncdr-memberships">
+  <div class="ncdr-memberships__header">
+    <div class="ncdr-memberships__eyebrow"><span></span> {{ section.settings.eyebrow }} <span></span></div>
+    <h2 class="ncdr-memberships__heading">{{ section.settings.heading }}</h2>
+    <p class="ncdr-memberships__sub">{{ section.settings.subtext }}</p>
+  </div>
+
+  <div class="ncdr-tier-grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'tier' -%}
+        <div class="ncdr-tier-card{% if block.settings.featured %} ncdr-tier-card--featured{% endif %}">
+          {%- if block.settings.featured and block.settings.badge != blank -%}
+            <div class="ncdr-tier-card__badge">{{ block.settings.badge }}</div>
+          {%- endif -%}
+
+          <div class="ncdr-tier-card__name">{{ block.settings.name }}</div>
+
+          <div class="ncdr-tier-card__price">
+            <sup>$</sup>{{ block.settings.price }}<sub>{{ block.settings.price_period }}</sub>
+          </div>
+
+          {%- if block.settings.access_note != blank -%}
+            <div class="ncdr-tier-card__access">{{ block.settings.access_note }}</div>
+          {%- endif -%}
+
+          <div class="ncdr-tier-card__features">
+            {%- if block.settings.feature_1 != blank -%}
+              <div class="ncdr-tier-card__feature"><div class="ncdr-tier-card__dot"></div>{{ block.settings.feature_1 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_2 != blank -%}
+              <div class="ncdr-tier-card__feature"><div class="ncdr-tier-card__dot"></div>{{ block.settings.feature_2 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_3 != blank -%}
+              <div class="ncdr-tier-card__feature"><div class="ncdr-tier-card__dot"></div>{{ block.settings.feature_3 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_4 != blank -%}
+              <div class="ncdr-tier-card__feature"><div class="ncdr-tier-card__dot"></div>{{ block.settings.feature_4 }}</div>
+            {%- endif -%}
+            {%- if block.settings.feature_5 != blank -%}
+              <div class="ncdr-tier-card__feature"><div class="ncdr-tier-card__dot"></div>{{ block.settings.feature_5 }}</div>
+            {%- endif -%}
+          </div>
+
+          <a href="{{ section.settings.cta_link | default: '/pages/contact' }}" class="ncdr-tier-card__cta">
+            {{ section.settings.cta_label | default: 'Get Started' }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.note != blank -%}
+    <p class="ncdr-memberships__note">{{ section.settings.note }}</p>
+  {%- endif -%}
+</div>
+
+<!-- Terms -->
+<div class="ncdr-memberships-terms">
+  <div class="ncdr-memberships-terms__eyebrow">Terms &amp; Conditions <span></span></div>
+  <div class="ncdr-memberships-terms__body">{{ section.settings.terms | newline_to_br }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Memberships",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Membership Plans" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Play More. Pay Less." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Northcrest memberships give regulars the best value on the range. Choose the plan that fits how you play." },
+    { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Get Started" },
+    { "type": "url", "id": "cta_link", "label": "CTA button link" },
+    { "type": "text", "id": "note", "label": "Footnote", "default": "Founding member pricing locked for the first 12 months. Cancel anytime." },
+    { "type": "textarea", "id": "terms", "label": "Terms & Conditions", "default": "Memberships are billed monthly and may be cancelled at any time with 30 days notice. Benefits apply to the primary cardholder only and are non-transferable. Northcrest Golf reserves the right to modify membership pricing and benefits with 30 days notice to active members." }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Membership Tier",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Tier name" },
+        { "type": "text", "id": "price", "label": "Monthly price (number only)" },
+        { "type": "text", "id": "price_period", "label": "Period label", "default": "/mo" },
+        { "type": "checkbox", "id": "featured", "label": "Featured card", "default": false },
+        { "type": "text", "id": "badge", "label": "Badge text (if featured)" },
+        { "type": "text", "id": "access_note", "label": "Access summary (short line)" },
+        { "type": "text", "id": "feature_1", "label": "Feature 1" },
+        { "type": "text", "id": "feature_2", "label": "Feature 2" },
+        { "type": "text", "id": "feature_3", "label": "Feature 3" },
+        { "type": "text", "id": "feature_4", "label": "Feature 4" },
+        { "type": "text", "id": "feature_5", "label": "Feature 5" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "NCDR Memberships" }]
+}
+{% endschema %}
