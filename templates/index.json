@@ -12,7 +12,7 @@
     "image_banner": {
       "type": "ncdr-hero",
       "blocks": {
-        "stat1": {
+        "stat_Da4bQy": {
           "type": "stat",
           "settings": {
             "number": "125+",
@@ -35,7 +35,7 @@
         }
       },
       "block_order": [
-        "stat1",
+        "stat_Da4bQy",
         "stat2",
         "stat3"
       ],
@@ -47,6 +47,10 @@
         "subtext": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are.",
         "cta_label": "Shop the Pro Shop",
         "cta_link": "shopify://collections/all",
+        "member_cta_1_label": "Become a Member 1",
+        "member_cta_1_link": "shopify://pages/membership",
+        "member_cta_2_label": "Become a Member 2",
+        "member_cta_2_link": "shopify://pages/membership-2",
         "map_image": "shopify://shop_images/ATL_City_Map.webp"
       }
     },
