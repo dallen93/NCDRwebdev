@@ -7,48 +7,48 @@
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Quantum AI Face",
-            "description": "Callaway's most advanced AI-designed face architecture computes over 1 billion data points to optimize ball speed at every impact location."
+            "title": "Precision at Address",
+            "description": "Quantum's AI-optimized face geometry ensures every shot launches with maximum speed and pinpoint accuracy from tee to fairway."
           }
         },
         "pc2": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Carbon Chassis",
-            "description": "A full carbon body — crown, sole, and skirt — saves significant weight that is redistributed for a higher MOI and more forgiving performance."
+            "title": "Engineered Contact",
+            "description": "The Quantum face delivers a responsive, premium feel at impact — backed by AI-driven material science that pushes the limits of performance."
           }
         },
         "pc3": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Jailbreak Speed Frame",
-            "description": "Updated Jailbreak architecture stiffens the body to direct more energy into the face at impact, amplifying ball speed across the face."
+            "title": "Control. Confidence. Distance.",
+            "description": "From driver to irons, every Quantum club is built to give you the confidence to attack any hole with speed and stability."
           }
         }
       },
       "block_order": ["pc1", "pc2", "pc3"],
       "settings": {
         "title": "Callaway Quantum",
-        "hero_eyebrow": "Callaway Golf · Available at Northcrest",
-        "hero_subtitle": "Powered by AI.",
+        "hero_eyebrow": "AI-Driven Innovation. Available at Northcrest.",
+        "hero_subtitle": "AI-Driven Innovation.",
         "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
         "hero_video": "",
-        "intro_heading": "Intelligence Meets Distance",
-        "intro_body": "The Callaway Quantum driver is the result of years of artificial intelligence-driven design, pushing the boundaries of what's possible in driver performance. The Quantum AI face, full carbon construction, and updated Jailbreak frame create a driver that is simultaneously faster, more forgiving, and better-looking than anything that came before it.",
-        "excl_text": "Northcrest carries the full Callaway Quantum lineup. Our certified fitting staff can pair you with the ideal Quantum configuration for your swing. <strong>Custom fittings available in-store</strong> with access to Callaway's full shaft and loft options.",
-        "excl_badge_num": "Full",
-        "excl_badge_label": "Callaway Quantum Lineup Available",
-        "cta_heading": "Hit the Callaway Quantum at Northcrest",
-        "cta_sub": "<b>Let our team dial in your ideal Quantum setup with a custom fitting session on our range.</b>",
+        "intro_heading": "A Leap Forward in Performance",
+        "intro_body": "Callaway's Quantum series represents a new era of golf club design — combining AI-driven innovation with premium materials to deliver unprecedented speed, stability, and feel. Northcrest is excited to bring Quantum technology to Atlanta golfers.",
+        "excl_text": "Callaway has earned its place as one of golf's most trusted names through <strong>relentless</strong> innovation and performance. Northcrest offers personalized fittings to help you experience the <strong>craftsmanship</strong> and breakthrough technology behind the Quantum series.",
+        "excl_badge_num": "",
+        "excl_badge_label": "Innovation You Can Feel",
+        "cta_heading": "Dial In Your Game",
+        "cta_sub": "<b>Schedule a fitting with our team and discover how Quantum technology can help you play your best golf.</b>",
         "cta_btn1_label": "Call the Pro Shop",
         "cta_btn1_link": "tel:770-723-0002",
         "cta_btn2_label": "Message the Pro Shop",
         "cta_btn2_link": "shopify://pages/contact",
         "cta_bg_image": "",
-        "collection_eyebrow": "The Callaway Quantum Collection",
-        "collection_heading": "AI-Engineered. Tour-Proven.",
+        "collection_eyebrow": "The Quantum Collection",
+        "collection_heading": "AI-Power Performance. Precision-Engineered Feel.",
         "collection_sub": "Select a club below to learn more"
       }
     }
