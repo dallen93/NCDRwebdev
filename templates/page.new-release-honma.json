@@ -7,48 +7,48 @@
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Handcrafted Excellence",
-            "description": "Each Beres 10 club is finished by hand in Honma's Sakata factory, representing generations of Japanese craftsmanship."
+            "title": "Takumi Craftsmanship",
+            "description": "Each Beres 10 driver is hand-finished by master Takumi craftsmen in Sakata, Japan — a tradition of artistry that no machine can replicate."
           }
         },
         "pc2": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Gold Shaft Technology",
-            "description": "Honma's signature gold-accented premium shafts deliver buttery smooth tempo and unmatched feel through the hitting zone."
+            "title": "Edo Kiriko Inspiration",
+            "description": "Intricate patterns inspired by traditional Edo Kiriko glass-cutting techniques adorn every club, making Beres 10 a true work of art."
           }
         },
         "pc3": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Artisan Aesthetics",
-            "description": "Refined lines, premium finishes, and iconic star ratings make Beres 10 as beautiful to look at as it is to play."
+            "title": "Effortless Power & Precision",
+            "description": "Advanced materials engineering beneath the artisan exterior delivers effortless power, balance, and precision for the discerning golfer."
           }
         }
       },
       "block_order": ["pc1", "pc2", "pc3"],
       "settings": {
         "title": "Honma Beres 10",
-        "hero_eyebrow": "Honma Golf · Available at Northcrest",
-        "hero_subtitle": "The Art of Golf.",
+        "hero_eyebrow": "Handcrafted in Sakata. Available at Northcrest.",
+        "hero_subtitle": "Handcrafted in Sakata.",
         "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
         "hero_video": "",
-        "intro_heading": "Where Art Meets Performance",
-        "intro_body": "For over 65 years, Honma Golf has defined the pinnacle of handcrafted golf equipment. The Beres 10 series elevates this legacy — each club a fusion of artisanal finishing, premium materials, and precision engineering. Northcrest is honored to bring this rare collection to Atlanta.",
-        "excl_text": "Honma Beres is available only through carefully selected premium retailers. <strong>Northcrest is one of a very few authorized dealers in the Southeast</strong>, ensuring that every customer receives the personalized experience this extraordinary equipment deserves.",
-        "excl_badge_num": "Few",
-        "excl_badge_label": "Southeast Authorized Honma Beres Dealers",
-        "cta_heading": "Experience Honma Beres 10 In Person",
-        "cta_sub": "<b>Our team is ready to guide you through a private fitting with the Honma Beres 10 collection. An experience unlike any other.</b>",
+        "intro_heading": "Where Mastery Meets Performance",
+        "intro_body": "Honma's Beres 10 series represents the tenth generation of Japan's most revered golf club collection. Hand-finished by master Takumi craftsmen in Sakata, each club blends traditional artistry inspired by Edo Kiriko glass-cutting techniques with advanced materials engineered for effortless power and precision. Northcrest is honored to present this exceptional collection.",
+        "excl_text": "For over 65 years, Honma has crafted the world's most <strong>luxurious</strong> golf equipment in their Sakata studio. The Beres collection has long been recognized globally as the choice of golfers who value craftsmanship at its most <strong>elevated</strong> level. Northcrest offers personalized guidance to help you experience the refinement, balance, and performance that define Beres 10.",
+        "excl_badge_num": "65+",
+        "excl_badge_label": "Years of Japanese Craftsmanship",
+        "cta_heading": "Experience Beres 10 Craftsmanship",
+        "cta_sub": "<b>Schedule a private consultation with our team. Discover the ease, balance, and precision that define Honma's newest flagship series.</b>",
         "cta_btn1_label": "Call the Pro Shop",
         "cta_btn1_link": "tel:770-723-0002",
         "cta_btn2_label": "Message the Pro Shop",
         "cta_btn2_link": "shopify://pages/contact",
         "cta_bg_image": "",
-        "collection_eyebrow": "The Honma Beres 10 Collection",
-        "collection_heading": "Artisan Craftsmanship. Tour Performance.",
+        "collection_eyebrow": "The Beres 10 Collection",
+        "collection_heading": "Handcrafted Excellence. Japanese Mastery.",
         "collection_sub": "Select a club below to learn more"
       }
     }
