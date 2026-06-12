@@ -15,6 +15,7 @@
         "pc1": {
           "type": "photo_card",
           "settings": {
+            "image": "shopify://shop_images/Why_Prestigio_1.png",
             "title": "Crafted for Effortless Speed",
             "description": "Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike."
           }
@@ -33,36 +34,6 @@
             "description": "LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact."
           }
         },
-        "p1": {
-          "type": "product",
-          "settings": {
-            "brand": "Majesty",
-            "name": "Prestigio 14 Driver",
-            "variant": "Men's",
-            "price": "2,200",
-            "link": ""
-          }
-        },
-        "p2": {
-          "type": "product",
-          "settings": {
-            "brand": "Majesty",
-            "name": "Prestigio 14 Driver",
-            "variant": "Ladies'",
-            "price": "2,200",
-            "link": ""
-          }
-        },
-        "p3": {
-          "type": "product",
-          "settings": {
-            "brand": "Majesty",
-            "name": "Prestigio 14 Fairway Wood",
-            "variant": "Men's",
-            "price": "1,600",
-            "link": ""
-          }
-        },
         "p4": {
           "type": "product",
           "settings": {
@@ -78,9 +49,6 @@
         "pc1",
         "pc2",
         "pc3",
-        "p1",
-        "p2",
-        "p3",
         "p4"
       ],
       "settings": {
@@ -105,13 +73,44 @@
         "collection_sub": "Select a club below to learn more"
       }
     },
+    "rich_text_AMfnce": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xq4TV4": {
+          "type": "heading",
+          "settings": {
+            "heading": "HAND-FINISHED PRECISION. EFFORTLESS POWER.",
+            "heading_size": "h1"
+          }
+        },
+        "text_JyTVyW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>SELECT A CLUB BELOW TO LEARN MORE</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xq4TV4",
+        "text_JyTVyW"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_collection_qNYRR4": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
         "collection": "majesty",
         "products_to_show": 4,
-        "title": "Featured collection",
+        "title": "",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
@@ -137,6 +136,7 @@
   },
   "order": [
     "release",
+    "rich_text_AMfnce",
     "featured_collection_qNYRR4"
   ]
 }
