@@ -178,7 +178,7 @@
     cursor: default;
     aspect-ratio: 3/4;
     background: #fff;
-    border: 2px solid rgba(0,0,0,0.18);
+    border: 3px solid #000;
     box-shadow: 0 4px 16px rgba(0,0,0,0.14);
   }
 
@@ -189,18 +189,17 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
-    padding: 8px;
     transition: opacity 0.5s ease;
   }
 
   .nrel-photo-card:hover .nrel-photo-card__img {
-    opacity: 0.12;
+    opacity: 1;
   }
 
   .nrel-photo-card__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(72,72,72,0.84);
+    background: rgba(200,200,200,0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,15 +220,15 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #fff;
+    color: #111;
     margin-bottom: 12px;
   }
 
   .nrel-photo-card__desc {
     font-size: 13px;
-    color: rgba(255,255,255,0.65);
+    color: rgba(0,0,0,0.7);
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   .nrel-photo-card__placeholder {
@@ -657,7 +656,7 @@
           <a href="{{ section.settings.cta_btn1_link }}" class="nrel-cta__btn">{{ section.settings.cta_btn1_label }}</a>
         {%- endif -%}
         {%- if section.settings.cta_btn2_label != blank -%}
-          <a href="{{ section.settings.cta_btn2_link }}" class="nrel-cta__btn">{{ section.settings.cta_btn2_label }}</a>
+          <button type="button" class="nrel-cta__btn" onclick="ncdrOpenInterestForm()">{{ section.settings.cta_btn2_label }}</button>
         {%- endif -%}
       </div>
     </div>
@@ -705,6 +704,161 @@
   </div>
 {%- endif -%}
 
+<!-- ── Interest Form Modal ── -->
+<div id="nrel-interest-modal" class="nrel-interest-overlay" role="dialog" aria-modal="true" aria-label="Contact form" style="display:none;">
+  <div class="nrel-interest-modal">
+    <button class="nrel-interest-modal__close" onclick="ncdrCloseInterestForm()" aria-label="Close">&times;</button>
+    <h2 class="nrel-interest-modal__title">Let's Connect</h2>
+    <p class="nrel-interest-modal__sub">Interested in {{ section.settings.title }}? Share a few details and our team will reach out within 24 hours to answer questions or schedule a fitting.</p>
+
+    {%- form 'contact' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="nrel-interest-modal__success">Thank you! We'll be in touch within 24 hours.</p>
+      {%- else -%}
+        <div class="nrel-interest-form">
+          <input class="nrel-interest-form__input" type="text" name="contact[name]" placeholder="Your name" required autocomplete="name">
+          <input class="nrel-interest-form__input" type="email" name="contact[email]" placeholder="Your email address" required autocomplete="email">
+          <input class="nrel-interest-form__input" type="tel" name="contact[phone]" placeholder="(Optional) Your phone number" autocomplete="tel">
+          <select class="nrel-interest-form__input nrel-interest-form__select" name="contact[body_prefix]">
+            <option value="" disabled selected>What are you interested in?</option>
+            <option value="Full Set Fitting">Full Set Fitting</option>
+            <option value="Driver / Fairway Wood">Driver / Fairway Wood</option>
+            <option value="Irons">Irons</option>
+            <option value="General Inquiry">General Inquiry</option>
+          </select>
+          <textarea class="nrel-interest-form__input nrel-interest-form__textarea" name="contact[body]" placeholder="Let us know what you're looking for or any questions you have" rows="4"></textarea>
+          <button type="submit" class="nrel-interest-form__submit">Send Message</button>
+          <p class="nrel-interest-form__note">We typically respond within one business day.</p>
+        </div>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+
+<style>
+  .nrel-interest-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .nrel-interest-modal {
+    background: var(--ncdr-green-deep);
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .nrel-interest-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.2s;
+  }
+  .nrel-interest-modal__close:hover { color: #fff; }
+
+  .nrel-interest-modal__title {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .nrel-interest-modal__sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .nrel-interest-modal__success {
+    text-align: center;
+    color: var(--ncdr-gold);
+    font-size: 16px;
+    padding: 24px 0;
+  }
+
+  .nrel-interest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nrel-interest-form__input {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 13px 16px;
+    font-family: var(--ncdr-font-body);
+    font-size: 14px;
+    color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .nrel-interest-form__input::placeholder { color: rgba(255,255,255,0.35); }
+  .nrel-interest-form__input:focus { border-color: var(--ncdr-gold); }
+
+  .nrel-interest-form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  .nrel-interest-form__select option { background: var(--ncdr-green-deep); color: #fff; }
+
+  .nrel-interest-form__textarea { resize: vertical; min-height: 100px; }
+
+  .nrel-interest-form__submit {
+    background: var(--ncdr-gold);
+    color: var(--ncdr-green-deep);
+    font-family: var(--ncdr-font-heading);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 15px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .nrel-interest-form__submit:hover { background: var(--ncdr-gold-light); }
+
+  .nrel-interest-form__note {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+  }
+</style>
+
 <script>
   (function() {
     // Video load handler
@@ -727,6 +881,33 @@
       observer.observe(el);
     });
   })();
+
+  function ncdrOpenInterestForm() {
+    var modal = document.getElementById('nrel-interest-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function ncdrCloseInterestForm() {
+    var modal = document.getElementById('nrel-interest-modal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Close on backdrop click
+  document.addEventListener('click', function(e) {
+    var modal = document.getElementById('nrel-interest-modal');
+    if (modal && e.target === modal) ncdrCloseInterestForm();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') ncdrCloseInterestForm();
+  });
 </script>
 
 {% schema %}
