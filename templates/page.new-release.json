@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "release": {
@@ -30,7 +39,8 @@
             "brand": "Majesty",
             "name": "Prestigio 14 Driver",
             "variant": "Men's",
-            "price": "2,200"
+            "price": "2,200",
+            "link": ""
           }
         },
         "p2": {
@@ -39,7 +49,8 @@
             "brand": "Majesty",
             "name": "Prestigio 14 Driver",
             "variant": "Ladies'",
-            "price": "2,200"
+            "price": "2,200",
+            "link": ""
           }
         },
         "p3": {
@@ -48,7 +59,8 @@
             "brand": "Majesty",
             "name": "Prestigio 14 Fairway Wood",
             "variant": "Men's",
-            "price": "1,600"
+            "price": "1,600",
+            "link": ""
           }
         },
         "p4": {
@@ -57,11 +69,20 @@
             "brand": "Majesty",
             "name": "Prestigio 14 Fairway Wood",
             "variant": "Ladies'",
-            "price": "1,600"
+            "price": "1,600",
+            "link": ""
           }
         }
       },
-      "block_order": ["pc1", "pc2", "pc3", "p1", "p2", "p3", "p4"],
+      "block_order": [
+        "pc1",
+        "pc2",
+        "pc3",
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
       "settings": {
         "title": "Prestigio 14",
         "hero_eyebrow": "Majesty Golf USA · Available at Northcrest",
@@ -70,7 +91,7 @@
         "hero_video": "https://vid.cdn-website.com/b0cdbcb7/videos/v09q5307QU2lWnpthcr7_Prestigio+14+Video-v.mp4",
         "intro_heading": "The Pinnacle of Japanese Craftsmanship",
         "intro_body": "Majesty's Prestigio 14 series represents the marriage of hand-finished detail and material science — engineered for golfers who value precision, refinement, and effortless speed. Northcrest is honored to present this rare collection.",
-        "excl_text": "Majesty selects only a handful of retailers worldwide to represent the Prestigio line. <strong>Northcrest is one of nine locations in the United States<\/strong> entrusted with this collection. Our team offers personalized guidance to help you experience the full performance of these handcrafted clubs.",
+        "excl_text": "Majesty selects only a handful of retailers worldwide to represent the Prestigio line. <strong>Northcrest is one of nine locations in the United States</strong> entrusted with this collection. Our team offers personalized guidance to help you experience the full performance of these handcrafted clubs.",
         "excl_badge_num": "9",
         "excl_badge_label": "U.S. Authorized Prestigio 14 Dealers",
         "cta_heading": "Experience Prestigio 14 In Person",
@@ -78,12 +99,44 @@
         "cta_btn1_label": "Call the Pro Shop",
         "cta_btn1_link": "tel:770-723-0002",
         "cta_btn2_label": "Message the Pro Shop",
-        "cta_btn2_link": "shopify:\/\/pages\/contact",
+        "cta_btn2_link": "shopify://pages/contact",
         "collection_eyebrow": "The Prestigio 14 Collection",
         "collection_heading": "Hand-Finished Precision. Effortless Power.",
         "collection_sub": "Select a club below to learn more"
       }
+    },
+    "featured_collection_qNYRR4": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "majesty",
+        "products_to_show": 4,
+        "title": "Featured collection",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
-  "order": ["release"]
+  "order": [
+    "release",
+    "featured_collection_qNYRR4"
+  ]
 }
