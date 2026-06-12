@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Remote-Controlled Navigation",
+            "description": "MGI's Zip X5 navigates the course autonomously with gyroscope-guided straight tracking, so your bag follows you hands-free."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Lithium Power. All Day Long.",
+            "description": "A high-performance lithium battery delivers up to 36 holes of power on a single charge — plenty for even your longest days at Northcrest."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Built to Handle Any Terrain",
+            "description": "All-terrain wheels, uphill power boost, and a downhill speed control system ensure smooth performance on any slope or surface."
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3"],
+      "settings": {
+        "title": "MGI Zip X5",
+        "hero_eyebrow": "MGI Golf · Available at Northcrest",
+        "hero_subtitle": "Walk the Course. Effortlessly.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "",
+        "intro_heading": "Walk More. Carry Less.",
+        "intro_body": "MGI has engineered the most advanced electric golf caddy on the market. The Zip X5's remote navigation, lithium battery, and rugged all-terrain design make walking 18 holes easier than ever. Ditch the cart and rediscover the game the way it was meant to be played — available now at Northcrest.",
+        "excl_text": "Northcrest is proud to carry the MGI Zip X5 and select MGI accessories. <strong>Come see it in person at our pro shop</strong> — our team can demonstrate the full feature set and help you configure the right setup for your walking game.",
+        "excl_badge_num": "In",
+        "excl_badge_label": "Stock at Northcrest Golf",
+        "cta_heading": "Walk the Course with MGI",
+        "cta_sub": "<b>Stop by the Northcrest pro shop to see the MGI Zip X5 in action, or reach out to check current availability and pricing.</b>",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify://pages/contact",
+        "cta_bg_image": "",
+        "collection_eyebrow": "The MGI Golf Collection",
+        "collection_heading": "Remote Navigation. All-Day Power.",
+        "collection_sub": "Select a model below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}

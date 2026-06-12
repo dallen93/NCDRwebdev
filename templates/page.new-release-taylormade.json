@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Qi4D Face Technology",
+            "description": "A breakthrough 4D carbon fiber face design flexes in all four dimensions, delivering explosive ball speed across the entire face."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "60X Carbon Twist Face",
+            "description": "TaylorMade's most advanced carbon construction pairs with Twist Face technology for straighter drives on off-center strikes."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Inertia Generator 2.0",
+            "description": "A redesigned rear sole mass repositions CG for a higher launch, lower spin profile optimized for modern swing speeds."
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3"],
+      "settings": {
+        "title": "TaylorMade Qi4D",
+        "hero_eyebrow": "TaylorMade Golf · Available at Northcrest",
+        "hero_subtitle": "Speed. Science. Distance.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "",
+        "intro_heading": "The Next Evolution in Distance",
+        "intro_body": "TaylorMade's Qi4D driver represents the most significant leap in driver technology in years. The groundbreaking 4D carbon fiber face generates explosive ball speeds that were previously impossible. Whether you're a tour player or weekend golfer, Qi4D is engineered to help you hit it farther. Come hit it at Northcrest.",
+        "excl_text": "Northcrest carries the full TaylorMade Qi4D lineup and our certified fitting professionals are trained on the latest Qi4D technology. <strong>Get custom-fit for the right Qi4D configuration</strong> — head, loft, shaft, and settings — optimized specifically for your swing.",
+        "excl_badge_num": "Full",
+        "excl_badge_label": "TaylorMade Qi4D Lineup In Stock",
+        "cta_heading": "Get Fit for Qi4D at Northcrest",
+        "cta_sub": "<b>Book a TaylorMade Qi4D fitting session with our pro shop team and unlock every yard this driver has to offer.</b>",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify://pages/contact",
+        "cta_bg_image": "",
+        "collection_eyebrow": "The TaylorMade Qi4D Collection",
+        "collection_heading": "Maximum Speed. Maximum Distance.",
+        "collection_sub": "Select a club below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}

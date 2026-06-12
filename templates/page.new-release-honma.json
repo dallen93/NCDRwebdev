@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Handcrafted Excellence",
+            "description": "Each Beres 10 club is finished by hand in Honma's Sakata factory, representing generations of Japanese craftsmanship."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Gold Shaft Technology",
+            "description": "Honma's signature gold-accented premium shafts deliver buttery smooth tempo and unmatched feel through the hitting zone."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Artisan Aesthetics",
+            "description": "Refined lines, premium finishes, and iconic star ratings make Beres 10 as beautiful to look at as it is to play."
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3"],
+      "settings": {
+        "title": "Honma Beres 10",
+        "hero_eyebrow": "Honma Golf · Available at Northcrest",
+        "hero_subtitle": "The Art of Golf.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "",
+        "intro_heading": "Where Art Meets Performance",
+        "intro_body": "For over 65 years, Honma Golf has defined the pinnacle of handcrafted golf equipment. The Beres 10 series elevates this legacy — each club a fusion of artisanal finishing, premium materials, and precision engineering. Northcrest is honored to bring this rare collection to Atlanta.",
+        "excl_text": "Honma Beres is available only through carefully selected premium retailers. <strong>Northcrest is one of a very few authorized dealers in the Southeast</strong>, ensuring that every customer receives the personalized experience this extraordinary equipment deserves.",
+        "excl_badge_num": "Few",
+        "excl_badge_label": "Southeast Authorized Honma Beres Dealers",
+        "cta_heading": "Experience Honma Beres 10 In Person",
+        "cta_sub": "<b>Our team is ready to guide you through a private fitting with the Honma Beres 10 collection. An experience unlike any other.</b>",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify://pages/contact",
+        "cta_bg_image": "",
+        "collection_eyebrow": "The Honma Beres 10 Collection",
+        "collection_heading": "Artisan Craftsmanship. Tour Performance.",
+        "collection_sub": "Select a club below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}

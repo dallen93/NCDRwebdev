@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Tour Trusted Accuracy",
+            "description": "Bushnell's PinSeeker with JOLT technology vibrates to confirm you've locked onto the pin — trusted on tour for over 25 years."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Slope-Switch Technology",
+            "description": "Instant slope on/off toggle keeps you tournament-legal while giving you the option to play with slope-adjusted distances in casual rounds."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Vivid Display",
+            "description": "Bright, easy-to-read display with dual-color modes adapts to any lighting condition — morning sun, afternoon shade, or overcast skies."
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3"],
+      "settings": {
+        "title": "Bushnell Tour V6",
+        "hero_eyebrow": "Bushnell Golf · Available at Northcrest",
+        "hero_subtitle": "The Rangefinder of Record.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "",
+        "intro_heading": "25 Years of Tour-Level Precision",
+        "intro_body": "Bushnell Golf has been the standard bearer in golf rangefinding for over two decades. The Tour V6 continues that legacy with faster acquisition, sharper optics, and the PinSeeker with JOLT vibration confirmation that tour caddies rely on. Available now at Northcrest Golf.",
+        "excl_text": "Northcrest carries the full Bushnell Golf lineup, including the Tour V6 and Tour V6 Shift. <strong>Our staff can walk you through every feature</strong> and help you select the right model for your game and budget.",
+        "excl_badge_num": "Full",
+        "excl_badge_label": "Bushnell Golf Lineup In Stock",
+        "cta_heading": "Get Your Bushnell at Northcrest",
+        "cta_sub": "<b>The most trusted name in golf rangefinding is available at Northcrest. Come try the Tour V6 or contact us about current inventory.</b>",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify://pages/contact",
+        "cta_bg_image": "",
+        "collection_eyebrow": "The Bushnell Golf Collection",
+        "collection_heading": "Tour-Trusted. Distance-Proven.",
+        "collection_sub": "Select a rangefinder below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}

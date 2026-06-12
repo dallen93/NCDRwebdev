@@ -1,0 +1,57 @@
+{
+  "sections": {
+    "release": {
+      "type": "ncdr-new-release",
+      "blocks": {
+        "pc1": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Laser-Precise Rangefinding",
+            "description": "Blue Tees' advanced laser technology locks onto the pin from 1,000+ yards with slope-adjusted distances in under a second."
+          }
+        },
+        "pc2": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Magnetic Cart Mount",
+            "description": "The redesigned magnetic mount system attaches instantly to any cart rail, keeping your rangefinder accessible for every shot."
+          }
+        },
+        "pc3": {
+          "type": "photo_card",
+          "settings": {
+            "image": "",
+            "title": "Tournament-Legal Modes",
+            "description": "Flag-Lock vibration and a one-button slope toggle make Blue Tees Series 3 Pro legal for tournament play without sacrificing features."
+          }
+        }
+      },
+      "block_order": ["pc1", "pc2", "pc3"],
+      "settings": {
+        "title": "Blue Tees Series 3 Pro",
+        "hero_eyebrow": "Blue Tees Golf · Available at Northcrest",
+        "hero_subtitle": "Know Your Distance.",
+        "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
+        "hero_video": "",
+        "intro_heading": "Premium Rangefinding Without the Premium Price",
+        "intro_body": "Blue Tees Golf has redefined what golfers should expect from a rangefinder. The Series 3 Pro delivers tour-quality accuracy, slope compensation, and magnetic mounting in a package priced for every golfer. Pick one up at Northcrest and experience the confidence of knowing your exact yardage on every shot.",
+        "excl_text": "Northcrest carries the latest Blue Tees Golf lineup, including the Series 3 Pro. <strong>Try it before you buy it</strong> — our pro shop team is happy to demonstrate the full feature set and help you find the right model for your game.",
+        "excl_badge_num": "Latest",
+        "excl_badge_label": "Blue Tees Models In Stock",
+        "cta_heading": "Pick Up Blue Tees at Northcrest",
+        "cta_sub": "<b>Stop by the pro shop to see the full Blue Tees lineup or contact us to check availability on a specific model.</b>",
+        "cta_btn1_label": "Call the Pro Shop",
+        "cta_btn1_link": "tel:770-723-0002",
+        "cta_btn2_label": "Message the Pro Shop",
+        "cta_btn2_link": "shopify://pages/contact",
+        "cta_bg_image": "",
+        "collection_eyebrow": "The Blue Tees Golf Collection",
+        "collection_heading": "Pin-Precision. Every Shot.",
+        "collection_sub": "Select a rangefinder below to learn more"
+      }
+    }
+  },
+  "order": ["release"]
+}
