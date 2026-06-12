@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "release": {
@@ -6,7 +15,6 @@
         "pc1": {
           "type": "photo_card",
           "settings": {
-            "image": "",
             "title": "Ultiflex Driver Technology",
             "description": "XXIO 14's ultra-lightweight driver construction activates your natural swing for faster club speed and effortless distance off the tee."
           }
@@ -14,7 +22,6 @@
         "pc2": {
           "type": "photo_card",
           "settings": {
-            "image": "",
             "title": "Precision Irons",
             "description": "Meticulously crafted iron design maximizes distance and consistency, delivering the smooth, responsive feel XXIO is renowned for."
           }
@@ -22,19 +29,22 @@
         "pc3": {
           "type": "photo_card",
           "settings": {
-            "image": "",
             "title": "A Complete System",
             "description": "From driver to hybrid, every XXIO 14 club works together to deliver lightweight performance and refined precision across the entire bag."
           }
         }
       },
-      "block_order": ["pc1", "pc2", "pc3"],
+      "block_order": [
+        "pc1",
+        "pc2",
+        "pc3"
+      ],
       "settings": {
         "title": "XXIO 14",
         "hero_eyebrow": "The Fourteenth Generation. Available at Northcrest.",
         "hero_subtitle": "The Fourteenth Generation.",
         "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
-        "hero_video": "",
+        "hero_video": "https://www.youtube.com/watch?v=HOJduCZSy_w",
         "intro_heading": "The Fourteenth Generation of Excellence",
         "intro_body": "XXIO 14 continues the brand's legacy of ultra-premium, lightweight engineering designed for golfers seeking effortless power and precision. Every club is meticulously crafted to maximize distance and consistency. Northcrest is honored to present the XXIO 14 collection.",
         "excl_text": "XXIO partners exclusively with select retailers who understand the brand's philosophy of <strong>refinement</strong> and <strong>performance</strong>. Northcrest is proud to offer personalized guidance to help you experience the balance, feel, and power XXIO 14 provides.",
@@ -46,12 +56,13 @@
         "cta_btn1_link": "tel:770-723-0002",
         "cta_btn2_label": "Message the Pro Shop",
         "cta_btn2_link": "shopify://pages/contact",
-        "cta_bg_image": "",
         "collection_eyebrow": "The XXIO 14 Collection",
         "collection_heading": "Lightweight Performance. Refined Precision.",
         "collection_sub": "Select a club below to learn more"
       }
     }
   },
-  "order": ["release"]
+  "order": [
+    "release"
+  ]
 }
