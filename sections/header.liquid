@@ -122,19 +122,14 @@
   }
 
   /* ── New Releases nav link — gold highlight ── */
-  .header__menu-item a[href*="new-release"],
-  .header__menu-item a[href*="new-releases"] {
+  .ncdr-nav-gold,
+  .ncdr-nav-gold span {
     color: var(--ncdr-gold) !important;
     font-weight: 600;
   }
-  .header__menu-item a[href*="new-release"]:hover,
-  .header__menu-item a[href*="new-releases"]:hover {
+  .ncdr-nav-gold:hover,
+  .ncdr-nav-gold:hover span {
     color: var(--ncdr-gold-light) !important;
-  }
-  /* Mobile drawer */
-  .header-drawer a[href*="new-release"],
-  .header-drawer a[href*="new-releases"] {
-    color: var(--ncdr-gold) !important;
   }
 
   /* ── NCDR Announcement Bar ── */
@@ -446,25 +441,6 @@
   </header>
 </{{ header_tag }}>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Dawn renders nav items WITH child links as <details><summary>.
-    // Clicking <summary> toggles details[open] — it does NOT navigate.
-    // No JS needed for those. Handle only plain <a> links that should
-    // act as dropdown triggers (nav items set up without child links).
-    var inlineMenu = document.querySelector('.header__inline-menu');
-    if (!inlineMenu) return;
-
-    // Gold colour on the New Releases summary/link (whichever Dawn renders)
-    inlineMenu.querySelectorAll('summary, a').forEach(function(el) {
-      var text = el.textContent.trim().toLowerCase();
-      if (text.indexOf('new release') !== -1) {
-        el.style.color = 'var(--ncdr-gold)';
-        el.style.fontWeight = '600';
-      }
-    });
-  });
-</script>
 
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
