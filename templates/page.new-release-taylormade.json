@@ -7,48 +7,48 @@
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Qi4D Face Technology",
-            "description": "A breakthrough 4D carbon fiber face design flexes in all four dimensions, delivering explosive ball speed across the entire face."
+            "title": "Revolutionary Face Design",
+            "description": "The Qi4D driver face is engineered with advanced geometry to deliver consistent ball speed and forgiveness across the entire hitting surface."
           }
         },
         "pc2": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "60X Carbon Twist Face",
-            "description": "TaylorMade's most advanced carbon construction pairs with Twist Face technology for straighter drives on off-center strikes."
+            "title": "Tour-Proven Performance",
+            "description": "The same Qi4D technology trusted by Scheffler, McIlroy, and Morikawa on tour is now available for your game at Northcrest."
           }
         },
         "pc3": {
           "type": "photo_card",
           "settings": {
             "image": "",
-            "title": "Inertia Generator 2.0",
-            "description": "A redesigned rear sole mass repositions CG for a higher launch, lower spin profile optimized for modern swing speeds."
+            "title": "A Complete System",
+            "description": "From driver to irons, the Qi4D lineup is built to work together — delivering revolutionary forgiveness and unmatched consistency at every club in your bag."
           }
         }
       },
       "block_order": ["pc1", "pc2", "pc3"],
       "settings": {
         "title": "TaylorMade Qi4D",
-        "hero_eyebrow": "TaylorMade Golf · Available at Northcrest",
-        "hero_subtitle": "Speed. Science. Distance.",
+        "hero_eyebrow": "Tour-Proven Performance. Available at Northcrest.",
+        "hero_subtitle": "Tour-Proven Performance.",
         "hero_sub2": "Available at Northcrest Golf · Atlanta, GA",
         "hero_video": "",
-        "intro_heading": "The Next Evolution in Distance",
-        "intro_body": "TaylorMade's Qi4D driver represents the most significant leap in driver technology in years. The groundbreaking 4D carbon fiber face generates explosive ball speeds that were previously impossible. Whether you're a tour player or weekend golfer, Qi4D is engineered to help you hit it farther. Come hit it at Northcrest.",
-        "excl_text": "Northcrest carries the full TaylorMade Qi4D lineup and our certified fitting professionals are trained on the latest Qi4D technology. <strong>Get custom-fit for the right Qi4D configuration</strong> — head, loft, shaft, and settings — optimized specifically for your swing.",
-        "excl_badge_num": "Full",
-        "excl_badge_label": "TaylorMade Qi4D Lineup In Stock",
-        "cta_heading": "Get Fit for Qi4D at Northcrest",
-        "cta_sub": "<b>Book a TaylorMade Qi4D fitting session with our pro shop team and unlock every yard this driver has to offer.</b>",
+        "intro_heading": "The Future of Forgiveness",
+        "intro_body": "TaylorMade's Qi4D series redefines what's possible in distance and accuracy. Engineered with revolutionary Quiet Technology and advanced face design, every club is built to deliver consistent performance across the entire face. Northcrest is proud to offer the Qi4D lineup.",
+        "excl_text": "TaylorMade is the <strong>most played brand</strong> on professional tours worldwide. Our team brings that same level of expertise to every fitting and consultation, helping you find the right Qi4D configuration to match your swing and goals.",
+        "excl_badge_num": "#1",
+        "excl_badge_label": "Most Played Brand on Tour",
+        "cta_heading": "Find Your Perfect Setup",
+        "cta_sub": "<b>Work with our team to dial in your Qi4D configuration. Whether you're chasing distance, accuracy, or consistency, we'll help you build a bag that performs.</b>",
         "cta_btn1_label": "Call the Pro Shop",
         "cta_btn1_link": "tel:770-723-0002",
         "cta_btn2_label": "Message the Pro Shop",
         "cta_btn2_link": "shopify://pages/contact",
         "cta_bg_image": "",
-        "collection_eyebrow": "The TaylorMade Qi4D Collection",
-        "collection_heading": "Maximum Speed. Maximum Distance.",
+        "collection_eyebrow": "The Qi4D Collection",
+        "collection_heading": "Revolutionary Forgiveness. Unmatched Consistency.",
         "collection_sub": "Select a club below to learn more"
       }
     }
