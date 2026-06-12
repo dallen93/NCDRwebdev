@@ -448,15 +448,20 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Prevent top-level nav links from navigating if they have a dropdown
-    document.querySelectorAll('.header__menu-item').forEach(function(item) {
-      var dropdown = item.querySelector('.header__submenu');
-      if (!dropdown) return;
-      var link = item.querySelector(':scope > a, :scope > .header__menu-item-link');
-      if (!link) return;
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-      });
+    // Dawn renders nav items WITH child links as <details><summary>.
+    // Clicking <summary> toggles details[open] — it does NOT navigate.
+    // No JS needed for those. Handle only plain <a> links that should
+    // act as dropdown triggers (nav items set up without child links).
+    var inlineMenu = document.querySelector('.header__inline-menu');
+    if (!inlineMenu) return;
+
+    // Gold colour on the New Releases summary/link (whichever Dawn renders)
+    inlineMenu.querySelectorAll('summary, a').forEach(function(el) {
+      var text = el.textContent.trim().toLowerCase();
+      if (text.indexOf('new release') !== -1) {
+        el.style.color = 'var(--ncdr-gold)';
+        el.style.fontWeight = '600';
+      }
     });
   });
 </script>
