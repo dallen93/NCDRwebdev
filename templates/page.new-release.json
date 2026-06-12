@@ -23,6 +23,7 @@
         "pc2": {
           "type": "photo_card",
           "settings": {
+            "image": "shopify://shop_images/Why_Prestigio_2.png",
             "title": "Stability in Every Swing",
             "description": "Full Tungsten Sole construction and Optimal Core Impact design ensure consistent launch, forgiveness, and control."
           }
@@ -30,26 +31,16 @@
         "pc3": {
           "type": "photo_card",
           "settings": {
+            "image": "shopify://shop_images/Why_Prestigio_3.png",
             "title": "Ultra-Light Precision",
             "description": "LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact."
-          }
-        },
-        "p4": {
-          "type": "product",
-          "settings": {
-            "brand": "Majesty",
-            "name": "Prestigio 14 Fairway Wood",
-            "variant": "Ladies'",
-            "price": "1,600",
-            "link": ""
           }
         }
       },
       "block_order": [
         "pc1",
         "pc2",
-        "pc3",
-        "p4"
+        "pc3"
       ],
       "settings": {
         "title": "Prestigio 14",
@@ -79,14 +70,14 @@
         "heading_xq4TV4": {
           "type": "heading",
           "settings": {
-            "heading": "HAND-FINISHED PRECISION. EFFORTLESS POWER.",
+            "heading": "THE PRESTIGIO 14 COLLECTION",
             "heading_size": "h1"
           }
         },
         "text_JyTVyW": {
           "type": "text",
           "settings": {
-            "text": "<p>SELECT A CLUB BELOW TO LEARN MORE</p>"
+            "text": "<p>HAND-FINISHED PRECISION.<br/>EFFORTLESS POWER.</p>"
           }
         }
       },
