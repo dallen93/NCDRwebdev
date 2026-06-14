@@ -22,6 +22,30 @@
 
   .nrel-hero__video.loaded { opacity: 0.5; }
 
+  /* YouTube iframe background */
+  .nrel-hero__yt-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
+  }
+
+  .nrel-hero__yt-wrap.loaded { opacity: 0.5; }
+
+  .nrel-hero__yt-wrap iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* 16:9 — oversized so it always covers the container */
+    width: max(100%, calc(100vh * 16 / 9));
+    height: max(100%, calc(100vw * 9 / 16));
+    transform: translate(-50%, -50%);
+    border: none;
+    pointer-events: none;
+  }
+
   .nrel-hero__bg-image {
     position: absolute;
     inset: 0;
@@ -568,13 +592,32 @@
 <!-- ── Hero ── -->
 <div class="nrel-hero">
   {%- if section.settings.hero_video != blank -%}
-    <video
-      class="nrel-hero__video"
-      autoplay muted loop playsinline preload="auto"
-      oncanplay="this.classList.add('loaded')"
-    >
-      <source src="{{ section.settings.hero_video }}" type="video/mp4">
-    </video>
+    {%- assign _yt_url = section.settings.hero_video -%}
+    {%- if _yt_url contains 'youtube.com' or _yt_url contains 'youtu.be' -%}
+      {%- comment -%}Extract YouTube video ID from both long and short URL formats{%- endcomment -%}
+      {%- if _yt_url contains 'youtu.be/' -%}
+        {%- assign _yt_id = _yt_url | split: 'youtu.be/' | last | split: '?' | first -%}
+      {%- elsif _yt_url contains 'v=' -%}
+        {%- assign _yt_id = _yt_url | split: 'v=' | last | split: '&' | first -%}
+      {%- endif -%}
+      <div class="nrel-hero__yt-wrap" id="nrel-yt-wrap-{{ section.id }}">
+        <iframe
+          id="nrel-yt-iframe-{{ section.id }}"
+          src="https://www.youtube.com/embed/{{ _yt_id }}?autoplay=1&mute=1&loop=1&playlist={{ _yt_id }}&controls=0&disablekb=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&enablejsapi=1"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+          title="{{ section.settings.title }} background video"
+        ></iframe>
+      </div>
+    {%- else -%}
+      <video
+        class="nrel-hero__video"
+        autoplay muted loop playsinline preload="auto"
+        oncanplay="this.classList.add('loaded')"
+      >
+        <source src="{{ section.settings.hero_video }}" type="video/mp4">
+      </video>
+    {%- endif -%}
   {%- elsif section.settings.hero_image != blank -%}
     {{ section.settings.hero_image | image_url: width: 2000 | image_tag: class: 'nrel-hero__bg-image', loading: 'eager', alt: section.settings.title }}
   {%- endif -%}
@@ -867,10 +910,43 @@
 
 <script>
   (function() {
-    // Video load handler
+    // Native MP4 video load handler
     var vid = document.querySelector('.nrel-hero__video');
     if (vid) {
       vid.addEventListener('canplay', function() { vid.classList.add('loaded'); });
+    }
+
+    // YouTube iframe fade-in via YouTube IFrame API
+    var ytWrap = document.getElementById('nrel-yt-wrap-{{ section.id }}');
+    if (ytWrap) {
+      // Fade in after a short delay to allow iframe to begin playback
+      setTimeout(function() { ytWrap.classList.add('loaded'); }, 1500);
+
+      // Also listen for YouTube IFrame API ready event for a cleaner trigger
+      window.onYouTubeIframeAPIReady = window.onYouTubeIframeAPIReady || function() {};
+      var _prevReady = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function() {
+        _prevReady();
+        new YT.Player('nrel-yt-iframe-{{ section.id }}', {
+          events: {
+            onReady: function(e) { e.target.playVideo(); },
+            onStateChange: function(e) {
+              if (e.data === YT.PlayerState.PLAYING) {
+                ytWrap.classList.add('loaded');
+              }
+            }
+          }
+        });
+      };
+      // Load the API script if not already present
+      if (!document.getElementById('yt-iframe-api')) {
+        var tag = document.createElement('script');
+        tag.id = 'yt-iframe-api';
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+      } else if (window.YT && window.YT.Player) {
+        window.onYouTubeIframeAPIReady();
+      }
     }
 
     // Scroll reveal
@@ -926,7 +1002,7 @@
     { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Majesty Golf USA · Available at Northcrest" },
     { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle (italic)", "default": "Crafted in Japan." },
     { "type": "text", "id": "hero_sub2", "label": "Hero sub-line (gold)", "default": "Available at Northcrest Golf · Atlanta, GA" },
-    { "type": "text", "id": "hero_video", "label": "Hero video URL (MP4)" },
+    { "type": "text", "id": "hero_video", "label": "Hero video URL (MP4 direct link or YouTube URL)" },
     { "type": "image_picker", "id": "hero_image", "label": "Hero fallback image (used if no video)" },
 
     { "type": "header", "content": "Intro" },
