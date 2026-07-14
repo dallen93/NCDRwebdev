@@ -196,8 +196,8 @@
           "type": "item",
           "name": "Gift cards?",
           "settings": {
-            "question": "",
-            "answer": ""
+            "question": "Do you offer gift cards?",
+            "answer": "<p>Yes, gift certificates are available for purchase in the pro shop or by contacting us directly.</p>"
           }
         },
         "q1": {
