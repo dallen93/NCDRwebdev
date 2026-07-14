@@ -15,29 +15,37 @@
         "stat_Da4bQy": {
           "type": "stat",
           "settings": {
-            "number": "125+",
+            "number": "125",
             "label": "Covered Bays"
-          }
-        },
-        "stat2": {
-          "type": "stat",
-          "settings": {
-            "number": "5",
-            "label": "Golfzon Simulators"
           }
         },
         "stat3": {
           "type": "stat",
           "settings": {
-            "number": "38+",
+            "number": "40+",
             "label": "Years in Atlanta"
+          }
+        },
+        "stat2": {
+          "type": "stat",
+          "settings": {
+            "number": "6",
+            "label": "Certified Instructors"
+          }
+        },
+        "stat_KreFJw": {
+          "type": "stat",
+          "settings": {
+            "number": "5+",
+            "label": "Premium Brands"
           }
         }
       },
       "block_order": [
         "stat_Da4bQy",
+        "stat3",
         "stat2",
-        "stat3"
+        "stat_KreFJw"
       ],
       "custom_css": [],
       "settings": {
