@@ -1,4 +1,94 @@
 <style>
+  /* ── Intro ── */
+  .ncdr-simulators-intro {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .ncdr-simulators-intro__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ncdr-simulators-intro__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-simulators-intro__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+
+  .ncdr-simulators-intro__sub {
+    font-size: 14px;
+    color: var(--ncdr-gold);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+
+  .ncdr-simulators-intro__body {
+    font-size: 15px;
+    color: var(--ncdr-text-mid);
+    font-weight: 300;
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .ncdr-simulators-intro__btn {
+    display: inline-block;
+    background: var(--ncdr-green-deep);
+    color: #fff;
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 13px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .ncdr-simulators-intro__btn:hover {
+    background: var(--ncdr-green);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .ncdr-simulators-intro__image {
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--ncdr-light-gray);
+  }
+  .ncdr-simulators-intro__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   /* ── Features ── */
   .ncdr-simulators {
     padding: 64px 60px;
@@ -299,6 +389,8 @@
   }
 
   @media (max-width: 749px) {
+    .ncdr-simulators-intro { grid-template-columns: 1fr; gap: 28px; padding: 48px 20px; }
+    .ncdr-simulators-intro__image { order: -1; }
     .ncdr-simulators,
     .ncdr-simulators-pricing { padding: 48px 20px; }
     .ncdr-simulators__grid { grid-template-columns: repeat(2, 1fr); }
@@ -307,6 +399,28 @@
     .ncdr-simulators-cta { flex-direction: column; align-items: flex-start; padding: 40px 20px; }
   }
 </style>
+
+<!-- Intro -->
+<div class="ncdr-simulators-intro">
+  <div class="ncdr-simulators-intro__content">
+    <div class="ncdr-simulators-intro__eyebrow">{{ section.settings.intro_eyebrow | default: 'Simulators' }} <span></span></div>
+    <h2 class="ncdr-simulators-intro__heading">{{ section.settings.intro_heading | default: 'Golfzon Simulators' }}</h2>
+    {%- if section.settings.intro_sub != blank -%}
+      <p class="ncdr-simulators-intro__sub">{{ section.settings.intro_sub }}</p>
+    {%- endif -%}
+    {%- if section.settings.intro_body != blank -%}
+      <p class="ncdr-simulators-intro__body">{{ section.settings.intro_body }}</p>
+    {%- endif -%}
+    <a href="{{ section.settings.intro_cta_link | default: '/pages/contact' }}" class="ncdr-simulators-intro__btn">
+      {{ section.settings.intro_cta_label | default: 'Contact Us' }}
+    </a>
+  </div>
+  <div class="ncdr-simulators-intro__image">
+    {%- if section.settings.intro_image != blank -%}
+      {{ section.settings.intro_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.intro_image.alt | default: 'Golfzon Simulators' }}
+    {%- endif -%}
+  </div>
+</div>
 
 <!-- Features -->
 <div class="ncdr-simulators">
@@ -382,6 +496,15 @@
   "name": "NCDR Simulators",
   "tag": "section",
   "settings": [
+    { "type": "header", "content": "Intro Section" },
+    { "type": "text", "id": "intro_eyebrow", "label": "Eyebrow", "default": "Simulators" },
+    { "type": "text", "id": "intro_heading", "label": "Heading", "default": "Golfzon Simulators" },
+    { "type": "text", "id": "intro_sub", "label": "Subheading", "default": "Year-round golf, rain or shine." },
+    { "type": "textarea", "id": "intro_body", "label": "Body text", "default": "Don't let the weather dictate your game. Play the world's most iconic courses indoors, in full comfort, no matter the season." },
+    { "type": "text", "id": "intro_cta_label", "label": "Button label", "default": "Contact Us" },
+    { "type": "url", "id": "intro_cta_link", "label": "Button link" },
+    { "type": "image_picker", "id": "intro_image", "label": "Image" },
+    { "type": "header", "content": "Features Section" },
     { "type": "text", "id": "features_heading", "label": "Features heading", "default": "Why Play at Northcrest Simulators" },
     { "type": "textarea", "id": "features_subtext", "label": "Features subtext", "default": "5 Golfzon indoor simulator bays — play world-famous courses, track your stats, and improve your game year-round. Rain or shine." },
     { "type": "text", "id": "pricing_heading", "label": "Pricing heading", "default": "Bay Rates" },
