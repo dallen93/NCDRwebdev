@@ -194,6 +194,7 @@
         },
         "item_VdaahQ": {
           "type": "item",
+          "name": "Gift cards?",
           "settings": {
             "question": "",
             "answer": ""
