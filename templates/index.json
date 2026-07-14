@@ -186,8 +186,9 @@
         },
         "item_HWKJGQ": {
           "type": "item",
+          "name": "Private events?",
           "settings": {
-            "question": "",
+            "question": "Do you host private events?",
             "answer": ""
           }
         },
