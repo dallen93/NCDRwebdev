@@ -110,7 +110,7 @@
             "badge": "Best Value",
             "feature_1": "45 Premium Balls",
             "feature_2": "Access to Grass Tees",
-            "feature_3": "Turf Mat Bays"
+            "feature_3": "Access to Turf Mat Bays"
           }
         },
         "medium": {
@@ -122,7 +122,7 @@
             "badge": "Best Value",
             "feature_1": "90 Premium Balls",
             "feature_2": "Access to Grass Tees",
-            "feature_3": "Turf Mat Bays"
+            "feature_3": "Access to Turf Mat Bays"
           }
         },
         "large": {
@@ -134,7 +134,7 @@
             "badge": "Best Value",
             "feature_1": "140 Premium Balls",
             "feature_2": "Access to Grass Tees",
-            "feature_3": "Turf Mat Bays"
+            "feature_3": "Access to Turf Mat Bays"
           }
         }
       },
@@ -145,7 +145,7 @@
       ],
       "settings": {
         "heading": "Hit More. Pay Less.",
-        "subtext": "Premium range balls, access to grass tees, and turf mat bays. <br> Every basket includes it all.",
+        "subtext": "Premium range balls, access to grass tees, and turf mat bays.  Every basket includes it all.",
         "coupon_label": "Save up to 20% with a Coupon Book →",
         "coupon_link": "shopify://collections/all"
       }
