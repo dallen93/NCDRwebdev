@@ -189,7 +189,7 @@
           "name": "Private events?",
           "settings": {
             "question": "Do you host private events?",
-            "answer": "<p>Yes, Northcrest hosts private events for birthdays, corporate outings, and group celebrations. Visit our <a href=\"/pages/events\">Events page</a> to learn more and submit an event inquiry.</p>"
+            "answer": "<p>Yes, Northcrest hosts private events for birthdays, corporate outings, and group celebrations. Visit our <a href=\"/pages/events\">Events page </a> to learn more and submit an event inquiry.</p>"
           }
         },
         "item_VdaahQ": {
