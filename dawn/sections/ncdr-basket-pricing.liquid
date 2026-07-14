@@ -6,49 +6,46 @@
   }
 
   .ncdr-basket-pricing__header {
-    text-align: center;
     margin-bottom: 24px;
   }
 
-  .ncdr-basket-pricing__title {
-    font-family: var(--ncdr-font-heading);
-    font-size: 64px;
-    font-weight: 400;
+  .ncdr-basket-pricing__eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--ncdr-gold);
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-    line-height: 1.05;
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    gap: 8px;
   }
-  .ncdr-basket-pricing__title::before,
-  .ncdr-basket-pricing__title::after {
-    content: '';
+  .ncdr-basket-pricing__eyebrow span {
     display: inline-block;
-    width: 48px;
+    width: 24px;
     height: 1px;
     background: var(--ncdr-gold);
-    opacity: 0.5;
-    flex-shrink: 0;
+    opacity: 0.4;
   }
 
-  .ncdr-basket-pricing__tagline {
-    font-size: 38px;
+  .ncdr-basket-pricing__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 32px;
     font-weight: 700;
-    color: var(--ncdr-green-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--ncdr-text-dark);
     margin-bottom: 6px;
-    line-height: 1.15;
-    letter-spacing: 0.01em;
+    line-height: 1.1;
   }
 
-  .ncdr-basket-pricing__tagline--sub {
+  .ncdr-basket-pricing__sub {
     font-size: 14px;
     color: var(--ncdr-mid-gray);
     font-weight: 300;
     margin-bottom: 10px;
     line-height: 1.5;
+    max-width: 480px;
   }
 
   .ncdr-basket-pricing__coupon {
@@ -157,8 +154,7 @@
 
   @media (max-width: 749px) {
     .ncdr-basket-pricing { padding: 40px 20px; }
-    .ncdr-basket-pricing__title { font-size: 36px; }
-    .ncdr-basket-pricing__tagline { font-size: 26px; }
+    .ncdr-basket-pricing__heading { font-size: 24px; }
     .ncdr-basket-pricing__grid { grid-template-columns: 1fr; gap: 28px; }
     .ncdr-basket-card--featured { transform: none; }
     .ncdr-basket-card__price { font-size: 40px; }
@@ -167,12 +163,10 @@
 
 <div class="ncdr-basket-pricing">
   <div class="ncdr-basket-pricing__header">
-    <h2 class="ncdr-basket-pricing__title">Basket Pricing</h2>
-    {%- if section.settings.heading != blank -%}
-      <p class="ncdr-basket-pricing__tagline">{{ section.settings.heading }}</p>
-    {%- endif -%}
+    <div class="ncdr-basket-pricing__eyebrow">Basket Pricing <span></span></div>
+    <h2 class="ncdr-basket-pricing__heading">{{ section.settings.heading }}</h2>
     {%- if section.settings.subtext != blank -%}
-      <p class="ncdr-basket-pricing__tagline--sub">{{ section.settings.subtext }}</p>
+      <p class="ncdr-basket-pricing__sub">{{ section.settings.subtext }}</p>
     {%- endif -%}
     <a href="{{ section.settings.coupon_link }}" class="ncdr-basket-pricing__coupon">{{ section.settings.coupon_label }}</a>
   </div>
@@ -213,7 +207,7 @@
   "name": "Basket Pricing",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "heading", "label": "Tagline (below 'Basket Pricing')", "default": "Hit More. Pay Less." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hit More. Pay Less." },
     { "type": "text", "id": "subtext", "label": "Subtext", "default": "Premium range balls, access to grass tees, and turf mat bays — every basket includes it all." },
     { "type": "text", "id": "coupon_label", "label": "Coupon link label", "default": "Save up to 20% with a Coupon Book →" },
     { "type": "url", "id": "coupon_link", "label": "Coupon link" }
