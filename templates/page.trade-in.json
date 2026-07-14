@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "ncdr-inner-hero",
       "settings": {
-        "eyebrow": "Trade-Ins",
+        "eyebrow": "Trade-In",
         "heading": "Trade In.",
         "heading_gold": "Upgrade. Play Better.",
         "subtext": "Get store credit for your old clubs — applied directly to your Northcrest account for use online or in-store at the range."
@@ -61,7 +70,12 @@
           }
         }
       },
-      "block_order": ["ex1", "ex2", "ex3", "ex4"],
+      "block_order": [
+        "ex1",
+        "ex2",
+        "ex3",
+        "ex4"
+      ],
       "settings": {
         "showcase_heading": "Here's What That Credit Covers",
         "showcase_subtext": "A typical trade-in runs $50–$200 depending on your clubs. Here's what that looks like applied against popular items on our floor right now — not hypotheticals, actual gear in stock.",
@@ -70,5 +84,8 @@
       }
     }
   },
-  "order": ["hero", "tradein"]
+  "order": [
+    "hero",
+    "tradein"
+  ]
 }
