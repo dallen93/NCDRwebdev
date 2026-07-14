@@ -176,36 +176,28 @@
     "faq": {
       "type": "ncdr-faq",
       "blocks": {
-        "item_F3Jajz": {
-          "type": "item",
-          "name": "Outside alcohol?",
-          "settings": {
-            "question": "Can I bring outside alcohol?",
-            "answer": "<p>No, outside alcoholic beverages, including beer, wine, and liquor, are not permitted on Northcrest property. This policy helps us maintain a safe, welcoming environment for all guests. Guests who bring outside alcohol may be asked to leave.</p>"
-          }
-        },
-        "item_HWKJGQ": {
-          "type": "item",
-          "name": "Private events?",
-          "settings": {
-            "question": "Do you host private events?",
-            "answer": "<p>Yes, Northcrest hosts private events for birthdays, corporate outings, and group celebrations. Visit our <a href=\"/pages/events\">Events page </a> to learn more and submit an event inquiry.</p>"
-          }
-        },
-        "item_VdaahQ": {
-          "type": "item",
-          "name": "Gift cards?",
-          "settings": {
-            "question": "Do you offer gift cards?",
-            "answer": "<p>Yes, gift certificates are available for purchase in the pro shop or by contacting us directly.</p>"
-          }
-        },
         "q1": {
           "type": "item",
           "name": "Inclement weather?",
           "settings": {
             "question": "Is Northcrest open during inclement weather?",
             "answer": "<p>Yes. Northcrest Golf Driving Range remains open rain or shine. All bays on the ground level are fully covered, providing protection from rain. <font color=\"red\"> <b>We stay open through conditions that might close traditional golf courses — steady rain, cold temperatures, and high winds. In the event of lightning or thunder, it is at the customer's discretion to continue play.</b></font></p>"
+          }
+        },
+        "q7": {
+          "type": "item",
+          "name": "Book a simulator?",
+          "settings": {
+            "question": "Can I book a simulator session?",
+            "answer": "<p>Yes, you can reserve a simulator session by calling us at (770) 723-0002 or contacting us through the website. Walk-ins are also welcome based on availability.</p>"
+          }
+        },
+        "q3": {
+          "type": "item",
+          "name": "Grass tees?",
+          "settings": {
+            "question": "Are the grass tees currently open?",
+            "answer": "<p>Generally yes, weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
           }
         },
         "q2": {
@@ -216,12 +208,12 @@
             "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once. This offers built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>"
           }
         },
-        "q3": {
+        "item_HWKJGQ": {
           "type": "item",
-          "name": "Grass tees?",
+          "name": "Private events?",
           "settings": {
-            "question": "Are the grass tees currently open?",
-            "answer": "<p>Generally yes, weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
+            "question": "Do you host private events?",
+            "answer": "<p>Yes, Northcrest hosts private events for birthdays, corporate outings, and group celebrations. Visit our <a href=\"/pages/events\">Events page </a> to learn more and submit an event inquiry.</p>"
           }
         },
         "q4": {
@@ -240,14 +232,6 @@
             "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma, two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>"
           }
         },
-        "q7": {
-          "type": "item",
-          "name": "Book a simulator?",
-          "settings": {
-            "question": "Can I book a simulator session?",
-            "answer": "<p>Yes, you can reserve a simulator session by calling us at (770) 723-0002 or contacting us through the website. Walk-ins are also welcome based on availability.</p>"
-          }
-        },
         "q8": {
           "type": "item",
           "name": "Club repairs/fittings?",
@@ -255,19 +239,35 @@
             "question": "Do you offer club repair and fitting services?",
             "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>"
           }
+        },
+        "item_F3Jajz": {
+          "type": "item",
+          "name": "Outside alcohol?",
+          "settings": {
+            "question": "Can I bring outside alcohol?",
+            "answer": "<p>No, outside alcoholic beverages, including beer, wine, and liquor, are not permitted on Northcrest property. This policy helps us maintain a safe, welcoming environment for all guests. Guests who bring outside alcohol may be asked to leave.</p>"
+          }
+        },
+        "item_VdaahQ": {
+          "type": "item",
+          "name": "Gift cards?",
+          "settings": {
+            "question": "Do you offer gift cards?",
+            "answer": "<p>Yes, gift certificates are available for purchase in the pro shop or by contacting us directly.</p>"
+          }
         }
       },
       "block_order": [
-        "item_F3Jajz",
-        "item_HWKJGQ",
-        "item_VdaahQ",
         "q1",
-        "q2",
+        "q7",
         "q3",
+        "q2",
+        "item_HWKJGQ",
         "q4",
         "q6",
-        "q7",
-        "q8"
+        "q8",
+        "item_F3Jajz",
+        "item_VdaahQ"
       ],
       "settings": {
         "heading": "Frequently Asked Questions"
