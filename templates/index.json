@@ -186,6 +186,7 @@
         },
         "q2": {
           "type": "item",
+          "name": "Memberships?",
           "settings": {
             "question": "Does Northcrest offer memberships?",
             "answer": "<p>Not at this time. Northcrest Golf Driving Range does not currently offer memberships of any kind. However, we do offer basket coupon books as a great alternative for regular guests. Available in large, medium, and small basket sizes, these books allow you to purchase 10 baskets at once. This offers built-in savings compared to buying individual baskets. <a href=\"/collections/all\">Shop coupon books →</a></p>"
@@ -193,9 +194,10 @@
         },
         "q3": {
           "type": "item",
+          "name": "Grass tees?",
           "settings": {
             "question": "Are the grass tees currently open?",
-            "answer": "<p>Generally yes — weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
+            "answer": "<p>Generally yes, weather permitting. Grass tees are open during spring, summer, and fall months, as long as conditions allow. They may be temporarily closed following heavy rainfall to protect the turf. Grass tees are closed during winter months for maintenance and recovery.</p>"
           }
         },
         "q4": {
