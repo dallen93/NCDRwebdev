@@ -87,10 +87,10 @@
         "e6"
       ],
       "settings": {
-        "types_eyebrow": "What We Can Do For You",
+        "types_eyebrow": "",
         "types_heading": "Events We Host",
         "types_subtext": "Whether you're planning something casual or competitive, Northcrest is equipped to host events of all sizes and skill levels.",
-        "form_eyebrow": "Start Planning",
+        "form_eyebrow": "",
         "form_heading": "Start Planning Your Event",
         "form_subtext": "Share a few details below and our team will follow up to discuss availability, pricing, and next steps."
       }
