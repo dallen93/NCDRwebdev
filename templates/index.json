@@ -22,7 +22,7 @@
         "stat3": {
           "type": "stat",
           "settings": {
-            "number": "40+",
+            "number": "40",
             "label": "Years in Atlanta"
           }
         },
@@ -36,7 +36,7 @@
         "stat_KreFJw": {
           "type": "stat",
           "settings": {
-            "number": "5+",
+            "number": "5",
             "label": "Premium Brands"
           }
         }
