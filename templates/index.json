@@ -218,10 +218,9 @@
         },
         "q7": {
           "type": "item",
-          "name": "Book a simulator?",
           "settings": {
-            "question": "Can I book a simulator session?",
-            "answer": "<p>Yes, you can reserve a simulator session by calling us at (770) 723-0002 or contacting us through the website. Walk-ins are also welcome based on availability.</p>"
+            "question": "Can I book a simulator session online?",
+            "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>"
           }
         },
         "q8": {
