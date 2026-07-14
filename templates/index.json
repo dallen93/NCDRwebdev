@@ -202,20 +202,15 @@
         },
         "q4": {
           "type": "item",
+          "name": "Chipping/Putting Area?",
           "settings": {
             "question": "Is there a chipping or putting area available?",
             "answer": "<p>Not at this time. We're always exploring ways to improve the guest experience and this may change in the future. Stay tuned for updates.</p>"
           }
         },
-        "q5": {
-          "type": "item",
-          "settings": {
-            "question": "How do I save on basket pricing?",
-            "answer": "<p>Purchase a coupon book and save up to 20% compared to individual basket pricing. Coupon books are available in Small, Medium, and Large basket sizes — buy 10 baskets at once and save on every visit. <a href=\"/collections/all\">Shop coupon books →</a></p>"
-          }
-        },
         "q6": {
           "type": "item",
+          "name": "Brands Available?",
           "settings": {
             "question": "What brands does the pro shop carry?",
             "answer": "<p>Northcrest is an authorized dealer for Majesty and Honma, two of the most prestigious Japanese golf brands in the world. We also carry TaylorMade, Callaway, XXIO, Mizuno, Cleveland, Srixon, and more. New releases are added regularly. <a href=\"/collections/all\">Browse the pro shop →</a></p>"
@@ -241,7 +236,6 @@
         "q2",
         "q3",
         "q4",
-        "q5",
         "q6",
         "q7",
         "q8"
