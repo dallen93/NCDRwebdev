@@ -169,7 +169,8 @@
         "sub": "Year-round golf, rain or shine.",
         "body": "Don't let the weather dictate your game. Play the world's most iconic courses indoors, in full comfort, no matter the season.",
         "cta_label": "Contact Us",
-        "cta_link": "/pages/contact"
+        "cta_link": "/pages/contact",
+        "image": "shopify://shop_images/Simulator_2.png"
       }
     },
     "faq": {
