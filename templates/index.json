@@ -61,8 +61,8 @@
           "type": "item",
           "settings": {
             "icon": "clock",
-            "label": "Open Until 11pm",
-            "sublabel": "Mon – Sat · Sun until 9pm"
+            "label": "Open Late",
+            "sublabel": "9am–11pm (9pm Sun)"
           }
         },
         "item2": {
