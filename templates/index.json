@@ -161,51 +161,15 @@
         "view_all_link": "/collections/all"
       }
     },
-    "image_with_text_gYJV6Y": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_j4YC6D": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
-          }
-        },
-        "text_7gyram": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_JcQqhQ": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_j4YC6D",
-        "text_7gyram",
-        "button_JcQqhQ"
-      ],
-      "name": "Golfzon Simulators",
+    "simulator_home": {
+      "type": "ncdr-simulator-home",
       "settings": {
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "eyebrow": "Simulators",
+        "heading": "Golfzon Simulators",
+        "sub": "Year-round golf, rain or shine.",
+        "body": "Don't let the weather dictate your game. Play the world's most iconic courses indoors, in full comfort, no matter the season.",
+        "cta_label": "Contact Us",
+        "cta_link": "/pages/contact"
       }
     },
     "faq": {
@@ -288,7 +252,7 @@
     "facility_strip",
     "basket_pricing",
     "pro_shop",
-    "image_with_text_gYJV6Y",
+    "simulator_home",
     "faq"
   ]
 }
