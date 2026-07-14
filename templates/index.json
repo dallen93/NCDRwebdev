@@ -219,7 +219,7 @@
         "q7": {
           "type": "item",
           "settings": {
-            "question": "Can I book a simulator session online?",
+            "question": "Can I book a simulator session?",
             "answer": "<p>Yes — use the booking form on our Simulators page or contact us directly at (770) 723-0002. Walk-ins are also welcome based on availability.</p>"
           }
         },
