@@ -176,6 +176,27 @@
     "faq": {
       "type": "ncdr-faq",
       "blocks": {
+        "item_F3Jajz": {
+          "type": "item",
+          "settings": {
+            "question": "Can I bring outside alcohol?",
+            "answer": "<p>No, outside alcoholic beverages, including beer, wine, and liquor, are not permitted on Northcrest property. This policy helps us maintain a safe, welcoming environment for all guests. Guests who bring outside alcohol may be asked to leave.</p>"
+          }
+        },
+        "item_HWKJGQ": {
+          "type": "item",
+          "settings": {
+            "question": "",
+            "answer": ""
+          }
+        },
+        "item_VdaahQ": {
+          "type": "item",
+          "settings": {
+            "question": "",
+            "answer": ""
+          }
+        },
         "q1": {
           "type": "item",
           "name": "Inclement weather?",
@@ -234,6 +255,9 @@
         }
       },
       "block_order": [
+        "item_F3Jajz",
+        "item_HWKJGQ",
+        "item_VdaahQ",
         "q1",
         "q2",
         "q3",
