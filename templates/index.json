@@ -226,6 +226,7 @@
         },
         "q8": {
           "type": "item",
+          "name": "Club repairs/fittings?",
           "settings": {
             "question": "Do you offer club repair and fitting services?",
             "answer": "<p>Yes. Our repair services include re-gripping, shaft replacement, loft and lie adjustment, custom builds, club fitting, and cleaning. Walk-ins are welcome for most services during pro shop hours (Mon–Sat 10am–6pm). <a href=\"/pages/repair\">View all repair services →</a></p>"
