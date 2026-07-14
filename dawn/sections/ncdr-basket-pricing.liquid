@@ -13,14 +13,37 @@
   .ncdr-basket-pricing__title {
     font-family: var(--ncdr-font-heading);
     font-size: 64px;
-    font-weight: 700;
-    color: var(--ncdr-green-deep);
-    letter-spacing: 0.01em;
+    font-weight: 400;
+    color: var(--ncdr-gold);
+    letter-spacing: 0.04em;
     margin-bottom: 12px;
     line-height: 1.05;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .ncdr-basket-pricing__title::before,
+  .ncdr-basket-pricing__title::after {
+    content: '';
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.5;
+    flex-shrink: 0;
   }
 
   .ncdr-basket-pricing__tagline {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ncdr-green-deep);
+    margin-bottom: 14px;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+  }
+
+  .ncdr-basket-pricing__tagline--sub {
     font-size: 15px;
     color: var(--ncdr-mid-gray);
     font-weight: 300;
@@ -91,20 +114,13 @@
   .ncdr-basket-card--featured .ncdr-basket-card__name { color: rgba(255,255,255,0.5); }
 
   .ncdr-basket-card__price {
-    font-size: 72px;
+    font-size: 48px;
     font-weight: 700;
     color: var(--ncdr-green-deep);
     line-height: 1;
-    margin-bottom: 6px;
-  }
-  .ncdr-basket-card--featured .ncdr-basket-card__price { color: var(--ncdr-gold); }
-
-  .ncdr-basket-card__per {
-    font-size: 13px;
-    color: var(--ncdr-mid-gray);
     margin-bottom: 0;
   }
-  .ncdr-basket-card--featured .ncdr-basket-card__per { color: rgba(255,255,255,0.35); }
+  .ncdr-basket-card--featured .ncdr-basket-card__price { color: var(--ncdr-gold); }
 
   .ncdr-basket-card__divider {
     border: none;
@@ -141,10 +157,11 @@
 
   @media (max-width: 749px) {
     .ncdr-basket-pricing { padding: 48px 20px; }
-    .ncdr-basket-pricing__title { font-size: 40px; }
+    .ncdr-basket-pricing__title { font-size: 36px; }
+    .ncdr-basket-pricing__tagline { font-size: 26px; }
     .ncdr-basket-pricing__grid { grid-template-columns: 1fr; gap: 28px; }
     .ncdr-basket-card--featured { transform: none; }
-    .ncdr-basket-card__price { font-size: 52px; }
+    .ncdr-basket-card__price { font-size: 40px; }
   }
 </style>
 
@@ -155,7 +172,7 @@
       <p class="ncdr-basket-pricing__tagline">{{ section.settings.heading }}</p>
     {%- endif -%}
     {%- if section.settings.subtext != blank -%}
-      <p class="ncdr-basket-pricing__tagline" style="margin-bottom:10px;">{{ section.settings.subtext }}</p>
+      <p class="ncdr-basket-pricing__tagline--sub">{{ section.settings.subtext }}</p>
     {%- endif -%}
     <a href="{{ section.settings.coupon_link }}" class="ncdr-basket-pricing__coupon">{{ section.settings.coupon_label }}</a>
   </div>
@@ -170,7 +187,6 @@
         <div class="ncdr-basket-card__name">{{ block.settings.name }}</div>
 
         <div class="ncdr-basket-card__price">${{ block.settings.price }}</div>
-        <div class="ncdr-basket-card__per">per basket</div>
 
         <hr class="ncdr-basket-card__divider">
 
