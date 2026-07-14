@@ -245,7 +245,7 @@
           "name": "Outside alcohol?",
           "settings": {
             "question": "Can I bring outside alcohol?",
-            "answer": "<p>No, outside alcoholic beverages, including beer, wine, and liquor, are not permitted on Northcrest property. This policy helps us maintain a safe, welcoming environment for all guests. Guests who bring outside alcohol may be asked to leave.</p>"
+            "answer": "<p> <font color=\"red\"> No, outside alcoholic beverages, including beer, wine, and liquor, are not permitted on Northcrest property. </font>This policy helps us maintain a safe, welcoming environment for all guests. Guests who bring outside alcohol may be asked to leave.</p>"
           }
         },
         "item_VdaahQ": {
