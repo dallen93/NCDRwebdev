@@ -962,6 +962,16 @@
       }
     }
 
+    // Force photo cards to be square
+    function ncdrSquareCards() {
+      document.querySelectorAll('.nrel-photo-card').forEach(function(card) {
+        card.style.height = card.offsetWidth + 'px';
+        card.style.paddingBottom = '0';
+      });
+    }
+    ncdrSquareCards();
+    window.addEventListener('resize', ncdrSquareCards);
+
     // Scroll reveal
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
