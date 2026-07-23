@@ -190,7 +190,6 @@
   .nrel-photo-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
     background: #e4ebe0;
     padding: 64px 60px;
     gap: 24px;
@@ -201,13 +200,11 @@
     overflow: hidden;
     border-radius: 4px;
     cursor: default;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%;
+    aspect-ratio: 3/4;
     background: #fff;
     border: 3px solid transparent;
     box-shadow: 0 4px 16px rgba(0,0,0,0.14);
-    transition: border-color 0.4s ease;
+    transition: border-color 4.4s ease;
   }
 
   .nrel-photo-card:hover {
@@ -594,17 +591,7 @@
 
 <!-- ── Hero ── -->
 <div class="nrel-hero">
-  {%- if section.settings.hero_video_file != blank -%}
-    <video
-      class="nrel-hero__video"
-      autoplay muted loop playsinline preload="auto"
-      oncanplay="this.classList.add('loaded')"
-    >
-      {%- for source in section.settings.hero_video_file.sources -%}
-        <source src="{{ source.url }}" type="{{ source.mime_type }}">
-      {%- endfor -%}
-    </video>
-  {%- elsif section.settings.hero_video != blank -%}
+  {%- if section.settings.hero_video != blank -%}
     {%- assign _yt_url = section.settings.hero_video -%}
     {%- if _yt_url contains 'youtube.com' or _yt_url contains 'youtu.be' -%}
       {%- comment -%}Extract YouTube video ID from both long and short URL formats{%- endcomment -%}
@@ -962,16 +949,6 @@
       }
     }
 
-    // Force photo cards to be square
-    function ncdrSquareCards() {
-      document.querySelectorAll('.nrel-photo-card').forEach(function(card) {
-        card.style.height = card.offsetWidth + 'px';
-        card.style.paddingBottom = '0';
-      });
-    }
-    ncdrSquareCards();
-    window.addEventListener('resize', ncdrSquareCards);
-
     // Scroll reveal
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -1025,8 +1002,7 @@
     { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Majesty Golf USA · Available at Northcrest" },
     { "type": "text", "id": "hero_subtitle", "label": "Hero subtitle (italic)", "default": "Crafted in Japan." },
     { "type": "text", "id": "hero_sub2", "label": "Hero sub-line (gold)", "default": "Available at Northcrest Golf · Atlanta, GA" },
-    { "type": "video", "id": "hero_video_file", "label": "Hero video (upload MP4 from Files)" },
-    { "type": "text", "id": "hero_video", "label": "Hero video URL — YouTube or external MP4 (used if no file uploaded above)" },
+    { "type": "text", "id": "hero_video", "label": "Hero video URL (MP4 direct link or YouTube URL)" },
     { "type": "image_picker", "id": "hero_image", "label": "Hero fallback image (used if no video)" },
 
     { "type": "header", "content": "Intro" },
