@@ -62,6 +62,14 @@
         "map_image": "shopify://shop_images/ATL_City_Map.webp"
       }
     },
+    "trust_bar": {
+      "type": "ncdr-trust-bar",
+      "settings": {
+        "eyebrow": "Proudly an authorized retailer for",
+        "majesty_link": "/collections/majesty",
+        "honma_link": "/collections/honma"
+      }
+    },
     "pro_shop": {
       "type": "ncdr-pro-shop",
       "settings": {
@@ -284,6 +292,7 @@
   },
   "order": [
     "image_banner",
+    "trust_bar",
     "pro_shop",
     "simulator_home",
     "basket_pricing",

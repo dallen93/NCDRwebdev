@@ -1,0 +1,121 @@
+<style>
+  .ncdr-trust-bar {
+    padding: 56px 60px;
+    background: #fff;
+    border-bottom: 1px solid var(--ncdr-light-gray);
+    text-align: center;
+  }
+
+  .ncdr-trust-bar__eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-mid-gray);
+    margin-bottom: 32px;
+  }
+
+  .ncdr-trust-bar__grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-trust-bar__card {
+    display: block;
+    flex: 0 0 auto;
+    width: 240px;
+    padding: 32px 28px;
+    border: 1px solid var(--ncdr-light-gray);
+    border-radius: 6px;
+    background: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ncdr-trust-bar__card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ncdr-gold);
+    box-shadow: 0 8px 24px rgba(58,88,43,0.1);
+    text-decoration: none;
+  }
+
+  .ncdr-trust-bar__card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-trust-bar {
+      padding: 40px 20px;
+    }
+    .ncdr-trust-bar__grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .ncdr-trust-bar__card {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>
+
+<div class="ncdr-trust-bar">
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="ncdr-trust-bar__eyebrow">{{ section.settings.eyebrow }}</p>
+  {%- endif -%}
+
+  <div class="ncdr-trust-bar__grid">
+    <a href="{{ section.settings.majesty_link | default: '/collections/majesty' }}" class="ncdr-trust-bar__card">
+      <img
+        src="{{ 'majesty-badge-compact.png' | asset_url }}"
+        alt="Majesty Golf — Authorized Dealer"
+        loading="lazy"
+        width="240"
+      >
+    </a>
+
+    <a href="{{ section.settings.honma_link | default: '/collections/honma' }}" class="ncdr-trust-bar__card">
+      <img
+        src="{{ 'honma-badge.png' | asset_url }}"
+        alt="Honma — Verified Retailer"
+        loading="lazy"
+        width="240"
+      >
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Trust Bar",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Proudly an authorized retailer for"
+    },
+    {
+      "type": "url",
+      "id": "majesty_link",
+      "label": "Majesty collection link"
+    },
+    {
+      "type": "url",
+      "id": "honma_link",
+      "label": "Honma collection link"
+    }
+  ],
+  "presets": [
+    { "name": "NCDR Trust Bar" }
+  ]
+}
+{% endschema %}
