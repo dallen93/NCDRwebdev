@@ -22,6 +22,7 @@
         transparent 28px
       );
     pointer-events: none;
+    z-index: 0;
   }
 
   .ncdr-hero__glow {
@@ -33,12 +34,30 @@
     height: 600px;
     background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 65%);
     pointer-events: none;
+    z-index: 0;
+  }
+
+  .ncdr-hero__map {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .ncdr-hero__map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.09;
+    mix-blend-mode: screen;
   }
 
   .ncdr-hero__content {
     position: relative;
     z-index: 2;
-    padding: 80px 60px;
+    padding: 80px 48px 80px 60px;
   }
 
   .ncdr-hero__eyebrow {
@@ -77,7 +96,7 @@
 
   .ncdr-hero__title {
     font-family: var(--ncdr-font-heading) !important;
-    font-size: 58px;
+    font-size: 52px;
     font-weight: 700;
     line-height: 1.0;
     color: #ffffff;
@@ -93,10 +112,10 @@
 
   .ncdr-hero__sub {
     font-family: var(--ncdr-font-body);
-    font-size: 16px;
+    font-size: 15px;
     color: rgba(255,255,255,0.6);
     line-height: 1.7;
-    max-width: 460px;
+    max-width: 420px;
     margin-bottom: 36px;
     font-weight: 300;
   }
@@ -149,6 +168,7 @@
     transition: all 0.2s;
     cursor: pointer;
   }
+
   .ncdr-hero__btn-member:hover {
     border-color: var(--ncdr-gold-border);
     color: var(--ncdr-gold);
@@ -157,7 +177,7 @@
 
   .ncdr-hero__stats {
     display: flex;
-    gap: 40px;
+    gap: 32px;
     padding-top: 36px;
     border-top: 1px solid rgba(255,255,255,0.08);
     flex-wrap: wrap;
@@ -165,7 +185,7 @@
 
   .ncdr-hero__stat-num {
     font-family: var(--ncdr-font-heading);
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 600;
     color: var(--ncdr-gold);
     line-height: 1;
@@ -179,26 +199,143 @@
     margin-top: 4px;
   }
 
-  .ncdr-hero__map {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
+  .ncdr-hero__carousel-wrap {
+    position: relative;
+    z-index: 2;
+    padding: 40px 60px 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .ncdr-hero__map img {
+  .ncdr-hero__carousel {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  }
+
+  .ncdr-hero__slide-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ncdr-hero__slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .ncdr-hero__slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .ncdr-hero__slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
-    opacity: 0.09;
-    mix-blend-mode: screen;
+    display: block;
+  }
+
+  .ncdr-hero__slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 20px 16px;
+    background: linear-gradient(to top, rgba(20,38,14,0.85) 0%, transparent 100%);
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .ncdr-hero__carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: rgba(20,38,14,0.55);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 4;
+    transition: background 0.2s, border-color 0.2s;
+    padding: 0;
+  }
+
+  .ncdr-hero__carousel-btn:hover {
+    background: rgba(201,168,76,0.25);
+    border-color: var(--ncdr-gold);
+  }
+
+  .ncdr-hero__carousel-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ncdr-hero__carousel-btn--prev { left: 12px; }
+  .ncdr-hero__carousel-btn--next { right: 12px; }
+
+  .ncdr-hero__dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 14px;
+  }
+
+  .ncdr-hero__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .ncdr-hero__dot.active {
+    background: var(--ncdr-gold);
+    transform: scale(1.3);
   }
 
   @media (max-width: 989px) {
-    .ncdr-hero { min-height: 480px; }
-    .ncdr-hero__content { padding: 48px 24px; max-width: 100%; }
+    .ncdr-hero {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .ncdr-hero__content { padding: 48px 24px 32px; }
     .ncdr-hero__title { font-size: 40px; }
+    .ncdr-hero__carousel-wrap { padding: 0 24px 48px; }
   }
 </style>
 
@@ -254,7 +391,112 @@
       {%- endfor -%}
     </div>
   </div>
+
+  {%- assign slide_blocks = section.blocks | where: 'type', 'slide' -%}
+  <div class="ncdr-hero__carousel-wrap">
+    <div class="ncdr-hero__carousel" id="ncdr-hero-carousel-{{ section.id }}">
+      <div class="ncdr-hero__slides" id="ncdr-hero-slides-{{ section.id }}">
+        {%- if slide_blocks.size > 0 -%}
+          {%- for block in slide_blocks -%}
+            <div class="ncdr-hero__slide">
+              {%- if block.settings.image != blank -%}
+                {%- assign slide_loading = 'lazy' -%}
+                {%- if forloop.first -%}{%- assign slide_loading = 'eager' -%}{%- endif -%}
+                {%- assign slide_alt = block.settings.caption | default: 'Northcrest Golf' -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: slide_loading, alt: slide_alt }}
+              {%- else -%}
+                <div class="ncdr-hero__slide-placeholder">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  Add image
+                </div>
+              {%- endif -%}
+              {%- if block.settings.caption != blank -%}
+                <div class="ncdr-hero__slide-caption">{{ block.settings.caption }}</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="ncdr-hero__slide">
+            <div class="ncdr-hero__slide-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Add carousel slides in Theme Editor
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if slide_blocks.size > 1 -%}
+        <button class="ncdr-hero__carousel-btn ncdr-hero__carousel-btn--prev" aria-label="Previous slide" data-carousel-prev="{{ section.id }}">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="ncdr-hero__carousel-btn ncdr-hero__carousel-btn--next" aria-label="Next slide" data-carousel-next="{{ section.id }}">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      {%- endif -%}
+    </div>
+
+    {%- if slide_blocks.size > 1 -%}
+      <div class="ncdr-hero__dots" id="ncdr-hero-dots-{{ section.id }}">
+        {%- for block in slide_blocks -%}
+          <button class="ncdr-hero__dot{% if forloop.first %} active{% endif %}" aria-label="Go to slide {{ forloop.index }}" data-dot="{{ forloop.index0 }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
 </div>
+
+<script>
+(function() {
+  var id = {{ section.id | json }};
+  var slidesEl = document.getElementById('ncdr-hero-slides-' + id);
+  var dotsContainer = document.getElementById('ncdr-hero-dots-' + id);
+  if (!slidesEl) return;
+
+  var total = slidesEl.children.length;
+  if (total <= 1) return;
+
+  var current = 0;
+  var autoTimer;
+
+  function goTo(idx) {
+    current = (idx + total) % total;
+    slidesEl.style.transform = 'translateX(-' + (current * 100) + '%)';
+    if (dotsContainer) {
+      dotsContainer.querySelectorAll('.ncdr-hero__dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startAuto() {
+    autoTimer = setInterval(next, {{ section.settings.autoplay_interval | default: 4000 }});
+  }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+  var prevBtn = document.querySelector('[data-carousel-prev="' + id + '"]');
+  var nextBtn = document.querySelector('[data-carousel-next="' + id + '"]');
+  if (prevBtn) prevBtn.addEventListener('click', function() { prev(); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { next(); resetAuto(); });
+
+  if (dotsContainer) {
+    dotsContainer.querySelectorAll('.ncdr-hero__dot').forEach(function(dot) {
+      dot.addEventListener('click', function() { goTo(parseInt(dot.dataset.dot)); resetAuto(); });
+    });
+  }
+
+  var touchStartX = 0;
+  slidesEl.parentElement.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, { passive: true });
+  slidesEl.parentElement.addEventListener('touchend', function(e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); resetAuto(); }
+  }, { passive: true });
+
+  startAuto();
+})();
+</script>
 
 {% schema %}
 {
@@ -264,14 +506,15 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow label", "default": "Atlanta's Premier Driving Range" },
     { "type": "text", "id": "heading", "label": "Heading line 1", "default": "Where Your" },
     { "type": "text", "id": "heading_gold", "label": "Heading line 2 (gold)", "default": "Game Grows." },
-    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Atlanta's place to practice, play, and connect year-round. Whether you're stepping onto the grass tees or dialing in your swing on our premium turf bays, this is where your game grows. Rain or shine, we're ready when you are." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Atlanta's place to practice, play, and connect year-round." },
     { "type": "text", "id": "cta_label", "label": "CTA button label", "default": "Shop the Pro Shop" },
     { "type": "url", "id": "cta_link", "label": "CTA button link" },
-    { "type": "text", "id": "member_cta_1_label", "label": "Member button 1 label", "default": "Become a Member 1" },
+    { "type": "text", "id": "member_cta_1_label", "label": "Member button 1 label" },
     { "type": "url", "id": "member_cta_1_link", "label": "Member button 1 link" },
-    { "type": "text", "id": "member_cta_2_label", "label": "Member button 2 label", "default": "Become a Member 2" },
+    { "type": "text", "id": "member_cta_2_label", "label": "Member button 2 label" },
     { "type": "url", "id": "member_cta_2_link", "label": "Member button 2 link" },
-    { "type": "image_picker", "id": "map_image", "label": "Atlanta map overlay image" }
+    { "type": "image_picker", "id": "map_image", "label": "Atlanta map overlay image" },
+    { "type": "number", "id": "autoplay_interval", "label": "Autoplay interval (ms)", "default": 4000 }
   ],
   "blocks": [
     {
@@ -281,18 +524,17 @@
         { "type": "text", "id": "number", "label": "Number", "default": "125+" },
         { "type": "text", "id": "label", "label": "Label", "default": "Covered Bays" }
       ]
-    }
-  ],
-  "max_blocks": 4,
-  "presets": [
+    },
     {
-      "name": "NCDR Hero",
-      "blocks": [
-        { "type": "stat", "settings": { "number": "125+", "label": "Covered Bays" } },
-        { "type": "stat", "settings": { "number": "5", "label": "Golfzon Simulators" } },
-        { "type": "stat", "settings": { "number": "38+", "label": "Years in Atlanta" } }
+      "type": "slide",
+      "name": "Carousel Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Slide image" },
+        { "type": "text", "id": "caption", "label": "Caption (optional)" }
       ]
     }
-  ]
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "NCDR Hero" }]
 }
 {% endschema %}
