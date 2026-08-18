@@ -391,7 +391,10 @@
           {%- for block in slide_blocks -%}
             <div class="ncdr-hero__slide">
               {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 900 | image_tag: loading: forloop.first | ternary: 'eager', 'lazy', alt: block.settings.caption | default: 'Northcrest Golf' }}
+                {%- assign slide_loading = 'lazy' -%}
+                {%- if forloop.first -%}{%- assign slide_loading = 'eager' -%}{%- endif -%}
+                {%- assign slide_alt = block.settings.caption | default: 'Northcrest Golf' -%}
+                {{ block.settings.image | image_url: width: 900 | image_tag: loading: slide_loading, alt: slide_alt }}
               {%- endif -%}
               {%- if block.settings.caption != blank -%}
                 <div class="ncdr-hero__slide-caption">{{ block.settings.caption }}</div>
