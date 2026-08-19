@@ -104,6 +104,11 @@
     max-height: 18px;
   }
 
+  /* Logos that render too small and need a boost */
+  .ncdr-trust-bar__brand--lg img {
+    max-height: 40px;
+  }
+
   @media (max-width: 749px) {
     .ncdr-trust-bar {
       padding: 40px 20px;
@@ -177,7 +182,7 @@
     <a href="/collections/taylormade" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--sm">
       <img src="{{ 'brand-taylormade.svg' | asset_url }}" alt="TaylorMade" loading="lazy">
     </a>
-    <a href="/collections/cleveland" class="ncdr-trust-bar__brand">
+    <a href="/collections/cleveland" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--lg">
       <img src="{{ 'brand-cleveland.png' | asset_url }}" alt="Cleveland Golf" loading="lazy">
     </a>
     <a href="/collections/srixon" class="ncdr-trust-bar__brand">
