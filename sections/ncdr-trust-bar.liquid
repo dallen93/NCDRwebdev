@@ -99,6 +99,11 @@
     filter: grayscale(0%) opacity(1);
   }
 
+  /* SVG logos with no intrinsic size need an explicit cap */
+  .ncdr-trust-bar__brand--sm img {
+    max-height: 18px;
+  }
+
   @media (max-width: 749px) {
     .ncdr-trust-bar {
       padding: 40px 20px;
@@ -169,7 +174,7 @@
   <!-- NOTE: Callaway and Mizuno are hidden pending receipt of corrected logo files.
        To restore, uncomment the two blocks below. -->
   <div class="ncdr-trust-bar__brands">
-    <a href="/collections/taylormade" class="ncdr-trust-bar__brand">
+    <a href="/collections/taylormade" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--sm">
       <img src="{{ 'brand-taylormade.svg' | asset_url }}" alt="TaylorMade" loading="lazy">
     </a>
     <a href="/collections/cleveland" class="ncdr-trust-bar__brand">
@@ -190,7 +195,7 @@
       <img src="{{ 'brand-mizuno.png' | asset_url }}" alt="Mizuno" loading="lazy">
     </a>
     {%- endcomment -%}
-    <a href="/collections/ogio" class="ncdr-trust-bar__brand">
+    <a href="/collections/ogio" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--sm">
       <img src="{{ 'brand-ogio.svg' | asset_url }}" alt="OGIO" loading="lazy">
     </a>
     <a href="/collections/mu-sports" class="ncdr-trust-bar__brand">
