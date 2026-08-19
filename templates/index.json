@@ -36,7 +36,8 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "caption": "Premium Pro Shop"
+            "caption": "Premium Pro Shop",
+            "link": "/collections/all"
           }
         },
         "slide_2": {
@@ -54,7 +55,8 @@
         "slide_4": {
           "type": "slide",
           "settings": {
-            "caption": "Indoor Simulators"
+            "caption": "Indoor Simulators",
+            "link": "/pages/contact"
           }
         }
       },

@@ -1,9 +1,10 @@
 <style>
   .ncdr-trust-bar {
-    padding: 56px 60px;
+    padding: 48px 60px;
     background: #fff;
     border-bottom: 1px solid var(--ncdr-light-gray);
     text-align: center;
+    overflow: hidden;
   }
 
   .ncdr-trust-bar__eyebrow {
@@ -12,24 +13,28 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ncdr-mid-gray);
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
-  .ncdr-trust-bar__grid {
+  /* ── Authorized dealer badges (Majesty + Honma) ── */
+  .ncdr-trust-bar__dealers {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 24px;
     flex-wrap: wrap;
     align-items: stretch;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--ncdr-light-gray);
   }
 
-  .ncdr-trust-bar__card {
+  .ncdr-trust-bar__dealer-card {
     display: flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
-    width: 240px;
-    padding: 28px;
+    width: 220px;
+    padding: 24px;
     border: 1px solid var(--ncdr-light-gray);
     border-radius: 6px;
     background: #fff;
@@ -37,50 +42,105 @@
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .ncdr-trust-bar__card:hover {
-    transform: translateY(-4px);
+  .ncdr-trust-bar__dealer-card:hover {
+    transform: translateY(-3px);
     border-color: var(--ncdr-gold);
-    box-shadow: 0 8px 24px rgba(58,88,43,0.1);
+    box-shadow: 0 8px 24px rgba(58,88,43,0.08);
     text-decoration: none;
   }
 
-  /* Both badges share the same visual frame */
-  .ncdr-trust-bar__card img {
+  .ncdr-trust-bar__dealer-card img {
     display: block;
     width: 100%;
-    height: 120px;
+    height: 110px;
     object-fit: contain;
-    margin: 0 auto;
   }
 
-  /* Honma badge: its PNG has a smaller native footprint than Majesty's,
-     so reduce card padding to let it visually fill the same proportion */
-  .ncdr-trust-bar__card--honma {
-    padding: 16px 20px;
+  /* ── Carried brands logo strip ── */
+  .ncdr-trust-bar__brands-label {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-mid-gray);
+    margin-bottom: 24px;
+    opacity: 0.7;
   }
 
-  .ncdr-trust-bar__card--honma img {
-    height: 140px;
+  .ncdr-trust-bar__brands {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-trust-bar__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-right: 1px solid var(--ncdr-light-gray);
+    text-decoration: none;
+  }
+
+  .ncdr-trust-bar__brand:last-child {
+    border-right: none;
+  }
+
+  .ncdr-trust-bar__brand img {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 100px;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.45);
+    transition: filter 0.2s ease;
+  }
+
+  .ncdr-trust-bar__brand:hover img {
+    filter: grayscale(0%) opacity(1);
   }
 
   @media (max-width: 749px) {
     .ncdr-trust-bar {
       padding: 40px 20px;
     }
-    .ncdr-trust-bar__grid {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+
+    .ncdr-trust-bar__dealers {
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 32px;
     }
-    .ncdr-trust-bar__card {
+
+    .ncdr-trust-bar__dealer-card {
       width: 100%;
-      max-width: 300px;
+      max-width: 260px;
+      padding: 20px;
     }
-    .ncdr-trust-bar__card img {
-      height: 100px;
+
+    .ncdr-trust-bar__dealer-card img {
+      height: 90px;
     }
-    .ncdr-trust-bar__card--honma img {
-      height: 120px;
+
+    .ncdr-trust-bar__brands {
+      gap: 0;
+    }
+
+    .ncdr-trust-bar__brand {
+      padding: 10px 16px;
+      border-right: none;
+      border-bottom: 1px solid var(--ncdr-light-gray);
+      width: 50%;
+    }
+
+    .ncdr-trust-bar__brand:nth-child(odd) {
+      border-right: 1px solid var(--ncdr-light-gray);
+    }
+
+    .ncdr-trust-bar__brand:last-child,
+    .ncdr-trust-bar__brand:nth-last-child(2):nth-child(odd) {
+      border-bottom: none;
     }
   }
 </style>
@@ -90,21 +150,53 @@
     <p class="ncdr-trust-bar__eyebrow">{{ section.settings.eyebrow }}</p>
   {%- endif -%}
 
-  <div class="ncdr-trust-bar__grid">
-    <a href="{{ section.settings.majesty_link | default: '/collections/majesty' }}" class="ncdr-trust-bar__card">
+  <!-- Authorized dealer badges -->
+  <div class="ncdr-trust-bar__dealers">
+    <a href="{{ section.settings.majesty_link | default: '/collections/majesty' }}" class="ncdr-trust-bar__dealer-card">
       <img
-        src="{{ 'majesty-badge-compact.png' | asset_url }}"
+        src="{{ 'brand-majesty.png' | asset_url }}"
         alt="Majesty Golf — Authorized Dealer"
         loading="lazy"
       >
     </a>
-
-    <a href="{{ section.settings.honma_link | default: '/collections/honma' }}" class="ncdr-trust-bar__card ncdr-trust-bar__card--honma">
+    <a href="{{ section.settings.honma_link | default: '/collections/honma' }}" class="ncdr-trust-bar__dealer-card">
       <img
-        src="{{ 'honma-badge.png' | asset_url }}"
-        alt="Honma — Verified Retailer"
+        src="{{ 'brand-honma.png' | asset_url }}"
+        alt="Honma — Authorized Retailer"
         loading="lazy"
       >
+    </a>
+  </div>
+
+  <!-- Carried brands strip -->
+  <p class="ncdr-trust-bar__brands-label">Also carrying</p>
+  <div class="ncdr-trust-bar__brands">
+    <a href="/collections/taylormade" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-taylormade.svg' | asset_url }}" alt="TaylorMade" loading="lazy">
+    </a>
+    <a href="/collections/callaway" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-callaway.png' | asset_url }}" alt="Callaway" loading="lazy">
+    </a>
+    <a href="/collections/cleveland" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-cleveland.png' | asset_url }}" alt="Cleveland Golf" loading="lazy">
+    </a>
+    <a href="/collections/srixon" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-srixon.svg' | asset_url }}" alt="Srixon" loading="lazy">
+    </a>
+    <a href="/collections/mizuno" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-mizuno.png' | asset_url }}" alt="Mizuno" loading="lazy">
+    </a>
+    <a href="/collections/xxio" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-xxio.jpeg' | asset_url }}" alt="XXIO" loading="lazy">
+    </a>
+    <a href="/collections/ogio" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-ogio.svg' | asset_url }}" alt="OGIO" loading="lazy">
+    </a>
+    <a href="/collections/mu-sports" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-mu-sports.avif' | asset_url }}" alt="MU Sports" loading="lazy">
+    </a>
+    <a href="/collections/yonex" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-yonex.png' | asset_url }}" alt="Yonex" loading="lazy">
     </a>
   </div>
 </div>
