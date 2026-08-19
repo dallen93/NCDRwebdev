@@ -88,7 +88,7 @@
     "trust_bar": {
       "type": "ncdr-trust-bar",
       "settings": {
-        "eyebrow": "Proudly an authorized retailer for",
+        "eyebrow": "",
         "majesty_link": "/collections/majesty",
         "honma_link": "/collections/honma"
       }
