@@ -58,6 +58,12 @@
     object-position: center;
   }
 
+  /* Honma PNG has heavy surrounding whitespace — scale it up to compensate */
+  .ncdr-trust-bar__dealer-card--honma img {
+    width: 220px;
+    height: 80px;
+  }
+
   /* ── Carried brands strip ── */
   .ncdr-trust-bar__brands {
     display: flex;
@@ -151,7 +157,7 @@
         loading="lazy"
       >
     </a>
-    <a href="{{ section.settings.honma_link | default: '/collections/honma' }}" class="ncdr-trust-bar__dealer-card">
+    <a href="{{ section.settings.honma_link | default: '/collections/honma' }}" class="ncdr-trust-bar__dealer-card ncdr-trust-bar__dealer-card--honma">
       <img
         src="{{ 'brand-honma.png' | asset_url }}"
         alt="Honma — Authorized Retailer"
