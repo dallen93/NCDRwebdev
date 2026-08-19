@@ -7,7 +7,16 @@
     overflow: hidden;
   }
 
-  /* ── Three premium dealer badges ── */
+  .ncdr-trust-bar__eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ncdr-mid-gray);
+    margin-bottom: 36px;
+  }
+
+  /* ── Three authorized dealer badges ── */
   .ncdr-trust-bar__dealers {
     display: flex;
     justify-content: center;
@@ -23,7 +32,9 @@
     justify-content: center;
     flex: 0 0 auto;
     width: 220px;
-    padding: 24px;
+    /* Fixed-height image frame — every badge reads the same visual weight */
+    height: 140px;
+    padding: 20px 24px;
     border: 1px solid var(--ncdr-light-gray);
     border-radius: 6px;
     background: #fff;
@@ -38,15 +49,17 @@
     text-decoration: none;
   }
 
+  /* Uniform logo sizing — scale proportionally to fill the frame */
   .ncdr-trust-bar__dealer-card img {
     display: block;
-    width: 160px;
-    height: 110px;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    object-position: center;
   }
 
-  /* ── Carried brands logo strip ── */
+  /* ── Carried brands strip ── */
   .ncdr-trust-bar__brands {
     display: flex;
     justify-content: center;
@@ -60,7 +73,9 @@
     justify-content: center;
     flex: 1 1 auto;
     min-width: 80px;
-    padding: 10px 20px;
+    /* Fixed-height frame — same approach as dealer cards */
+    height: 48px;
+    padding: 0 20px;
     border-right: 1px solid var(--ncdr-light-gray);
     text-decoration: none;
   }
@@ -71,10 +86,11 @@
 
   .ncdr-trust-bar__brand img {
     display: block;
-    width: 80px;
-    height: 32px;
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    object-position: center;
     filter: grayscale(100%) opacity(0.45);
     transition: filter 0.2s ease;
   }
@@ -94,20 +110,18 @@
     }
 
     .ncdr-trust-bar__dealer-card {
-      width: 100%;
-      max-width: 260px;
-      padding: 20px;
-    }
-
-    .ncdr-trust-bar__dealer-card img {
-      height: 90px;
+      width: calc(50% - 8px);
+      height: 110px;
+      padding: 16px;
     }
 
     .ncdr-trust-bar__brand {
-      padding: 10px 16px;
+      height: 40px;
+      padding: 0 12px;
       border-right: none;
       border-bottom: 1px solid var(--ncdr-light-gray);
       width: 50%;
+      flex: 0 0 50%;
     }
 
     .ncdr-trust-bar__brand:nth-child(odd) {
@@ -126,7 +140,7 @@
     <p class="ncdr-trust-bar__eyebrow">{{ section.settings.eyebrow }}</p>
   {%- endif -%}
 
-  <!-- Three authorized dealer / premium brand badges -->
+  <!-- Authorized dealer badges: Majesty · Honma · XXIO -->
   <div class="ncdr-trust-bar__dealers">
     <a href="{{ section.settings.majesty_link | default: '/collections/majesty' }}" class="ncdr-trust-bar__dealer-card">
       <img
@@ -152,12 +166,11 @@
   </div>
 
   <!-- Carried brands strip -->
+  <!-- NOTE: Callaway and Mizuno are hidden pending receipt of corrected logo files.
+       To restore, uncomment the two blocks below. -->
   <div class="ncdr-trust-bar__brands">
     <a href="/collections/taylormade" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-taylormade.svg' | asset_url }}" alt="TaylorMade" loading="lazy">
-    </a>
-    <a href="/collections/callaway" class="ncdr-trust-bar__brand">
-      <img src="{{ 'brand-callaway.png' | asset_url }}" alt="Callaway" loading="lazy">
     </a>
     <a href="/collections/cleveland" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-cleveland.png' | asset_url }}" alt="Cleveland Golf" loading="lazy">
@@ -165,17 +178,26 @@
     <a href="/collections/srixon" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-srixon.svg' | asset_url }}" alt="Srixon" loading="lazy">
     </a>
+    {%- comment -%}
+    PENDING: Callaway logo — awaiting official asset from brand
+    <a href="/collections/callaway" class="ncdr-trust-bar__brand">
+      <img src="{{ 'brand-callaway.png' | asset_url }}" alt="Callaway" loading="lazy">
+    </a>
+    {%- endcomment -%}
+    {%- comment -%}
+    PENDING: Mizuno logo — awaiting official asset from brand
     <a href="/collections/mizuno" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-mizuno.png' | asset_url }}" alt="Mizuno" loading="lazy">
     </a>
+    {%- endcomment -%}
     <a href="/collections/ogio" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-ogio.svg' | asset_url }}" alt="OGIO" loading="lazy">
     </a>
     <a href="/collections/mu-sports" class="ncdr-trust-bar__brand">
-      <img src="{{ 'brand-mu-sports.avif' | asset_url }}" alt="MU Sports" loading="lazy">
+      <img src="{{ 'brand-mu-sports.png' | asset_url }}" alt="MU Sports" loading="lazy">
     </a>
     <a href="/collections/yonex" class="ncdr-trust-bar__brand">
-      <img src="{{ 'brand-yonex.png' | asset_url }}" alt="Yonex" loading="lazy">
+      <img src="{{ 'brand-yonex.svg' | asset_url }}" alt="Yonex" loading="lazy">
     </a>
   </div>
 </div>
