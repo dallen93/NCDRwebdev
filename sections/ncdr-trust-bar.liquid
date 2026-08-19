@@ -40,9 +40,10 @@
 
   .ncdr-trust-bar__dealer-card img {
     display: block;
-    width: 100%;
+    width: 160px;
     height: 110px;
     object-fit: contain;
+    object-position: center;
   }
 
   /* ── Carried brands logo strip ── */
@@ -57,7 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 28px;
+    flex: 1 1 auto;
+    min-width: 80px;
+    padding: 10px 20px;
     border-right: 1px solid var(--ncdr-light-gray);
     text-decoration: none;
   }
@@ -68,10 +71,10 @@
 
   .ncdr-trust-bar__brand img {
     display: block;
-    height: 28px;
-    width: auto;
-    max-width: 100px;
+    width: 80px;
+    height: 32px;
     object-fit: contain;
+    object-position: center;
     filter: grayscale(100%) opacity(0.45);
     transition: filter 0.2s ease;
   }
