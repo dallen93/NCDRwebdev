@@ -86,10 +86,9 @@
 
   .ncdr-trust-bar__brand img {
     display: block;
-    max-height: 100%;
-    max-width: 100%;
+    height: 22px;
     width: auto;
-    height: auto;
+    max-width: 120px;
     object-fit: contain;
     filter: grayscale(100%) opacity(0.45);
     transition: filter 0.2s ease;
@@ -99,16 +98,9 @@
     filter: grayscale(0%) opacity(1);
   }
 
-  /* SVG logos with no intrinsic size need an explicit cap */
-  .ncdr-trust-bar__brand--sm img {
-    max-height: 18px;
-  }
-
-  /* Logos that render too small and need a boost */
-  .ncdr-trust-bar__brand--lg img {
-    max-height: none;
-    height: 40px;
-  }
+  /* Per-brand size overrides */
+  .ncdr-trust-bar__brand--sm img { height: 14px; }
+  .ncdr-trust-bar__brand--lg img { height: 32px; }
 
   @media (max-width: 749px) {
     .ncdr-trust-bar {
@@ -184,6 +176,7 @@
       <img src="{{ 'brand-taylormade.svg' | asset_url }}" alt="TaylorMade" loading="lazy">
     </a>
     <a href="/collections/cleveland" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--lg">
+      <!-- brand-cleveland.png: upload corrected file to restore -->
       <img src="{{ 'brand-cleveland.png' | asset_url }}" alt="Cleveland Golf" loading="lazy">
     </a>
     <a href="/collections/srixon" class="ncdr-trust-bar__brand">
@@ -207,7 +200,7 @@
     <a href="/collections/mu-sports" class="ncdr-trust-bar__brand">
       <img src="{{ 'brand-mu-sports.png' | asset_url }}" alt="MU Sports" loading="lazy">
     </a>
-    <a href="/collections/yonex" class="ncdr-trust-bar__brand">
+    <a href="/collections/yonex" class="ncdr-trust-bar__brand ncdr-trust-bar__brand--sm">
       <img src="{{ 'brand-yonex.svg' | asset_url }}" alt="Yonex" loading="lazy">
     </a>
   </div>
