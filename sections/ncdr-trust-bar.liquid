@@ -49,13 +49,17 @@
     text-decoration: none;
   }
 
-  /* Uniform logo sizing — fixed frame, scale proportionally inside it */
+  /* Uniform logo sizing — fill the card frame then scale down */
   .ncdr-trust-bar__dealer-card img {
     display: block;
-    width: 160px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    object-position: center;
+    transform: scale(1.5);
+  }
+
+  .ncdr-trust-bar__dealer-card {
+    overflow: hidden;
   }
 
   /* Honma PNG has heavy surrounding whitespace — zoom in to compensate */
