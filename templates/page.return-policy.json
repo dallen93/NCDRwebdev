@@ -17,19 +17,40 @@
         "padding_bottom": 28
       }
     },
-    "ncdr_inner_hero_jVYFzz": {
-      "type": "ncdr-inner-hero",
-      "name": "NCDR Inner Hero",
+    "rich_text_iURRAr": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cUP7Gr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Online return policy",
+            "heading_size": "h1"
+          }
+        },
+        "text_Yjy3FF": {
+          "type": "text",
+          "settings": {
+            "text": "{{ page.content }}"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cUP7Gr",
+        "text_Yjy3FF"
+      ],
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "eyebrow": "INSTRUCTION",
-        "heading": "GET IN TOUCH",
-        "heading_gold": "TEST",
-        "subtext": "World-class instruction for every skill level from beginner fundamentals to competitive performance coaching."
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "main",
-    "ncdr_inner_hero_jVYFzz"
+    "rich_text_iURRAr"
   ]
 }
