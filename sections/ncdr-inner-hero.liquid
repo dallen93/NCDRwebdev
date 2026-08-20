@@ -4,20 +4,9 @@
     padding: 56px 60px 48px;
     position: relative;
     overflow: hidden;
-  }
-
-  .ncdr-inner-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      45deg,
-      rgba(255,255,255,0.012) 0px,
-      rgba(255,255,255,0.012) 1px,
-      transparent 1px,
-      transparent 28px
-    );
-    pointer-events: none;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
   }
 
   .ncdr-inner-hero__content {
@@ -66,7 +55,7 @@
   .ncdr-inner-hero__sub {
     font-size: 15px;
     color: rgba(255,255,255,0.6);
-    max-width: 480px;
+    max-width: 800px;
     line-height: 1.7;
     font-weight: 300;
     margin: 0;
@@ -109,8 +98,9 @@
   }
 
   @media (max-width: 749px) {
-    .ncdr-inner-hero { padding: 40px 20px 36px; }
+    .ncdr-inner-hero { padding: 40px 20px 36px; min-height: 0; }
     .ncdr-inner-hero__heading { font-size: 32px; }
+    .ncdr-inner-hero__sub { max-width: 100%; }
     .ncdr-inner-hero--has-image .ncdr-inner-hero__content { padding: 36px 20px; }
   }
 </style>
