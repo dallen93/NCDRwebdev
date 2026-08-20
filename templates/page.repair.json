@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -5,26 +14,112 @@
       "settings": {
         "eyebrow": "Club Repair",
         "heading": "Precision Repairs for",
-        "heading_gold": "Peak Performance.",
+        "heading_gold": "Peak Performance",
         "subtext": "When your gear doesn't feel right, your game suffers. We specialize in fast, reliable fixes that get you back to full swing."
       }
     },
     "repair": {
       "type": "ncdr-repair",
       "blocks": {
-        "svc1": { "type": "service", "settings": { "name": "Regripping", "description": "Fresh grips improve feel, control, and confidence. If your clubs are slick or worn, a new set of grips could make all the difference in your swing comfort and shot accuracy." } },
-        "svc2": { "type": "service", "settings": { "name": "Loft & Lie Adjustment", "description": "Get your clubs dialed in to suit your stance and swing. This precision tweak helps your shots stay on target by customizing the angle of each club to your body and posture." } },
-        "svc3": { "type": "service", "settings": { "name": "Shaft & Clubhead Repair", "description": "From cracked shafts to loose clubheads, we fix alignment and secure components so your clubs perform reliably shot after shot. Re-shaft, glue repair, or full replacement — we've got your back." } },
-        "p1": { "type": "price_item", "settings": { "name": "Grip Installation", "price": "5", "description": "Per club. Grips sold separately. Drop off today, pick up tomorrow." } },
-        "p2": { "type": "price_item", "settings": { "name": "Shorten Club", "price": "5", "description": "Shorten the shaft for a better fit and easier control." } },
-        "p3": { "type": "price_item", "settings": { "name": "Lengthen Club", "price": "10", "description": "Add length to improve distance and match your height or swing style." } },
-        "p4": { "type": "price_item", "settings": { "name": "Loft / Lie Adjust", "price": "5", "description": "Per club. Modify angles to help your shots launch better and fly straighter." } },
-        "p5": { "type": "price_item", "settings": { "name": "Repair Loose Clubhead", "price": "20", "description": "Re-secure wobbly or detached clubheads to restore balance and performance." } },
-        "p6": { "type": "price_item", "settings": { "name": "Remove Shaft", "price": "10", "description": "Safely detach a damaged or outdated shaft in preparation for replacement." } },
-        "p7": { "type": "price_item", "settings": { "name": "Standard Reshaft", "price": "20", "description": "Install a new shaft to restore club stability. Done next day depending on availability." } },
-        "p8": { "type": "price_item", "settings": { "name": "Exchange Shafts", "price": "30", "description": "Swap one shaft for another to customize feel, flex, or performance." } }
+        "svc1": {
+          "type": "service",
+          "settings": {
+            "name": "Regripping",
+            "description": "Fresh grips improve feel, control, and confidence. If your clubs are slick or worn, a new set of grips could make all the difference in your swing comfort and shot accuracy."
+          }
+        },
+        "svc2": {
+          "type": "service",
+          "settings": {
+            "name": "Loft & Lie Adjustment",
+            "description": "Get your clubs dialed in to suit your stance and swing. This precision tweak helps your shots stay on target by customizing the angle of each club to your body and posture."
+          }
+        },
+        "svc3": {
+          "type": "service",
+          "settings": {
+            "name": "Shaft & Clubhead Repair",
+            "description": "From cracked shafts to loose clubheads, we fix alignment and secure components so your clubs perform reliably shot after shot. Re-shaft, glue repair, or full replacement — we've got your back."
+          }
+        },
+        "p1": {
+          "type": "price_item",
+          "settings": {
+            "name": "Grip Installation",
+            "price": "5",
+            "description": "Per club. Grips sold separately. Drop off today, pick up tomorrow."
+          }
+        },
+        "p2": {
+          "type": "price_item",
+          "settings": {
+            "name": "Shorten Club",
+            "price": "5",
+            "description": "Shorten the shaft for a better fit and easier control."
+          }
+        },
+        "p3": {
+          "type": "price_item",
+          "settings": {
+            "name": "Lengthen Club",
+            "price": "10",
+            "description": "Add length to improve distance and match your height or swing style."
+          }
+        },
+        "p4": {
+          "type": "price_item",
+          "settings": {
+            "name": "Loft / Lie Adjust",
+            "price": "5",
+            "description": "Per club. Modify angles to help your shots launch better and fly straighter."
+          }
+        },
+        "p5": {
+          "type": "price_item",
+          "settings": {
+            "name": "Repair Loose Clubhead",
+            "price": "20",
+            "description": "Re-secure wobbly or detached clubheads to restore balance and performance."
+          }
+        },
+        "p6": {
+          "type": "price_item",
+          "settings": {
+            "name": "Remove Shaft",
+            "price": "10",
+            "description": "Safely detach a damaged or outdated shaft in preparation for replacement."
+          }
+        },
+        "p7": {
+          "type": "price_item",
+          "settings": {
+            "name": "Standard Reshaft",
+            "price": "20",
+            "description": "Install a new shaft to restore club stability. Done next day depending on availability."
+          }
+        },
+        "p8": {
+          "type": "price_item",
+          "settings": {
+            "name": "Exchange Shafts",
+            "price": "30",
+            "description": "Swap one shaft for another to customize feel, flex, or performance."
+          }
+        }
       },
-      "block_order": ["svc1", "svc2", "svc3", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8"],
+      "block_order": [
+        "svc1",
+        "svc2",
+        "svc3",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8"
+      ],
       "settings": {
         "services_heading": "Our Repair Services",
         "pricing_heading": "Popular Repairs & Pricing",
@@ -33,9 +128,12 @@
         "cta_heading": "Drop Off Your Clubs Today",
         "cta_subtext": "Most repairs are completed next day. Stop by during business hours or give us a call to confirm availability.",
         "cta_label": "Get in Touch",
-        "cta_link": "shopify:\/\/pages\/contact"
+        "cta_link": "shopify://pages/contact"
       }
     }
   },
-  "order": ["hero", "repair"]
+  "order": [
+    "hero",
+    "repair"
+  ]
 }
