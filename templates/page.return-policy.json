@@ -30,7 +30,7 @@
         "text_Yjy3FF": {
           "type": "text",
           "settings": {
-            "text": "{{ page.content }}"
+            "text": "<p>{{ page.content }}</p>"
           }
         }
       },
@@ -41,8 +41,8 @@
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
+        "content_alignment": "left",
+        "color_scheme": "scheme-2",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 52
