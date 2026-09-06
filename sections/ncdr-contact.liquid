@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   .ncdr-contact {
     display: grid;
@@ -28,11 +29,10 @@
   }
 
   .ncdr-contact__quad-icon {
-    width: 32px;
-    height: 32px;
+    font-size: 28px;
     color: var(--ncdr-gold);
     margin-bottom: 12px;
-    flex-shrink: 0;
+    line-height: 1;
   }
 
   .ncdr-contact__quad-title {
@@ -184,10 +184,7 @@
 
       <!-- Visit the Pro Shop -->
       <div class="ncdr-contact__quad">
-        <svg class="ncdr-contact__quad-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
+        <i class="fa-solid fa-location-dot ncdr-contact__quad-icon"></i>
         <div class="ncdr-contact__quad-title">Visit the Pro Shop</div>
         <div class="ncdr-contact__quad-body">
           3545 Northcrest Road<br>Atlanta, GA 30340
@@ -196,9 +193,7 @@
 
       <!-- Call the Clubhouse -->
       <div class="ncdr-contact__quad">
-        <svg class="ncdr-contact__quad-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C9.61 21 3 14.39 3 6c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
+        <i class="fa-solid fa-phone ncdr-contact__quad-icon"></i>
         <div class="ncdr-contact__quad-title">Call the Clubhouse</div>
         <div class="ncdr-contact__quad-body">
           <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
