@@ -8,7 +8,7 @@
   /* ── Left: info panel ── */
   .ncdr-contact__info {
     background: var(--ncdr-green-deep);
-    padding: 56px 48px 0;
+    padding: 64px 48px 0;
     display: flex;
     flex-direction: column;
   }
@@ -17,7 +17,6 @@
   .ncdr-contact__quadrants {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .ncdr-contact__quad {
@@ -26,13 +25,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  .ncdr-contact__quad:nth-child(odd) {
-    border-right: 1px solid rgba(255,255,255,0.08);
-  }
-  .ncdr-contact__quad:nth-child(1),
-  .ncdr-contact__quad:nth-child(2) {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
   .ncdr-contact__quad-icon {
@@ -78,6 +70,7 @@
   .ncdr-contact__map {
     flex: 1;
     min-height: 220px;
+    margin-bottom: 48px;
   }
   .ncdr-contact__map iframe {
     width: 100%;
@@ -175,14 +168,10 @@
     .ncdr-contact { grid-template-columns: 1fr; }
     .ncdr-contact__info { padding: 40px 24px 0; }
     .ncdr-contact__form { padding: 48px 24px; }
-    .ncdr-contact__map { min-height: 200px; }
+    .ncdr-contact__map { min-height: 200px; margin-bottom: 32px; }
     .ncdr-contact__map iframe { min-height: 200px; }
-  }
-
-  @media (max-width: 480px) {
-    .ncdr-contact__quad { padding: 24px 16px; }
-    .ncdr-contact__quad-title { font-size: 12px; }
-    .ncdr-contact__quad-body { font-size: 12px; }
+    .ncdr-contact__quadrants { grid-template-columns: 1fr; }
+    .ncdr-contact__quad { padding: 24px 20px; align-items: flex-start; text-align: left; }
   }
 </style>
 
