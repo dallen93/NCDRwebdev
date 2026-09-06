@@ -55,6 +55,10 @@
     border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 22px;
   }
+  .ncdr-contact__block--no-border {
+    border-top: none;
+    padding-top: 0;
+  }
 
   .ncdr-contact__block-label {
     font-size: 10px;
@@ -247,7 +251,7 @@
     </div>
 
     <!-- Location + Map -->
-    <div class="ncdr-contact__block">
+    <div class="ncdr-contact__block ncdr-contact__block--no-border">
       <div class="ncdr-contact__block-label">Location</div>
       <div class="ncdr-contact__block-text">
         {{ section.settings.address | newline_to_br }}
