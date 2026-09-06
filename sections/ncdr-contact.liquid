@@ -8,143 +8,83 @@
   /* ── Left: info panel ── */
   .ncdr-contact__info {
     background: var(--ncdr-green-deep);
-    padding: 64px 56px;
+    padding: 56px 48px 0;
     display: flex;
     flex-direction: column;
-    gap: 32px;
   }
 
-  .ncdr-contact__info-eyebrow {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ncdr-gold);
+  /* 2×2 quadrant grid */
+  .ncdr-contact__quadrants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .ncdr-contact__quad {
+    padding: 32px 28px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 6px;
+    text-align: center;
   }
-  .ncdr-contact__info-eyebrow span {
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--ncdr-gold);
-    opacity: 0.4;
+  .ncdr-contact__quad:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .ncdr-contact__quad:nth-child(1),
+  .ncdr-contact__quad:nth-child(2) {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .ncdr-contact__info-heading {
+  .ncdr-contact__quad-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--ncdr-gold);
+    margin-bottom: 12px;
+    flex-shrink: 0;
+  }
+
+  .ncdr-contact__quad-title {
     font-family: var(--ncdr-font-heading);
-    font-size: 32px;
+    font-size: 13px;
     font-weight: 700;
     color: #fff;
-    letter-spacing: 0.01em;
-    margin-bottom: 10px;
-    line-height: 1.1;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
-  .ncdr-contact__info-subtext {
-    font-size: 14px;
+  .ncdr-contact__quad-body {
+    font-size: 13px;
     color: rgba(255,255,255,0.6);
-    font-weight: 300;
-    line-height: 1.7;
-    max-width: 360px;
-  }
-
-  .ncdr-contact__block {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 22px;
-  }
-  .ncdr-contact__block--no-border {
-    border-top: none;
-    padding-top: 0;
-  }
-
-  .ncdr-contact__block-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ncdr-gold);
-    margin-bottom: 10px;
-  }
-
-  .ncdr-contact__block-text {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
     font-weight: 300;
     line-height: 1.8;
   }
-  .ncdr-contact__block-text a {
-    color: rgba(255,255,255,0.7);
+  .ncdr-contact__quad-body a {
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
+    transition: color 0.2s;
   }
-  .ncdr-contact__block-text a:hover { color: var(--ncdr-gold); }
+  .ncdr-contact__quad-body a:hover { color: var(--ncdr-gold); }
 
-  /* Map embed */
+  .ncdr-contact__quad-subtitle {
+    font-size: 11px;
+    font-style: italic;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  /* Map */
   .ncdr-contact__map {
-    width: 100%;
-    height: 160px;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-top: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
+    flex: 1;
+    min-height: 220px;
   }
   .ncdr-contact__map iframe {
     width: 100%;
     height: 100%;
+    min-height: 220px;
     border: none;
     display: block;
-  }
-
-  /* Hours groups */
-  .ncdr-contact__hours-group {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 22px;
-  }
-  .ncdr-contact__hours-group + .ncdr-contact__hours-group {
-    margin-top: 0;
-  }
-
-  .ncdr-contact__hours-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
-    padding: 3px 0;
-  }
-  .ncdr-contact__hours-row span:last-child { color: rgba(255,255,255,0.45); }
-
-  .ncdr-contact__hours-note {
-    margin-top: 8px;
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    font-style: italic;
-  }
-
-  /* Contact with icons */
-  .ncdr-contact__contact-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-    padding: 4px 0;
-  }
-  .ncdr-contact__contact-row a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .ncdr-contact__contact-row a:hover { color: var(--ncdr-gold); }
-  .ncdr-contact__contact-icon {
-    flex-shrink: 0;
-    width: 16px;
-    height: 16px;
-    color: var(--ncdr-gold);
-    opacity: 0.8;
   }
 
   /* ── Right: form ── */
@@ -233,8 +173,16 @@
 
   @media (max-width: 989px) {
     .ncdr-contact { grid-template-columns: 1fr; }
-    .ncdr-contact__info,
+    .ncdr-contact__info { padding: 40px 24px 0; }
     .ncdr-contact__form { padding: 48px 24px; }
+    .ncdr-contact__map { min-height: 200px; }
+    .ncdr-contact__map iframe { min-height: 200px; }
+  }
+
+  @media (max-width: 480px) {
+    .ncdr-contact__quad { padding: 24px 16px; }
+    .ncdr-contact__quad-title { font-size: 12px; }
+    .ncdr-contact__quad-body { font-size: 12px; }
   }
 </style>
 
@@ -242,87 +190,82 @@
   <!-- Info Panel -->
   <div class="ncdr-contact__info">
 
-    <!-- Heading -->
-    <div>
-      <h2 class="ncdr-contact__info-heading">{{ section.settings.info_heading }}</h2>
-      {%- if section.settings.info_subtext != blank -%}
-        <p class="ncdr-contact__info-subtext">{{ section.settings.info_subtext }}</p>
-      {%- endif -%}
-    </div>
+    <!-- 2×2 Quadrant grid -->
+    <div class="ncdr-contact__quadrants">
 
-    <!-- Location + Map -->
-    <div class="ncdr-contact__block ncdr-contact__block--no-border">
-      <div class="ncdr-contact__block-label">Location</div>
-      <div class="ncdr-contact__block-text">
-        {{ section.settings.address | newline_to_br }}
+      <!-- Visit the Pro Shop -->
+      <div class="ncdr-contact__quad">
+        <svg class="ncdr-contact__quad-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <div class="ncdr-contact__quad-title">Visit the Pro Shop</div>
+        <div class="ncdr-contact__quad-body">
+          3545 Northcrest Road<br>Atlanta, GA 30340
+        </div>
       </div>
-      {%- if section.settings.map_embed_url != blank -%}
-        <div class="ncdr-contact__map">
-          <iframe
-            src="{{ section.settings.map_embed_url }}"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Northcrest Golf Driving Range map">
-          </iframe>
-        </div>
-      {%- endif -%}
-    </div>
 
-    <!-- Hours groups (hours_group blocks followed by hours_row blocks) -->
-    {%- assign in_group = false -%}
-    {%- assign current_note = '' -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'hours_group' -%}
-        {%- if in_group -%}
-          {%- if current_note != blank -%}
-            <div class="ncdr-contact__hours-note">{{ current_note }}</div>
-          {%- endif -%}
-          </div></div>
-        {%- endif -%}
-        <div class="ncdr-contact__hours-group">
-          <div class="ncdr-contact__block-label">{{ block.settings.label }}</div>
-          <div class="ncdr-contact__block-text">
-        {%- assign in_group = true -%}
-        {%- assign current_note = block.settings.note -%}
-      {%- elsif block.type == 'hours_row' -%}
-        {%- if in_group == false -%}
-          {%- comment -%} Legacy fallback: bare hours_row without a group header {%- endcomment -%}
-          <div class="ncdr-contact__hours-group">
-            <div class="ncdr-contact__block-label">Hours</div>
-            <div class="ncdr-contact__block-text">
-          {%- assign in_group = true -%}
-          {%- assign current_note = '' -%}
-        {%- endif -%}
-        <div class="ncdr-contact__hours-row">
-          <span>{{ block.settings.days }}</span>
-          <span>{{ block.settings.hours }}</span>
-        </div>
-      {%- endif -%}
-    {%- endfor -%}
-    {%- if in_group -%}
-      {%- if current_note != blank -%}
-        <div class="ncdr-contact__hours-note">{{ current_note }}</div>
-      {%- endif -%}
-      </div></div>
-    {%- endif -%}
-
-    <!-- Contact -->
-    <div class="ncdr-contact__block">
-      <div class="ncdr-contact__block-label">Contact</div>
-      <div class="ncdr-contact__contact-row">
-        <svg class="ncdr-contact__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Call the Clubhouse -->
+      <div class="ncdr-contact__quad">
+        <svg class="ncdr-contact__quad-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
         </svg>
-        <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+        <div class="ncdr-contact__quad-title">Call the Clubhouse</div>
+        <div class="ncdr-contact__quad-body">
+          <a href="tel:{{ section.settings.phone }}">{{ section.settings.phone }}</a>
+        </div>
       </div>
-      <div class="ncdr-contact__contact-row">
-        <svg class="ncdr-contact__contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="M2 7l10 7 10-7"/>
-        </svg>
-        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+
+      <!-- Pro Shop Hours -->
+      <div class="ncdr-contact__quad">
+        <div class="ncdr-contact__quad-title">Pro Shop Hours</div>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'hours_group' and block.settings.label contains 'Pro Shop' -%}
+            {%- assign ps_found = true -%}
+          {%- endif -%}
+          {%- if ps_found and block.type == 'hours_row' -%}
+            <div class="ncdr-contact__quad-body">{{ block.settings.days }}: {{ block.settings.hours }}</div>
+          {%- endif -%}
+          {%- if ps_found and block.type == 'hours_group' and block.settings.label contains 'Range' -%}
+            {%- assign ps_found = false -%}
+          {%- endif -%}
+        {%- endfor -%}
       </div>
+
+      <!-- Range Hours -->
+      <div class="ncdr-contact__quad">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'hours_group' and block.settings.label contains 'Range' -%}
+            {%- assign rh_label = block.settings.label -%}
+            {%- assign rh_note = block.settings.note -%}
+            {%- assign rh_found = true -%}
+          {%- endif -%}
+          {%- if rh_found and block.type == 'hours_row' -%}
+            {%- unless rh_title_shown -%}
+              <div class="ncdr-contact__quad-title">{{ rh_label }}</div>
+              {%- assign rh_title_shown = true -%}
+            {%- endunless -%}
+            <div class="ncdr-contact__quad-body">{{ block.settings.days }}: {{ block.settings.hours }}</div>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if rh_note != blank -%}
+          <div class="ncdr-contact__quad-subtitle" style="margin-top:8px;">{{ rh_note }}</div>
+        {%- endif -%}
+      </div>
+
     </div>
+
+    <!-- Full-width map -->
+    {%- if section.settings.map_embed_url != blank -%}
+      <div class="ncdr-contact__map">
+        <iframe
+          src="{{ section.settings.map_embed_url }}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Northcrest Golf Driving Range map">
+        </iframe>
+      </div>
+    {%- endif -%}
 
   </div>
 
@@ -378,9 +321,6 @@
   "name": "NCDR Contact",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "info_heading", "label": "Info panel heading", "default": "Come see us" },
-    { "type": "textarea", "id": "info_subtext", "label": "Info panel subtext" },
-    { "type": "textarea", "id": "address", "label": "Address", "default": "3545 Northcrest Road\nAtlanta, GA 30340\nOff I-85 N at the Northcrest Road exit." },
     { "type": "text", "id": "map_embed_url", "label": "Google Maps embed URL" },
     { "type": "text", "id": "phone", "label": "Phone", "default": "(770) 723-0002" },
     { "type": "text", "id": "email", "label": "Email", "default": "management@northcrestgolf.com" },
