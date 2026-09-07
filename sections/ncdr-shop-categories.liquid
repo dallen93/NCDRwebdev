@@ -1,0 +1,173 @@
+<style>
+  .ncdr-shop-cats {
+    padding: 64px 60px;
+    background: var(--ncdr-off-white);
+    border-bottom: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-shop-cats__header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .ncdr-shop-cats__eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .ncdr-shop-cats__eyebrow::before,
+  .ncdr-shop-cats__eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-shop-cats__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--ncdr-green-deep);
+    line-height: 1.15;
+  }
+
+  .ncdr-shop-cats__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  /* Category tile */
+  .ncdr-cat-tile {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-decoration: none;
+    background: var(--ncdr-green-deep);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .ncdr-cat-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  }
+
+  .ncdr-cat-tile__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .ncdr-cat-tile__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ncdr-cat-tile__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(14, 25, 10, 0.88) 0%,
+      rgba(14, 25, 10, 0.40) 55%,
+      rgba(14, 25, 10, 0.18) 100%
+    );
+    z-index: 1;
+  }
+
+  .ncdr-cat-tile__label {
+    position: relative;
+    z-index: 2;
+    padding: 20px 18px;
+    font-family: var(--ncdr-font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    line-height: 1;
+  }
+
+  @media (max-width: 1024px) {
+    .ncdr-shop-cats__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 749px) {
+    .ncdr-shop-cats { padding: 48px 20px; }
+    .ncdr-shop-cats__grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .ncdr-cat-tile:nth-child(5) { grid-column: 1 / -1; aspect-ratio: 5 / 2; }
+  }
+</style>
+
+<div class="ncdr-shop-cats">
+  <div class="ncdr-shop-cats__header">
+    <div class="ncdr-shop-cats__eyebrow">Browse</div>
+    <h2 class="ncdr-shop-cats__heading">{{ section.settings.heading | default: 'Shop by Category' }}</h2>
+  </div>
+
+  <div class="ncdr-shop-cats__grid">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link | default: '#' }}" class="ncdr-cat-tile" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <div class="ncdr-cat-tile__bg">
+            <img
+              src="{{ block.settings.image | image_url: width: 600 }}"
+              alt="{{ block.settings.label }}"
+              loading="lazy"
+              width="600"
+              height="800"
+            >
+          </div>
+        {%- endif -%}
+        <div class="ncdr-cat-tile__overlay"></div>
+        <div class="ncdr-cat-tile__label">{{ block.settings.label }}</div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Shop Categories",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by Category" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Clubs" },
+        { "type": "url", "id": "link", "label": "Collection link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR Shop Categories",
+      "blocks": [
+        { "type": "category", "settings": { "label": "Clubs" } },
+        { "type": "category", "settings": { "label": "Balls" } },
+        { "type": "category", "settings": { "label": "Bags" } },
+        { "type": "category", "settings": { "label": "Apparel" } },
+        { "type": "category", "settings": { "label": "Gear & Tech" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

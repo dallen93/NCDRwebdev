@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Prestigio",
+        "heading_gold": "14",
+        "subtext": ""
+      }
+    },
+    "story": {
+      "type": "ncdr-brand-story",
+      "blocks": {
+        "card1": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Crafted for Effortless Speed",
+            "body": "Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike."
+          }
+        },
+        "card2": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Stability in Every Swing",
+            "body": "Full Tungsten Sole construction and Optimal Core Impact design ensure consistent launch, forgiveness, and control across the entire clubface."
+          }
+        },
+        "card3": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Ultra-Light Precision",
+            "body": "LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact."
+          }
+        }
+      },
+      "block_order": ["card1", "card2", "card3"],
+      "settings": {
+        "hero_video_url": "https://cdn.shopify.com/videos/c/o/v/4b6e951b39e2443ebad763cb0413ce66.mp4",
+        "hero_heading": "PRESTIGIO 14",
+        "hero_sub": "Crafted in Japan. Available at Northcrest.",
+        "statement_heading": "The Pinnacle of Japanese Craftsmanship",
+        "statement_body": "Majesty's Prestigio 14 Series represents the marriage of hand-finished detail and material science—engineered for golfers who value precision, refinement, and effortless speed. Northcrest is honored to present this rare collection.",
+        "heritage_eyebrow": "Heritage",
+        "heritage_para": "Majesty selects only a handful of retailers worldwide to represent the Prestigio line. Northcrest is **one of nine** locations in the United States entrusted with this collection. Our team offers personalized guidance to help you experience the full performance of these handcrafted clubs.",
+        "heritage_display": "A **RARE** PARTNERSHIP",
+        "cta_heading": "Experience It for Yourself",
+        "cta_sub": "Personalized fittings available at Northcrest",
+        "cta_phone": "7707230002"
+      }
+    }
+  },
+  "order": ["hero", "story"]
+}

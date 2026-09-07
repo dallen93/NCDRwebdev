@@ -1,0 +1,127 @@
+<style>
+  .ncdr-shop-hero {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+  }
+
+  .ncdr-shop-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .ncdr-shop-hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ncdr-shop-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 36, 15, 0.72) 0%,
+      rgba(20, 36, 15, 0.82) 100%
+    );
+  }
+
+  .ncdr-shop-hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 80px 40px;
+    max-width: 760px;
+  }
+
+  .ncdr-shop-hero__eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .ncdr-shop-hero__eyebrow::before,
+  .ncdr-shop-hero__eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.5;
+  }
+
+  .ncdr-shop-hero__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .ncdr-shop-hero__sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    line-height: 1.65;
+    font-style: italic;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 749px) {
+    .ncdr-shop-hero { min-height: 360px; }
+    .ncdr-shop-hero__content { padding: 60px 24px; }
+  }
+</style>
+
+<div class="ncdr-shop-hero">
+  {%- if section.settings.bg_image != blank -%}
+    <div class="ncdr-shop-hero__bg">
+      <img
+        src="{{ section.settings.bg_image | image_url: width: 1600 }}"
+        alt="{{ section.settings.bg_image.alt | escape }}"
+        loading="eager"
+        width="1600"
+        height="800"
+      >
+    </div>
+  {%- endif -%}
+  <div class="ncdr-shop-hero__overlay"></div>
+
+  <div class="ncdr-shop-hero__content">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="ncdr-shop-hero__eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    <h1 class="ncdr-shop-hero__heading">{{ section.settings.heading }}</h1>
+    {%- if section.settings.subtext != blank -%}
+      <p class="ncdr-shop-hero__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Shop Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Pro Shop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Authorized dealer. Uncompromising craft." },
+    { "type": "text", "id": "subtext", "label": "Subtext", "default": "Japanese precision. American strength. Curated for every level of player." }
+  ],
+  "presets": [{ "name": "NCDR Shop Hero" }]
+}
+{% endschema %}
