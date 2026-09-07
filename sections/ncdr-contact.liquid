@@ -59,6 +59,15 @@
   }
   .ncdr-contact__quad-body a:hover { color: var(--ncdr-gold); }
 
+  /* Fixed-height header so hours rows align across both bottom quadrants */
+  .ncdr-contact__quad-header {
+    min-height: 58px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   .ncdr-contact__quad-date-range {
     font-size: 14px;
     font-style: italic;
@@ -212,7 +221,9 @@
 
       <!-- Pro Shop Hours -->
       <div class="ncdr-contact__quad">
-        <div class="ncdr-contact__quad-title">Pro Shop Hours</div>
+        <div class="ncdr-contact__quad-header">
+          <div class="ncdr-contact__quad-title">Pro Shop Hours</div>
+        </div>
         {%- for block in section.blocks -%}
           {%- if block.type == 'hours_group' and block.settings.label contains 'Pro Shop' -%}
             {%- assign ps_found = true -%}
@@ -234,10 +245,12 @@
             {%- assign rh_subtitle = block.settings.subtitle -%}
             {%- assign rh_note = block.settings.note -%}
             {%- assign rh_found = true -%}
-            <div class="ncdr-contact__quad-title">{{ rh_label }}</div>
-            {%- if rh_subtitle != blank -%}
-              <div class="ncdr-contact__quad-date-range">{{ rh_subtitle }}</div>
-            {%- endif -%}
+            <div class="ncdr-contact__quad-header">
+              <div class="ncdr-contact__quad-title">{{ rh_label }}</div>
+              {%- if rh_subtitle != blank -%}
+                <div class="ncdr-contact__quad-date-range">{{ rh_subtitle }}</div>
+              {%- endif -%}
+            </div>
           {%- endif -%}
           {%- if rh_found and block.type == 'hours_row' -%}
             <div class="ncdr-contact__quad-body">{{ block.settings.days }}: {{ block.settings.hours }}</div>
