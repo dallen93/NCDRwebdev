@@ -1,11 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "ncdr-inner-hero",
       "settings": {
-        "eyebrow": "",
-        "heading": "Contact Us",
-        "heading_gold": "",
+        "eyebrow": "Contact",
+        "heading": "we're here",
+        "heading_gold": "to help",
         "subtext": "We're easy to reach and happy to help.\nVisit the Pro Shop, call the Clubhouse or send us a message below and we'll get back to you soon."
       }
     },
