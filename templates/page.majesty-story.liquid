@@ -1,7 +1,5 @@
 {% layout 'theme' %}
 
-{% section 'ncdr-inner-hero' %}
-
 {%- comment -%} Majesty Prestigio 14 — Brand Story Page {%- endcomment -%}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,24 +7,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
 <style>
-  .ncdr-bs-hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#0a0f07}
+  /* ── HERO ── */
+  .ncdr-bs-hero{position:relative;height:100vh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#0a0f07}
   .ncdr-bs-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-  .ncdr-bs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,3,.88) 0%,rgba(5,9,3,.45) 50%,rgba(5,9,3,.25) 100%);z-index:1}
-  .ncdr-bs-hero__content{position:relative;z-index:2;text-align:center;padding:0 40px 100px;max-width:860px}
+  .ncdr-bs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,3,.88) 0%,rgba(5,9,3,.40) 55%,rgba(5,9,3,.20) 100%);z-index:1}
+  .ncdr-bs-hero__content{position:relative;z-index:2;text-align:center;padding:0 40px 80px;max-width:860px}
   .ncdr-bs-hero__heading{font-family:var(--ncdr-font-heading);font-size:clamp(40px,8vw,80px);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;line-height:1;margin-bottom:22px}
   .ncdr-bs-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.75);letter-spacing:.12em;text-transform:uppercase}
+
+  /* ── STATEMENT ── */
   .ncdr-bs-statement{padding:100px 60px;background:#fff;text-align:center}
   .ncdr-bs-statement__heading{font-family:var(--ncdr-font-heading);font-size:clamp(24px,3.5vw,38px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ncdr-green-deep);margin:0 auto 28px;line-height:1.15;max-width:700px}
   .ncdr-bs-statement__body{font-size:18px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.85;max-width:680px;margin:0 auto}
+
+  /* ── FEATURE CARDS — image tiles with hover overlay ── */
   .ncdr-bs-features{padding:80px 60px;background:var(--ncdr-off-white)}
   .ncdr-bs-features__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
-  .ncdr-bs-fcard{background:#fff;border:1px solid #1a1a1a;border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
-  .ncdr-bs-fcard__img{aspect-ratio:4/3;overflow:hidden;background:var(--ncdr-green-deep)}
-  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.04)}
-  .ncdr-bs-fcard__body{padding:28px 24px 32px;flex:1;display:flex;flex-direction:column}
-  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ncdr-green-deep);margin-bottom:14px;line-height:1.2}
-  .ncdr-bs-fcard__text{font-size:14px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.8}
+
+  .ncdr-bs-fcard{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;cursor:default;border:1px solid #1a1a1a}
+  .ncdr-bs-fcard__img{position:absolute;inset:0}
+  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.05)}
+
+  .ncdr-bs-fcard__overlay{position:absolute;inset:0;background:rgba(8,14,5,0);transition:background .35s ease;z-index:1}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(8,14,5,.72)}
+
+  .ncdr-bs-fcard__body{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 28px;text-align:center;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__body{opacity:1;transform:translateY(0)}
+
+  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:16px;line-height:1.2}
+  .ncdr-bs-fcard__text{font-size:14px;color:rgba(255,255,255,.85);font-weight:300;line-height:1.8}
+
+  /* ── HERITAGE SPLIT ── */
   .ncdr-bs-heritage{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#fff}
   .ncdr-bs-heritage__text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--ncdr-light-gray)}
   .ncdr-bs-heritage__eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ncdr-gold);margin-bottom:24px;display:flex;align-items:center;gap:10px}
@@ -36,6 +48,8 @@
   .ncdr-bs-heritage__display{font-family:var(--ncdr-font-heading);font-size:clamp(28px,4vw,44px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ncdr-green-deep);line-height:1.1}
   .ncdr-bs-heritage__photo{position:relative;overflow:hidden;background:var(--ncdr-green-deep)}
   .ncdr-bs-heritage__photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ── CTA BAND ── */
   .ncdr-bs-cta{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--ncdr-green-deep)}
   .ncdr-bs-cta__bg{position:absolute;inset:0;z-index:0}
   .ncdr-bs-cta__bg img{width:100%;height:100%;object-fit:cover;display:block}
@@ -48,8 +62,24 @@
   .ncdr-bs-cta__btn:hover{background:rgba(255,255,255,.1);border-color:#fff}
   .ncdr-bs-cta__btn--gold{border-color:var(--ncdr-gold);color:var(--ncdr-gold)}
   .ncdr-bs-cta__btn--gold:hover{background:rgba(180,148,76,.15)}
-  @media(max-width:989px){.ncdr-bs-heritage{grid-template-columns:1fr}.ncdr-bs-heritage__text{border-right:none;border-bottom:1px solid var(--ncdr-light-gray);padding:60px 32px}.ncdr-bs-heritage__photo{min-height:340px}.ncdr-bs-features__grid{grid-template-columns:1fr}}
-  @media(max-width:749px){.ncdr-bs-hero__content{padding:0 24px 72px}.ncdr-bs-statement{padding:64px 24px}.ncdr-bs-features{padding:56px 20px}.ncdr-bs-heritage__text{padding:48px 24px}.ncdr-bs-cta__content{padding:60px 24px}.ncdr-bs-features__grid{gap:16px}}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:989px){
+    .ncdr-bs-heritage{grid-template-columns:1fr}
+    .ncdr-bs-heritage__text{border-right:none;border-bottom:1px solid var(--ncdr-light-gray);padding:60px 32px}
+    .ncdr-bs-heritage__photo{min-height:340px}
+    .ncdr-bs-features__grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:749px){
+    .ncdr-bs-hero{height:100svh}
+    .ncdr-bs-hero__content{padding:0 24px 60px}
+    .ncdr-bs-statement{padding:64px 24px}
+    .ncdr-bs-features{padding:48px 20px}
+    .ncdr-bs-features__grid{grid-template-columns:1fr;gap:16px}
+    .ncdr-bs-fcard{aspect-ratio:4/3}
+    .ncdr-bs-heritage__text{padding:48px 24px}
+    .ncdr-bs-cta__content{padding:60px 24px}
+  }
 </style>
 
 <!-- HERO -->
@@ -77,6 +107,7 @@
       <div class="ncdr-bs-fcard__img">
         <img src="{{ 'Why Prestigio_1.png' | asset_url }}" alt="Crafted for Effortless Speed" loading="lazy">
       </div>
+      <div class="ncdr-bs-fcard__overlay"></div>
       <div class="ncdr-bs-fcard__body">
         <div class="ncdr-bs-fcard__title">Crafted for Effortless Speed</div>
         <p class="ncdr-bs-fcard__text">Hyperion Titanium II, Power Frame 2.0, and high-repulsion face technology deliver pure energy transfer with every strike.</p>
@@ -86,6 +117,7 @@
       <div class="ncdr-bs-fcard__img">
         <img src="{{ 'Why Prestigio_2.png' | asset_url }}" alt="Stability in Every Swing" loading="lazy">
       </div>
+      <div class="ncdr-bs-fcard__overlay"></div>
       <div class="ncdr-bs-fcard__body">
         <div class="ncdr-bs-fcard__title">Stability in Every Swing</div>
         <p class="ncdr-bs-fcard__text">Full Tungsten Sole construction and Optimal Core Impact design ensure consistent launch, forgiveness, and control across the entire clubface.</p>
@@ -95,6 +127,7 @@
       <div class="ncdr-bs-fcard__img">
         <img src="{{ 'Why Prestigio_3.png' | asset_url }}" alt="Ultra-Light Precision" loading="lazy">
       </div>
+      <div class="ncdr-bs-fcard__overlay"></div>
       <div class="ncdr-bs-fcard__body">
         <div class="ncdr-bs-fcard__title">Ultra-Light Precision</div>
         <p class="ncdr-bs-fcard__text">LV770 and TL770 carbon shafts engineered for smooth acceleration, refined tempo, and unmatched feel through impact.</p>
