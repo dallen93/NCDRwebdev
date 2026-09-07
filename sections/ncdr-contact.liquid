@@ -59,11 +59,19 @@
   }
   .ncdr-contact__quad-body a:hover { color: var(--ncdr-gold); }
 
+  .ncdr-contact__quad-date-range {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ncdr-green-deep);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
   .ncdr-contact__quad-subtitle {
     font-size: 13px;
     font-style: italic;
     color: var(--ncdr-green-deep);
-    margin-top: 6px;
+    margin-top: 8px;
     line-height: 1.5;
   }
 
@@ -71,6 +79,7 @@
   .ncdr-contact__map {
     flex: 1;
     min-height: 220px;
+    margin-top: 48px;
     margin-bottom: 48px;
   }
   .ncdr-contact__map iframe {
@@ -222,23 +231,24 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'hours_group' and block.settings.label contains 'Range' -%}
             {%- assign rh_label = block.settings.label -%}
+            {%- assign rh_subtitle = block.settings.subtitle -%}
             {%- assign rh_note = block.settings.note -%}
             {%- assign rh_found = true -%}
+            <div class="ncdr-contact__quad-title">{{ rh_label }}</div>
+            {%- if rh_subtitle != blank -%}
+              <div class="ncdr-contact__quad-date-range">{{ rh_subtitle }}</div>
+            {%- endif -%}
           {%- endif -%}
           {%- if rh_found and block.type == 'hours_row' -%}
-            {%- unless rh_title_shown -%}
-              <div class="ncdr-contact__quad-title">{{ rh_label }}</div>
-              {%- assign rh_title_shown = true -%}
-            {%- endunless -%}
             <div class="ncdr-contact__quad-body">{{ block.settings.days }}: {{ block.settings.hours }}</div>
           {%- endif -%}
         {%- endfor -%}
         {%- if rh_note != blank -%}
-          <div class="ncdr-contact__quad-subtitle" style="margin-top:8px;">{{ rh_note }}</div>
+          <div class="ncdr-contact__quad-subtitle">{{ rh_note }}</div>
         {%- endif -%}
       </div>
 
-    </div>
+    </div><!-- /.ncdr-contact__quadrants -->
 
     <!-- Full-width map -->
     {%- if section.settings.map_embed_url != blank -%}
@@ -316,7 +326,8 @@
       "type": "hours_group",
       "name": "Hours Group",
       "settings": [
-        { "type": "text", "id": "label", "label": "Group label (e.g. Pro Shop Hours)" },
+        { "type": "text", "id": "label", "label": "Group label (e.g. Range Hours*)" },
+        { "type": "text", "id": "subtitle", "label": "Subtitle (optional, italic, e.g. date range)" },
         { "type": "text", "id": "note", "label": "Note (optional, shown below rows)" }
       ]
     },

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -15,7 +6,7 @@
         "eyebrow": "",
         "heading": "Contact Us",
         "heading_gold": "",
-        "subtext": "We’re easy to reach and happy to help.\nVisit the Pro Shop, call the Clubhouse or send us a message below and we’ll get back to you soon."
+        "subtext": "We're easy to reach and happy to help.\nVisit the Pro Shop, call the Clubhouse or send us a message below and we'll get back to you soon."
       }
     },
     "contact": {
@@ -25,6 +16,7 @@
           "type": "hours_group",
           "settings": {
             "label": "Pro Shop Hours",
+            "subtitle": "",
             "note": ""
           }
         },
@@ -45,8 +37,9 @@
         "rh_group": {
           "type": "hours_group",
           "settings": {
-            "label": "Range Hours<br>(Mar 9 – Oct 31)",
-            "note": "Regular hours begin November 1 (Monday - Saturday, 9am - 10pm)"
+            "label": "Range Hours*",
+            "subtitle": "(March 9 – October 31)",
+            "note": "*Regular hours begin November 1 (Monday – Saturday, 9am – 10pm)"
           }
         },
         "rh_h1": {
