@@ -12,10 +12,10 @@
     "hero": {
       "type": "ncdr-inner-hero",
       "settings": {
-        "eyebrow": "Contact",
-        "heading": "Northcrest Golf",
-        "heading_gold": "Driving Range.",
-        "subtext": "3545 Northcrest Road, Atlanta, GA 30340 · (770) 723-0002 · management@northcrestgolf.com"
+        "eyebrow": "",
+        "heading": "Contact Us",
+        "heading_gold": "",
+        "subtext": "We’re easy to reach and happy to help.\nVisit the Pro Shop, call the Clubhouse or send us a message below and we’ll get back to you soon."
       }
     },
     "contact": {
@@ -45,7 +45,7 @@
         "rh_group": {
           "type": "hours_group",
           "settings": {
-            "label": "Range Hours (Mar 9 – Oct 31)",
+            "label": "Range Hours<br>(Mar 9 – Oct 31)",
             "note": "Regular hours begin November 1 (Monday - Saturday, 9am - 10pm)"
           }
         },
@@ -73,9 +73,6 @@
         "rh_h2"
       ],
       "settings": {
-        "info_heading": "Come see us",
-        "info_subtext": "Visit the Pro Shop, call the Clubhouse, or send us a message and we'll get back to you soon.",
-        "address": "3545 Northcrest Road\nAtlanta, GA 30340\nOff I-85 N at the Northcrest Road exit.",
         "map_embed_url": "https://maps.google.com/maps?q=3545+Northcrest+Rd,+Atlanta,+GA+30340&output=embed",
         "phone": "(770) 723-0002",
         "email": "management@northcrestgolf.com",
