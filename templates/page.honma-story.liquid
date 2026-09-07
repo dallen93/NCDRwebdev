@@ -8,12 +8,12 @@
 
 <style>
   /* ── HERO ── */
-  .ncdr-bs-hero{position:relative;height:100vh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#0a0f07}
+  .ncdr-bs-hero{position:relative;height:70vh;min-height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0a0f07}
   .ncdr-bs-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
-  .ncdr-bs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,3,.88) 0%,rgba(5,9,3,.40) 55%,rgba(5,9,3,.20) 100%);z-index:1}
-  .ncdr-bs-hero__content{position:relative;z-index:2;text-align:center;padding:0 40px 80px;max-width:860px}
-  .ncdr-bs-hero__heading{font-family:var(--ncdr-font-heading);font-size:clamp(40px,8vw,80px);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;line-height:1;margin-bottom:22px}
-  .ncdr-bs-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.75);letter-spacing:.12em;text-transform:uppercase}
+  .ncdr-bs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,3,.80) 0%,rgba(5,9,3,.35) 50%,rgba(5,9,3,.15) 100%);z-index:1}
+  .ncdr-bs-hero__content{position:relative;z-index:2;text-align:center;padding:0 40px;max-width:860px}
+  .ncdr-bs-hero__heading{font-family:'Playfair Display',Georgia,serif;font-size:clamp(44px,7vw,88px);font-weight:700;letter-spacing:.04em;color:#fff;line-height:1.05;margin-bottom:18px}
+  .ncdr-bs-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(14px,1.8vw,20px);color:rgba(255,255,255,.78);letter-spacing:.14em;text-transform:uppercase}
 
   /* ── STATEMENT ── */
   .ncdr-bs-statement{padding:100px 60px;background:#fff;text-align:center}
@@ -24,21 +24,21 @@
   .ncdr-bs-features{padding:80px 60px;background:var(--ncdr-off-white)}
   .ncdr-bs-features__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
 
-  .ncdr-bs-fcard{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;cursor:default;border:1px solid #1a1a1a}
+  .ncdr-bs-fcard{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:1/1;cursor:default;border:1px solid #1a1a1a}
   .ncdr-bs-fcard__img{position:absolute;inset:0}
   .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.05)}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.04)}
 
   /* Dark overlay — appears on hover */
-  .ncdr-bs-fcard__overlay{position:absolute;inset:0;background:rgba(8,14,5,0);transition:background .35s ease;z-index:1}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(8,14,5,.72)}
+  .ncdr-bs-fcard__overlay{position:absolute;inset:0;background:rgba(8,14,5,0);transition:background .4s ease;z-index:1}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(8,14,5,.68)}
 
-  /* Copy — hidden by default, revealed on hover */
-  .ncdr-bs-fcard__body{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 28px;text-align:center;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
+  /* Copy — anchored to bottom-left, revealed on hover */
+  .ncdr-bs-fcard__body{position:absolute;bottom:0;left:0;right:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;padding:28px 28px 32px;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
   .ncdr-bs-fcard:hover .ncdr-bs-fcard__body{opacity:1;transform:translateY(0)}
 
-  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:16px;line-height:1.2}
-  .ncdr-bs-fcard__text{font-size:14px;color:rgba(255,255,255,.85);font-weight:300;line-height:1.8}
+  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:10px;line-height:1.2;text-align:left}
+  .ncdr-bs-fcard__text{font-size:13px;color:rgba(255,255,255,.82);font-weight:300;line-height:1.75;text-align:left}
 
   /* ── HERITAGE SPLIT ── */
   .ncdr-bs-heritage{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#fff}
@@ -78,7 +78,7 @@
     .ncdr-bs-statement{padding:64px 24px}
     .ncdr-bs-features{padding:48px 20px}
     .ncdr-bs-features__grid{grid-template-columns:1fr;gap:16px}
-    .ncdr-bs-fcard{aspect-ratio:4/3}
+    .ncdr-bs-fcard{aspect-ratio:4/3;border:none}
     .ncdr-bs-heritage__text{padding:48px 24px}
     .ncdr-bs-cta__content{padding:60px 24px}
   }
