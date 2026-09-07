@@ -1,0 +1,127 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-shop-hero",
+      "settings": {
+        "eyebrow": "The Pro Shop",
+        "heading": "Authorized dealer. Uncompromising craft.",
+        "subtext": "Japanese precision. American strength. Curated for every level of player."
+      }
+    },
+    "brands": {
+      "type": "ncdr-shop-brands",
+      "blocks": {
+        "majesty": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Majesty",
+            "credential": "Authorized Dealer",
+            "link": "/collections/majesty"
+          }
+        },
+        "honma": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "Honma",
+            "credential": "Verified Retailer",
+            "link": "/collections/honma"
+          }
+        },
+        "xxio": {
+          "type": "brand",
+          "settings": {
+            "brand_name": "XXIO",
+            "credential": "Authorized Dealer",
+            "link": "/collections/xxio"
+          }
+        }
+      },
+      "block_order": ["majesty", "honma", "xxio"],
+      "settings": {
+        "heading": "Shop by Brand"
+      }
+    },
+    "categories": {
+      "type": "ncdr-shop-categories",
+      "blocks": {
+        "clubs": {
+          "type": "category",
+          "settings": {
+            "label": "Clubs",
+            "link": "/collections/clubs"
+          }
+        },
+        "balls": {
+          "type": "category",
+          "settings": {
+            "label": "Balls",
+            "link": "/collections/balls"
+          }
+        },
+        "bags": {
+          "type": "category",
+          "settings": {
+            "label": "Bags",
+            "link": "/collections/bags"
+          }
+        },
+        "apparel": {
+          "type": "category",
+          "settings": {
+            "label": "Apparel",
+            "link": "/collections/apparel"
+          }
+        },
+        "gear": {
+          "type": "category",
+          "settings": {
+            "label": "Gear & Tech",
+            "link": "/collections/gear-and-tech"
+          }
+        }
+      },
+      "block_order": ["clubs", "balls", "bags", "apparel", "gear"],
+      "settings": {
+        "heading": "Shop by Category"
+      }
+    },
+    "craft": {
+      "type": "ncdr-craft-strip",
+      "blocks": {
+        "majesty_story": {
+          "type": "brand_story",
+          "settings": {
+            "brand_name": "Majesty",
+            "tagline": "Precision refined for the discerning golfer.",
+            "story_link": "/pages/majesty-story"
+          }
+        },
+        "honma_story": {
+          "type": "brand_story",
+          "settings": {
+            "brand_name": "Honma",
+            "tagline": "A heritage of excellence.",
+            "story_link": "/pages/honma-story"
+          }
+        }
+      },
+      "block_order": ["majesty_story", "honma_story"],
+      "settings": {
+        "eyebrow": "Craftsmanship",
+        "heading": "Crafted by hand. Chosen by few.",
+        "subtext": "Northcrest is an authorized dealer for each of these makers."
+      }
+    },
+    "pro_shop": {
+      "type": "ncdr-pro-shop",
+      "settings": {
+        "heading": "New Gear. Now In Stock.",
+        "subtext": "Premium Japanese and American brands curated for every level of player.",
+        "products_to_show": 4,
+        "view_all_label": "View All Products →",
+        "view_all_link": "/collections/all"
+      }
+    }
+  },
+  "order": ["hero", "brands", "categories", "craft", "pro_shop"]
+}
