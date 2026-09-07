@@ -1,0 +1,132 @@
+{% layout 'theme' %}
+
+{% section 'ncdr-inner-hero' %}
+
+{%- comment -%} Honma Beres 10 — Brand Story Page {%- endcomment -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+  .ncdr-bs-hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;background:#0a0f07}
+  .ncdr-bs-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .ncdr-bs-hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,9,3,.88) 0%,rgba(5,9,3,.45) 50%,rgba(5,9,3,.25) 100%);z-index:1}
+  .ncdr-bs-hero__content{position:relative;z-index:2;text-align:center;padding:0 40px 100px;max-width:860px}
+  .ncdr-bs-hero__heading{font-family:var(--ncdr-font-heading);font-size:clamp(40px,8vw,80px);font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;line-height:1;margin-bottom:22px}
+  .ncdr-bs-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.75);letter-spacing:.12em;text-transform:uppercase}
+  .ncdr-bs-statement{padding:100px 60px;background:#fff;text-align:center}
+  .ncdr-bs-statement__heading{font-family:var(--ncdr-font-heading);font-size:clamp(24px,3.5vw,38px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ncdr-green-deep);margin:0 auto 28px;line-height:1.15;max-width:700px}
+  .ncdr-bs-statement__body{font-size:18px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.85;max-width:680px;margin:0 auto}
+  .ncdr-bs-features{padding:80px 60px;background:var(--ncdr-off-white)}
+  .ncdr-bs-features__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:0 auto}
+  .ncdr-bs-fcard{background:#fff;border:1px solid #1a1a1a;border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+  .ncdr-bs-fcard__img{aspect-ratio:4/3;overflow:hidden;background:var(--ncdr-green-deep)}
+  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.04)}
+  .ncdr-bs-fcard__body{padding:28px 24px 32px;flex:1;display:flex;flex-direction:column}
+  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ncdr-green-deep);margin-bottom:14px;line-height:1.2}
+  .ncdr-bs-fcard__text{font-size:14px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.8}
+  .ncdr-bs-heritage{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#fff}
+  .ncdr-bs-heritage__text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--ncdr-light-gray)}
+  .ncdr-bs-heritage__eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ncdr-gold);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .ncdr-bs-heritage__eyebrow::after{content:'';display:inline-block;width:32px;height:1px;background:var(--ncdr-gold);opacity:.4}
+  .ncdr-bs-heritage__para{font-size:16px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.9;margin-bottom:40px}
+  .ncdr-bs-heritage__para .gold,.ncdr-bs-heritage__display .gold{color:var(--ncdr-gold);font-weight:600}
+  .ncdr-bs-heritage__display{font-family:var(--ncdr-font-heading);font-size:clamp(28px,4vw,44px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ncdr-green-deep);line-height:1.1}
+  .ncdr-bs-heritage__photo{position:relative;overflow:hidden;background:var(--ncdr-green-deep)}
+  .ncdr-bs-heritage__photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .ncdr-bs-cta{position:relative;min-height:400px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:var(--ncdr-green-deep)}
+  .ncdr-bs-cta__bg{position:absolute;inset:0;z-index:0}
+  .ncdr-bs-cta__bg img{width:100%;height:100%;object-fit:cover;display:block}
+  .ncdr-bs-cta__overlay{position:absolute;inset:0;background:rgba(8,14,5,.72);z-index:1}
+  .ncdr-bs-cta__content{position:relative;z-index:2;padding:80px 40px;max-width:680px}
+  .ncdr-bs-cta__heading{font-family:var(--ncdr-font-heading);font-size:clamp(26px,4vw,40px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#fff;line-height:1.15;margin-bottom:14px}
+  .ncdr-bs-cta__sub{font-size:15px;color:var(--ncdr-gold);font-weight:400;letter-spacing:.08em;text-transform:uppercase;margin-bottom:40px}
+  .ncdr-bs-cta__buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .ncdr-bs-cta__btn{font-family:var(--ncdr-font-heading);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;border:1.5px solid rgba(255,255,255,.6);border-radius:3px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+  .ncdr-bs-cta__btn:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .ncdr-bs-cta__btn--gold{border-color:var(--ncdr-gold);color:var(--ncdr-gold)}
+  .ncdr-bs-cta__btn--gold:hover{background:rgba(180,148,76,.15)}
+  @media(max-width:989px){.ncdr-bs-heritage{grid-template-columns:1fr}.ncdr-bs-heritage__text{border-right:none;border-bottom:1px solid var(--ncdr-light-gray);padding:60px 32px}.ncdr-bs-heritage__photo{min-height:340px}.ncdr-bs-features__grid{grid-template-columns:1fr}}
+  @media(max-width:749px){.ncdr-bs-hero__content{padding:0 24px 72px}.ncdr-bs-statement{padding:64px 24px}.ncdr-bs-features{padding:56px 20px}.ncdr-bs-heritage__text{padding:48px 24px}.ncdr-bs-cta__content{padding:60px 24px}.ncdr-bs-features__grid{gap:16px}}
+</style>
+
+<!-- HERO -->
+<div class="ncdr-bs-hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.shopify.com/videos/c/o/v/93e6c3f958144be3b04cdbaabf264439.mp4" type="video/mp4">
+  </video>
+  <div class="ncdr-bs-hero__overlay"></div>
+  <div class="ncdr-bs-hero__content">
+    <h1 class="ncdr-bs-hero__heading">HONMA BERES 10</h1>
+    <p class="ncdr-bs-hero__sub">Handcrafted in Sakata. Available at Northcrest.</p>
+  </div>
+</div>
+
+<!-- STATEMENT -->
+<div class="ncdr-bs-statement">
+  <h2 class="ncdr-bs-statement__heading">Where Mastery Meets Performance</h2>
+  <p class="ncdr-bs-statement__body">Honma's Beres 10 Series represents the tenth generation of Japan's most revered golf club collection. Hand-finished by master Takumi craftsmen in Sakata, each club blends traditional artistry inspired by Edo Kiriko glass-cutting techniques with advanced materials engineered for effortless power and precision. Northcrest is honored to present this exceptional collection.</p>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="ncdr-bs-features">
+  <div class="ncdr-bs-features__grid">
+    <div class="ncdr-bs-fcard">
+      <div class="ncdr-bs-fcard__img">
+        <img src="{{ 'Why Honma_1.webp' | asset_url }}" alt="Pure Speed Engine" loading="lazy">
+      </div>
+      <div class="ncdr-bs-fcard__body">
+        <div class="ncdr-bs-fcard__title">Pure Speed Engine</div>
+        <p class="ncdr-bs-fcard__text">Full titanium frame construction and variable thickness face technology create exceptional ball speed and distance across the entire clubface, delivering effortless power with every swing.</p>
+      </div>
+    </div>
+    <div class="ncdr-bs-fcard">
+      <div class="ncdr-bs-fcard__img">
+        <img src="{{ 'Why Honma_2.webp' | asset_url }}" alt="Artistry in Motion" loading="lazy">
+      </div>
+      <div class="ncdr-bs-fcard__body">
+        <div class="ncdr-bs-fcard__title">Artistry in Motion</div>
+        <p class="ncdr-bs-fcard__text">Laser-cut Kiriko patterns and 3D emblem structures inspired by 1834 Japanese glass-cutting traditions create visual depth while suppressing unwanted vibration for premium feel and acoustics.</p>
+      </div>
+    </div>
+    <div class="ncdr-bs-fcard">
+      <div class="ncdr-bs-fcard__img">
+        <img src="{{ 'Why Honma_3.webp' | asset_url }}" alt="Weightless Precision" loading="lazy">
+      </div>
+      <div class="ncdr-bs-fcard__body">
+        <div class="ncdr-bs-fcard__title">Weightless Precision</div>
+        <p class="ncdr-bs-fcard__text">ARMRQ Flight shafts featuring 5-axis hybrid metal mesh with TORAYCA T1100G carbon fiber deliver improved impact efficiency and remarkable stability at weights as low as 45 grams.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERITAGE SPLIT -->
+<div class="ncdr-bs-heritage">
+  <div class="ncdr-bs-heritage__text">
+    <div class="ncdr-bs-heritage__eyebrow">Heritage</div>
+    <p class="ncdr-bs-heritage__para">For over 65 years, Honma has crafted the world's most <span class="gold">luxurious</span> golf equipment in their Sakata studio. The Beres Collection has long been recognized globally as the choice of golfers who value craftsmanship at its most <span class="gold">elevated</span> level. Northcrest offers personalized guidance to help you experience the refinement, balance, and performance that define Beres 10.</p>
+    <div class="ncdr-bs-heritage__display">A HERITAGE OF <span class="gold">EXCELLENCE</span></div>
+  </div>
+  <div class="ncdr-bs-heritage__photo">
+    <img src="{{ 'Honma_Rare Partnership_1.webp' | asset_url }}" alt="Honma heritage" loading="lazy">
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="ncdr-bs-cta">
+  <div class="ncdr-bs-cta__bg">
+    <img src="{{ 'Honma CTA_Sharing Club.png' | asset_url }}" alt="Book a consultation" loading="lazy">
+  </div>
+  <div class="ncdr-bs-cta__overlay"></div>
+  <div class="ncdr-bs-cta__content">
+    <h2 class="ncdr-bs-cta__heading">Experience It for Yourself</h2>
+    <p class="ncdr-bs-cta__sub">Personalized fittings available at Northcrest</p>
+    <div class="ncdr-bs-cta__buttons">
+      <a href="tel:7707230002" class="ncdr-bs-cta__btn">Call the Pro Shop</a>
+      <a href="/pages/contact" class="ncdr-bs-cta__btn ncdr-bs-cta__btn--gold">Message the Pro Shop</a>
+    </div>
+  </div>
+</div>
