@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-inner-hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Honma",
+        "heading_gold": "Beres 10",
+        "subtext": ""
+      }
+    },
+    "story": {
+      "type": "ncdr-brand-story",
+      "blocks": {
+        "card1": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Pure Speed Engine",
+            "body": "Full titanium frame construction and variable thickness face technology create exceptional ball speed and distance across the entire clubface, delivering effortless power with every swing."
+          }
+        },
+        "card2": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Artistry in Motion",
+            "body": "Laser-cut Kiriko patterns and 3D emblem structures inspired by 1834 Japanese glass-cutting traditions create visual depth while suppressing unwanted vibration for premium feel and acoustics."
+          }
+        },
+        "card3": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Weightless Precision",
+            "body": "ARMRQ Flight shafts featuring 5-axis hybrid metal mesh with TORAYCA T1100G carbon fiber deliver improved impact efficiency and remarkable stability at weights as low as 45 grams."
+          }
+        }
+      },
+      "block_order": ["card1", "card2", "card3"],
+      "settings": {
+        "hero_video_url": "https://cdn.shopify.com/videos/c/o/v/93e6c3f958144be3b04cdbaabf264439.mp4",
+        "hero_heading": "HONMA BERES 10",
+        "hero_sub": "Handcrafted in Sakata. Available at Northcrest.",
+        "statement_heading": "Where Mastery Meets Performance",
+        "statement_body": "Honma's Beres 10 Series represents the tenth generation of Japan's most revered golf club collection. Hand-finished by master Takumi craftsmen in Sakata, each club blends traditional artistry inspired by Edo Kiriko glass-cutting techniques with advanced materials engineered for effortless power and precision. Northcrest is honored to present this exceptional collection.",
+        "heritage_eyebrow": "Heritage",
+        "heritage_para": "For over 65 years, Honma has crafted the world's most **luxurious** golf equipment in their Sakata studio. The Beres Collection has long been recognized globally as the choice of golfers who value craftsmanship at its most **elevated** level. Northcrest offers personalized guidance to help you experience the refinement, balance, and performance that define Beres 10.",
+        "heritage_display": "A HERITAGE OF **EXCELLENCE**",
+        "cta_heading": "Experience It for Yourself",
+        "cta_sub": "Personalized fittings available at Northcrest",
+        "cta_phone": "7707230002"
+      }
+    }
+  },
+  "order": ["hero", "story"]
+}

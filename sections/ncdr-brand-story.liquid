@@ -1,0 +1,554 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─────────────────────────────────────────
+     SECTION 1 — Video / Photo Hero
+  ───────────────────────────────────────── */
+  .ncdr-bs-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background: #0a0f07;
+  }
+
+  .ncdr-bs-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .ncdr-bs-hero__media video,
+  .ncdr-bs-hero__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ncdr-bs-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(5, 9, 3, 0.88) 0%,
+      rgba(5, 9, 3, 0.45) 50%,
+      rgba(5, 9, 3, 0.25) 100%
+    );
+    z-index: 1;
+  }
+
+  .ncdr-bs-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 40px 100px;
+    max-width: 860px;
+  }
+
+  .ncdr-bs-hero__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #fff;
+    line-height: 1.0;
+    margin-bottom: 22px;
+  }
+
+  .ncdr-bs-hero__sub {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(16px, 2.2vw, 22px);
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION 2 — Statement Block
+  ───────────────────────────────────────── */
+  .ncdr-bs-statement {
+    padding: 100px 60px;
+    background: #fff;
+    text-align: center;
+  }
+
+  .ncdr-bs-statement__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ncdr-green-deep);
+    margin-bottom: 28px;
+    line-height: 1.15;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ncdr-bs-statement__body {
+    font-size: 18px;
+    color: var(--ncdr-text-dark);
+    font-weight: 300;
+    line-height: 1.85;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION 3 — Three Feature Cards
+  ───────────────────────────────────────── */
+  .ncdr-bs-features {
+    padding: 80px 60px;
+    background: var(--ncdr-off-white);
+  }
+
+  .ncdr-bs-features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ncdr-bs-fcard {
+    background: #fff;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ncdr-bs-fcard__img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+  }
+  .ncdr-bs-fcard__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img {
+    transform: scale(1.04);
+  }
+
+  .ncdr-bs-fcard__body {
+    padding: 28px 24px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ncdr-bs-fcard__title {
+    font-family: var(--ncdr-font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ncdr-green-deep);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .ncdr-bs-fcard__text {
+    font-size: 14px;
+    color: var(--ncdr-text-dark);
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION 4 — Heritage Split
+  ───────────────────────────────────────── */
+  .ncdr-bs-heritage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
+    background: #fff;
+  }
+
+  .ncdr-bs-heritage__text {
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--ncdr-light-gray);
+  }
+
+  .ncdr-bs-heritage__eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ncdr-gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .ncdr-bs-heritage__eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--ncdr-gold);
+    opacity: 0.4;
+  }
+
+  .ncdr-bs-heritage__para {
+    font-size: 16px;
+    color: var(--ncdr-text-dark);
+    font-weight: 300;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  /* Inline gold words via span */
+  .ncdr-bs-heritage__para .gold {
+    color: var(--ncdr-gold);
+    font-weight: 600;
+  }
+
+  .ncdr-bs-heritage__display {
+    font-family: var(--ncdr-font-heading);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ncdr-green-deep);
+    line-height: 1.1;
+  }
+
+  .ncdr-bs-heritage__display .gold {
+    color: var(--ncdr-gold);
+  }
+
+  .ncdr-bs-heritage__photo {
+    position: relative;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+  }
+  .ncdr-bs-heritage__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ─────────────────────────────────────────
+     SECTION 5 — CTA Band
+  ───────────────────────────────────────── */
+  .ncdr-bs-cta {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: var(--ncdr-green-deep);
+  }
+
+  .ncdr-bs-cta__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .ncdr-bs-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ncdr-bs-cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 14, 5, 0.72);
+    z-index: 1;
+  }
+
+  .ncdr-bs-cta__content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 40px;
+    max-width: 680px;
+  }
+
+  .ncdr-bs-cta__heading {
+    font-family: var(--ncdr-font-heading);
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .ncdr-bs-cta__sub {
+    font-size: 15px;
+    color: var(--ncdr-gold);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .ncdr-bs-cta__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ncdr-bs-cta__btn {
+    font-family: var(--ncdr-font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    border-radius: 3px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .ncdr-bs-cta__btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+  }
+  .ncdr-bs-cta__btn--gold {
+    border-color: var(--ncdr-gold);
+    color: var(--ncdr-gold);
+  }
+  .ncdr-bs-cta__btn--gold:hover {
+    background: rgba(180,148,76,0.15);
+    border-color: var(--ncdr-gold);
+  }
+
+  /* ─────────────────────────────────────────
+     RESPONSIVE
+  ───────────────────────────────────────── */
+  @media (max-width: 989px) {
+    .ncdr-bs-heritage {
+      grid-template-columns: 1fr;
+    }
+    .ncdr-bs-heritage__text {
+      border-right: none;
+      border-bottom: 1px solid var(--ncdr-light-gray);
+      padding: 60px 32px;
+    }
+    .ncdr-bs-heritage__photo {
+      min-height: 340px;
+    }
+    .ncdr-bs-features__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 749px) {
+    .ncdr-bs-hero__content { padding: 0 24px 72px; }
+    .ncdr-bs-statement { padding: 64px 24px; }
+    .ncdr-bs-features { padding: 56px 20px; }
+    .ncdr-bs-heritage__text { padding: 48px 24px; }
+    .ncdr-bs-cta__content { padding: 60px 24px; }
+    .ncdr-bs-features__grid { gap: 16px; }
+  }
+</style>
+
+<!-- ═══════════════════════════════════════
+     1 — VIDEO / PHOTO HERO
+════════════════════════════════════════ -->
+<div class="ncdr-bs-hero">
+  <div class="ncdr-bs-hero__media">
+    {%- if section.settings.hero_video_url != blank -%}
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="{{ section.settings.hero_fallback_image | image_url: width: 1600 }}"
+      >
+        <source src="{{ section.settings.hero_video_url }}" type="video/mp4">
+        {%- if section.settings.hero_fallback_image != blank -%}
+          <img
+            src="{{ section.settings.hero_fallback_image | image_url: width: 1600 }}"
+            alt="{{ section.settings.hero_heading }}"
+          >
+        {%- endif -%}
+      </video>
+    {%- elsif section.settings.hero_fallback_image != blank -%}
+      <img
+        src="{{ section.settings.hero_fallback_image | image_url: width: 1600 }}"
+        alt="{{ section.settings.hero_heading }}"
+        loading="eager"
+        width="1600"
+        height="900"
+      >
+    {%- endif -%}
+  </div>
+  <div class="ncdr-bs-hero__overlay"></div>
+  <div class="ncdr-bs-hero__content">
+    <h1 class="ncdr-bs-hero__heading">{{ section.settings.hero_heading }}</h1>
+    {%- if section.settings.hero_sub != blank -%}
+      <p class="ncdr-bs-hero__sub">{{ section.settings.hero_sub }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     2 — STATEMENT BLOCK
+════════════════════════════════════════ -->
+<div class="ncdr-bs-statement">
+  <h2 class="ncdr-bs-statement__heading">{{ section.settings.statement_heading }}</h2>
+  <p class="ncdr-bs-statement__body">{{ section.settings.statement_body }}</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     3 — THREE FEATURE CARDS
+════════════════════════════════════════ -->
+<div class="ncdr-bs-features">
+  <div class="ncdr-bs-features__grid">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'feature_card' -%}
+        <div class="ncdr-bs-fcard" {{ block.shopify_attributes }}>
+          <div class="ncdr-bs-fcard__img">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 800 }}"
+                alt="{{ block.settings.title }}"
+                loading="lazy"
+                width="800"
+                height="600"
+              >
+            {%- endif -%}
+          </div>
+          <div class="ncdr-bs-fcard__body">
+            <div class="ncdr-bs-fcard__title">{{ block.settings.title }}</div>
+            <p class="ncdr-bs-fcard__text">{{ block.settings.body }}</p>
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     4 — HERITAGE SPLIT
+════════════════════════════════════════ -->
+<div class="ncdr-bs-heritage">
+  <div class="ncdr-bs-heritage__text">
+    {%- if section.settings.heritage_eyebrow != blank -%}
+      <div class="ncdr-bs-heritage__eyebrow">{{ section.settings.heritage_eyebrow }}</div>
+    {%- endif -%}
+    {%- assign para_gold = section.settings.heritage_para | replace: '**', '|||' -%}
+    {%- assign para_parts = para_gold | split: '|||' -%}
+    <p class="ncdr-bs-heritage__para">{%- for part in para_parts -%}{%- if forloop.index0 == 0 or forloop.index0 == 2 or forloop.index0 == 4 -%}{{ part }}{%- else -%}<span class="gold">{{ part }}</span>{%- endif -%}{%- endfor -%}</p>
+    {%- assign disp_gold = section.settings.heritage_display | replace: '**', '|||' -%}
+    {%- assign disp_parts = disp_gold | split: '|||' -%}
+    <div class="ncdr-bs-heritage__display">{%- for part in disp_parts -%}{%- if forloop.index0 == 0 or forloop.index0 == 2 or forloop.index0 == 4 -%}{{ part }}{%- else -%}<span class="gold">{{ part }}</span>{%- endif -%}{%- endfor -%}</div>
+  </div>
+  <div class="ncdr-bs-heritage__photo">
+    {%- if section.settings.heritage_image != blank -%}
+      <img
+        src="{{ section.settings.heritage_image | image_url: width: 1000 }}"
+        alt="{{ section.settings.heritage_eyebrow }}"
+        loading="lazy"
+        width="1000"
+        height="800"
+      >
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     5 — CTA CONSULTATION BAND
+════════════════════════════════════════ -->
+<div class="ncdr-bs-cta">
+  {%- if section.settings.cta_bg_image != blank -%}
+    <div class="ncdr-bs-cta__bg">
+      <img
+        src="{{ section.settings.cta_bg_image | image_url: width: 1600 }}"
+        alt="Book a consultation"
+        loading="lazy"
+        width="1600"
+        height="600"
+      >
+    </div>
+  {%- endif -%}
+  <div class="ncdr-bs-cta__overlay"></div>
+  <div class="ncdr-bs-cta__content">
+    <h2 class="ncdr-bs-cta__heading">{{ section.settings.cta_heading }}</h2>
+    {%- if section.settings.cta_sub != blank -%}
+      <p class="ncdr-bs-cta__sub">{{ section.settings.cta_sub }}</p>
+    {%- endif -%}
+    <div class="ncdr-bs-cta__buttons">
+      <a href="tel:{{ section.settings.cta_phone }}" class="ncdr-bs-cta__btn">Call the Pro Shop</a>
+      <a href="/pages/contact" class="ncdr-bs-cta__btn ncdr-bs-cta__btn--gold">Message the Pro Shop</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "NCDR Brand Story",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "1 — Hero"
+    },
+    { "type": "text",         "id": "hero_video_url",      "label": "Hero video URL (MP4, from Shopify Files)" },
+    { "type": "image_picker", "id": "hero_fallback_image", "label": "Hero fallback / poster image" },
+    { "type": "text",         "id": "hero_heading",        "label": "Hero heading",    "default": "HONMA BERES 10" },
+    { "type": "text",         "id": "hero_sub",            "label": "Hero italic subheading", "default": "Handcrafted in Sakata. Available at Northcrest." },
+    {
+      "type": "header",
+      "content": "2 — Statement"
+    },
+    { "type": "text",     "id": "statement_heading", "label": "Statement heading", "default": "Where Mastery Meets Performance" },
+    { "type": "textarea", "id": "statement_body",    "label": "Statement paragraph" },
+    {
+      "type": "header",
+      "content": "4 — Heritage Split"
+    },
+    { "type": "text",         "id": "heritage_eyebrow", "label": "Eyebrow",                 "default": "Heritage" },
+    { "type": "textarea",     "id": "heritage_para",    "label": "Paragraph (wrap gold words in **double asterisks**)" },
+    { "type": "text",         "id": "heritage_display", "label": "Display headline (wrap gold word in **double asterisks**, e.g. A **RARE** PARTNERSHIP)" },
+    { "type": "image_picker", "id": "heritage_image",   "label": "Right-side photo" },
+    {
+      "type": "header",
+      "content": "5 — CTA Band"
+    },
+    { "type": "image_picker", "id": "cta_bg_image", "label": "CTA background photo" },
+    { "type": "text",         "id": "cta_heading",  "label": "CTA heading",  "default": "Experience It for Yourself" },
+    { "type": "text",         "id": "cta_sub",      "label": "CTA gold subtext" },
+    { "type": "text",         "id": "cta_phone",    "label": "Phone for Call button", "default": "7707230002" }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Card photo" },
+        { "type": "text",         "id": "title", "label": "Card title",   "default": "Pure Speed Engine" },
+        { "type": "textarea",     "id": "body",  "label": "Card body copy" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "NCDR Brand Story" }
+  ]
+}
+{% endschema %}
