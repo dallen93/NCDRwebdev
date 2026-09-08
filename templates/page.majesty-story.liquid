@@ -20,25 +20,25 @@
   .ncdr-bs-statement__heading{font-family:var(--ncdr-font-heading);font-size:clamp(24px,3.5vw,38px);font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ncdr-green-deep);margin:0 auto 28px;line-height:1.15;max-width:700px}
   .ncdr-bs-statement__body{font-size:18px;color:var(--ncdr-text-dark);font-weight:300;line-height:1.85;max-width:680px;margin:0 auto}
 
-  /* ── FEATURE CARDS — inset image, light hover overlay ── */
+  /* ── FEATURE CARDS — full-bleed image, light hover overlay ── */
   .ncdr-bs-features{padding:64px 60px;background:#e8eae6}
   .ncdr-bs-features__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
 
-  .ncdr-bs-fcard{position:relative;border-radius:2px;overflow:hidden;background:#fff;border:1.5px solid #111;cursor:default;display:flex;flex-direction:column}
-  .ncdr-bs-fcard__img{position:relative;padding:16px 16px 12px;overflow:hidden}
-  .ncdr-bs-fcard__img img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .5s ease}
+  .ncdr-bs-fcard{position:relative;border-radius:2px;overflow:hidden;background:#f5f3ef;border:1.5px solid #111;cursor:default;aspect-ratio:1/1}
+  .ncdr-bs-fcard__img{position:absolute;inset:0}
+  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .5s ease}
   .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.03)}
 
-  /* Light cream overlay over the image area */
-  .ncdr-bs-fcard__overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(248,245,238,0);transition:background .4s ease;z-index:1;pointer-events:none}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(248,245,238,.78)}
+  /* Light cream overlay */
+  .ncdr-bs-fcard__overlay{position:absolute;inset:0;background:rgba(248,245,238,0);transition:background .4s ease;z-index:1;pointer-events:none}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(248,245,238,.82)}
 
-  /* Text — revealed on hover, sits over the cream overlay */
-  .ncdr-bs-fcard__body{position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:20px 20px 24px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;pointer-events:none}
+  /* Text — centered, revealed on hover */
+  .ncdr-bs-fcard__body{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;pointer-events:none}
   .ncdr-bs-fcard:hover .ncdr-bs-fcard__body{opacity:1;transform:translateY(0)}
 
-  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#111;margin-bottom:8px;line-height:1.2;text-align:left}
-  .ncdr-bs-fcard__text{font-size:12px;color:#333;font-weight:400;line-height:1.7;text-align:left}
+  .ncdr-bs-fcard__title{font-family:var(--ncdr-font-heading);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#111;margin-bottom:8px;line-height:1.2;text-align:center}
+  .ncdr-bs-fcard__text{font-size:12px;color:#333;font-weight:400;line-height:1.7;text-align:center}
 
   /* ── HERITAGE SPLIT ── */
   .ncdr-bs-heritage{display:grid;grid-template-columns:1fr 1fr;min-height:560px;background:#fff}
