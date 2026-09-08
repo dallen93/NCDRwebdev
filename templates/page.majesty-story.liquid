@@ -26,12 +26,11 @@
 
   .ncdr-bs-fcard{position:relative;border-radius:2px;overflow:hidden;background:#f5f3ef;border:3px solid #000;cursor:default;aspect-ratio:1/1}
   .ncdr-bs-fcard__img{position:absolute;inset:0}
-  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .5s ease}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.03)}
+  .ncdr-bs-fcard__img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .5s ease,opacity .4s ease}
+  .ncdr-bs-fcard:hover .ncdr-bs-fcard__img img{transform:scale(1.03);opacity:.32}
 
-  /* Light cream overlay */
-  .ncdr-bs-fcard__overlay{position:absolute;inset:0;background:rgba(248,245,238,0);transition:background .4s ease;z-index:1;pointer-events:none}
-  .ncdr-bs-fcard:hover .ncdr-bs-fcard__overlay{background:rgba(248,245,238,.42)}
+  /* Overlay kept for stacking context — transparent */
+  .ncdr-bs-fcard__overlay{position:absolute;inset:0;z-index:1;pointer-events:none}
 
   /* Text — centered, revealed on hover */
   .ncdr-bs-fcard__body{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease;pointer-events:none}
