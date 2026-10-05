@@ -63,6 +63,7 @@
         "clubs": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Quantum_Men-s_Max_Fairway_Wood_1_69637df3-404a-4071-9240-8b0399c0132a.webp",
             "label": "Clubs",
             "link": "/collections/clubs"
           }
@@ -70,6 +71,7 @@
         "balls": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/TaylorMade_TP5x_White_Golf_Balls_1.webp",
             "label": "Balls",
             "link": "/collections/balls"
           }
@@ -77,6 +79,7 @@
         "bags": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/OGIO_Golf_Bag_Green.webp",
             "label": "Bags",
             "link": "/collections/bags"
           }
@@ -84,6 +87,7 @@
         "apparel": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/J_Lindeberg_Polo.webp",
             "label": "Apparel",
             "link": "/collections/apparel"
           }
@@ -91,6 +95,7 @@
         "gear": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/Bluetees_Rangerfinder_2.webp",
             "label": "Gear & Tech",
             "link": "/collections/gear-and-tech"
           }
