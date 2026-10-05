@@ -1,3 +1,440 @@
 {% layout 'theme' %}
-{%- comment -%} Northcrest Membership — /pages/membership {%- endcomment -%}
-{% section 'ncdr-membership' %}
+{%- comment -%}
+  Northcrest Membership Page
+  To change launch mode, edit the line below:
+    coming_soon   → notify-me form, all Join buttons hidden
+    founding_open → only Founding 40 Join button active
+    live          → all Join buttons active
+  To update Pintuna URLs, edit the assign lines below.
+{%- endcomment -%}
+
+{%- assign launch = 'coming_soon' -%}
+{%- assign url_range_pass        = '#pintuna-range-pass-url' -%}
+{%- assign url_range_pass_plus   = '#pintuna-range-pass-plus-url' -%}
+{%- assign url_founding_40       = '#pintuna-founding-40-url' -%}
+{%- assign founding_remaining    = 40 -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS ── */
+  .mem-page{--mg:#3A582B;--gold:#C9A84C;--offwhite:#f7f6f2;--lgray:#e4e4e0;--text:#1c1c1a}
+
+  /* ── SHARED ── */
+  .mem-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .mem-eyebrow::after{content:'';display:inline-block;width:28px;height:1px;background:var(--gold);opacity:.5}
+  .mem-eyebrow--center{justify-content:center}
+  .mem-h2{font-family:'Oswald',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--mg);line-height:1.1;margin:0 0 12px}
+  .mem-sub{font-size:18px;font-weight:300;color:#444;line-height:1.7}
+  .mem-btn{display:inline-block;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;border-radius:2px;text-decoration:none;transition:all .22s;cursor:pointer;border:none}
+  .mem-btn--gold{background:var(--gold);color:#1a1208}.mem-btn--gold:hover{background:#b8922e}
+  .mem-btn--outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}.mem-btn--outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .mem-btn--dark{background:transparent;color:var(--mg);border:2px solid var(--mg)}.mem-btn--dark:hover{background:var(--mg);color:#fff}
+  .mem-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ── HERO ── */
+  .mem-hero{min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--mg);padding:80px 40px}
+  .mem-hero__inner{max-width:780px}
+  .mem-hero__ey{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  .mem-hero__h1{font-family:'Oswald',sans-serif;font-size:clamp(48px,7vw,84px);font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:#fff;line-height:1;margin:0 0 18px}
+  .mem-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.82);line-height:1.6;margin:0 auto 40px;max-width:560px}
+  .mem-notify{display:flex;max-width:400px;margin:0 auto}
+  .mem-notify input{flex:1;padding:14px 20px;font-size:15px;border:none;border-radius:2px 0 0 2px;outline:none;font-family:'Source Sans 3',sans-serif}
+  .mem-notify button{padding:14px 22px;background:var(--gold);color:#1a1208;border:none;border-radius:0 2px 2px 0;font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;white-space:nowrap}
+  .mem-notify button:hover{background:#b8922e}
+  .mem-notify-note{font-size:12px;color:rgba(255,255,255,.5);margin-top:10px}
+  .mem-founding-pill{display:inline-block;background:var(--gold);color:#1a1208;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+
+  /* ── HOW IT WORKS ── */
+  .mem-how{padding:80px 60px;background:#fff}
+  .mem-how__hd{text-align:center;margin-bottom:52px}
+  .mem-how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:960px;margin:0 auto}
+  .mem-step{text-align:center}
+  .mem-step__num{width:52px;height:52px;border-radius:50%;background:var(--mg);color:#fff;font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+  .mem-step__title{font-family:'Oswald',sans-serif;font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mg);margin-bottom:8px}
+  .mem-step__body{font-size:16px;color:#555;line-height:1.7}
+
+  /* ── PLAN CARDS ── */
+  .mem-plans{padding:80px 60px;background:var(--offwhite)}
+  .mem-plans__hd{text-align:center;margin-bottom:52px}
+  .mem-plans__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto;align-items:start}
+  .mem-card{background:#fff;border:1.5px solid var(--lgray);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s}
+  .mem-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1)}
+  .mem-card--feat{border-color:var(--mg);border-width:2.5px}
+  .mem-card__head{padding:32px 28px 24px;border-bottom:1px solid var(--lgray)}
+  .mem-card--feat .mem-card__head{background:var(--mg)}
+  .mem-card__badge{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .mem-card--feat .mem-card__badge{color:rgba(255,255,255,.65)}
+  .mem-card__name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mg);margin-bottom:4px}
+  .mem-card--feat .mem-card__name{color:#fff}
+  .mem-card__price-row{display:flex;align-items:baseline;gap:4px;margin-top:10px}
+  .mem-card__price{font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:var(--mg);line-height:1}
+  .mem-card--feat .mem-card__price{color:#fff}
+  .mem-card__period{font-size:14px;color:#999}
+  .mem-card--feat .mem-card__period{color:rgba(255,255,255,.6)}
+  .mem-card__tagline{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#888;margin-top:8px;line-height:1.5}
+  .mem-card--feat .mem-card__tagline{color:rgba(255,255,255,.68)}
+  .mem-card__body{padding:24px 28px;flex:1}
+  .mem-card__features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .mem-card__features li{font-size:15px;color:#444;padding-left:22px;position:relative;line-height:1.5}
+  .mem-card--feat .mem-card__features li{color:rgba(255,255,255,.88)}
+  .mem-card__features li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:700}
+  .mem-card__avail{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-align:center;padding:8px 0 0}
+  .mem-card__cta{padding:0 28px 28px;margin-top:auto}
+  .mem-card__cta a{display:block;text-align:center}
+
+  /* ── PRICING TABLE ── */
+  .mem-pricing{padding:80px 60px;background:#fff}
+  .mem-pricing__hd{text-align:center;margin-bottom:48px}
+  .mem-pricing__wrap{max-width:680px;margin:0 auto;overflow-x:auto}
+  .mem-ptable{width:100%;border-collapse:collapse}
+  .mem-ptable th{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:14px 20px;text-align:center;border-bottom:2px solid var(--mg)}
+  .mem-ptable th:first-child{text-align:left}
+  .mem-ptable th.mem-ptable__th-mem{background:var(--mg);color:#fff;border-bottom-color:var(--mg)}
+  .mem-ptable td{padding:18px 20px;font-size:18px;text-align:center;border-bottom:1px solid var(--lgray)}
+  .mem-ptable td:first-child{text-align:left;font-weight:600;font-size:16px;color:var(--text)}
+  .mem-ptable tr:last-child td{border-bottom:none}
+  .mem-ptable__strike{color:#bbb;text-decoration:line-through;font-size:16px}
+  .mem-ptable__mem{color:var(--mg);font-weight:700;font-size:20px}
+  .mem-ptable__save{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+
+  /* ── BENEFITS ── */
+  .mem-benefits{padding:80px 60px;background:var(--offwhite)}
+  .mem-benefits__hd{text-align:center;margin-bottom:48px}
+  .mem-benefits__wrap{max-width:960px;margin:0 auto;overflow-x:auto}
+  .mem-btable{width:100%;border-collapse:collapse}
+  .mem-btable th{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:16px 20px;text-align:center;background:var(--mg);color:#fff}
+  .mem-btable th:first-child{text-align:left;background:#fff;color:var(--mg)}
+  .mem-btable td{padding:14px 20px;font-size:15px;text-align:center;border-bottom:1px solid var(--lgray);color:#555;vertical-align:middle}
+  .mem-btable td:first-child{text-align:left;font-weight:500;color:var(--text)}
+  .mem-btable tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+  .mem-btable__yes{color:var(--gold);font-size:18px;font-weight:700}
+  .mem-btable__no{color:#ccc}
+
+  /* ── FAQ ── */
+  .mem-faq{padding:80px 60px;background:#fff}
+  .mem-faq__hd{text-align:center;margin-bottom:48px}
+  .mem-faq__list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+  .mem-faq__item{border:1px solid var(--lgray);border-radius:2px;overflow:hidden}
+  .mem-faq__q{width:100%;background:#fff;border:none;padding:20px 24px;text-align:left;font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--mg);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+  .mem-faq__q:hover{background:var(--offwhite)}
+  .mem-faq__icon{flex-shrink:0;width:20px;height:20px;position:relative}
+  .mem-faq__icon::before,.mem-faq__icon::after{content:'';position:absolute;background:var(--gold);border-radius:1px}
+  .mem-faq__icon::before{width:2px;height:100%;left:50%;top:0;transform:translateX(-50%);transition:opacity .3s}
+  .mem-faq__icon::after{width:100%;height:2px;top:50%;left:0;transform:translateY(-50%)}
+  .mem-faq__item.open .mem-faq__icon::before{opacity:0}
+  .mem-faq__a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s;font-size:16px;color:#555;line-height:1.8;padding:0 24px;background:var(--offwhite)}
+  .mem-faq__item.open .mem-faq__a{max-height:600px;padding:20px 24px}
+
+  /* ── CLOSING CTA ── */
+  .mem-cta{padding:96px 60px;background:var(--mg);text-align:center;position:relative;overflow:hidden}
+  .mem-cta__dot{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(var(--gold) 1.5px,transparent 1.5px);background-size:28px 28px}
+  .mem-cta__inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+  .mem-cta__h2{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#fff;line-height:1.1;margin:0 0 14px}
+  .mem-cta__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,1.8vw,20px);color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 40px}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:989px){
+    .mem-how__grid{grid-template-columns:1fr 1fr}
+    .mem-how__grid .mem-step:last-child{grid-column:1/-1;max-width:360px;margin:0 auto}
+    .mem-plans__grid{grid-template-columns:1fr 1fr}
+    .mem-plans__grid .mem-card:last-child{grid-column:1/-1;max-width:420px;margin:0 auto;width:100%}
+  }
+  @media(max-width:749px){
+    .mem-hero{padding:60px 24px}
+    .mem-how{padding:56px 24px}
+    .mem-how__grid{grid-template-columns:1fr}
+    .mem-how__grid .mem-step:last-child{grid-column:auto;max-width:none;margin:0}
+    .mem-plans{padding:56px 20px}
+    .mem-plans__grid{grid-template-columns:1fr}
+    .mem-plans__grid .mem-card:last-child{grid-column:auto;max-width:none;margin:0}
+    .mem-pricing{padding:56px 20px}
+    .mem-benefits{padding:56px 20px}
+    .mem-faq{padding:56px 20px}
+    .mem-cta{padding:64px 24px}
+    .mem-notify{flex-direction:column}
+    .mem-notify input,.mem-notify button{border-radius:2px;width:100%}
+  }
+</style>
+
+<div class="mem-page">
+
+<!-- 1 · HERO -->
+<div class="mem-hero">
+  <div class="mem-hero__inner">
+    <div class="mem-hero__ey">Northcrest Membership</div>
+    <h1 class="mem-hero__h1">Hit More.<br>Pay Less.</h1>
+    <p class="mem-hero__sub">Members pay less every visit — all year long.</p>
+
+    {%- if launch == 'coming_soon' -%}
+      <form class="mem-notify" action="#" method="post" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-family:Oswald,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#fff\'>✓ You\'re on the list!</p>'">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="mem-notify-note">Membership launches January 1, 2027.</p>
+    {%- elsif launch == 'founding_open' -%}
+      <div class="mem-founding-pill">Founding 40 — Limited Spots Available</div>
+      <div class="mem-btns">
+        <a href="{{ url_founding_40 }}" class="mem-btn mem-btn--gold">Join the Founding 40</a>
+      </div>
+    {%- else -%}
+      <div class="mem-btns">
+        <a href="{{ url_range_pass }}" class="mem-btn mem-btn--gold">Join Now</a>
+        <a href="#mem-plans" class="mem-btn mem-btn--outline">See Plans</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- 2 · HOW IT WORKS -->
+<div class="mem-how">
+  <div class="mem-how__hd">
+    <div class="mem-eyebrow mem-eyebrow--center">It's Simple</div>
+    <h2 class="mem-h2" style="text-align:center">Three Steps to Savings</h2>
+  </div>
+  <div class="mem-how__grid">
+    <div class="mem-step">
+      <div class="mem-step__num">1</div>
+      <div class="mem-step__title">Choose Your Plan</div>
+      <p class="mem-step__body">Pick the membership that fits how often you play. No contracts — cancel anytime.</p>
+    </div>
+    <div class="mem-step">
+      <div class="mem-step__num">2</div>
+      <div class="mem-step__title">Add Your Digital Card</div>
+      <p class="mem-step__body">Your member card lives in Apple Wallet or Google Wallet. No app, no plastic, no hassle.</p>
+    </div>
+    <div class="mem-step">
+      <div class="mem-step__num">3</div>
+      <div class="mem-step__title">Scan &amp; Save</div>
+      <p class="mem-step__body">Show your card at the counter. Member pricing applies instantly every visit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3 · PLAN CARDS -->
+<div class="mem-plans" id="mem-plans">
+  <div class="mem-plans__hd">
+    <div class="mem-eyebrow mem-eyebrow--center">Membership Plans</div>
+    <h2 class="mem-h2" style="text-align:center">Find Your Pass</h2>
+    <p class="mem-sub" style="text-align:center;max-width:560px;margin:0 auto">Every plan gives you member pricing at the range. No contracts. Cancel anytime.</p>
+  </div>
+  <div class="mem-plans__grid">
+
+    <!-- Range Pass -->
+    <div class="mem-card">
+      <div class="mem-card__head">
+        <div class="mem-card__badge">Range Pass</div>
+        <div class="mem-card__name">Range Pass</div>
+        <div class="mem-card__price-row">
+          <span class="mem-card__price">$20</span>
+          <span class="mem-card__period">/ month</span>
+        </div>
+        <div class="mem-card__tagline">Great for the regular range-goer.</div>
+      </div>
+      <div class="mem-card__body">
+        <ul class="mem-card__features">
+          <li>Member basket prices every visit</li>
+          <li>Free basket during your birthday month</li>
+          <li>Members-only events &amp; early access</li>
+          <li>Digital wallet card — no plastic needed</li>
+        </ul>
+      </div>
+      <div class="mem-card__cta">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--dark" style="opacity:.45;pointer-events:none">Coming Jan 1, 2027</a>
+        {%- else -%}
+          <a href="{{ url_range_pass }}" class="mem-btn mem-btn--dark">Join — Range Pass</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Range Pass Plus -->
+    <div class="mem-card mem-card--feat">
+      <div class="mem-card__head">
+        <div class="mem-card__badge">Best Value</div>
+        <div class="mem-card__name">Range Pass Plus</div>
+        <div class="mem-card__price-row">
+          <span class="mem-card__price">$39</span>
+          <span class="mem-card__period">/ month</span>
+        </div>
+        <div class="mem-card__tagline">For the golfer who wants it all.</div>
+      </div>
+      <div class="mem-card__body" style="background:var(--mg)">
+        <ul class="mem-card__features">
+          <li>Everything in Range Pass</li>
+          <li>Simulator session discounts</li>
+          <li>Lesson discounts</li>
+          <li>Pro shop discounts</li>
+          <li>Food &amp; beverage discounts</li>
+          <li>One free club fitting per year</li>
+        </ul>
+      </div>
+      <div class="mem-card__cta" style="background:var(--mg)">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--gold" style="opacity:.45;pointer-events:none;display:block;text-align:center">Coming Jan 1, 2027</a>
+        {%- else -%}
+          <a href="{{ url_range_pass_plus }}" class="mem-btn mem-btn--gold" style="display:block;text-align:center">Join — Range Pass Plus</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Founding 40 -->
+    <div class="mem-card">
+      <div class="mem-card__head">
+        <div class="mem-card__badge" style="color:var(--gold)">Limited — {{ founding_remaining }} of 40 Remaining</div>
+        <div class="mem-card__name">Founding 40</div>
+        <div class="mem-card__price-row">
+          <span class="mem-card__price">$429</span>
+          <span class="mem-card__period">/ year</span>
+        </div>
+        <div class="mem-card__tagline">Range Pass Plus prepaid — one month free.</div>
+      </div>
+      <div class="mem-card__body">
+        <ul class="mem-card__features">
+          <li>Everything in Range Pass Plus</li>
+          <li>One month free vs. monthly billing</li>
+          <li>Founding member recognition</li>
+          <li>Priority access to future perks</li>
+          <li>Limited to 40 members — ever</li>
+        </ul>
+      </div>
+      <div class="mem-card__cta">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--dark" style="display:block;text-align:center;opacity:.45;pointer-events:none">Coming Jan 1, 2027</a>
+        {%- else -%}
+          <a href="{{ url_founding_40 }}" class="mem-btn mem-btn--dark" style="display:block;text-align:center">Claim Your Spot</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 4 · PRICE COMPARISON -->
+<div class="mem-pricing">
+  <div class="mem-pricing__hd">
+    <div class="mem-eyebrow mem-eyebrow--center">Member Savings</div>
+    <h2 class="mem-h2" style="text-align:center">See What You Save</h2>
+    <p class="mem-sub" style="text-align:center;max-width:500px;margin:0 auto">Member pricing applies to every basket, every visit.</p>
+  </div>
+  <div class="mem-pricing__wrap">
+    <table class="mem-ptable">
+      <thead>
+        <tr>
+          <th style="text-align:left">Basket Size</th>
+          <th>Walk-In</th>
+          <th class="mem-ptable__th-mem">Member Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small (45 balls)</td>
+          <td><span class="mem-ptable__strike">$15</span></td>
+          <td><span class="mem-ptable__mem">$10</span><span class="mem-ptable__save">Save $5</span></td>
+        </tr>
+        <tr>
+          <td>Medium (90 balls)</td>
+          <td><span class="mem-ptable__strike">$21</span></td>
+          <td><span class="mem-ptable__mem">$14</span><span class="mem-ptable__save">Save $7</span></td>
+        </tr>
+        <tr>
+          <td>Large (140 balls)</td>
+          <td><span class="mem-ptable__strike">$26</span></td>
+          <td><span class="mem-ptable__mem">$17</span><span class="mem-ptable__save">Save $9</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 5 · FULL BENEFITS -->
+<div class="mem-benefits">
+  <div class="mem-benefits__hd">
+    <div class="mem-eyebrow mem-eyebrow--center">Compare Plans</div>
+    <h2 class="mem-h2" style="text-align:center">Everything Included</h2>
+  </div>
+  <div class="mem-benefits__wrap">
+    <table class="mem-btable">
+      <thead>
+        <tr>
+          <th style="min-width:200px">Benefit</th>
+          <th>Range Pass</th>
+          <th>Range Pass Plus</th>
+          <th>Founding 40</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- assign benefits = "Member basket prices|true|true|true,Free birthday month basket|true|true|true,Members-only events|true|true|true,Digital wallet card|true|true|true,Simulator discounts|false|true|true,Lesson discounts|false|true|true,Pro shop discounts|false|true|true,Food & beverage discounts|false|true|true,One free club fitting/year|false|true|true,Founding member recognition|false|false|true,One month free (annual billing)|false|false|true" | split: "," -%}
+        {%- for row in benefits -%}
+          {%- assign cols = row | split: "|" -%}
+          <tr>
+            <td>{{ cols[0] }}</td>
+            {%- for i in (1..3) -%}
+              <td>{%- if cols[i] == 'true' -%}<span class="mem-btable__yes">✓</span>{%- else -%}<span class="mem-btable__no">—</span>{%- endif -%}</td>
+            {%- endfor -%}
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 6 · FAQ -->
+<div class="mem-faq">
+  <div class="mem-faq__hd">
+    <div class="mem-eyebrow mem-eyebrow--center">Questions</div>
+    <h2 class="mem-h2" style="text-align:center">Common Questions</h2>
+  </div>
+  <div class="mem-faq__list">
+    {%- assign faqs = "How does billing work?|Your membership renews automatically each month on your sign-up date. The Founding 40 plan is billed once per year.|[PLACEHOLDER — confirm billing terms],How do I cancel?|You can cancel anytime through your Pintuna member portal with no cancellation fees.|[PLACEHOLDER — confirm cancellation policy],How do I use my digital card?|After signing up you'll receive a link to add your member card to Apple Wallet or Google Wallet. Show it at the counter each visit — no app required.|[PLACEHOLDER — confirm Pintuna wallet flow],Can I share my membership?|Memberships are individual and non-transferable. Each person at your party needs their own pass.|[PLACEHOLDER — confirm policy],Do you still offer coupon books?|Coupon books remain available for walk-in guests. Members receive automatic discounts at the counter on every visit — no coupons needed.|[PLACEHOLDER — confirm coupon policy]" | split: "," -%}
+    {%- for item in faqs -%}
+      {%- assign parts = item | split: "|" -%}
+      <div class="mem-faq__item">
+        <button class="mem-faq__q" aria-expanded="false">
+          {{ parts[0] }}
+          <span class="mem-faq__icon" aria-hidden="true"></span>
+        </button>
+        <div class="mem-faq__a">{{ parts[1] }} <em style="color:#bbb;font-size:13px">{{ parts[2] }}</em></div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- 7 · CLOSING CTA -->
+<div class="mem-cta">
+  <div class="mem-cta__dot"></div>
+  <div class="mem-cta__inner">
+    <h2 class="mem-cta__h2">Ready to Join?</h2>
+    <p class="mem-cta__sub">Start saving every time you play.</p>
+    <div class="mem-btns">
+      {%- if launch == 'coming_soon' -%}
+        <form class="mem-notify" action="#" method="post" onsubmit="event.preventDefault();this.innerHTML='<p style=\'font-family:Oswald,sans-serif;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#fff\'>✓ You\'re on the list!</p>'">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Notify Me</button>
+        </form>
+      {%- elsif launch == 'founding_open' -%}
+        <a href="{{ url_founding_40 }}" class="mem-btn mem-btn--gold">Join the Founding 40</a>
+      {%- else -%}
+        <a href="{{ url_range_pass }}" class="mem-btn mem-btn--gold">Join — Range Pass</a>
+        <a href="{{ url_range_pass_plus }}" class="mem-btn mem-btn--outline">Join — Range Pass Plus</a>
+        <a href="{{ url_founding_40 }}" class="mem-btn mem-btn--outline">Founding 40</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+</div><!-- /mem-page -->
+
+<script>
+  document.querySelectorAll('.mem-faq__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.mem-faq__item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.mem-faq__item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+</script>
