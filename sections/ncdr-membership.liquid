@@ -1,0 +1,634 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+  /* ── TOKENS ── */
+  :root{
+    --mem-green:#3A582B;
+    --mem-gold:#C9A84C;
+    --mem-off-white:#f7f6f2;
+    --mem-light-gray:#e4e4e0;
+    --mem-text:#1c1c1a;
+  }
+
+  /* ── SHARED ── */
+  .mem-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mem-gold);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .mem-eyebrow::after{content:'';display:inline-block;width:28px;height:1px;background:var(--mem-gold);opacity:.5}
+  .mem-section-heading{font-family:'Oswald',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--mem-green);line-height:1.1;margin:0 0 12px}
+  .mem-section-sub{font-size:18px;font-weight:300;color:#444;line-height:1.7;max-width:620px}
+  .mem-btn{display:inline-block;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px 36px;border-radius:2px;text-decoration:none;transition:all .22s;cursor:pointer;border:none}
+  .mem-btn--gold{background:var(--mem-gold);color:#1a1208}
+  .mem-btn--gold:hover{background:#b8922e;color:#1a1208}
+  .mem-btn--outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7)}
+  .mem-btn--outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .mem-btn--outline-dark{background:transparent;color:var(--mem-green);border:2px solid var(--mem-green)}
+  .mem-btn--outline-dark:hover{background:var(--mem-green);color:#fff}
+
+  /* ── 1. HERO ── */
+  .mem-hero{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--mem-green);overflow:hidden}
+  .mem-hero__bg{position:absolute;inset:0;z-index:0}
+  .mem-hero__bg img{width:100%;height:100%;object-fit:cover;display:block;opacity:.25}
+  .mem-hero__content{position:relative;z-index:1;padding:80px 40px;max-width:780px}
+  .mem-hero__eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mem-gold);margin-bottom:20px}
+  .mem-hero__heading{font-family:'Oswald',sans-serif;font-size:clamp(44px,7vw,80px);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#fff;line-height:1;margin-bottom:18px}
+  .mem-hero__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,2vw,22px);color:rgba(255,255,255,.82);line-height:1.6;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto}
+  .mem-hero__buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* Notify Me form (coming_soon) */
+  .mem-notify-form{display:flex;gap:0;max-width:420px;margin:0 auto}
+  .mem-notify-form input{flex:1;padding:14px 20px;font-size:15px;border:none;border-radius:2px 0 0 2px;outline:none;font-family:'Source Sans 3',sans-serif}
+  .mem-notify-form button{padding:14px 24px;background:var(--mem-gold);color:#1a1208;border:none;border-radius:0 2px 2px 0;font-family:'Oswald',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+  .mem-notify-form button:hover{background:#b8922e}
+  .mem-notify-note{font-size:12px;color:rgba(255,255,255,.55);margin-top:10px;text-align:center}
+
+  /* Founding badge */
+  .mem-founding-badge{display:inline-block;background:var(--mem-gold);color:#1a1208;font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+
+  /* ── 2. HOW IT WORKS ── */
+  .mem-how{padding:80px 60px;background:#fff}
+  .mem-how__header{text-align:center;margin-bottom:56px}
+  .mem-how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:960px;margin:0 auto;counter-reset:steps}
+  .mem-how__step{text-align:center;counter-increment:steps}
+  .mem-how__step-num{width:52px;height:52px;border-radius:50%;background:var(--mem-green);color:#fff;font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+  .mem-how__step-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mem-green);margin-bottom:10px}
+  .mem-how__step-body{font-size:16px;color:#555;line-height:1.7}
+
+  /* ── 3. PLAN CARDS ── */
+  .mem-plans{padding:80px 60px;background:var(--mem-off-white)}
+  .mem-plans__header{text-align:center;margin-bottom:52px}
+  .mem-plans__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1080px;margin:0 auto;align-items:start}
+  .mem-plan-card{background:#fff;border:1.5px solid var(--mem-light-gray);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s}
+  .mem-plan-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.1)}
+  .mem-plan-card--featured{border-color:var(--mem-green);border-width:2.5px}
+  .mem-plan-card__head{padding:32px 28px 24px;border-bottom:1px solid var(--mem-light-gray)}
+  .mem-plan-card--featured .mem-plan-card__head{background:var(--mem-green)}
+  .mem-plan-card__badge{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mem-gold);margin-bottom:10px}
+  .mem-plan-card--featured .mem-plan-card__badge{color:rgba(255,255,255,.7)}
+  .mem-plan-card__name{font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--mem-green);margin-bottom:6px}
+  .mem-plan-card--featured .mem-plan-card__name{color:#fff}
+  .mem-plan-card__price-row{display:flex;align-items:baseline;gap:4px;margin-top:12px}
+  .mem-plan-card__price{font-family:'Oswald',sans-serif;font-size:42px;font-weight:700;color:var(--mem-green);line-height:1}
+  .mem-plan-card--featured .mem-plan-card__price{color:#fff}
+  .mem-plan-card__period{font-size:14px;color:#888;font-weight:400}
+  .mem-plan-card--featured .mem-plan-card__period{color:rgba(255,255,255,.65)}
+  .mem-plan-card__tagline{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:14px;color:#777;margin-top:8px;line-height:1.5}
+  .mem-plan-card--featured .mem-plan-card__tagline{color:rgba(255,255,255,.72)}
+  .mem-plan-card__body{padding:24px 28px;flex:1;display:flex;flex-direction:column;gap:20px}
+  .mem-plan-card__features{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;flex:1}
+  .mem-plan-card__features li{font-size:15px;color:#444;padding-left:20px;position:relative;line-height:1.5}
+  .mem-plan-card__features li::before{content:'✓';position:absolute;left:0;color:var(--mem-gold);font-weight:700}
+  .mem-plan-card__availability{font-size:13px;font-weight:600;color:var(--mem-gold);letter-spacing:.04em;text-align:center;padding:4px 0}
+  .mem-plan-card__cta{margin-top:auto;padding:0 28px 28px}
+  .mem-plan-card__cta .mem-btn{width:100%;text-align:center}
+  .mem-plan-card--featured .mem-plan-card__cta .mem-btn--gold{background:var(--mem-gold)}
+
+  /* ── 4. PRICE COMPARISON ── */
+  .mem-pricing{padding:80px 60px;background:#fff}
+  .mem-pricing__header{text-align:center;margin-bottom:48px}
+  .mem-pricing__wrap{max-width:700px;margin:0 auto}
+  .mem-pricing__table{width:100%;border-collapse:collapse}
+  .mem-pricing__table th{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:14px 20px;text-align:center;border-bottom:2px solid var(--mem-green)}
+  .mem-pricing__table th:first-child{text-align:left}
+  .mem-pricing__table th.mem-pricing__th--member{background:var(--mem-green);color:#fff;border-bottom-color:var(--mem-green)}
+  .mem-pricing__table td{padding:16px 20px;font-size:18px;text-align:center;border-bottom:1px solid var(--mem-light-gray)}
+  .mem-pricing__table td:first-child{text-align:left;font-weight:600;font-size:16px;color:var(--mem-text)}
+  .mem-pricing__table tr:last-child td{border-bottom:none}
+  .mem-pricing__strikethrough{color:#aaa;text-decoration:line-through;font-size:16px}
+  .mem-pricing__member-price{color:var(--mem-green);font-weight:700;font-size:20px}
+  .mem-pricing__savings{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mem-gold);display:block;margin-top:2px}
+
+  /* ── 5. FULL BENEFITS ── */
+  .mem-benefits{padding:80px 60px;background:var(--mem-off-white)}
+  .mem-benefits__header{text-align:center;margin-bottom:48px}
+  .mem-benefits__table-wrap{max-width:960px;margin:0 auto;overflow-x:auto}
+  .mem-benefits__table{width:100%;border-collapse:collapse}
+  .mem-benefits__table th{font-family:'Oswald',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;padding:16px 20px;text-align:center;background:var(--mem-green);color:#fff}
+  .mem-benefits__table th:first-child{text-align:left;background:#fff;color:var(--mem-green)}
+  .mem-benefits__table td{padding:14px 20px;font-size:15px;text-align:center;border-bottom:1px solid var(--mem-light-gray);color:#555;vertical-align:middle}
+  .mem-benefits__table td:first-child{text-align:left;font-weight:500;color:var(--mem-text)}
+  .mem-benefits__table tr:nth-child(even) td{background:rgba(0,0,0,.02)}
+  .mem-benefits__check{color:var(--mem-gold);font-size:18px;font-weight:700}
+  .mem-benefits__dash{color:#ccc}
+
+  /* ── 6. FAQ ── */
+  .mem-faq{padding:80px 60px;background:#fff}
+  .mem-faq__header{text-align:center;margin-bottom:48px;max-width:640px;margin-left:auto;margin-right:auto}
+  .mem-faq__list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+  .mem-faq__item{border:1px solid var(--mem-light-gray);border-radius:2px;overflow:hidden}
+  .mem-faq__q{width:100%;background:#fff;border:none;padding:20px 24px;text-align:left;font-family:'Oswald',sans-serif;font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--mem-green);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .15s}
+  .mem-faq__q:hover{background:var(--mem-off-white)}
+  .mem-faq__q-icon{flex-shrink:0;width:20px;height:20px;position:relative;transition:transform .3s}
+  .mem-faq__q-icon::before,.mem-faq__q-icon::after{content:'';position:absolute;background:var(--mem-gold);border-radius:1px}
+  .mem-faq__q-icon::before{width:2px;height:100%;left:50%;top:0;transform:translateX(-50%);transition:opacity .3s}
+  .mem-faq__q-icon::after{width:100%;height:2px;top:50%;left:0;transform:translateY(-50%)}
+  .mem-faq__item.open .mem-faq__q-icon::before{opacity:0}
+  .mem-faq__a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s ease;font-size:16px;color:#555;line-height:1.8;padding:0 24px;background:var(--mem-off-white)}
+  .mem-faq__item.open .mem-faq__a{max-height:600px;padding:20px 24px}
+  .mem-faq__placeholder{display:inline;font-style:italic;color:#aaa}
+
+  /* ── 7. CLOSING CTA ── */
+  .mem-cta{position:relative;padding:96px 60px;background:var(--mem-green);text-align:center;overflow:hidden}
+  .mem-cta__pattern{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(var(--mem-gold) 1.5px,transparent 1.5px);background-size:28px 28px}
+  .mem-cta__content{position:relative;z-index:1;max-width:680px;margin:0 auto}
+  .mem-cta__heading{font-family:'Oswald',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#fff;line-height:1.1;margin-bottom:14px}
+  .mem-cta__sub{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(16px,1.8vw,20px);color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:40px}
+  .mem-cta__buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:989px){
+    .mem-plans__grid{grid-template-columns:1fr 1fr}
+    .mem-plans__grid .mem-plan-card:last-child{grid-column:1/-1;max-width:420px;justify-self:center;width:100%}
+    .mem-how__grid{grid-template-columns:1fr 1fr}
+    .mem-how__grid .mem-how__step:last-child{grid-column:1/-1;max-width:360px;margin:0 auto}
+  }
+  @media(max-width:749px){
+    .mem-how{padding:56px 24px}
+    .mem-how__grid{grid-template-columns:1fr;gap:32px}
+    .mem-how__grid .mem-how__step:last-child{grid-column:auto;max-width:none;margin:0}
+    .mem-plans{padding:56px 20px}
+    .mem-plans__grid{grid-template-columns:1fr}
+    .mem-plans__grid .mem-plan-card:last-child{grid-column:auto;max-width:none;justify-self:auto}
+    .mem-pricing{padding:56px 20px}
+    .mem-benefits{padding:56px 20px}
+    .mem-faq{padding:56px 20px}
+    .mem-cta{padding:64px 24px}
+    .mem-hero__content{padding:60px 24px}
+    .mem-notify-form{flex-direction:column}
+    .mem-notify-form input,.mem-notify-form button{border-radius:2px;width:100%}
+  }
+</style>
+
+{%- liquid
+  assign launch = section.settings.launch_state
+-%}
+
+<!-- 1. HERO -->
+<div class="mem-hero">
+  {%- if section.settings.hero_bg != blank -%}
+    <div class="mem-hero__bg">
+      <img src="{{ section.settings.hero_bg | image_url: width: 1600 }}" alt="" loading="eager">
+    </div>
+  {%- endif -%}
+  <div class="mem-hero__content">
+    <div class="mem-hero__eyebrow">{{ section.settings.hero_eyebrow }}</div>
+    <h1 class="mem-hero__heading">{{ section.settings.hero_heading }}</h1>
+    <p class="mem-hero__sub">{{ section.settings.hero_sub }}</p>
+
+    {%- if launch == 'coming_soon' -%}
+      <!-- STUB: wire to Klaviyo once account is set up -->
+      <form class="mem-notify-form" action="#" method="post" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:#fff;font-family:Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:13px\'>✓ We\'ll let you know!</p>'">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="mem-notify-note">Membership launches January 1, 2027.</p>
+    {%- elsif launch == 'founding_open' -%}
+      <div class="mem-founding-badge">Founding 40 — Limited Availability</div>
+      <div class="mem-hero__buttons">
+        <a href="{{ section.settings.pintuna_founding_40_url | default: '#' }}" class="mem-btn mem-btn--gold">Join the Founding 40</a>
+      </div>
+    {%- else -%}
+      <div class="mem-hero__buttons">
+        <a href="{{ section.settings.pintuna_range_pass_url | default: '#' }}" class="mem-btn mem-btn--gold">Join Now</a>
+        <a href="#mem-plans" class="mem-btn mem-btn--outline">See Plans</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<!-- 2. HOW IT WORKS -->
+<div class="mem-how">
+  <div class="mem-how__header">
+    <div class="mem-eyebrow">{{ section.settings.how_eyebrow }}</div>
+    <h2 class="mem-section-heading">{{ section.settings.how_heading }}</h2>
+  </div>
+  <div class="mem-how__grid">
+    <div class="mem-how__step">
+      <div class="mem-how__step-num">1</div>
+      <div class="mem-how__step-title">{{ section.settings.how_step1_title }}</div>
+      <p class="mem-how__step-body">{{ section.settings.how_step1_body }}</p>
+    </div>
+    <div class="mem-how__step">
+      <div class="mem-how__step-num">2</div>
+      <div class="mem-how__step-title">{{ section.settings.how_step2_title }}</div>
+      <p class="mem-how__step-body">{{ section.settings.how_step2_body }}</p>
+    </div>
+    <div class="mem-how__step">
+      <div class="mem-how__step-num">3</div>
+      <div class="mem-how__step-title">{{ section.settings.how_step3_title }}</div>
+      <p class="mem-how__step-body">{{ section.settings.how_step3_body }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- 3. PLAN CARDS -->
+<div class="mem-plans" id="mem-plans">
+  <div class="mem-plans__header">
+    <div class="mem-eyebrow">{{ section.settings.plans_eyebrow }}</div>
+    <h2 class="mem-section-heading">{{ section.settings.plans_heading }}</h2>
+    <p class="mem-section-sub" style="margin:0 auto">{{ section.settings.plans_sub }}</p>
+  </div>
+  <div class="mem-plans__grid">
+
+    <!-- Range Pass -->
+    <div class="mem-plan-card">
+      <div class="mem-plan-card__head">
+        <div class="mem-plan-card__badge">Most Popular</div>
+        <div class="mem-plan-card__name">{{ section.settings.plan1_name }}</div>
+        <div class="mem-plan-card__price-row">
+          <span class="mem-plan-card__price">{{ section.settings.plan1_price }}</span>
+          <span class="mem-plan-card__period">{{ section.settings.plan1_period }}</span>
+        </div>
+        <div class="mem-plan-card__tagline">{{ section.settings.plan1_tagline }}</div>
+      </div>
+      <div class="mem-plan-card__body">
+        <ul class="mem-plan-card__features">
+          {%- for i in (1..6) -%}
+            {%- assign key = 'plan1_feature' | append: i -%}
+            {%- if section.settings[key] != blank -%}
+              <li>{{ section.settings[key] }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="mem-plan-card__cta">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--outline-dark" style="width:100%;text-align:center;display:block;pointer-events:none;opacity:.5">Coming Jan 1</a>
+        {%- else -%}
+          <a href="{{ section.settings.pintuna_range_pass_url | default: '#' }}" class="mem-btn mem-btn--outline-dark" style="width:100%;text-align:center;display:block">Join — {{ section.settings.plan1_name }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Range Pass Plus -->
+    <div class="mem-plan-card mem-plan-card--featured">
+      <div class="mem-plan-card__head">
+        <div class="mem-plan-card__badge">Best Value</div>
+        <div class="mem-plan-card__name">{{ section.settings.plan2_name }}</div>
+        <div class="mem-plan-card__price-row">
+          <span class="mem-plan-card__price">{{ section.settings.plan2_price }}</span>
+          <span class="mem-plan-card__period">{{ section.settings.plan2_period }}</span>
+        </div>
+        <div class="mem-plan-card__tagline">{{ section.settings.plan2_tagline }}</div>
+      </div>
+      <div class="mem-plan-card__body">
+        <ul class="mem-plan-card__features" style="color:#fff">
+          {%- for i in (1..8) -%}
+            {%- assign key = 'plan2_feature' | append: i -%}
+            {%- if section.settings[key] != blank -%}
+              <li style="color:rgba(255,255,255,.88)">{{ section.settings[key] }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="mem-plan-card__cta">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--gold" style="width:100%;text-align:center;display:block;pointer-events:none;opacity:.5">Coming Jan 1</a>
+        {%- else -%}
+          <a href="{{ section.settings.pintuna_range_pass_plus_url | default: '#' }}" class="mem-btn mem-btn--gold" style="width:100%;text-align:center;display:block">Join — {{ section.settings.plan2_name }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <!-- Founding 40 -->
+    <div class="mem-plan-card">
+      <div class="mem-plan-card__head">
+        <div class="mem-plan-card__badge" style="color:var(--mem-gold)">Limited — {{ section.settings.founding_40_remaining }} of 40 Remaining</div>
+        <div class="mem-plan-card__name">{{ section.settings.plan3_name }}</div>
+        <div class="mem-plan-card__price-row">
+          <span class="mem-plan-card__price">{{ section.settings.plan3_price }}</span>
+          <span class="mem-plan-card__period">{{ section.settings.plan3_period }}</span>
+        </div>
+        <div class="mem-plan-card__tagline">{{ section.settings.plan3_tagline }}</div>
+      </div>
+      <div class="mem-plan-card__body">
+        <ul class="mem-plan-card__features">
+          {%- for i in (1..8) -%}
+            {%- assign key = 'plan3_feature' | append: i -%}
+            {%- if section.settings[key] != blank -%}
+              <li>{{ section.settings[key] }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="mem-plan-card__cta">
+        {%- if launch == 'coming_soon' -%}
+          <a href="#" class="mem-btn mem-btn--outline-dark" style="width:100%;text-align:center;display:block;pointer-events:none;opacity:.5">Coming Jan 1</a>
+        {%- elsif launch == 'founding_open' or launch == 'live' -%}
+          <a href="{{ section.settings.pintuna_founding_40_url | default: '#' }}" class="mem-btn mem-btn--outline-dark" style="width:100%;text-align:center;display:block">Claim Your Spot</a>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 4. PRICE COMPARISON -->
+<div class="mem-pricing">
+  <div class="mem-pricing__header">
+    <div class="mem-eyebrow" style="justify-content:center">{{ section.settings.pricing_eyebrow }}</div>
+    <h2 class="mem-section-heading" style="text-align:center">{{ section.settings.pricing_heading }}</h2>
+    <p class="mem-section-sub" style="text-align:center;margin:0 auto">{{ section.settings.pricing_sub }}</p>
+  </div>
+  <div class="mem-pricing__wrap">
+    <table class="mem-pricing__table">
+      <thead>
+        <tr>
+          <th style="text-align:left">Basket Size</th>
+          <th>Walk-In Price</th>
+          <th class="mem-pricing__th--member">Member Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for i in (1..3) -%}
+          {%- assign name_key = 'basket' | append: i | append: '_name' -%}
+          {%- assign walkin_key = 'basket' | append: i | append: '_walkin' -%}
+          {%- assign member_key = 'basket' | append: i | append: '_member' -%}
+          {%- assign savings_key = 'basket' | append: i | append: '_savings' -%}
+          <tr>
+            <td>{{ section.settings[name_key] }}</td>
+            <td><span class="mem-pricing__strikethrough">{{ section.settings[walkin_key] }}</span></td>
+            <td>
+              <span class="mem-pricing__member-price">{{ section.settings[member_key] }}</span>
+              <span class="mem-pricing__savings">Save {{ section.settings[savings_key] }}</span>
+            </td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 5. FULL BENEFITS -->
+<div class="mem-benefits">
+  <div class="mem-benefits__header">
+    <div class="mem-eyebrow" style="justify-content:center">{{ section.settings.benefits_eyebrow }}</div>
+    <h2 class="mem-section-heading" style="text-align:center">{{ section.settings.benefits_heading }}</h2>
+  </div>
+  <div class="mem-benefits__table-wrap">
+    <table class="mem-benefits__table">
+      <thead>
+        <tr>
+          <th style="min-width:200px">Benefit</th>
+          <th>Range Pass</th>
+          <th>Range Pass Plus</th>
+          <th>Founding 40</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'benefit' -%}
+            <tr {{ block.shopify_attributes }}>
+              <td>{{ block.settings.label }}</td>
+              <td>{%- if block.settings.plan1 -%}<span class="mem-benefits__check">✓</span>{%- else -%}<span class="mem-benefits__dash">—</span>{%- endif -%}</td>
+              <td>{%- if block.settings.plan2 -%}<span class="mem-benefits__check">✓</span>{%- else -%}<span class="mem-benefits__dash">—</span>{%- endif -%}</td>
+              <td>{%- if block.settings.plan3 -%}<span class="mem-benefits__check">✓</span>{%- else -%}<span class="mem-benefits__dash">—</span>{%- endif -%}</td>
+            </tr>
+          {%- endif -%}
+        {%- endfor -%}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 6. FAQ -->
+<div class="mem-faq">
+  <div class="mem-faq__header">
+    <div class="mem-eyebrow" style="justify-content:center">{{ section.settings.faq_eyebrow }}</div>
+    <h2 class="mem-section-heading" style="text-align:center">{{ section.settings.faq_heading }}</h2>
+  </div>
+  <div class="mem-faq__list">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'faq' -%}
+        <div class="mem-faq__item" {{ block.shopify_attributes }}>
+          <button class="mem-faq__q" aria-expanded="false">
+            {{ block.settings.question }}
+            <span class="mem-faq__q-icon" aria-hidden="true"></span>
+          </button>
+          <div class="mem-faq__a">{{ block.settings.answer }} <span class="mem-faq__placeholder">{{ block.settings.placeholder_note }}</span></div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<!-- 7. CLOSING CTA -->
+<div class="mem-cta">
+  <div class="mem-cta__pattern"></div>
+  <div class="mem-cta__content">
+    <h2 class="mem-cta__heading">{{ section.settings.cta_heading }}</h2>
+    <p class="mem-cta__sub">{{ section.settings.cta_sub }}</p>
+    <div class="mem-cta__buttons">
+      {%- if launch == 'coming_soon' -%}
+        <form class="mem-notify-form" action="#" method="post" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'color:#fff;font-family:Oswald,sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:13px\'>✓ We\'ll let you know!</p>'">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit">Notify Me</button>
+        </form>
+      {%- elsif launch == 'founding_open' -%}
+        <a href="{{ section.settings.pintuna_founding_40_url | default: '#' }}" class="mem-btn mem-btn--gold">Join the Founding 40</a>
+      {%- else -%}
+        <a href="{{ section.settings.pintuna_range_pass_url | default: '#' }}" class="mem-btn mem-btn--gold">Join — Range Pass</a>
+        <a href="{{ section.settings.pintuna_range_pass_plus_url | default: '#' }}" class="mem-btn mem-btn--outline">Join — Range Pass Plus</a>
+        <a href="{{ section.settings.pintuna_founding_40_url | default: '#' }}" class="mem-btn mem-btn--outline">Founding 40</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.mem-faq__q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.mem-faq__item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.mem-faq__item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "NCDR Membership",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "🚀 Launch Settings"
+    },
+    {
+      "type": "select",
+      "id": "launch_state",
+      "label": "Launch mode",
+      "options": [
+        { "value": "coming_soon", "label": "Coming Soon (notify me form)" },
+        { "value": "founding_open", "label": "Founding 40 Open" },
+        { "value": "live", "label": "Live — All plans active" }
+      ],
+      "default": "coming_soon"
+    },
+    {
+      "type": "header",
+      "content": "Pintuna Sign-Up URLs"
+    },
+    { "type": "url", "id": "pintuna_range_pass_url", "label": "Range Pass sign-up URL (Pintuna)" },
+    { "type": "url", "id": "pintuna_range_pass_plus_url", "label": "Range Pass Plus sign-up URL (Pintuna)" },
+    { "type": "url", "id": "pintuna_founding_40_url", "label": "Founding 40 sign-up URL (Pintuna)" },
+    {
+      "type": "header",
+      "content": "Hero"
+    },
+    { "type": "image_picker", "id": "hero_bg", "label": "Hero background image (optional)" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Northcrest Membership" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Hit More. Pay Less." },
+    { "type": "text", "id": "hero_sub", "label": "Subheading", "default": "Members pay less every visit — all year long." },
+    {
+      "type": "header",
+      "content": "How It Works"
+    },
+    { "type": "text", "id": "how_eyebrow", "label": "Eyebrow", "default": "It's Simple" },
+    { "type": "text", "id": "how_heading", "label": "Heading", "default": "Three Steps to Savings" },
+    { "type": "text", "id": "how_step1_title", "label": "Step 1 title", "default": "Choose Your Plan" },
+    { "type": "textarea", "id": "how_step1_body", "label": "Step 1 body", "default": "Pick the plan that fits how often you play. Cancel anytime." },
+    { "type": "text", "id": "how_step2_title", "label": "Step 2 title", "default": "Add Your Digital Card" },
+    { "type": "textarea", "id": "how_step2_body", "label": "Step 2 body", "default": "Your member card lives in Apple Wallet or Google Wallet — no app, no plastic." },
+    { "type": "text", "id": "how_step3_title", "label": "Step 3 title", "default": "Scan & Save" },
+    { "type": "textarea", "id": "how_step3_body", "label": "Step 3 body", "default": "Show your card at the counter. Member pricing applies instantly through our Clover system." },
+    {
+      "type": "header",
+      "content": "Plans"
+    },
+    { "type": "text", "id": "plans_eyebrow", "label": "Eyebrow", "default": "Membership Plans" },
+    { "type": "text", "id": "plans_heading", "label": "Heading", "default": "Find Your Pass" },
+    { "type": "textarea", "id": "plans_sub", "label": "Subtext", "default": "Every plan gives you member pricing at the range. No contracts. Cancel anytime." },
+    {
+      "type": "header",
+      "content": "Range Pass (Plan 1)"
+    },
+    { "type": "text", "id": "plan1_name", "label": "Plan name", "default": "Range Pass" },
+    { "type": "text", "id": "plan1_price", "label": "Price", "default": "$20" },
+    { "type": "text", "id": "plan1_period", "label": "Period", "default": "/ month" },
+    { "type": "text", "id": "plan1_tagline", "label": "Tagline", "default": "Great for the regular range-goer." },
+    { "type": "text", "id": "plan1_feature1", "label": "Feature 1", "default": "Member basket prices every visit" },
+    { "type": "text", "id": "plan1_feature2", "label": "Feature 2", "default": "Free basket during your birthday month" },
+    { "type": "text", "id": "plan1_feature3", "label": "Feature 3", "default": "Members-only events and early access" },
+    { "type": "text", "id": "plan1_feature4", "label": "Feature 4", "default": "Digital wallet card — no plastic needed" },
+    { "type": "text", "id": "plan1_feature5", "label": "Feature 5", "default": "" },
+    { "type": "text", "id": "plan1_feature6", "label": "Feature 6", "default": "" },
+    {
+      "type": "header",
+      "content": "Range Pass Plus (Plan 2)"
+    },
+    { "type": "text", "id": "plan2_name", "label": "Plan name", "default": "Range Pass Plus" },
+    { "type": "text", "id": "plan2_price", "label": "Price", "default": "$39" },
+    { "type": "text", "id": "plan2_period", "label": "Period", "default": "/ month" },
+    { "type": "text", "id": "plan2_tagline", "label": "Tagline", "default": "For the golfer who wants it all." },
+    { "type": "text", "id": "plan2_feature1", "label": "Feature 1", "default": "Everything in Range Pass" },
+    { "type": "text", "id": "plan2_feature2", "label": "Feature 2", "default": "Simulator session discounts" },
+    { "type": "text", "id": "plan2_feature3", "label": "Feature 3", "default": "Lesson discounts" },
+    { "type": "text", "id": "plan2_feature4", "label": "Feature 4", "default": "Pro shop discounts" },
+    { "type": "text", "id": "plan2_feature5", "label": "Feature 5", "default": "Food & beverage discounts" },
+    { "type": "text", "id": "plan2_feature6", "label": "Feature 6", "default": "One free club fitting per year" },
+    { "type": "text", "id": "plan2_feature7", "label": "Feature 7", "default": "" },
+    { "type": "text", "id": "plan2_feature8", "label": "Feature 8", "default": "" },
+    {
+      "type": "header",
+      "content": "Founding 40 (Plan 3)"
+    },
+    { "type": "number", "id": "founding_40_remaining", "label": "Founding 40 spots remaining", "default": 40 },
+    { "type": "text", "id": "plan3_name", "label": "Plan name", "default": "Founding 40" },
+    { "type": "text", "id": "plan3_price", "label": "Price", "default": "$429" },
+    { "type": "text", "id": "plan3_period", "label": "Period", "default": "/ year" },
+    { "type": "text", "id": "plan3_tagline", "label": "Tagline", "default": "One month free. Limited to 40 members." },
+    { "type": "text", "id": "plan3_feature1", "label": "Feature 1", "default": "Everything in Range Pass Plus" },
+    { "type": "text", "id": "plan3_feature2", "label": "Feature 2", "default": "One month free (vs. monthly billing)" },
+    { "type": "text", "id": "plan3_feature3", "label": "Feature 3", "default": "Founding member recognition" },
+    { "type": "text", "id": "plan3_feature4", "label": "Feature 4", "default": "Priority access to future perks" },
+    { "type": "text", "id": "plan3_feature5", "label": "Feature 5", "default": "Limited to 40 members — ever" },
+    { "type": "text", "id": "plan3_feature6", "label": "Feature 6", "default": "" },
+    { "type": "text", "id": "plan3_feature7", "label": "Feature 7", "default": "" },
+    { "type": "text", "id": "plan3_feature8", "label": "Feature 8", "default": "" },
+    {
+      "type": "header",
+      "content": "Price Comparison"
+    },
+    { "type": "text", "id": "pricing_eyebrow", "label": "Eyebrow", "default": "Member Savings" },
+    { "type": "text", "id": "pricing_heading", "label": "Heading", "default": "See What You Save" },
+    { "type": "textarea", "id": "pricing_sub", "label": "Subtext", "default": "Member pricing applies to every basket, every visit." },
+    { "type": "text", "id": "basket1_name", "label": "Basket 1 name", "default": "Small (45 balls)" },
+    { "type": "text", "id": "basket1_walkin", "label": "Basket 1 walk-in price", "default": "$15" },
+    { "type": "text", "id": "basket1_member", "label": "Basket 1 member price", "default": "$10" },
+    { "type": "text", "id": "basket1_savings", "label": "Basket 1 savings label", "default": "$5" },
+    { "type": "text", "id": "basket2_name", "label": "Basket 2 name", "default": "Medium (90 balls)" },
+    { "type": "text", "id": "basket2_walkin", "label": "Basket 2 walk-in price", "default": "$21" },
+    { "type": "text", "id": "basket2_member", "label": "Basket 2 member price", "default": "$14" },
+    { "type": "text", "id": "basket2_savings", "label": "Basket 2 savings label", "default": "$7" },
+    { "type": "text", "id": "basket3_name", "label": "Basket 3 name", "default": "Large (140 balls)" },
+    { "type": "text", "id": "basket3_walkin", "label": "Basket 3 walk-in price", "default": "$26" },
+    { "type": "text", "id": "basket3_member", "label": "Basket 3 member price", "default": "$17" },
+    { "type": "text", "id": "basket3_savings", "label": "Basket 3 savings label", "default": "$9" },
+    {
+      "type": "header",
+      "content": "Full Benefits Table"
+    },
+    { "type": "text", "id": "benefits_eyebrow", "label": "Eyebrow", "default": "Compare Plans" },
+    { "type": "text", "id": "benefits_heading", "label": "Heading", "default": "Everything Included" },
+    {
+      "type": "header",
+      "content": "FAQ"
+    },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "Questions" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Common Questions" },
+    {
+      "type": "header",
+      "content": "Closing CTA"
+    },
+    { "type": "text", "id": "cta_heading", "label": "Heading", "default": "Ready to Join?" },
+    { "type": "text", "id": "cta_sub", "label": "Subtext", "default": "Start saving every time you play." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Row",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Benefit name", "default": "Member basket prices" },
+        { "type": "checkbox", "id": "plan1", "label": "Range Pass", "default": true },
+        { "type": "checkbox", "id": "plan2", "label": "Range Pass Plus", "default": true },
+        { "type": "checkbox", "id": "plan3", "label": "Founding 40", "default": true }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How does billing work?" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Your membership renews automatically each month (or year for Founding 40) on the date you sign up." },
+        { "type": "text", "id": "placeholder_note", "label": "Placeholder note (shown in italic, delete when final)", "default": "[PLACEHOLDER — confirm terms with legal]" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "NCDR Membership",
+      "blocks": [
+        { "type": "benefit", "settings": { "label": "Member basket prices", "plan1": true, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Free birthday month basket", "plan1": true, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Members-only events", "plan1": true, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Digital wallet card", "plan1": true, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Simulator discounts", "plan1": false, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Lesson discounts", "plan1": false, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Pro shop discounts", "plan1": false, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Food & beverage discounts", "plan1": false, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "One free club fitting/year", "plan1": false, "plan2": true, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "Founding member recognition", "plan1": false, "plan2": false, "plan3": true } },
+        { "type": "benefit", "settings": { "label": "One month free (annual)", "plan1": false, "plan2": false, "plan3": true } },
+        { "type": "faq", "settings": { "question": "How does billing work?", "answer": "Your membership renews automatically each month on your sign-up date. The Founding 40 plan is billed annually." } },
+        { "type": "faq", "settings": { "question": "How do I cancel?", "answer": "You can cancel anytime through your Pintuna account portal. There are no cancellation fees." } },
+        { "type": "faq", "settings": { "question": "How do I use my digital card?", "answer": "After signing up, you'll receive a link to add your member card to Apple Wallet or Google Wallet. Show it at the counter each visit." } },
+        { "type": "faq", "settings": { "question": "Can I share my membership?", "answer": "Memberships are individual and non-transferable. Each person must have their own pass." } },
+        { "type": "faq", "settings": { "question": "Do you offer coupon books?", "answer": "Coupon books are available for non-members. Members receive automatic discounts at the counter — no coupons needed." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
