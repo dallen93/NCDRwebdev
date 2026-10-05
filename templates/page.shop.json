@@ -26,7 +26,7 @@
             "image": "shopify://shop_images/Majesty_Prestigio_13_Ladies_Iron_1.jpg",
             "brand_name": "Majesty",
             "credential": "",
-            "link": "/collections/majesty"
+            "link": "shopify://pages/majesty-prestigio-14"
           }
         },
         "honma": {
@@ -35,7 +35,7 @@
             "image": "shopify://shop_images/Ladies_5-Star_Fairway_Wood_1.webp",
             "brand_name": "Honma",
             "credential": "",
-            "link": "/collections/honma"
+            "link": "shopify://pages/honma-beres-10"
           }
         },
         "xxio": {
@@ -44,7 +44,7 @@
             "image": "shopify://shop_images/XXIO_14_CTA_Clubs_on_Grass.jpg",
             "brand_name": "XXIO",
             "credential": "",
-            "link": "/collections/xxio"
+            "link": "shopify://pages/xxio-14"
           }
         }
       },
