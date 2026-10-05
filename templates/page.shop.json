@@ -118,6 +118,7 @@
         "majesty_story": {
           "type": "brand_story",
           "settings": {
+            "bg_image": "shopify://shop_images/Majesty_Story_Thumbnail.webp",
             "brand_name": "Majesty",
             "tagline": "Precision refined for the discerning golfer.",
             "story_link": "/pages/majesty-story"
@@ -126,6 +127,7 @@
         "honma_story": {
           "type": "brand_story",
           "settings": {
+            "bg_image": "shopify://shop_images/Honma_Story_Thumbnail.webp",
             "brand_name": "Honma",
             "tagline": "A heritage of excellence.",
             "story_link": "/pages/honma-story"
