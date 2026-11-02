@@ -1,0 +1,10 @@
+{%- comment -%}
+  Loads the shared membership stylesheet and the Playfair Display accent font.
+  Render at the top of every ncdr-mem-* section. Browsers fetch each URL once,
+  so rendering it from several sections is safe.
+  Usage: {% render 'ncdr-mem-assets' %}
+{%- endcomment -%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+{{ 'ncdr-membership.css' | asset_url | stylesheet_tag }}
