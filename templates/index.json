@@ -36,12 +36,14 @@
         "slide_1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Home_Page_Carousel_Driving_Range_Bays_2.jpg",
             "caption": "Premium Pro Shop"
           }
         },
         "slide_2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Home_Page_Carousel_Driving_Range_Bays_1.jpg",
             "caption": "Driving Range Bays"
           }
         },
