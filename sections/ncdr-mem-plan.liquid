@@ -1,0 +1,276 @@
+{%- comment -%}
+  Membership page — 2. Plan card
+  Prices, payment options and on/off switches come from
+  Theme settings → Northcrest Membership. Nothing price-related is typed here.
+  The highlighted price is the enabled prepay option with the biggest saving.
+  Tokens you can type in text fields: [PLAN NAME], [MONTHLY PRICE], [NOTICE PERIOD].
+{%- endcomment -%}
+{% render 'ncdr-mem-assets' %}
+
+{%- liquid
+  assign launch = settings.mem_launch_mode | default: 'coming_soon'
+  assign monthly = settings.mem_monthly_price | default: 0
+  assign monthly_fmt = monthly | times: 100 | money_without_trailing_zeros
+  assign plan_name = settings.mem_plan_name | escape
+  assign notice = settings.mem_notice_period | escape
+
+  assign a_on = settings.mem_prepay_a_enabled
+  assign a_months = settings.mem_prepay_a_months | default: 1
+  assign a_price = settings.mem_prepay_a_price | default: 0
+  assign a_save = monthly | times: a_months | minus: a_price
+
+  assign b_on = settings.mem_prepay_b_enabled
+  assign b_months = settings.mem_prepay_b_months | default: 1
+  assign b_price = settings.mem_prepay_b_price | default: 0
+  assign b_save = monthly | times: b_months | minus: b_price
+
+  assign best = ''
+  if a_on and b_on
+    if b_save > a_save
+      assign best = 'b'
+      assign other = 'a'
+    else
+      assign best = 'a'
+      assign other = 'b'
+    endif
+  elsif b_on
+    assign best = 'b'
+  elsif a_on
+    assign best = 'a'
+  endif
+
+  if best == 'a'
+    assign best_label = settings.mem_prepay_a_label
+    assign best_price = a_price
+    assign best_months = a_months
+    assign best_save = a_save
+    assign best_note = settings.mem_prepay_a_note
+    assign best_renewal = settings.mem_prepay_a_renewal
+  elsif best == 'b'
+    assign best_label = settings.mem_prepay_b_label
+    assign best_price = b_price
+    assign best_months = b_months
+    assign best_save = b_save
+    assign best_note = settings.mem_prepay_b_note
+    assign best_renewal = settings.mem_prepay_b_renewal
+  endif
+
+  if other == 'a'
+    assign other_label = settings.mem_prepay_a_label
+    assign other_price = a_price
+    assign other_save = a_save
+  elsif other == 'b'
+    assign other_label = settings.mem_prepay_b_label
+    assign other_price = b_price
+    assign other_save = b_save
+  endif
+
+  assign heading = section.settings.heading | escape | replace: '[PLAN NAME]', plan_name
+  assign subtext_raw = section.settings.subtext
+  if best == ''
+    assign subtext_raw = section.settings.subtext_monthly_only
+  endif
+  assign subtext = subtext_raw | escape | replace: '[PLAN NAME]', plan_name | replace: '[MONTHLY PRICE]', monthly_fmt | replace: '[NOTICE PERIOD]', notice
+  assign terms_note = section.settings.terms_note | escape | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name
+-%}
+
+<section class="mem mem-section mem-section--tint mem-plan" id="mem-plan" aria-labelledby="mem-plan-heading-{{ section.id }}">
+  <div class="mem-wrap">
+    <header class="mem-center mem-plan__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="mem-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="mem-h2" id="mem-plan-heading-{{ section.id }}">{{ heading }}</h2>
+      {%- if subtext != blank -%}
+        <p class="mem-sub">{{ subtext }}</p>
+      {%- endif -%}
+    </header>
+
+    <article class="mem-plan__card" aria-label="{{ plan_name }}">
+      <div class="mem-plan__card-head">
+        <h3 class="mem-h3 mem-plan__name">{{ plan_name }}</h3>
+        {%- if section.settings.tagline != blank -%}
+          <p class="mem-plan__tagline mem-accent">{{ section.settings.tagline | escape }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="mem-plan__prices{% if best == '' %} mem-plan__prices--single{% endif %}">
+        <div class="mem-plan__price-box">
+          <p class="mem-plan__price-label">{{ settings.mem_monthly_label | escape }}</p>
+          <p class="mem-plan__price-row">
+            <span class="mem-price mem-plan__price">{{ monthly_fmt }}</span>
+            <span class="mem-plan__per">/ month</span>
+          </p>
+          <p class="mem-plan__renew">{{ settings.mem_monthly_renewal | escape }}</p>
+        </div>
+
+        {%- if best != '' -%}
+          <div class="mem-plan__price-box mem-plan__price-box--best">
+            {%- if section.settings.best_badge != blank -%}
+              <p class="mem-plan__badge">{{ section.settings.best_badge | escape }}</p>
+            {%- endif -%}
+            <p class="mem-plan__price-label">{{ best_label | escape }}</p>
+            <p class="mem-plan__price-row">
+              <span class="mem-price mem-plan__price">{{ best_price | times: 100 | money_without_trailing_zeros }}</span>
+              <span class="mem-plan__per">for {{ best_months }} months</span>
+            </p>
+            {%- if best_save > 0 -%}
+              <p class="mem-plan__save">
+                Save {{ best_save | times: 100 | money_without_trailing_zeros }}
+                {%- if best_note != blank %} · {{ best_note | escape }}{% endif -%}
+              </p>
+            {%- endif -%}
+            {%- if section.settings.show_per_month -%}
+              {%- assign per_month_cents = best_price | times: 100.0 | divided_by: best_months | round -%}
+              <p class="mem-plan__equiv">Works out to {{ per_month_cents | money }} a month</p>
+            {%- endif -%}
+            <p class="mem-plan__renew">{{ best_renewal | escape }}</p>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if other_label != blank -%}
+        <p class="mem-plan__also">
+          Also available: {{ other_label | escape }}, {{ other_price | times: 100 | money_without_trailing_zeros -}}
+          {%- if other_save > 0 %} (save {{ other_save | times: 100 | money_without_trailing_zeros }}){% endif -%}
+          .
+        </p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="mem-plan__benefits-wrap">
+          {%- if section.settings.benefits_heading != blank -%}
+            <h4 class="mem-plan__benefits-heading">{{ section.settings.benefits_heading | escape }}</h4>
+          {%- endif -%}
+          <ul class="mem-plan__benefits">
+            {%- for block in section.blocks -%}
+              {%- assign benefit = block.settings.text | escape | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name -%}
+              <li {{ block.shopify_attributes }}>
+                <span class="mem-plan__check" aria-hidden="true"></span>
+                <span>{{ benefit }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      <div class="mem-plan__cta">
+        {%- if launch == 'live' -%}
+          <a href="#mem-plan" class="mem-btn mem-btn--green mem-btn--block" data-mem-open aria-haspopup="dialog">
+            {{- section.settings.join_label | escape -}}
+          </a>
+        {%- else -%}
+          <p class="mem-plan__soon">{{ settings.mem_launch_note | escape }}</p>
+          <a href="#mem-hero" class="mem-btn mem-btn--outline mem-btn--block">{{ section.settings.notify_label | escape }}</a>
+        {%- endif -%}
+      </div>
+    </article>
+
+    {%- if terms_note != blank -%}
+      <p class="mem-plan__terms">{{ terms_note }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% style %}
+  .mem-plan__header { margin-bottom: 44px; }
+  .mem-plan__card {
+    max-width: 880px; margin: 0 auto; background: var(--mem-white);
+    border: 2px solid var(--mem-green); border-radius: 4px; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(26, 45, 16, .08);
+  }
+  .mem-plan__card-head { background: var(--mem-green); color: var(--mem-white); padding: 28px 40px; text-align: center; }
+  .mem-plan__name { color: var(--mem-white); margin: 0; font-size: 30px; }
+  .mem-plan__tagline { margin: 6px 0 0; font-size: 20px; color: var(--mem-gold-on-green); }
+
+  .mem-plan__prices { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 36px 40px 8px; }
+  .mem-plan__prices--single { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .mem-plan__price-box {
+    position: relative; text-align: center; border: 1.5px solid var(--mem-line); border-radius: 4px;
+    padding: 30px 20px 24px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .mem-plan__price-box--best { background: var(--mem-gold-tint); border: 2px solid var(--mem-gold); }
+  .mem-plan__badge {
+    position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); margin: 0; white-space: nowrap;
+    background: var(--mem-gold); color: #1a1208; font-family: var(--mem-font-head); font-size: 14px; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+  }
+  .mem-plan__price-label { font-family: var(--mem-font-head); font-size: 18px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--mem-text-mid); margin: 0 0 10px; }
+  .mem-plan__price-row { margin: 0; display: flex; align-items: baseline; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .mem-plan__price { font-size: 64px; }
+  .mem-plan__per { font-size: 19px; color: var(--mem-text-mid); }
+  .mem-plan__save { margin: 12px 0 0; font-family: var(--mem-font-head); font-size: 21px; font-weight: 600; letter-spacing: .03em; color: var(--mem-green); }
+  .mem-plan__equiv { margin: 4px 0 0; font-size: 17px; color: var(--mem-text-mid); }
+  .mem-plan__renew { margin: 10px 0 0; font-size: 17px; color: var(--mem-text-mid); }
+  .mem-plan__also { text-align: center; font-size: 17px; color: var(--mem-text-mid); margin: 14px 40px 0; }
+
+  .mem-plan__benefits-wrap { padding: 28px 40px 8px; }
+  .mem-plan__benefits-heading { font-family: var(--mem-font-head); font-size: 18px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mem-green); margin: 0 0 14px; }
+  .mem-plan__benefits { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; }
+  .mem-plan__benefits li { display: flex; gap: 12px; align-items: flex-start; font-size: 18px; line-height: 1.5; }
+  .mem-plan__check {
+    flex: 0 0 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: var(--mem-green); position: relative;
+  }
+  .mem-plan__check::after {
+    content: ''; position: absolute; left: 8px; top: 4px; width: 6px; height: 12px;
+    border: solid var(--mem-white); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg);
+  }
+
+  .mem-plan__cta { padding: 28px 40px 36px; }
+  .mem-plan__soon { text-align: center; font-size: 18px; font-weight: 600; color: var(--mem-green); margin: 0 0 12px; }
+  .mem-plan__terms { max-width: 880px; margin: 18px auto 0; text-align: center; font-size: 17px; color: var(--mem-text-mid); }
+
+  @media (max-width: 749px) {
+    .mem-plan__card-head { padding: 22px 20px; }
+    .mem-plan__name { font-size: 26px; }
+    .mem-plan__prices { grid-template-columns: 1fr; gap: 28px; padding: 32px 20px 4px; }
+    .mem-plan__price { font-size: 56px; }
+    .mem-plan__also { margin: 14px 20px 0; }
+    .mem-plan__benefits-wrap { padding: 24px 20px 4px; }
+    .mem-plan__benefits { grid-template-columns: 1fr; }
+    .mem-plan__cta { padding: 24px 20px 28px; }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Membership: Plan card",
+  "tag": "div",
+  "class": "ncdr-mem-plan-section",
+  "settings": [
+    { "type": "paragraph", "content": "Prices, payment options and on/off switches are in Theme settings → Northcrest Membership. The highlighted price is the turned-on prepay option with the biggest saving. Tokens: [PLAN NAME], [MONTHLY PRICE], [NOTICE PERIOD]." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The plan" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "One membership. Pay your way." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Pay monthly, or pay ahead and save. Every option gets the same member pricing." },
+    { "type": "textarea", "id": "subtext_monthly_only", "label": "Subtext when no prepay option is turned on", "default": "One simple monthly price, with member pricing on every basket." },
+    { "type": "text", "id": "tagline", "label": "Card tagline (italic)", "default": "Member pricing on every basket, every visit." },
+    { "type": "text", "id": "best_badge", "label": "Badge on the highlighted prepay price", "default": "Best value", "info": "Leave blank to hide." },
+    { "type": "checkbox", "id": "show_per_month", "label": "Show \"works out to $X a month\" under the prepay price", "default": true },
+    { "type": "text", "id": "benefits_heading", "label": "Benefits heading", "default": "What's included" },
+    { "type": "text", "id": "join_label", "label": "Join button label (Live mode)", "default": "Join now", "info": "Opens the sign-up pop-up." },
+    { "type": "text", "id": "notify_label", "label": "Button label (Coming soon mode)", "default": "Get notified when it opens", "info": "Jumps up to the Notify me form in the hero." },
+    { "type": "text", "id": "terms_note", "label": "Terms note under the card", "default": "Full membership terms are shown before checkout. Cancel any time with [NOTICE PERIOD]." }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Benefit", "default": "Member price on every range basket" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Membership: Plan card",
+      "blocks": [
+        { "type": "benefit", "settings": { "text": "Member price on every range basket: small, medium or large" } },
+        { "type": "benefit", "settings": { "text": "No limit on member-priced baskets per visit" } },
+        { "type": "benefit", "settings": { "text": "Digital membership card for Apple Wallet or Google Wallet" } },
+        { "type": "benefit", "settings": { "text": "Show your card at the counter. No coupons to carry." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
