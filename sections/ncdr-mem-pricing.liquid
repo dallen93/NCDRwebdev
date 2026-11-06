@@ -1,0 +1,139 @@
+{%- comment -%}
+  Membership page — 3. Price comparison
+  One block per basket: name, ball count, walk-in price, member price.
+  The "Save $X" amount is calculated (walk-in minus member), never typed.
+{%- endcomment -%}
+{% render 'ncdr-mem-assets' %}
+
+<section class="mem mem-section mem-pricing" id="mem-pricing" aria-labelledby="mem-pricing-heading-{{ section.id }}">
+  <div class="mem-wrap mem-wrap--narrow">
+    <header class="mem-center mem-pricing__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="mem-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="mem-h2" id="mem-pricing-heading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p class="mem-sub">{{ section.settings.subtext | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if section.blocks.size > 0 -%}
+      <table class="mem-pricing__table">
+        <caption class="mem-visually-hidden">{{ section.settings.heading | escape }}: walk-in and member price for each basket</caption>
+        <thead>
+          <tr>
+            <th scope="col">{{ section.settings.col_basket | escape }}</th>
+            <th scope="col">{{ section.settings.col_walkin | escape }}</th>
+            <th scope="col" class="mem-pricing__th-member">{{ section.settings.col_member | escape }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign walkin = block.settings.walkin_price | default: 0
+              assign member = block.settings.member_price | default: 0
+              assign save = walkin | minus: member
+            -%}
+            <tr {{ block.shopify_attributes }}>
+              <th scope="row" class="mem-pricing__basket">
+                <span class="mem-pricing__name">{{ block.settings.name | escape }}</span>
+                {%- if block.settings.detail != blank -%}
+                  <span class="mem-pricing__detail">{{ block.settings.detail | escape }}</span>
+                {%- endif -%}
+              </th>
+              <td class="mem-pricing__walkin">{{ walkin | times: 100 | money_without_trailing_zeros }}</td>
+              <td class="mem-pricing__member">
+                <span class="mem-price mem-pricing__member-price">{{ member | times: 100 | money_without_trailing_zeros }}</span>
+                {%- if save > 0 -%}
+                  <span class="mem-pricing__save">Save {{ save | times: 100 | money_without_trailing_zeros }}</span>
+                {%- endif -%}
+              </td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    {%- endif -%}
+
+    {%- if section.settings.footnote != blank -%}
+      <p class="mem-pricing__footnote mem-accent">{{ section.settings.footnote | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% style %}
+  .mem-pricing__header { margin-bottom: 40px; }
+  .mem-pricing__table { width: 100%; border-collapse: separate; border-spacing: 0; border: 2px solid var(--mem-line); border-radius: 4px; overflow: hidden; }
+  .mem-pricing__table thead th {
+    padding: 16px 24px; background: var(--mem-off-white); border-bottom: 2px solid var(--mem-line);
+    font-family: var(--mem-font-head); font-size: 17px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--mem-text-mid); text-align: center;
+  }
+  .mem-pricing__table thead th:first-child { text-align: left; }
+  .mem-pricing__table thead .mem-pricing__th-member { background: var(--mem-green); color: var(--mem-white); border-bottom-color: var(--mem-green); }
+  .mem-pricing__table tbody th, .mem-pricing__table tbody td { padding: 22px 24px; border-bottom: 1px solid var(--mem-line); vertical-align: middle; }
+  .mem-pricing__table tbody tr:last-child th, .mem-pricing__table tbody tr:last-child td { border-bottom: 0; }
+  .mem-pricing__basket { text-align: left; font-weight: 400; }
+  .mem-pricing__name { display: block; font-family: var(--mem-font-head); font-size: 24px; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--mem-text); }
+  .mem-pricing__detail { display: block; font-size: 18px; color: var(--mem-text-mid); }
+  .mem-pricing__walkin { text-align: center; font-family: var(--mem-font-head); font-size: 28px; font-weight: 500; color: var(--mem-text-mid); }
+  .mem-pricing__member { text-align: center; background: rgba(58, 88, 43, .05); }
+  .mem-pricing__member-price { display: block; font-size: 42px; }
+  .mem-pricing__save {
+    display: inline-block; margin-top: 8px; padding: 4px 12px; border-radius: 20px;
+    background: var(--mem-gold); color: #1a1208;
+    font-family: var(--mem-font-head); font-size: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .mem-pricing__footnote { margin: 28px 0 0; text-align: center; font-size: 24px; line-height: 1.4; color: var(--mem-green); }
+
+  @media (max-width: 749px) {
+    .mem-pricing__table thead th { padding: 12px 10px; font-size: 14px; letter-spacing: .06em; }
+    .mem-pricing__table tbody th, .mem-pricing__table tbody td { padding: 16px 10px; }
+    .mem-pricing__name { font-size: 19px; }
+    .mem-pricing__detail { font-size: 16px; }
+    .mem-pricing__walkin { font-size: 24px; }
+    .mem-pricing__member-price { font-size: 34px; }
+    .mem-pricing__save { font-size: 14px; padding: 3px 9px; }
+    .mem-pricing__footnote { font-size: 21px; }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Membership: Prices",
+  "tag": "div",
+  "class": "ncdr-mem-pricing-section",
+  "settings": [
+    { "type": "paragraph", "content": "Add one Basket block per basket size. The \"Save $X\" badge is calculated from the walk-in and member prices." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Member savings" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "See what you save" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Member pricing applies to every basket, every visit.", "info": "Press Enter for a line break." },
+    { "type": "text", "id": "col_basket", "label": "Column 1 heading", "default": "Basket" },
+    { "type": "text", "id": "col_walkin", "label": "Column 2 heading", "default": "Walk-in" },
+    { "type": "text", "id": "col_member", "label": "Column 3 heading", "default": "Member" },
+    { "type": "text", "id": "footnote", "label": "Line under the table", "default": "Come once a week and your membership pays for itself.", "info": "Leave blank to hide." }
+  ],
+  "blocks": [
+    {
+      "type": "basket",
+      "name": "Basket",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Basket name", "default": "Small" },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "45 balls" },
+        { "type": "number", "id": "walkin_price", "label": "Walk-in price (dollars)", "default": 13 },
+        { "type": "number", "id": "member_price", "label": "Member price (dollars)", "default": 9 }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Membership: Prices",
+      "blocks": [
+        { "type": "basket", "settings": { "name": "Small", "detail": "45 balls", "walkin_price": 13, "member_price": 9 } },
+        { "type": "basket", "settings": { "name": "Medium", "detail": "90 balls", "walkin_price": 18, "member_price": 13 } },
+        { "type": "basket", "settings": { "name": "Large", "detail": "140 balls", "walkin_price": 22, "member_price": 16 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

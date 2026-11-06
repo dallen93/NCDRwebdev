@@ -54,11 +54,50 @@
       "settings": {
         "dialog_title": "Join [PLAN NAME]"
       }
+    },
+    "pricing": {
+      "type": "ncdr-mem-pricing",
+      "blocks": {
+        "basket-small": {
+          "type": "basket",
+          "settings": {
+            "name": "Small",
+            "detail": "45 balls",
+            "walkin_price": 13,
+            "member_price": 9
+          }
+        },
+        "basket-medium": {
+          "type": "basket",
+          "settings": {
+            "name": "Medium",
+            "detail": "90 balls",
+            "walkin_price": 18,
+            "member_price": 13
+          }
+        },
+        "basket-large": {
+          "type": "basket",
+          "settings": {
+            "name": "Large",
+            "detail": "140 balls",
+            "walkin_price": 22,
+            "member_price": 16
+          }
+        }
+      },
+      "block_order": [
+        "basket-small",
+        "basket-medium",
+        "basket-large"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "plan",
+    "pricing",
     "signup"
   ]
 }

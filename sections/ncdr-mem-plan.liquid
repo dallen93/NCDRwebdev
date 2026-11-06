@@ -70,7 +70,7 @@
   if best == ''
     assign subtext_raw = section.settings.subtext_monthly_only
   endif
-  assign subtext = subtext_raw | escape | replace: '[PLAN NAME]', plan_name | replace: '[MONTHLY PRICE]', monthly_fmt | replace: '[NOTICE PERIOD]', notice
+  assign subtext = subtext_raw | escape | replace: '[PLAN NAME]', plan_name | replace: '[MONTHLY PRICE]', monthly_fmt | replace: '[NOTICE PERIOD]', notice | newline_to_br
   assign terms_note = section.settings.terms_note | escape | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name
 -%}
 
@@ -241,7 +241,7 @@
     { "type": "paragraph", "content": "Prices, payment options and on/off switches are in Theme settings → Northcrest Membership. The highlighted price is the turned-on prepay option with the biggest saving. Tokens: [PLAN NAME], [MONTHLY PRICE], [NOTICE PERIOD]." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The plan" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "One membership. Pay your way." },
-    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Pay monthly, or pay ahead and save. Every option gets the same member pricing." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Pay monthly, or pay ahead and save.\nEvery option gets the same member pricing.", "info": "Press Enter for a line break." },
     { "type": "textarea", "id": "subtext_monthly_only", "label": "Subtext when no prepay option is turned on", "default": "One simple monthly price, with member pricing on every basket." },
     { "type": "text", "id": "tagline", "label": "Card tagline (italic)", "default": "Member pricing on every basket, every visit." },
     { "type": "text", "id": "best_badge", "label": "Badge on the highlighted prepay price", "default": "Best value", "info": "Leave blank to hide." },
