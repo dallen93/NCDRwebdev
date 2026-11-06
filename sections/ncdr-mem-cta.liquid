@@ -10,15 +10,24 @@
   assign launch = settings.mem_launch_mode | default: 'coming_soon'
   assign monthly_fmt = settings.mem_monthly_price | times: 100 | money_without_trailing_zeros
   assign plan_name = settings.mem_plan_name | escape
-  assign subtext = section.settings.subtext | escape | replace: '[MONTHLY PRICE]', monthly_fmt | replace: '[PLAN NAME]', plan_name | newline_to_br
+  if launch == 'live'
+    assign heading = section.settings.heading
+    assign heading_accent = section.settings.heading_accent
+    assign subtext_raw = section.settings.subtext
+  else
+    assign heading = section.settings.soon_heading
+    assign heading_accent = section.settings.soon_heading_accent
+    assign subtext_raw = section.settings.soon_subtext
+  endif
+  assign subtext = subtext_raw | escape | replace: '[MONTHLY PRICE]', monthly_fmt | replace: '[PLAN NAME]', plan_name | newline_to_br
 -%}
 
 <section class="mem mem-section mem-section--green mem-center mem-cta" id="mem-join" aria-labelledby="mem-cta-heading-{{ section.id }}">
   <div class="mem-wrap mem-cta__inner">
     <h2 class="mem-h2 mem-cta__heading" id="mem-cta-heading-{{ section.id }}">
-      {{ section.settings.heading | escape }}
-      {%- if section.settings.heading_accent != blank -%}
-        <span class="mem-accent mem-cta__accent">{{ section.settings.heading_accent | escape }}</span>
+      {{ heading | escape }}
+      {%- if heading_accent != blank -%}
+        <span class="mem-accent mem-cta__accent">{{ heading_accent | escape }}</span>
       {%- endif -%}
     </h2>
     {%- if subtext != blank -%}
@@ -60,12 +69,16 @@
   "tag": "div",
   "class": "ncdr-mem-cta-section",
   "settings": [
-    { "type": "paragraph", "content": "Join button vs. Notify me form follows Theme settings → Northcrest Membership → Launch mode. Tokens: [PLAN NAME], [MONTHLY PRICE]." },
+    { "type": "paragraph", "content": "Shows the Live copy and Join button, or the Coming soon copy and Notify me form, depending on Theme settings → Northcrest Membership → Launch mode. Tokens: [PLAN NAME], [MONTHLY PRICE]." },
+    { "type": "header", "content": "When launch mode is Live" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Ready for member pricing?" },
     { "type": "text", "id": "heading_accent", "label": "Heading accent (italic, second line)", "default": "Your next basket could cost less." },
-    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Join online in a few minutes. Your digital card is ready for your next visit.", "info": "Press Enter for a line break." },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "Join online in a few minutes.\nYour digital card is ready for your next visit.", "info": "Press Enter for a line break." },
     { "type": "text", "id": "join_label", "label": "Join button label (Live mode)", "default": "Join now", "info": "Opens the sign-up pop-up." },
     { "type": "header", "content": "When launch mode is Coming soon" },
+    { "type": "text", "id": "soon_heading", "label": "Heading", "default": "Membership opens soon" },
+    { "type": "text", "id": "soon_heading_accent", "label": "Heading accent (italic, second line)", "default": "Be the first to know." },
+    { "type": "textarea", "id": "soon_subtext", "label": "Subtext", "default": "Leave your email and we'll let you know\nas soon as sign-ups open.", "info": "Press Enter for a line break." },
     { "type": "text", "id": "notify_placeholder", "label": "Email field placeholder", "default": "Your email address" },
     { "type": "text", "id": "notify_button", "label": "Button label", "default": "Notify me" },
     { "type": "text", "id": "notify_success", "label": "Confirmation message", "default": "You're on the list. We'll email you when membership opens." }
