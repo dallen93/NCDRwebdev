@@ -1,0 +1,57 @@
+{%- comment -%}
+  "Notify me" email form, shown while Theme settings → Northcrest Membership →
+  Launch mode is "Coming soon". Used by the hero and the closing call to action.
+
+  KLAVIYO STUB: the form does not send the email anywhere yet. On submit it only
+  shows the confirmation message. Connect Klaviyo where marked in the script below.
+
+  Usage:
+    {% render 'ncdr-mem-notify', form_id: section.id, button_label: '...', placeholder: '...', success: '...', note: '...' %}
+{%- endcomment -%}
+{%- assign notify_id = 'mem-notify-' | append: form_id -%}
+<form class="mem-notify" id="{{ notify_id }}" action="#" method="post" novalidate data-mem-notify>
+  <label class="mem-visually-hidden" for="{{ notify_id }}-email">Email address</label>
+  <input
+    class="mem-notify__input"
+    id="{{ notify_id }}-email"
+    type="email"
+    name="email"
+    autocomplete="email"
+    placeholder="{{ placeholder | default: 'Your email address' | escape }}"
+    required
+    aria-describedby="{{ notify_id }}-status"
+  >
+  <button type="submit" class="mem-btn mem-btn--gold">{{ button_label | default: 'Notify me' | escape }}</button>
+</form>
+<p class="mem-notify__status" id="{{ notify_id }}-status" role="status" aria-live="polite" data-success="{{ success | default: "You're on the list. We'll email you when membership opens." | escape }}"></p>
+{%- if note != blank -%}
+  <p class="mem-notify__note">{{ note | escape }}</p>
+{%- endif -%}
+
+<script>
+  (function () {
+    var form = document.getElementById('{{ notify_id }}');
+    if (!form || form.dataset.bound) return;
+    form.dataset.bound = 'true';
+    var input = form.querySelector('input[type="email"]');
+    var status = document.getElementById('{{ notify_id }}-status');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!input.checkValidity()) {
+        status.textContent = 'Please enter a valid email address.';
+        status.classList.add('mem-notify__status--error');
+        input.setAttribute('aria-invalid', 'true');
+        input.focus();
+        return;
+      }
+      // ── KLAVIYO STUB ─────────────────────────────────────────────
+      // Send input.value to the Klaviyo list here (e.g. the Klaviyo
+      // client subscriptions API) before showing the confirmation.
+      // ─────────────────────────────────────────────────────────────
+      input.removeAttribute('aria-invalid');
+      status.classList.remove('mem-notify__status--error');
+      status.textContent = status.dataset.success;
+      form.hidden = true;
+    });
+  })();
+</script>
