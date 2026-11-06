@@ -1,0 +1,273 @@
+{%- comment -%}
+  Membership page — Sign-up pop-up
+  Opens from any element with the data-mem-open attribute (hero, plan card and
+  closing Join buttons). Only rendered when Theme settings → Northcrest Membership →
+  Launch mode is "Live".
+  Payment options, prices, terms and Submatic checkout URLs come from Theme settings.
+  If no prepay option is turned on, the payment step is skipped ("Step 1 of 2").
+  Tokens you can type in text fields: [PLAN NAME], [NOTICE PERIOD].
+{%- endcomment -%}
+{%- liquid
+  assign launch = settings.mem_launch_mode | default: 'coming_soon'
+  assign plan_name = settings.mem_plan_name | escape
+  assign notice = settings.mem_notice_period | escape
+  assign monthly = settings.mem_monthly_price | default: 0
+  assign monthly_fmt = monthly | times: 100 | money_without_trailing_zeros
+  assign has_prepay = false
+  if settings.mem_prepay_a_enabled or settings.mem_prepay_b_enabled
+    assign has_prepay = true
+  endif
+  assign uid = 'mem-signup-' | append: section.id
+-%}
+
+{%- if launch == 'live' -%}
+  {% render 'ncdr-mem-assets' %}
+  {{ 'ncdr-mem-signup.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'ncdr-mem-signup.js' | asset_url }}" defer></script>
+
+  {%- if request.design_mode -%}
+    <div class="mem mem-signup-editor">
+      <p><strong>Sign-up pop-up</strong> · opens from the Join buttons on this page. This bar only shows in the editor.</p>
+      <button type="button" class="mem-btn mem-btn--green" data-mem-open>Preview pop-up</button>
+    </div>
+  {%- endif -%}
+
+  <dialog
+    class="mem mem-signup"
+    id="{{ uid }}"
+    data-mem-signup
+    data-section-id="{{ section.id }}"
+    aria-labelledby="{{ uid }}-title"
+  >
+    <form class="mem-signup__form" method="dialog" novalidate>
+      <header class="mem-signup__top">
+        <div>
+          <p class="mem-signup__title" id="{{ uid }}-title">{{ section.settings.dialog_title | escape | replace: '[PLAN NAME]', plan_name }}</p>
+          <p class="mem-signup__progress" data-mem-progress aria-live="polite"></p>
+        </div>
+        <button type="button" class="mem-signup__close" data-mem-close aria-label="Close sign-up">
+          <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 22 22"><path d="M4 4l14 14M18 4L4 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        </button>
+      </header>
+
+      {%- comment -%} ── STEP: payment option ── {%- endcomment -%}
+      {%- if has_prepay -%}
+        <section class="mem-signup__step" data-mem-step="payment" aria-labelledby="{{ uid }}-h-payment" hidden>
+          <h2 class="mem-signup__heading" id="{{ uid }}-h-payment" tabindex="-1">{{ section.settings.payment_heading | escape }}</h2>
+          <fieldset class="mem-signup__options">
+            <legend class="mem-visually-hidden">{{ section.settings.payment_heading | escape }}</legend>
+
+            <label class="mem-signup__option">
+              <input
+                type="radio"
+                name="{{ uid }}-option"
+                value="monthly"
+                checked
+                data-label="{{ settings.mem_monthly_label | escape }}"
+                data-price="{{ monthly_fmt }} a month"
+                data-renewal="{{ settings.mem_monthly_renewal | escape }}"
+                data-url="{{ settings.mem_monthly_url }}"
+              >
+              <span class="mem-signup__option-body">
+                <span class="mem-signup__option-top">
+                  <span class="mem-signup__option-name">{{ settings.mem_monthly_label | escape }}</span>
+                  <span class="mem-signup__option-price">{{ monthly_fmt }}<small> / month</small></span>
+                </span>
+                <span class="mem-signup__option-sub">{{ settings.mem_monthly_renewal | escape }}</span>
+              </span>
+            </label>
+
+            {%- for key in (1..2) -%}
+              {%- liquid
+                if key == 1
+                  assign on = settings.mem_prepay_a_enabled
+                  assign o_label = settings.mem_prepay_a_label
+                  assign o_months = settings.mem_prepay_a_months | default: 1
+                  assign o_price = settings.mem_prepay_a_price | default: 0
+                  assign o_note = settings.mem_prepay_a_note
+                  assign o_renewal = settings.mem_prepay_a_renewal
+                  assign o_url = settings.mem_prepay_a_url
+                  assign o_value = 'prepay-a'
+                else
+                  assign on = settings.mem_prepay_b_enabled
+                  assign o_label = settings.mem_prepay_b_label
+                  assign o_months = settings.mem_prepay_b_months | default: 1
+                  assign o_price = settings.mem_prepay_b_price | default: 0
+                  assign o_note = settings.mem_prepay_b_note
+                  assign o_renewal = settings.mem_prepay_b_renewal
+                  assign o_url = settings.mem_prepay_b_url
+                  assign o_value = 'prepay-b'
+                endif
+                assign o_save = monthly | times: o_months | minus: o_price
+                assign o_price_fmt = o_price | times: 100 | money_without_trailing_zeros
+              -%}
+              {%- if on -%}
+                <label class="mem-signup__option">
+                  <input
+                    type="radio"
+                    name="{{ uid }}-option"
+                    value="{{ o_value }}"
+                    data-label="{{ o_label | escape }}"
+                    data-price="{{ o_price_fmt }} for {{ o_months }} months"
+                    data-renewal="{{ o_renewal | escape }}"
+                    data-url="{{ o_url }}"
+                  >
+                  <span class="mem-signup__option-body">
+                    <span class="mem-signup__option-top">
+                      <span class="mem-signup__option-name">{{ o_label | escape }}</span>
+                      <span class="mem-signup__option-price">{{ o_price_fmt }}</span>
+                    </span>
+                    {%- if o_save > 0 -%}
+                      <span class="mem-signup__option-save">
+                        Save {{ o_save | times: 100 | money_without_trailing_zeros }}
+                        {%- if o_note != blank %} · {{ o_note | escape }}{% endif -%}
+                      </span>
+                    {%- endif -%}
+                    <span class="mem-signup__option-sub">{{ o_renewal | escape }}</span>
+                  </span>
+                </label>
+              {%- endif -%}
+            {%- endfor -%}
+          </fieldset>
+        </section>
+      {%- else -%}
+        {%- comment -%} Monthly is the only option: no payment step, but the choice still exists for the summary. {%- endcomment -%}
+        <input
+          type="radio"
+          name="{{ uid }}-option"
+          value="monthly"
+          checked
+          hidden
+          data-label="{{ settings.mem_monthly_label | escape }}"
+          data-price="{{ monthly_fmt }} a month"
+          data-renewal="{{ settings.mem_monthly_renewal | escape }}"
+          data-url="{{ settings.mem_monthly_url }}"
+        >
+      {%- endif -%}
+
+      {%- comment -%} ── STEP: how it works ── {%- endcomment -%}
+      <section class="mem-signup__step" data-mem-step="how" aria-labelledby="{{ uid }}-h-how" hidden>
+        <h2 class="mem-signup__heading" id="{{ uid }}-h-how" tabindex="-1">{{ section.settings.how_heading | escape }}</h2>
+        <ol class="mem-signup__points">
+          {%- for i in (1..3) -%}
+            {%- assign t_key = 'point_' | append: i | append: '_title' -%}
+            {%- assign b_key = 'point_' | append: i | append: '_body' -%}
+            {%- if section.settings[t_key] != blank -%}
+              <li>
+                <span class="mem-signup__point-num" aria-hidden="true">{{ i }}</span>
+                <span>
+                  <strong>{{ section.settings[t_key] | escape }}</strong>
+                  {%- if section.settings[b_key] != blank -%}<br>{{ section.settings[b_key] | escape }}{%- endif -%}
+                </span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ol>
+        <label class="mem-signup__check">
+          <input type="checkbox" data-mem-required>
+          <span>{{ section.settings.understand_label | escape }}</span>
+        </label>
+      </section>
+
+      {%- comment -%} ── STEP: review and agree ── {%- endcomment -%}
+      <section class="mem-signup__step" data-mem-step="review" aria-labelledby="{{ uid }}-h-review" hidden>
+        <h2 class="mem-signup__heading" id="{{ uid }}-h-review" tabindex="-1">{{ section.settings.review_heading | escape }}</h2>
+        <dl class="mem-signup__summary">
+          <div><dt>Plan</dt><dd>{{ plan_name }}</dd></div>
+          <div><dt>Payment option</dt><dd data-mem-summary="label"></dd></div>
+          <div><dt>Price</dt><dd><span data-mem-summary="price"></span><span class="mem-signup__summary-sub" data-mem-summary="renewal"></span></dd></div>
+        </dl>
+
+        <div class="mem-signup__terms" tabindex="0" role="region" aria-labelledby="{{ uid }}-terms-h">
+          <h3 class="mem-signup__terms-heading" id="{{ uid }}-terms-h">{{ section.settings.terms_heading | escape }}</h3>
+          {{ settings.mem_terms | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name }}
+        </div>
+
+        <label class="mem-signup__check">
+          <input type="checkbox" data-mem-required>
+          <span>{{ section.settings.agree_label | escape }}</span>
+        </label>
+
+        <p class="mem-signup__missing" data-mem-missing hidden>
+          {%- if request.design_mode -%}
+            Editor note: this payment option has no Submatic checkout URL yet. Add it in Theme settings → Northcrest Membership.
+          {%- else -%}
+            {{ section.settings.missing_url_message | escape }}
+          {%- endif -%}
+        </p>
+      </section>
+
+      <footer class="mem-signup__nav">
+        <p class="mem-signup__hint" id="{{ uid }}-hint" data-mem-hint></p>
+        <div class="mem-signup__buttons">
+          <button type="button" class="mem-signup__back" data-mem-back>
+            <span aria-hidden="true">←</span> {{ section.settings.back_label | escape }}
+          </button>
+          <button type="button" class="mem-btn mem-btn--green" data-mem-next aria-describedby="{{ uid }}-hint">
+            {{- section.settings.continue_label | escape -}}
+          </button>
+          <a class="mem-btn mem-btn--gold" data-mem-checkout aria-describedby="{{ uid }}-hint" hidden>
+            {{- section.settings.checkout_label | escape -}}
+          </a>
+        </div>
+        {%- if settings.mem_billing_line != blank -%}
+          <p class="mem-signup__partner" data-mem-partner hidden>
+            <svg aria-hidden="true" focusable="false" width="14" height="16" viewBox="0 0 14 16"><path d="M3 7V5a4 4 0 118 0v2h1a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V8a1 1 0 011-1h1zm2 0h4V5a2 2 0 10-4 0v2z" fill="currentColor"/></svg>
+            {{ settings.mem_billing_line | escape }}
+          </p>
+        {%- endif -%}
+      </footer>
+
+      <script type="application/json" data-mem-text>
+        {
+          "progress": {{ section.settings.progress_format | default: 'Step [N] of [TOTAL]' | json }},
+          "hintPayment": {{ section.settings.hint_payment | json }},
+          "hintHow": {{ section.settings.hint_how | json }},
+          "hintReview": {{ section.settings.hint_review | json }}
+        }
+      </script>
+    </form>
+  </dialog>
+{%- elsif request.design_mode -%}
+  {% render 'ncdr-mem-assets' %}
+  <div class="mem mem-signup-editor">
+    <p><strong>Sign-up pop-up</strong> is hidden while Launch mode is "Coming soon". Switch to "Live" in Theme settings → Northcrest Membership to preview it. This bar only shows in the editor.</p>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Membership: Sign-up pop-up",
+  "tag": "div",
+  "class": "ncdr-mem-signup-section",
+  "settings": [
+    { "type": "paragraph", "content": "Opens from the Join buttons. Payment options, prices, terms and Submatic checkout links are in Theme settings → Northcrest Membership. Tokens: [PLAN NAME], [NOTICE PERIOD]." },
+    { "type": "text", "id": "dialog_title", "label": "Pop-up title", "default": "Join [PLAN NAME]" },
+    { "type": "text", "id": "progress_format", "label": "Step counter", "default": "Step [N] of [TOTAL]" },
+    { "type": "text", "id": "continue_label", "label": "Continue button", "default": "Continue" },
+    { "type": "text", "id": "back_label", "label": "Back link", "default": "Back" },
+    { "type": "header", "content": "Step: payment option" },
+    { "type": "paragraph", "content": "Skipped automatically when no prepay option is turned on." },
+    { "type": "text", "id": "payment_heading", "label": "Heading", "default": "How would you like to pay?" },
+    { "type": "text", "id": "hint_payment", "label": "Hint while Continue is disabled", "default": "Choose a payment option to continue." },
+    { "type": "header", "content": "Step: how it works" },
+    { "type": "text", "id": "how_heading", "label": "Heading", "default": "How it works at Northcrest" },
+    { "type": "text", "id": "point_1_title", "label": "Point 1", "default": "Add your digital card to your phone" },
+    { "type": "text", "id": "point_1_body", "label": "Point 1 detail", "default": "After checkout you'll get your membership card for Apple Wallet or Google Wallet." },
+    { "type": "text", "id": "point_2_title", "label": "Point 2", "default": "Show it at the counter" },
+    { "type": "text", "id": "point_2_body", "label": "Point 2 detail", "default": "Our staff check that your membership is active before ringing you up." },
+    { "type": "text", "id": "point_3_title", "label": "Point 3", "default": "Pay the member price on every basket" },
+    { "type": "text", "id": "point_3_body", "label": "Point 3 detail", "default": "Any size, as many as you like. Your ball ticket prints after payment." },
+    { "type": "text", "id": "understand_label", "label": "Checkbox", "default": "I understand. I'll show my digital card at the counter to get member pricing." },
+    { "type": "text", "id": "hint_how", "label": "Hint while Continue is disabled", "default": "Check the box above to continue." },
+    { "type": "header", "content": "Step: review and agree" },
+    { "type": "text", "id": "review_heading", "label": "Heading", "default": "Review and agree" },
+    { "type": "text", "id": "terms_heading", "label": "Terms box heading", "default": "Membership terms" },
+    { "type": "text", "id": "agree_label", "label": "Agree checkbox", "default": "I agree to the membership terms." },
+    { "type": "text", "id": "hint_review", "label": "Hint while checkout is disabled", "default": "Check the box above to agree to the terms." },
+    { "type": "text", "id": "checkout_label", "label": "Checkout button", "default": "Continue to secure checkout" },
+    { "type": "text", "id": "missing_url_message", "label": "Message if a checkout link is missing", "default": "Online sign-up for this option isn't available yet. Please ask us at the counter." }
+  ],
+  "presets": [{ "name": "Membership: Sign-up pop-up" }]
+}
+{% endschema %}

@@ -1,0 +1,136 @@
+/* Northcrest Membership — sign-up pop-up (loaded only when Launch mode is Live) */
+
+html.mem-signup-open { overflow: hidden; }
+
+.mem-signup {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  max-height: calc(100dvh - 48px);
+  padding: 0; border: 0; border-radius: 6px;
+  background: var(--mem-white); color: var(--mem-text);
+  box-shadow: 0 24px 80px rgba(10, 20, 6, .35);
+  overflow: hidden;
+}
+.mem-signup[open] { display: flex; }
+.mem-signup::backdrop { background: rgba(16, 28, 10, .72); }
+
+.mem-signup__form { display: flex; flex-direction: column; width: 100%; max-height: inherit; overflow-y: auto; }
+
+/* Header */
+.mem-signup__top {
+  position: sticky; top: 0; z-index: 2;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  padding: 20px 24px 16px 32px; background: var(--mem-green); color: var(--mem-white);
+}
+.mem-signup__title { margin: 0; font-family: var(--mem-font-head); font-size: 22px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.mem-signup__progress { margin: 2px 0 0; font-size: 16px; color: var(--mem-gold-on-green); font-weight: 600; letter-spacing: .04em; }
+.mem-signup__close {
+  flex: 0 0 auto; width: 48px; height: 48px; margin: -6px -8px 0 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; border: 0; border-radius: 50%; color: var(--mem-white); cursor: pointer;
+}
+.mem-signup__close:hover { background: rgba(255, 255, 255, .14); }
+.mem-signup .mem-signup__close:focus-visible { outline: 3px solid var(--mem-white); outline-offset: 0; }
+
+/* Steps */
+.mem-signup__step { padding: 28px 32px 8px; }
+.mem-signup__step[hidden] { display: none; }
+.mem-signup__heading {
+  font-family: var(--mem-font-head); font-size: 30px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .02em; line-height: 1.1; color: var(--mem-green); margin: 0 0 20px;
+}
+.mem-signup__heading:focus { outline: none; }
+.mem-signup__heading:focus-visible { outline: 3px solid var(--mem-gold-text); outline-offset: 4px; }
+
+/* Payment options */
+.mem-signup__options { border: 0; margin: 0; padding: 0; display: grid; gap: 12px; }
+.mem-signup__option {
+  position: relative; display: flex; gap: 14px; align-items: flex-start;
+  padding: 18px 20px; border: 2px solid var(--mem-line); border-radius: 4px; cursor: pointer;
+  transition: border-color .15s, background-color .15s;
+}
+.mem-signup__option:hover { border-color: var(--mem-green); }
+.mem-signup__option:has(input:checked) { border-color: var(--mem-green); background: rgba(58, 88, 43, .06); }
+.mem-signup__option input { flex: 0 0 auto; width: 22px; height: 22px; margin: 3px 0 0; accent-color: var(--mem-green); }
+.mem-signup__option-body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.mem-signup__option-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.mem-signup__option-name { font-weight: 600; font-size: 19px; }
+.mem-signup__option-price { font-family: var(--mem-font-head); font-weight: 700; font-size: 30px; line-height: 1; color: var(--mem-green); }
+.mem-signup__option-price small { font-family: var(--mem-font-body); font-weight: 400; font-size: 17px; color: var(--mem-text-mid); }
+.mem-signup__option-save { font-family: var(--mem-font-head); font-weight: 600; font-size: 18px; letter-spacing: .02em; color: var(--mem-green); }
+.mem-signup__option-sub { font-size: 17px; color: var(--mem-text-mid); }
+
+/* How it works */
+.mem-signup__points { list-style: none; margin: 0 0 22px; padding: 0; display: grid; gap: 16px; }
+.mem-signup__points li { display: flex; gap: 14px; align-items: flex-start; font-size: 18px; line-height: 1.5; }
+.mem-signup__point-num {
+  flex: 0 0 36px; height: 36px; border-radius: 50%; background: var(--mem-green); color: var(--mem-white);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mem-font-head); font-weight: 700; font-size: 18px;
+}
+
+/* Checkboxes */
+.mem-signup__check {
+  display: flex; gap: 14px; align-items: flex-start; padding: 16px 18px; margin: 0 0 8px;
+  background: var(--mem-off-white); border: 2px solid var(--mem-line); border-radius: 4px; cursor: pointer;
+  font-size: 18px; font-weight: 600; line-height: 1.45;
+}
+.mem-signup__check:has(input:checked) { border-color: var(--mem-green); }
+.mem-signup__check input { flex: 0 0 auto; width: 24px; height: 24px; margin: 1px 0 0; accent-color: var(--mem-green); }
+
+/* Review */
+.mem-signup__summary { margin: 0 0 20px; border: 1.5px solid var(--mem-line); border-radius: 4px; }
+.mem-signup__summary div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 18px; }
+.mem-signup__summary div + div { border-top: 1px solid var(--mem-line); }
+.mem-signup__summary dt { font-size: 17px; color: var(--mem-text-mid); }
+.mem-signup__summary dd { margin: 0; text-align: right; font-weight: 600; font-size: 18px; }
+.mem-signup__summary-sub { display: block; font-weight: 400; font-size: 16px; color: var(--mem-text-mid); }
+.mem-signup__terms {
+  max-height: 220px; overflow-y: auto; margin: 0 0 16px; padding: 16px 20px;
+  background: var(--mem-off-white); border: 1.5px solid var(--mem-line); border-radius: 4px; font-size: 17px; line-height: 1.6;
+}
+.mem-signup__terms-heading { font-family: var(--mem-font-head); font-size: 18px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--mem-green); margin: 0 0 8px; }
+.mem-signup__terms p { margin: 0 0 8px; }
+.mem-signup__terms ul { margin: 0; padding-left: 20px; }
+.mem-signup__terms li + li { margin-top: 4px; }
+.mem-signup__missing { margin: 4px 0 8px; padding: 12px 14px; background: #fff4cc; color: #3d2f00; border-radius: 4px; font-size: 17px; }
+.mem-signup__missing[hidden] { display: none; }
+
+/* Footer */
+.mem-signup__nav {
+  position: sticky; bottom: 0; z-index: 2; margin-top: auto;
+  padding: 14px 32px 22px; background: var(--mem-white); border-top: 1px solid var(--mem-line);
+}
+.mem-signup__hint { margin: 0 0 10px; font-size: 16px; color: var(--mem-text-mid); }
+.mem-signup__hint:empty { display: none; }
+.mem-signup__buttons { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+.mem-signup__buttons [hidden] { display: none; }
+.mem-signup__back {
+  margin-right: auto; padding: 12px 4px; min-height: 48px; background: none; border: 0; cursor: pointer;
+  font: inherit; font-size: 18px; font-weight: 600; color: var(--mem-green); text-decoration: underline; text-underline-offset: 3px;
+}
+.mem-signup__partner { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 0; font-size: 15px; color: var(--mem-text-mid); text-align: center; }
+.mem-signup__partner[hidden] { display: none; }
+
+/* Theme-editor-only bar */
+.mem-signup-editor {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 14px 24px; background: #fff4cc; color: #3d2f00; font-size: 16px;
+}
+.mem-signup-editor p { margin: 0; }
+
+/* Mobile: full screen */
+@media (max-width: 749px) {
+  .mem-signup {
+    width: 100vw; max-width: 100vw; height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh;
+    margin: 0; border-radius: 0;
+  }
+  .mem-signup__form { max-height: none; height: 100%; }
+  .mem-signup__top { padding: 16px 16px 14px 20px; }
+  .mem-signup__step { padding: 24px 20px 8px; }
+  .mem-signup__heading { font-size: 26px; }
+  .mem-signup__nav { padding: 12px 20px 18px; }
+  .mem-signup__buttons .mem-btn { flex: 1; padding-left: 16px; padding-right: 16px; }
+  .mem-signup__summary div { flex-direction: column; gap: 2px; }
+  .mem-signup__summary dd { text-align: left; }
+}
