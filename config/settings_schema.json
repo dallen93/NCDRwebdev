@@ -1457,7 +1457,7 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Shared values for the membership page, plan card and sign-up pop-up. Billing happens in Submatic, not Shopify. Values in [BRACKETS] are placeholders."
+        "content": "Shared values for the membership page, plan card and sign-up pop-up. Billing happens with the membership billing partner, not Shopify. Values in [BRACKETS] are placeholders."
       },
       {
         "type": "header",
@@ -1520,8 +1520,8 @@
       {
         "type": "url",
         "id": "mem_monthly_url",
-        "label": "Submatic checkout URL",
-        "info": "[PLACEHOLDER] Paste the real Submatic link."
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
       },
       {
         "type": "header",
@@ -1566,8 +1566,8 @@
       {
         "type": "url",
         "id": "mem_prepay_a_url",
-        "label": "Submatic checkout URL",
-        "info": "[PLACEHOLDER] Paste the real Submatic link."
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
       },
       {
         "type": "header",
@@ -1612,8 +1612,8 @@
       {
         "type": "url",
         "id": "mem_prepay_b_url",
-        "label": "Submatic checkout URL",
-        "info": "[PLACEHOLDER] Paste the real Submatic link."
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
       },
       {
         "type": "header",
@@ -1634,9 +1634,17 @@
       },
       {
         "type": "text",
+        "id": "mem_billing_partner",
+        "label": "Billing partner name",
+        "default": "[BILLING PARTNER]",
+        "info": "Fills in anywhere [BILLING PARTNER] appears: the pop-up's billing line, the terms and the FAQ."
+      },
+      {
+        "type": "text",
         "id": "mem_billing_line",
         "label": "Billing partner line",
-        "default": "Payment is processed securely by Submatic, Northcrest's membership billing partner."
+        "default": "Payment is processed securely by [BILLING PARTNER], Northcrest's membership billing partner.",
+        "info": "[BILLING PARTNER] fills in from the setting above."
       }
     ]
   }

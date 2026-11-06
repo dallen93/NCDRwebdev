@@ -3,14 +3,15 @@
   Opens from any element with the data-mem-open attribute (hero, plan card and
   closing Join buttons). Only rendered when Theme settings → Northcrest Membership →
   Launch mode is "Live".
-  Payment options, prices, terms and Submatic checkout URLs come from Theme settings.
+  Payment options, prices, terms and checkout URLs come from Theme settings.
   If no prepay option is turned on, the payment step is skipped ("Step 1 of 2").
-  Tokens you can type in text fields: [PLAN NAME], [NOTICE PERIOD].
+  Tokens you can type in text fields: [PLAN NAME], [NOTICE PERIOD], [BILLING PARTNER].
 {%- endcomment -%}
 {%- liquid
   assign launch = settings.mem_launch_mode | default: 'coming_soon'
   assign plan_name = settings.mem_plan_name | escape
   assign notice = settings.mem_notice_period | escape
+  assign partner = settings.mem_billing_partner | default: '[BILLING PARTNER]' | escape
   assign monthly = settings.mem_monthly_price | default: 0
   assign monthly_fmt = monthly | times: 100 | money_without_trailing_zeros
   assign has_prepay = false
@@ -180,7 +181,7 @@
 
         <div class="mem-signup__terms" tabindex="0" role="region" aria-labelledby="{{ uid }}-terms-h">
           <h3 class="mem-signup__terms-heading" id="{{ uid }}-terms-h">{{ section.settings.terms_heading | escape }}</h3>
-          {{ settings.mem_terms | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name }}
+          {{ settings.mem_terms | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name | replace: '[BILLING PARTNER]', partner }}
         </div>
 
         <label class="mem-signup__check">
@@ -190,7 +191,7 @@
 
         <p class="mem-signup__missing" data-mem-missing hidden>
           {%- if request.design_mode -%}
-            Editor note: this payment option has no Submatic checkout URL yet. Add it in Theme settings → Northcrest Membership.
+            Editor note: this payment option has no checkout URL yet. Add it in Theme settings → Northcrest Membership.
           {%- else -%}
             {{ section.settings.missing_url_message | escape }}
           {%- endif -%}
@@ -213,7 +214,7 @@
         {%- if settings.mem_billing_line != blank -%}
           <p class="mem-signup__partner" data-mem-partner hidden>
             <svg aria-hidden="true" focusable="false" width="14" height="16" viewBox="0 0 14 16"><path d="M3 7V5a4 4 0 118 0v2h1a1 1 0 011 1v7a1 1 0 01-1 1H2a1 1 0 01-1-1V8a1 1 0 011-1h1zm2 0h4V5a2 2 0 10-4 0v2z" fill="currentColor"/></svg>
-            {{ settings.mem_billing_line | escape }}
+            {{ settings.mem_billing_line | escape | replace: '[BILLING PARTNER]', partner }}
           </p>
         {%- endif -%}
       </footer>
@@ -241,7 +242,7 @@
   "tag": "div",
   "class": "ncdr-mem-signup-section",
   "settings": [
-    { "type": "paragraph", "content": "Opens from the Join buttons. Payment options, prices, terms and Submatic checkout links are in Theme settings → Northcrest Membership. Tokens: [PLAN NAME], [NOTICE PERIOD]." },
+    { "type": "paragraph", "content": "Opens from the Join buttons. Payment options, prices, terms and checkout links are in Theme settings → Northcrest Membership. Tokens: [PLAN NAME], [NOTICE PERIOD]." },
     { "type": "text", "id": "dialog_title", "label": "Pop-up title", "default": "Join [PLAN NAME]" },
     { "type": "text", "id": "progress_format", "label": "Step counter", "default": "Step [N] of [TOTAL]" },
     { "type": "text", "id": "continue_label", "label": "Continue button", "default": "Continue" },

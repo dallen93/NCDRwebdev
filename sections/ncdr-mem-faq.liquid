@@ -2,13 +2,14 @@
   Membership page — 5. FAQ
   One block per question. Tick "Placeholder answer" to show a yellow PLACEHOLDER
   tag on the page until the answer is confirmed; untick it when the answer is final.
-  Tokens you can type in answers: [PLAN NAME], [NOTICE PERIOD].
+  Tokens you can type in answers: [PLAN NAME], [NOTICE PERIOD], [BILLING PARTNER].
 {%- endcomment -%}
 {% render 'ncdr-mem-assets' %}
 
 {%- liquid
   assign plan_name = settings.mem_plan_name | escape
   assign notice = settings.mem_notice_period | escape
+  assign partner = settings.mem_billing_partner | default: '[BILLING PARTNER]' | escape
 -%}
 
 <section class="mem mem-section mem-faq" id="mem-faq" aria-labelledby="mem-faq-heading-{{ section.id }}">
@@ -31,7 +32,7 @@
             {%- if block.settings.placeholder -%}
               <p><span class="mem-placeholder">Placeholder answer — confirm before launch</span></p>
             {%- endif -%}
-            {{ block.settings.answer | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name }}
+            {{ block.settings.answer | replace: '[NOTICE PERIOD]', notice | replace: '[PLAN NAME]', plan_name | replace: '[BILLING PARTNER]', partner }}
           </div>
         </details>
       {%- endfor -%}
@@ -73,7 +74,7 @@
   "tag": "div",
   "class": "ncdr-mem-faq-section",
   "settings": [
-    { "type": "paragraph", "content": "Tick \"Placeholder answer\" on a question to show a yellow PLACEHOLDER tag until the answer is confirmed. Tokens: [PLAN NAME], [NOTICE PERIOD]." },
+    { "type": "paragraph", "content": "Tick \"Placeholder answer\" on a question to show a yellow PLACEHOLDER tag until the answer is confirmed. Tokens: [PLAN NAME], [NOTICE PERIOD], [BILLING PARTNER]." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Membership FAQ" }
   ],
