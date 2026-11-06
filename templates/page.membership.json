@@ -11,7 +11,9 @@
   "sections": {
     "hero": {
       "type": "ncdr-mem-hero",
-      "settings": {}
+      "settings": {
+        "eyebrow": "Northcrest Membership"
+      }
     },
     "plan": {
       "type": "ncdr-mem-plan",
