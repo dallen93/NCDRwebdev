@@ -16,14 +16,47 @@
     "plan": {
       "type": "ncdr-mem-plan",
       "blocks": {
-        "benefit-1": { "type": "benefit", "settings": { "text": "Member price on every range basket: small, medium or large" } },
-        "benefit-2": { "type": "benefit", "settings": { "text": "No limit on member-priced baskets per visit" } },
-        "benefit-3": { "type": "benefit", "settings": { "text": "Digital membership card for Apple Wallet or Google Wallet" } },
-        "benefit-4": { "type": "benefit", "settings": { "text": "Show your card at the counter. No coupons to carry." } }
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Member price on every range basket: small, medium or large"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "text": "No limit on member-priced baskets per visit"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Digital membership card for Apple Wallet or Google Wallet"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Show your card at the counter. No coupons to carry."
+          }
+        }
       },
-      "block_order": ["benefit-1", "benefit-2", "benefit-3", "benefit-4"],
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {}
+    },
+    "signup": {
+      "type": "ncdr-mem-signup",
       "settings": {}
     }
   },
-  "order": ["hero", "plan"]
+  "order": [
+    "hero",
+    "plan",
+    "signup"
+  ]
 }
