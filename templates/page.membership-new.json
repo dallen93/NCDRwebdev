@@ -51,7 +51,9 @@
     },
     "signup": {
       "type": "ncdr-mem-signup",
-      "settings": {}
+      "settings": {
+        "dialog_title": "Join [PLAN NAME]"
+      }
     }
   },
   "order": [
