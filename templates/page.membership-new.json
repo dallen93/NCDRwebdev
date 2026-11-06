@@ -92,12 +92,116 @@
         "basket-large"
       ],
       "settings": {}
+    },
+    "how": {
+      "type": "ncdr-mem-how",
+      "blocks": {
+        "step-join": {
+          "type": "step",
+          "settings": {
+            "icon": "join",
+            "title": "Join online",
+            "body": "Choose how you'd like to pay and finish sign-up through our secure checkout."
+          }
+        },
+        "step-wallet": {
+          "type": "step",
+          "settings": {
+            "icon": "phone",
+            "title": "Add your card to your phone",
+            "body": "Your digital membership card goes into Apple Wallet or Google Wallet."
+          }
+        },
+        "step-counter": {
+          "type": "step",
+          "settings": {
+            "icon": "counter",
+            "title": "Show it and pay the member price",
+            "body": "Show your card at the counter. We confirm it's active, ring up the member price, and your ball ticket prints after payment."
+          }
+        }
+      },
+      "block_order": [
+        "step-join",
+        "step-wallet",
+        "step-counter"
+      ],
+      "settings": {}
+    },
+    "faq": {
+      "type": "ncdr-mem-faq",
+      "blocks": {
+        "faq-billing": {
+          "type": "question",
+          "settings": {
+            "question": "How does billing work?",
+            "answer": "<p>Your membership is billed by Submatic, Northcrest's membership billing partner, to the card you enter at checkout. It renews automatically on the same day each billing period: every month, every 3 months or every 12 months, depending on the payment option you choose.</p>",
+            "placeholder": true
+          }
+        },
+        "faq-cancel": {
+          "type": "question",
+          "settings": {
+            "question": "How do I cancel?",
+            "answer": "<p>You can cancel any time with [NOTICE PERIOD]. [PLACEHOLDER: how members cancel, for example through a Submatic member link, by email, or at the counter.]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-card": {
+          "type": "question",
+          "settings": {
+            "question": "How does the digital membership card work?",
+            "answer": "<p>After checkout you'll get your membership card to add to Apple Wallet or Google Wallet. Show it at the counter each visit. Our staff confirm your membership is active and ring up the member price, and your ball ticket prints after payment. [PLACEHOLDER: how the card is delivered, for example by email or text from Submatic.]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-prepaid": {
+          "type": "question",
+          "settings": {
+            "question": "What are the prepaid options?",
+            "answer": "<p>Instead of paying monthly, you can pay for several months up front and save. Each prepaid option renews for the same length of time when it ends, unless you cancel with [NOTICE PERIOD]. [PLACEHOLDER: confirm which prepaid options are offered and the refund policy for prepaid memberships.]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-limit": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a limit on member-priced baskets?",
+            "answer": "<p>No. The member price applies to every range basket you buy, as many as you like on each visit.</p>",
+            "placeholder": false
+          }
+        },
+        "faq-coupons": {
+          "type": "question",
+          "settings": {
+            "question": "I already have a coupon book. Can I still use it?",
+            "answer": "<p>Yes. Coupon books already purchased will always be honored.</p>",
+            "placeholder": false
+          }
+        }
+      },
+      "block_order": [
+        "faq-billing",
+        "faq-cancel",
+        "faq-card",
+        "faq-prepaid",
+        "faq-limit",
+        "faq-coupons"
+      ],
+      "settings": {}
+    },
+    "cta": {
+      "type": "ncdr-mem-cta",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "plan",
     "pricing",
+    "how",
+    "faq",
+    "cta",
     "signup"
   ]
 }
