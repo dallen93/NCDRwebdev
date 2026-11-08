@@ -12,7 +12,18 @@
     "hero": {
       "type": "ncdr-mem-hero",
       "settings": {
-        "eyebrow": "Northcrest Membership"
+        "eyebrow": "Northcrest Membership",
+        "heading": "Practice more.",
+        "heading_accent": "Pay less for every basket.",
+        "subtext": "Members get a lower price on every range basket, every visit. Just show your digital card at the counter.",
+        "price_line": "[PLAN NAME] · [MONTHLY PRICE] a month",
+        "join_label": "Join now",
+        "secondary_label": "See what you save",
+        "secondary_anchor": "#mem-pricing",
+        "notify_placeholder": "Your email address",
+        "notify_button": "Notify me",
+        "notify_success": "You're on the list. We'll email you when membership opens.",
+        "image_overlay": 75
       }
     },
     "plan": {
@@ -49,12 +60,18 @@
         "benefit-3",
         "benefit-4"
       ],
-      "settings": {}
-    },
-    "signup": {
-      "type": "ncdr-mem-signup",
       "settings": {
-        "dialog_title": "Join [PLAN NAME]"
+        "eyebrow": "The plan",
+        "heading": "One membership. Pay your way.",
+        "subtext": "Pay monthly, or pay ahead and save.\nEvery option gets the same member pricing.",
+        "subtext_monthly_only": "One simple monthly price, with member pricing on every basket.",
+        "tagline": "Member pricing on every basket, every visit.",
+        "best_badge": "Best value",
+        "show_per_month": true,
+        "benefits_heading": "What's included",
+        "join_label": "Join now",
+        "notify_label": "Get notified when it opens",
+        "terms_note": "Full membership terms are shown before checkout. Cancel any time with [NOTICE PERIOD]."
       }
     },
     "pricing": {
@@ -65,8 +82,8 @@
           "settings": {
             "name": "Small",
             "detail": "45 balls",
-            "walkin_price": 13,
-            "member_price": 9
+            "walkin_price": 18,
+            "member_price": 13
           }
         },
         "basket-medium": {
@@ -74,8 +91,8 @@
           "settings": {
             "name": "Medium",
             "detail": "90 balls",
-            "walkin_price": 18,
-            "member_price": 13
+            "walkin_price": 26,
+            "member_price": 18
           }
         },
         "basket-large": {
@@ -83,8 +100,8 @@
           "settings": {
             "name": "Large",
             "detail": "140 balls",
-            "walkin_price": 22,
-            "member_price": 16
+            "walkin_price": 32,
+            "member_price": 22
           }
         }
       },
@@ -93,7 +110,15 @@
         "basket-medium",
         "basket-large"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Member savings",
+        "heading": "See what you save",
+        "subtext": "Member pricing applies to every basket, every visit.",
+        "col_basket": "Basket",
+        "col_walkin": "Walk-in",
+        "col_member": "Member",
+        "footnote": "Come once a week and your membership pays for itself."
+      }
     },
     "how": {
       "type": "ncdr-mem-how",
@@ -128,7 +153,12 @@
         "step-wallet",
         "step-counter"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "Three steps to member pricing",
+        "subtext": "No app to download and no plastic card to carry.",
+        "step_label": "Step"
+      }
     },
     "faq": {
       "type": "ncdr-mem-faq",
@@ -190,11 +220,51 @@
         "faq-limit",
         "faq-coupons"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Membership FAQ"
+      }
     },
     "cta": {
       "type": "ncdr-mem-cta",
-      "settings": {}
+      "settings": {
+        "heading": "Ready for member pricing?",
+        "heading_accent": "Your next basket could cost less.",
+        "subtext": "Join online in a few minutes.\nYour digital card is ready for your next visit.",
+        "join_label": "Join now",
+        "soon_heading": "Membership opens soon",
+        "soon_heading_accent": "Be the first to know.",
+        "soon_subtext": "Leave your email and we'll let you know\nas soon as sign-ups open.",
+        "notify_placeholder": "Your email address",
+        "notify_button": "Notify me",
+        "notify_success": "You're on the list. We'll email you when membership opens."
+      }
+    },
+    "signup": {
+      "type": "ncdr-mem-signup",
+      "settings": {
+        "dialog_title": "Join [PLAN NAME]",
+        "progress_format": "Step [N] of [TOTAL]",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "payment_heading": "How would you like to pay?",
+        "hint_payment": "Choose a payment option to continue.",
+        "how_heading": "How it works at Northcrest",
+        "point_1_title": "Add your digital card to your phone",
+        "point_1_body": "After checkout you'll get your membership card for Apple Wallet or Google Wallet.",
+        "point_2_title": "Show it at the counter",
+        "point_2_body": "Our staff check that your membership is active before ringing you up.",
+        "point_3_title": "Pay the member price on every basket",
+        "point_3_body": "Any size, as many as you like. Your ball ticket prints after payment.",
+        "understand_label": "I understand. I'll show my digital card at the counter to get member pricing.",
+        "hint_how": "Check the box above to continue.",
+        "review_heading": "Review and agree",
+        "terms_heading": "Membership terms",
+        "agree_label": "I agree to the membership terms.",
+        "hint_review": "Check the box above to agree to the terms.",
+        "checkout_label": "Continue to secure checkout",
+        "missing_url_message": "Online sign-up for this option isn't available yet. Please ask us at the counter."
+      }
     }
   },
   "order": [
