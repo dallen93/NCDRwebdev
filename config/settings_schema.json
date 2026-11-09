@@ -1451,5 +1451,201 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Northcrest Membership",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Shared values for the membership page, plan card and sign-up pop-up. Billing happens with the membership billing partner, not Shopify. Values in [BRACKETS] are placeholders."
+      },
+      {
+        "type": "header",
+        "content": "Launch"
+      },
+      {
+        "type": "select",
+        "id": "mem_launch_mode",
+        "label": "Launch mode",
+        "options": [
+          {
+            "value": "coming_soon",
+            "label": "Coming soon (Notify me form)"
+          },
+          {
+            "value": "live",
+            "label": "Live (Join buttons + sign-up pop-up)"
+          }
+        ],
+        "default": "coming_soon"
+      },
+      {
+        "type": "text",
+        "id": "mem_launch_note",
+        "label": "Coming soon note",
+        "default": "Membership launches January 1, 2027."
+      },
+      {
+        "type": "header",
+        "content": "Plan"
+      },
+      {
+        "type": "text",
+        "id": "mem_plan_name",
+        "label": "Plan name",
+        "default": "Northcrest Membership"
+      },
+      {
+        "type": "header",
+        "content": "Monthly option (always on)"
+      },
+      {
+        "type": "text",
+        "id": "mem_monthly_label",
+        "label": "Label",
+        "default": "Monthly"
+      },
+      {
+        "type": "number",
+        "id": "mem_monthly_price",
+        "label": "Price per month (dollars)",
+        "default": 25
+      },
+      {
+        "type": "text",
+        "id": "mem_monthly_renewal",
+        "label": "Renewal line",
+        "default": "Renews monthly."
+      },
+      {
+        "type": "url",
+        "id": "mem_monthly_url",
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
+      },
+      {
+        "type": "header",
+        "content": "Prepay option A"
+      },
+      {
+        "type": "checkbox",
+        "id": "mem_prepay_a_enabled",
+        "label": "Offer this option",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_a_label",
+        "label": "Label",
+        "default": "3 months paid in full"
+      },
+      {
+        "type": "number",
+        "id": "mem_prepay_a_months",
+        "label": "Months covered",
+        "default": 3
+      },
+      {
+        "type": "number",
+        "id": "mem_prepay_a_price",
+        "label": "Price (dollars)",
+        "default": 70
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_a_renewal",
+        "label": "Renewal line",
+        "default": "Renews every 3 months."
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_a_note",
+        "label": "Extra savings note (optional)",
+        "info": "Shown after the calculated savings, e.g. \"One month free\"."
+      },
+      {
+        "type": "url",
+        "id": "mem_prepay_a_url",
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
+      },
+      {
+        "type": "header",
+        "content": "Prepay option B"
+      },
+      {
+        "type": "checkbox",
+        "id": "mem_prepay_b_enabled",
+        "label": "Offer this option",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_b_label",
+        "label": "Label",
+        "default": "12 months paid in full"
+      },
+      {
+        "type": "number",
+        "id": "mem_prepay_b_months",
+        "label": "Months covered",
+        "default": 12
+      },
+      {
+        "type": "number",
+        "id": "mem_prepay_b_price",
+        "label": "Price (dollars)",
+        "default": 275
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_b_renewal",
+        "label": "Renewal line",
+        "default": "Renews every 12 months."
+      },
+      {
+        "type": "text",
+        "id": "mem_prepay_b_note",
+        "label": "Extra savings note (optional)",
+        "default": "One month free"
+      },
+      {
+        "type": "url",
+        "id": "mem_prepay_b_url",
+        "label": "Checkout URL",
+        "info": "[PLACEHOLDER] Paste the billing partner's checkout link for this option."
+      },
+      {
+        "type": "header",
+        "content": "Terms and billing"
+      },
+      {
+        "type": "text",
+        "id": "mem_notice_period",
+        "label": "Cancellation notice period",
+        "default": "[NOTICE PERIOD]",
+        "info": "Fills in anywhere [NOTICE PERIOD] appears, e.g. \"30 days' notice\"."
+      },
+      {
+        "type": "richtext",
+        "id": "mem_terms",
+        "label": "Membership terms (shown before checkout)",
+        "default": "<p><strong>[PLACEHOLDER TERMS — replace before launch]</strong></p><ul><li>Your membership renews automatically on the same day each billing period.</li><li>Payments are billed to the card you enter at checkout.</li><li>Cancel any time with [NOTICE PERIOD].</li><li>Member pricing applies to range baskets only.</li><li>Memberships are for the named member only and are non-transferable.</li></ul>"
+      },
+      {
+        "type": "text",
+        "id": "mem_billing_partner",
+        "label": "Billing partner name",
+        "default": "[BILLING PARTNER]",
+        "info": "Fills in anywhere [BILLING PARTNER] appears: the pop-up's billing line, the terms and the FAQ."
+      },
+      {
+        "type": "text",
+        "id": "mem_billing_line",
+        "label": "Billing partner line",
+        "default": "Payment is processed securely by [BILLING PARTNER], Northcrest's membership billing partner.",
+        "info": "[BILLING PARTNER] fills in from the setting above."
+      }
+    ]
   }
 ]

@@ -1,0 +1,116 @@
+{%- comment -%}
+  Membership page — 4. How it works
+  Up to 4 steps (blocks), numbered automatically. Icons are simple inline SVGs.
+{%- endcomment -%}
+{% render 'ncdr-mem-assets' %}
+
+<section class="mem mem-section mem-section--tint mem-how" id="mem-how" aria-labelledby="mem-how-heading-{{ section.id }}">
+  <div class="mem-wrap">
+    <header class="mem-center mem-how__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="mem-eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+      <h2 class="mem-h2" id="mem-how-heading-{{ section.id }}">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.subtext != blank -%}
+        <p class="mem-sub">{{ section.settings.subtext | escape | newline_to_br }}</p>
+      {%- endif -%}
+    </header>
+
+    <ol class="mem-how__steps" style="--mem-how-count: {{ section.blocks.size }};">
+      {%- for block in section.blocks -%}
+        <li class="mem-how__step" {{ block.shopify_attributes }}>
+          <span class="mem-how__icon" aria-hidden="true">
+            {%- case block.settings.icon -%}
+              {%- when 'join' -%}
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="32" height="36" rx="3"/><path d="M16 18h16M16 26h16M16 34h9"/></svg>
+              {%- when 'phone' -%}
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="13" y="4" width="22" height="40" rx="4"/><rect x="18" y="12" width="12" height="8" rx="1.5"/><path d="M21 38h6"/></svg>
+              {%- when 'counter' -%}
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h28v36l-5-3-4.5 3-4.5-3-4.5 3-4.5-3-5 3z"/><path d="M17 16h14M17 24h14M17 32h8"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M16 24.5l5.5 5.5L33 18.5"/></svg>
+            {%- endcase -%}
+          </span>
+          <span class="mem-how__num">{{ section.settings.step_label | escape }} {{ forloop.index }}</span>
+          <h3 class="mem-how__title">{{ block.settings.title | escape }}</h3>
+          {%- if block.settings.body != blank -%}
+            <p class="mem-how__body">{{ block.settings.body | escape }}</p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% style %}
+  .mem-how__header { margin-bottom: 52px; }
+  .mem-how__steps {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(var(--mem-how-count, 3), minmax(0, 1fr)); gap: 32px;
+  }
+  .mem-how__step {
+    position: relative; text-align: center; background: var(--mem-white);
+    border: 1.5px solid var(--mem-line); border-radius: 4px; padding: 36px 28px 32px;
+  }
+  .mem-how__icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 84px; height: 84px; border-radius: 50%; margin-bottom: 18px;
+    background: var(--mem-green); color: var(--mem-white);
+  }
+  .mem-how__num {
+    display: block; font-size: 15px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--mem-gold-text); margin-bottom: 6px;
+  }
+  .mem-how__title {
+    font-family: var(--mem-font-head); font-size: 24px; font-weight: 700; letter-spacing: .03em;
+    text-transform: uppercase; color: var(--mem-green); line-height: 1.15; margin: 0 0 10px;
+  }
+  .mem-how__body { font-size: 18px; color: var(--mem-text-mid); margin: 0; }
+  @media (max-width: 989px) {
+    .mem-how__steps { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; gap: 20px; }
+    .mem-how__step { display: grid; grid-template-columns: 72px 1fr; column-gap: 20px; text-align: left; padding: 24px; }
+    .mem-how__icon { grid-row: span 3; width: 72px; height: 72px; margin: 0; }
+    .mem-how__icon svg { width: 34px; height: 34px; }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Membership: How it works",
+  "tag": "div",
+  "class": "ncdr-mem-how-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How it works" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps to member pricing" },
+    { "type": "textarea", "id": "subtext", "label": "Subtext", "default": "No app to download and no plastic card to carry.", "info": "Press Enter for a line break." },
+    { "type": "text", "id": "step_label", "label": "Step label", "default": "Step" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "join", "options": [
+          { "value": "join", "label": "Sign-up form" },
+          { "value": "phone", "label": "Phone with card" },
+          { "value": "counter", "label": "Receipt / ball ticket" },
+          { "value": "check", "label": "Check mark" }
+        ] },
+        { "type": "text", "id": "title", "label": "Title", "default": "Join online" },
+        { "type": "textarea", "id": "body", "label": "Description" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Membership: How it works",
+      "blocks": [
+        { "type": "step", "settings": { "icon": "join", "title": "Join online", "body": "Choose how you'd like to pay and finish sign-up through our secure checkout." } },
+        { "type": "step", "settings": { "icon": "phone", "title": "Add your card to your phone", "body": "Your digital membership card goes into Apple Wallet or Google Wallet." } },
+        { "type": "step", "settings": { "icon": "counter", "title": "Show it and pay the member price", "body": "Show your card at the counter. We confirm it's active, ring up the member price, and your ball ticket prints after payment." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

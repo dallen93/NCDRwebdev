@@ -1,0 +1,279 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "ncdr-mem-hero",
+      "settings": {
+        "eyebrow": "Northcrest Membership",
+        "heading": "Practice more.",
+        "heading_accent": "Pay less for every basket.",
+        "subtext": "Members get a lower price on every range basket, every visit. Just show your digital card at the counter.",
+        "price_line": "[PLAN NAME] · [MONTHLY PRICE] a month",
+        "join_label": "Join now",
+        "secondary_label": "See what you save",
+        "secondary_anchor": "#mem-pricing",
+        "notify_placeholder": "Your email address",
+        "notify_button": "Notify me",
+        "notify_success": "You're on the list. We'll email you when membership opens.",
+        "image_overlay": 75
+      }
+    },
+    "plan": {
+      "type": "ncdr-mem-plan",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "text": "Member price on every range basket: small, medium or large"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "text": "No limit on member-priced baskets per visit"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "text": "Digital membership card for Apple Wallet or Google Wallet"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "text": "Show your card at the counter. No coupons to carry."
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "eyebrow": "The plan",
+        "heading": "One membership. Pay your way.",
+        "subtext": "Pay monthly, or pay ahead and save.\nEvery option gets the same member pricing.",
+        "subtext_monthly_only": "One simple monthly price, with member pricing on every basket.",
+        "tagline": "Member pricing on every basket, every visit.",
+        "best_badge": "Best value",
+        "show_per_month": true,
+        "benefits_heading": "What's included",
+        "join_label": "Join now",
+        "notify_label": "Get notified when it opens",
+        "terms_note": "Full membership terms are shown before checkout. Cancel any time with [NOTICE PERIOD]."
+      }
+    },
+    "pricing": {
+      "type": "ncdr-mem-pricing",
+      "blocks": {
+        "basket-small": {
+          "type": "basket",
+          "settings": {
+            "name": "Small",
+            "detail": "45 balls",
+            "walkin_price": 18,
+            "member_price": 13
+          }
+        },
+        "basket-medium": {
+          "type": "basket",
+          "settings": {
+            "name": "Medium",
+            "detail": "90 balls",
+            "walkin_price": 26,
+            "member_price": 18
+          }
+        },
+        "basket-large": {
+          "type": "basket",
+          "settings": {
+            "name": "Large",
+            "detail": "140 balls",
+            "walkin_price": 32,
+            "member_price": 22
+          }
+        }
+      },
+      "block_order": [
+        "basket-small",
+        "basket-medium",
+        "basket-large"
+      ],
+      "settings": {
+        "eyebrow": "Member savings",
+        "heading": "See what you save",
+        "subtext": "Member pricing applies to every basket, every visit.",
+        "col_basket": "Basket",
+        "col_walkin": "Walk-in",
+        "col_member": "Member",
+        "footnote": "Come once a week and your membership pays for itself."
+      }
+    },
+    "how": {
+      "type": "ncdr-mem-how",
+      "blocks": {
+        "step-join": {
+          "type": "step",
+          "settings": {
+            "icon": "join",
+            "title": "Join online",
+            "body": "Choose how you'd like to pay and finish sign-up through our secure checkout."
+          }
+        },
+        "step-wallet": {
+          "type": "step",
+          "settings": {
+            "icon": "phone",
+            "title": "Add your card to your phone",
+            "body": "Your digital membership card goes into Apple Wallet or Google Wallet."
+          }
+        },
+        "step-counter": {
+          "type": "step",
+          "settings": {
+            "icon": "counter",
+            "title": "Show it and pay the member price",
+            "body": "Show your card at the counter. We confirm it's active, ring up the member price, and your ball ticket prints after payment."
+          }
+        }
+      },
+      "block_order": [
+        "step-join",
+        "step-wallet",
+        "step-counter"
+      ],
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "Three steps to member pricing",
+        "subtext": "No app to download and no plastic card to carry.",
+        "step_label": "Step"
+      }
+    },
+    "faq": {
+      "type": "ncdr-mem-faq",
+      "blocks": {
+        "faq-billing": {
+          "type": "question",
+          "settings": {
+            "question": "How does billing work?",
+            "answer": "<p>Your membership is billed by [BILLING PARTNER], Northcrest's membership billing partner, to the card you enter at checkout. It renews automatically on the same day each billing period: every month, every 3 months or every 12 months, depending on the payment option you choose.</p>",
+            "placeholder": true
+          }
+        },
+        "faq-cancel": {
+          "type": "question",
+          "settings": {
+            "question": "How do I cancel?",
+            "answer": "<p>You can cancel any time with [NOTICE PERIOD]. [PLACEHOLDER: how members cancel, for example through a [BILLING PARTNER] member link, by email, or at the counter.]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-card": {
+          "type": "question",
+          "settings": {
+            "question": "How does the digital membership card work?",
+            "answer": "<p>After checkout you'll get your membership card to add to Apple Wallet or Google Wallet. Show it at the counter each visit. Our staff confirm your membership is active and ring up the member price, and your ball ticket prints after payment. [PLACEHOLDER: how the card is delivered, for example by email or text from [BILLING PARTNER].]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-prepaid": {
+          "type": "question",
+          "settings": {
+            "question": "What are the prepaid options?",
+            "answer": "<p>Instead of paying monthly, you can pay for several months up front and save. Each prepaid option renews for the same length of time when it ends, unless you cancel with [NOTICE PERIOD]. [PLACEHOLDER: confirm which prepaid options are offered and the refund policy for prepaid memberships.]</p>",
+            "placeholder": true
+          }
+        },
+        "faq-limit": {
+          "type": "question",
+          "settings": {
+            "question": "Is there a limit on member-priced baskets?",
+            "answer": "<p>No. The member price applies to every range basket you buy, as many as you like on each visit.</p>",
+            "placeholder": false
+          }
+        },
+        "faq-coupons": {
+          "type": "question",
+          "settings": {
+            "question": "I already have a coupon book. Can I still use it?",
+            "answer": "<p>Yes. Coupon books already purchased will always be honored.</p>",
+            "placeholder": false
+          }
+        }
+      },
+      "block_order": [
+        "faq-billing",
+        "faq-cancel",
+        "faq-card",
+        "faq-prepaid",
+        "faq-limit",
+        "faq-coupons"
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Membership FAQ"
+      }
+    },
+    "cta": {
+      "type": "ncdr-mem-cta",
+      "settings": {
+        "heading": "Ready for member pricing?",
+        "heading_accent": "Your next basket could cost less.",
+        "subtext": "Join online in a few minutes.\nYour digital card is ready for your next visit.",
+        "join_label": "Join now",
+        "soon_heading": "Membership opens soon",
+        "soon_heading_accent": "Be the first to know.",
+        "soon_subtext": "Leave your email and we'll let you know\nas soon as sign-ups open.",
+        "notify_placeholder": "Your email address",
+        "notify_button": "Notify me",
+        "notify_success": "You're on the list. We'll email you when membership opens."
+      }
+    },
+    "signup": {
+      "type": "ncdr-mem-signup",
+      "settings": {
+        "dialog_title": "Join [PLAN NAME]",
+        "progress_format": "Step [N] of [TOTAL]",
+        "continue_label": "Continue",
+        "back_label": "Back",
+        "payment_heading": "How would you like to pay?",
+        "hint_payment": "Choose a payment option to continue.",
+        "how_heading": "How it works at Northcrest",
+        "point_1_title": "Add your digital card to your phone",
+        "point_1_body": "After checkout you'll get your membership card for Apple Wallet or Google Wallet.",
+        "point_2_title": "Show it at the counter",
+        "point_2_body": "Our staff check that your membership is active before ringing you up.",
+        "point_3_title": "Pay the member price on every basket",
+        "point_3_body": "Any size, as many as you like. Your ball ticket prints after payment.",
+        "understand_label": "I understand. I'll show my digital card at the counter to get member pricing.",
+        "hint_how": "Check the box above to continue.",
+        "review_heading": "Review and agree",
+        "terms_heading": "Membership terms",
+        "agree_label": "I agree to the membership terms.",
+        "hint_review": "Check the box above to agree to the terms.",
+        "checkout_label": "Continue to secure checkout",
+        "missing_url_message": "Online sign-up for this option isn't available yet. Please ask us at the counter."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "plan",
+    "pricing",
+    "how",
+    "faq",
+    "cta",
+    "signup"
+  ]
+}
