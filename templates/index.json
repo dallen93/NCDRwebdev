@@ -36,7 +36,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Home_Page_Carousel_Driving_Range_Bays_2.jpg",
+            "image": "shopify://shop_images/Pro_Shop_4.png",
             "caption": "Premium Pro Shop"
           }
         },
@@ -50,12 +50,14 @@
         "slide_3": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Driving_Range_1.jpg",
             "caption": "Grass Tees"
           }
         },
         "slide_4": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Simulator_2_676384a0-47a8-4b69-9e65-857158a4068f.png",
             "caption": "Indoor Simulators"
           }
         }
