@@ -1487,6 +1487,40 @@
       },
       {
         "type": "header",
+        "content": "Waitlist (Klaviyo)"
+      },
+      {
+        "type": "paragraph",
+        "content": "The Notify me form adds emails to this Klaviyo list. If the list uses double opt-in, Klaviyo emails a confirmation link first."
+      },
+      {
+        "type": "text",
+        "id": "mem_klaviyo_public_key",
+        "label": "Klaviyo public API key (Site ID)",
+        "default": "WUJKhj",
+        "info": "Klaviyo → Settings → API keys → Public API key. Never paste a private key here."
+      },
+      {
+        "type": "text",
+        "id": "mem_klaviyo_list_id",
+        "label": "Klaviyo list ID",
+        "default": "VfFSb2",
+        "info": "Membership Waitlist list."
+      },
+      {
+        "type": "text",
+        "id": "mem_klaviyo_source",
+        "label": "Signup source (shown in Klaviyo)",
+        "default": "Membership Page Notify Me"
+      },
+      {
+        "type": "text",
+        "id": "mem_consent_note",
+        "label": "Consent line under the form",
+        "default": "By signing up, you agree to receive emails from Northcrest Golf. Unsubscribe anytime."
+      },
+      {
+        "type": "header",
         "content": "Plan"
       },
       {

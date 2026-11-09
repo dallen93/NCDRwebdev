@@ -22,7 +22,7 @@
         "secondary_anchor": "#mem-pricing",
         "notify_placeholder": "Your email address",
         "notify_button": "Notify me",
-        "notify_success": "You're on the list. We'll email you when membership opens.",
+        "notify_success": "Almost there! Check your email and confirm to join the waitlist.",
         "image_overlay": 75
       }
     },
@@ -237,7 +237,7 @@
         "soon_subtext": "Leave your email and we'll let you know\nas soon as sign-ups open.",
         "notify_placeholder": "Your email address",
         "notify_button": "Notify me",
-        "notify_success": "You're on the list. We'll email you when membership opens."
+        "notify_success": "Almost there! Check your email and confirm to join the waitlist."
       }
     },
     "signup": {

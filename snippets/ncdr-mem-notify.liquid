@@ -2,14 +2,26 @@
   "Notify me" email form, shown while Theme settings → Northcrest Membership →
   Launch mode is "Coming soon". Used by the hero and the closing call to action.
 
-  KLAVIYO STUB: the form does not send the email anywhere yet. On submit it only
-  shows the confirmation message. Connect Klaviyo where marked in the script below.
+  Submits to Klaviyo's client subscriptions API using the public key and list
+  ID in Theme settings → Northcrest Membership → Waitlist (Klaviyo). Any UTM
+  parameters on the page URL (e.g. from a qr.northcrestgolf.com code) are
+  saved to the Klaviyo profile so signups can be traced to their source.
 
   Usage:
     {% render 'ncdr-mem-notify', form_id: section.id, button_label: '...', placeholder: '...', success: '...', note: '...' %}
 {%- endcomment -%}
 {%- assign notify_id = 'mem-notify-' | append: form_id -%}
-<form class="mem-notify" id="{{ notify_id }}" action="#" method="post" novalidate data-mem-notify>
+<form
+  class="mem-notify"
+  id="{{ notify_id }}"
+  action="#"
+  method="post"
+  novalidate
+  data-mem-notify
+  data-klaviyo-key="{{ settings.mem_klaviyo_public_key | escape }}"
+  data-klaviyo-list="{{ settings.mem_klaviyo_list_id | escape }}"
+  data-klaviyo-source="{{ settings.mem_klaviyo_source | default: 'Membership Page Notify Me' | escape }}"
+>
   <label class="mem-visually-hidden" for="{{ notify_id }}-email">Email address</label>
   <input
     class="mem-notify__input"
@@ -23,9 +35,12 @@
   >
   <button type="submit" class="mem-btn mem-btn--gold">{{ button_label | default: 'Notify me' | escape }}</button>
 </form>
-<p class="mem-notify__status" id="{{ notify_id }}-status" role="status" aria-live="polite" data-success="{{ success | default: "You're on the list. We'll email you when membership opens." | escape }}"></p>
+<p class="mem-notify__status" id="{{ notify_id }}-status" role="status" aria-live="polite" data-success="{{ success | default: 'Almost there! Check your email and confirm to join the waitlist.' | escape }}"></p>
 {%- if note != blank -%}
   <p class="mem-notify__note">{{ note | escape }}</p>
+{%- endif -%}
+{%- if settings.mem_consent_note != blank -%}
+  <p class="mem-notify__note mem-notify__consent">{{ settings.mem_consent_note | escape }}</p>
 {%- endif -%}
 
 <script>
@@ -34,24 +49,97 @@
     if (!form || form.dataset.bound) return;
     form.dataset.bound = 'true';
     var input = form.querySelector('input[type="email"]');
+    var button = form.querySelector('button[type="submit"]');
     var status = document.getElementById('{{ notify_id }}-status');
+    var buttonLabel = button.textContent;
+
+    // Keep UTM tags for the visit even if the shopper clicks around first.
+    var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    function getUtms() {
+      var utms = {};
+      var params = new URLSearchParams(window.location.search);
+      var stored = {};
+      try { stored = JSON.parse(sessionStorage.getItem('ncdrMemUtms') || '{}'); } catch (e) {}
+      UTM_KEYS.forEach(function (key) {
+        var value = params.get(key) || stored[key];
+        if (value) utms[key] = value;
+      });
+      try { sessionStorage.setItem('ncdrMemUtms', JSON.stringify(utms)); } catch (e) {}
+      return utms;
+    }
+    getUtms();
+
+    function showError(message) {
+      status.textContent = message;
+      status.classList.add('mem-notify__status--error');
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       if (!input.checkValidity()) {
-        status.textContent = 'Please enter a valid email address.';
-        status.classList.add('mem-notify__status--error');
+        showError('Please enter a valid email address.');
         input.setAttribute('aria-invalid', 'true');
         input.focus();
         return;
       }
-      // ── KLAVIYO STUB ─────────────────────────────────────────────
-      // Send input.value to the Klaviyo list here (e.g. the Klaviyo
-      // client subscriptions API) before showing the confirmation.
-      // ─────────────────────────────────────────────────────────────
       input.removeAttribute('aria-invalid');
+
+      var key = form.dataset.klaviyoKey;
+      var list = form.dataset.klaviyoList;
+      if (!key || !list) {
+        showError('Sign-up is not available right now. Please ask us at the counter.');
+        console.error('Notify me: Klaviyo public key or list ID is missing in theme settings.');
+        return;
+      }
+
+      var utms = getUtms();
+      var properties = { 'Waitlist Signup Page': window.location.pathname };
+      Object.keys(utms).forEach(function (k) {
+        properties['Waitlist ' + k.replace('utm_', 'UTM ').replace(/^UTM (\w)/, function (m, c) { return 'UTM ' + c.toUpperCase(); })] = utms[k];
+      });
+      var source = form.dataset.klaviyoSource + (utms.utm_medium ? ' (' + utms.utm_medium + ')' : '');
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
       status.classList.remove('mem-notify__status--error');
-      status.textContent = status.dataset.success;
-      form.hidden = true;
+      status.textContent = '';
+
+      fetch('https://a.klaviyo.com/client/subscriptions?company_id=' + encodeURIComponent(key), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/vnd.api+json',
+          'Content-Type': 'application/vnd.api+json',
+          'revision': '2026-01-15'
+        },
+        body: JSON.stringify({
+          data: {
+            type: 'subscription',
+            attributes: {
+              custom_source: source,
+              profile: {
+                data: {
+                  type: 'profile',
+                  attributes: { email: input.value.trim(), properties: properties }
+                }
+              }
+            },
+            relationships: { list: { data: { type: 'list', id: list } } }
+          }
+        })
+      })
+        .then(function (res) {
+          if (!res.ok) {
+            return res.text().then(function (text) { throw new Error(res.status + ' ' + text); });
+          }
+          status.textContent = status.dataset.success;
+          form.hidden = true;
+        })
+        .catch(function (err) {
+          console.error('Notify me: Klaviyo subscription failed', err);
+          showError("Something went wrong. Please try again, or ask us at the counter.");
+          button.disabled = false;
+          button.textContent = buttonLabel;
+        });
     });
   })();
 </script>
